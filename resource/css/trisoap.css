@@ -663,6 +663,7 @@ a.no-href {
 }
 
 .buy-now-img {
+  display: block;
   width: 100%;
   height: auto;
 }

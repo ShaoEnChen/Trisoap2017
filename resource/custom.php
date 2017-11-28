@@ -242,40 +242,107 @@ function query_memberName($email) {
 }
 
 function callView($route, $authority=null) {
-	$myfile = fopen("view/".$route.".html", "r");
-	$content = fread($myfile, filesize("view/".$route.".html"));
-	fclose($myfile);
-	$myfile = fopen("view/nav_Homepage.html", "r");
-	$nav_Homepage = fread($myfile, filesize("view/nav_Homepage.html"));
-	$content = str_replace('[nav_Homepage]', $nav_Homepage, $content);
-	fclose($myfile);
-	$myfile = fopen("view/footer_Homepage.html", "r");
-	$footer_Homepage = fread($myfile, filesize("view/footer_Homepage.html"));
-	$content = str_replace('[footer_Homepage]', $footer_Homepage, $content);
-	fclose($myfile);
-	if ($authority == 'A') {
-		$myfile = fopen("view/bar_buttons_A.html", "r");
-		$buttons = fread($myfile, filesize("view/bar_buttons_A.html"));
-		fclose($myfile);
-		$content = str_replace('[bar_buttons]', $buttons, $content);
+	/* ===================================
+	 * Header
+	 * ===================================
+	 */
+
+	require('view/header.html');
+
+	/* Needed files in <head> */
+
+	// FlexSlider
+	if($route === 'index' || $route === 'single_product'){
+		echo '		<link href="resource/flexslider/flexslider.min.css" rel="stylesheet">';
 	}
+
+	// JQuery UI
+	if($route === 'faq' || $route === 'partner' || $route === 'single_product') {
+		echo '		<link href="resource/js/jquery-ui-accordion/jquery-ui.min.css" rel="stylesheet">';
+	}
+
+	require('view/header_finish.html');
+
+	/* ===================================
+	 * Nav
+	 * ===================================
+	 */
+
+	// Get Nav content, find '{login_status}' and replace with proper function links
+	$nav_dir = 'view/nav.html';
+	$nav_handle = fopen($nav_dir, 'r');
+	$nav_content = fread($nav_handle, filesize($nav_dir));
+	fclose($nav_handle);
+
+	// Admin
+	if ($authority == 'A') {
+		$nav_auth_dir = 'view/component/nav/login_admin.html';
+	}
+	// Member
 	elseif ($authority == 'B') {
-		$myfile = fopen("view/bar_buttons_B.html", "r");
-		$buttons = fread($myfile, filesize("view/bar_buttons_B.html"));
-		fclose($myfile);
-		$content = str_replace('[bar_buttons]', $buttons, $content);
+		$nav_auth_dir = 'view/component/nav/login_member.html';
+	}
+	// Anonymous
+	else {
+		$nav_auth_dir = 'view/component/nav/login_signup.html';
+	}
+
+	$nav_auth_handle = fopen($nav_auth_dir, 'r');
+	$nav_status_content = fread($nav_auth_handle, filesize($nav_auth_dir));
+	fclose($nav_auth_handle);
+
+	$nav_content = str_replace('{login_status}', $nav_status_content, $nav_content);
+	echo $nav_content;
+
+	/* ===================================
+	 * Content
+	 * ===================================
+	 */
+
+	$view_header = ['inder_header', 'jumbotron'];
+
+	if($route === 'index') {
+		include_once('view/index_header.html');
 	}
 	else {
-		$myfile = fopen("view/bar_buttons.html", "r");
-		$buttons = fread($myfile, filesize("view/bar_buttons.html"));
-		fclose($myfile);
-		$content = str_replace('[bar_buttons]', $buttons, $content);
+		include_once('view/jumbotron.html');
 	}
-	$phone = curl_post(array('module' => 'cue', 'target' => 'company_phone'), 'cue');
-	$email = curl_post(array('module' => 'cue', 'target' => 'company_email'), 'cue');
-	$address = curl_post(array('module' => 'cue', 'target' => 'company_address'), 'cue');
-	$content = str_replace('[company_phone]', $phone, $content);
-	$content = str_replace('[company_email]', $email, $content);
-	$content = str_replace('[company_address]', $address, $content);
-	return $content;
+
+	include_once('view/content/' . $route . '.html');
+
+	// $phone = curl_post(array('module' => 'cue', 'target' => 'company_phone'), 'cue');
+	// $email = curl_post(array('module' => 'cue', 'target' => 'company_email'), 'cue');
+	// $address = curl_post(array('module' => 'cue', 'target' => 'company_address'), 'cue');
+	// $content = str_replace('[company_phone]', $phone, $content);
+	// $content = str_replace('[company_email]', $email, $content);
+	// $content = str_replace('[company_address]', $address, $content);
+
+	/* ===================================
+	 * Footer
+	 * ===================================
+	 */
+
+	require('view/footer.html');
+
+	/* Needed files before </body> */
+
+	// FlexSlider
+	if($route === 'index' || $route === 'single_product'){
+		echo '		<script src="resource/flexslider/jquery.flexslider-min.js" defer></script>';
+	}
+
+	// JQuery UI
+	if($route === 'faq' || $route === 'partner' || $route === 'single_product') {
+		echo '		<script src="resource/js/jquery-ui-accordion/jquery-ui.min.js" defer></script>';
+	}
+
+	// Google Map API
+	if($route === 'contact') {
+		echo '		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBqLzZouUqN1dWEVR9_75YO6bXL5OuhcRs"></script>';
+		echo '		<script src="resource/js/contact-map.js" defer></script>';
+	}
+
+	require('view/footer_finish.html');
+
+	return true;
 }

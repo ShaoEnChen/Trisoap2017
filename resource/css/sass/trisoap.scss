@@ -673,6 +673,7 @@ $buy-now-btn-width: 44%;
 }
 
 .buy-now-img {
+	display: block;
 	width: 100%;
 	height: auto;
 }
@@ -1280,7 +1281,6 @@ $buy-now-btn-width: 44%;
 	text-align: center;
 	color: $main-font-color;
 }
-
 
 .product-cover-img {
 	width: 100%;
