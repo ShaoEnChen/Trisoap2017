@@ -187,7 +187,7 @@ if (isset($_POST['module'])) {
 }
 elseif (isset($_GET['route']) || isset($_POST['route'])) {
 	$route = isset($_GET['route']) ? $_GET['route'] : $_POST['route'];
-	if (in_array($route, array('about', 'cart', 'cashing', 'contact', 'discount', 'faq', 'item', 'manager', 'media', 'member', 'message', 'moon', 'heart_message', 'order', 'partner', 'pay', 'product_intro', 'product', 'purchaseFinish', 'service', 'shopping_guide', 'soapstring', 'trial'))) {
+	if (in_array($route, array('about', 'brand_intro', 'cart', 'cashing', 'contact', 'discount', 'faq', 'heart_message', 'item', 'manager', 'media', 'member', 'message', 'order', 'partner', 'pay', 'purchaseFinish', 'service', 'shopping_guide', 'single_product', 'soap', 'soapstring', 'trial'))) {
 		include_once("controller/".$route.".php");
 	}
 	else {

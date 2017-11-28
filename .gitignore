@@ -1,0 +1,5 @@
+.DS_Store
+*.sql
+resource/img
+resource/database.php
+resource/.sass-cache/*
