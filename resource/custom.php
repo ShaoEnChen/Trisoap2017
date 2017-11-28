@@ -242,6 +242,10 @@ function query_memberName($email) {
 }
 
 function callView($route, $authority=null) {
+	$require_flexslider = ['index', 'trial', 'single_product'];
+	$require_jquery_ui = ['faq', 'partner', 'single_product'];
+	$require_map_api = ['contact'];
+
 	/* ===================================
 	 * Header
 	 * ===================================
@@ -251,13 +255,11 @@ function callView($route, $authority=null) {
 
 	/* Needed files in <head> */
 
-	// FlexSlider
-	if($route === 'index' || $route === 'single_product'){
+	if(in_array($route, $require_flexslider)){
 		echo '		<link href="resource/flexslider/flexslider.min.css" rel="stylesheet">';
 	}
 
-	// JQuery UI
-	if($route === 'faq' || $route === 'partner' || $route === 'single_product') {
+	if(in_array($route, $require_jquery_ui)){
 		echo '		<link href="resource/js/jquery-ui-accordion/jquery-ui.min.css" rel="stylesheet">';
 	}
 
@@ -299,8 +301,6 @@ function callView($route, $authority=null) {
 	 * ===================================
 	 */
 
-	$view_header = ['inder_header', 'jumbotron'];
-
 	if($route === 'index') {
 		include_once('view/index_header.html');
 	}
@@ -310,13 +310,6 @@ function callView($route, $authority=null) {
 
 	include_once('view/content/' . $route . '.html');
 
-	// $phone = curl_post(array('module' => 'cue', 'target' => 'company_phone'), 'cue');
-	// $email = curl_post(array('module' => 'cue', 'target' => 'company_email'), 'cue');
-	// $address = curl_post(array('module' => 'cue', 'target' => 'company_address'), 'cue');
-	// $content = str_replace('[company_phone]', $phone, $content);
-	// $content = str_replace('[company_email]', $email, $content);
-	// $content = str_replace('[company_address]', $address, $content);
-
 	/* ===================================
 	 * Footer
 	 * ===================================
@@ -324,20 +317,24 @@ function callView($route, $authority=null) {
 
 	require('view/footer.html');
 
+	// $phone = curl_post(array('module' => 'cue', 'target' => 'company_phone'), 'cue');
+	// $email = curl_post(array('module' => 'cue', 'target' => 'company_email'), 'cue');
+	// $address = curl_post(array('module' => 'cue', 'target' => 'company_address'), 'cue');
+	// $content = str_replace('[company_phone]', $phone, $content);
+	// $content = str_replace('[company_email]', $email, $content);
+	// $content = str_replace('[company_address]', $address, $content);
+
 	/* Needed files before </body> */
 
-	// FlexSlider
-	if($route === 'index' || $route === 'single_product'){
+	if(in_array($route, $require_flexslider)){
 		echo '		<script src="resource/flexslider/jquery.flexslider-min.js" defer></script>';
 	}
 
-	// JQuery UI
-	if($route === 'faq' || $route === 'partner' || $route === 'single_product') {
+	if(in_array($route, $require_jquery_ui)){
 		echo '		<script src="resource/js/jquery-ui-accordion/jquery-ui.min.js" defer></script>';
 	}
 
-	// Google Map API
-	if($route === 'contact') {
+	if(in_array($route, $require_map_api)){
 		echo '		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBqLzZouUqN1dWEVR9_75YO6bXL5OuhcRs"></script>';
 		echo '		<script src="resource/js/contact-map.js" defer></script>';
 	}
