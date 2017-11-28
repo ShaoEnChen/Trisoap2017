@@ -1,0 +1,1410 @@
+/*
+ * Import fonts
+ */
+
+// @import url(//fonts.googleapis.com/css?family=Open+Sans:400);
+// @import url(//fonts.googleapis.com/css?family=Kanit:400,200,100,300,500,600,700,800,900);
+// @import url(//fonts.googleapis.com/css?family=Raleway);
+// @import url(//fonts.googleapis.com/earlyaccess/notosanstc.css);
+@import url('https://fonts.googleapis.com/css?family=Great+Vibes');
+
+/* =========================================================================
+ * CSS Normalization
+ * =========================================================================
+ */
+
+@import url(normalize.css);
+
+h1, h2, h3, h4, h5, h6, p, span, a, label {
+	font-family: sans-serif;
+}
+
+/* z-index Scale: -1 - 10
+ * -1: .img-jumbotron::before
+ *  0: .img-jumbotron
+ *  1:
+ *  2:
+ *  3:
+ *  4:
+ *  5:
+ *  6:
+ *  7: .flex-control-nav
+ *  8: #main-navbar
+ *  9: .nav-dropdown-menu
+ *  10:
+ */
+
+$bg-orange: #F18C41;
+$main-font-color: #555;
+
+/* =========================================================================
+ * Preloader
+ * =========================================================================
+ */
+
+#preloader {
+	display: none;
+}
+
+/* =========================================================================
+ * Main Navigation Bar
+ * =========================================================================
+ */
+
+$main-nav-height: 60px;
+$main-nav-background-color: #18191B;
+$nav-link-active-color: #d3bd98;
+$nav-main-padding-lr: 13px;
+$nav-toggle-span-height: 2px;
+
+%nav-main-text {
+	font: 11px sans-serif;
+	font-weight: 100;
+	letter-spacing: 2px;
+}
+
+#main-navbar {
+	display: flex;
+	justify-content: flex-end;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	width: 100%;
+	height: $main-nav-height;
+	background-color: $main-nav-background-color;
+	z-index: 8;
+}
+
+#nav-brand-wrap,
+#nav-toggle-wrap,
+#nav-menu-wrap {
+	margin: auto;	// flex magic
+	display: inline-block;
+	height: $main-nav-height;
+	line-height: $main-nav-height;
+}
+
+#nav-brand-wrap {
+	justify-self: flex-start;
+}
+
+.nav-brand {
+	display: block;
+	justify-self: flex-start;
+}
+
+#brand-logo {
+	width: auto;
+	vertical-align: middle;
+}
+
+#nav-main-menu {
+	margin: 0;
+	list-style: none;
+	background-color: $main-nav-background-color;
+}
+
+.nav-main-link {
+	@extend %nav-main-text;
+	text-decoration: none;
+	color: #fff;
+	transition: color .3s ease-in-out;
+	&:hover,
+	&:active {
+		color: $nav-link-active-color;
+	}
+}
+
+.nav-dropdown-header {
+	@extend %nav-main-text;
+	color: #777;
+	cursor: default;
+}
+
+.nav-dropdown-menu {
+	display: none;
+	list-style: none;
+	background-color: $main-nav-background-color;
+}
+
+.nav-dropdown-item:hover {
+	background-color: #000;
+}
+
+.nav-mobile-toggle {
+	position: relative;
+	width: $main-nav-height;
+	height: $main-nav-height;
+	cursor: pointer;
+}
+
+.toggle-bar {
+	display: block;
+	position: absolute;
+	left: 25%;
+	width: 50%;
+	height: $nav-toggle-span-height;
+	background-color: #fff;
+	&:nth-child(1) {
+		top: ( $main-nav-height - $nav-toggle-span-height ) / 2 - 6px;
+	}
+	&:nth-child(2) {
+		top: ( $main-nav-height - $nav-toggle-span-height ) / 2;
+	}
+	&:nth-child(3) {
+		top: ( $main-nav-height - $nav-toggle-span-height ) / 2 + 6px;
+	}
+}
+
+// Laptop
+@media screen and (min-width: 980px) {
+	#brand-logo {
+		height: $main-nav-height / 2;
+	}
+
+	/* Hide toggle button */
+	.nav-mobile-toggle {
+		display: none;
+	}
+
+	/* Laptop menu layout */
+	%nav-main-padding {
+		padding: 0 $nav-main-padding-lr;
+	}
+
+	%nav-dropdown-padding {
+		padding: 12px 18px;
+	}
+
+	.nav-main-item {
+		display: inline-block;
+		@extend %nav-main-padding;
+	}
+
+	.has-dropdown {
+		position: relative;
+		&:hover > .nav-dropdown-menu {
+			display: block;
+		}
+	}
+
+	.nav-dropdown-header {
+		@extend %nav-dropdown-padding;
+	}
+
+	.nav-dropdown-menu {
+		position: absolute;
+		padding: 0;
+		min-width: 210px;
+		margin-left: - $nav-main-padding-lr;
+		z-index: 9;
+	}
+
+	.nav-dropdown-item {
+		@extend %nav-dropdown-padding;
+	}
+}
+
+// Mobile
+@media screen and (max-width: 979px) {
+	$nav-main-item-height: 50px;
+	$nav-dropdown-item-height: 40px;
+	$nav-main-padding-mobile: 30px;
+	$nav-dropdown-padding-mobile: 50px;
+
+	#brand-logo {
+		height: 20px;
+	}
+
+	/* Hide main menu and show when toggled */
+	#nav-menu-wrap {
+		margin: 0;
+	}
+
+	#nav-main-menu {
+		display: none;
+		position: absolute;
+		top: 60px;	// $main-nav-height
+		left: 0;
+		right: 0;
+		max-height: calc(100vh - 60px);
+		padding: 0;
+		overflow: auto;
+	}
+
+	/* Mobile menu layout */
+	%nav-dropdown-padding-mobile {
+		padding: 0 $nav-dropdown-padding-mobile;
+	}
+
+	.nav-main-item {
+		width: 100%;
+		padding: 0 $nav-main-padding-mobile;
+		line-height: $nav-main-item-height;
+		&:hover {
+			background-color: #000;
+		}
+	}
+
+	.nav-dropdown-menu {
+		width: 100%;
+		padding: 0;
+		margin-left: - $nav-main-padding-mobile;
+	}
+
+	.nav-dropdown-header,
+	.nav-dropdown-item {
+		width: 100%;
+		height: $nav-dropdown-item-height;
+		box-sizing: border-box;
+		line-height: $nav-dropdown-item-height;
+		@extend %nav-dropdown-padding-mobile;
+	}
+
+	.nav-dropdown-item:hover {
+		background-color: #000;
+	}
+}
+
+/* =========================================================================
+ * Header
+ * 1. Jumbotron
+ * =========================================================================
+ */
+
+header {
+	margin-top: $main-nav-height;
+}
+
+/* -------------------------------------------------------------------------
+ * 1. Jumbotron
+ * 1.1. Index Header Jumbotron - FlexSlider
+ * 1.2. Jumbotron - Img
+ * -------------------------------------------------------------------------
+ */
+
+/* 1.1. Index Header Jumbotron - FlexSlider */
+
+.flexslider {
+	margin: 0;
+	border: none;
+}
+
+#index-header .flex-control-nav {
+	position: absolute;
+	bottom: 14%;
+	z-index: 7;
+	li a {	// ineffective css to overwrite flexslider-generated style
+		background-color: #fff;
+		&:hover {
+			background-color: #fff;
+		}
+		&.flex-active {
+			background-color: $bg-orange;
+			cursor: pointer;
+		}
+	}
+}
+
+.flex-control-paging li a {
+	box-shadow: none;
+}
+
+/* 1.2. Jumbotron - Img */
+
+$jumbotron-list: "\\[Route\\]", "about-team", "about", "attitude", "buy", "contact", "cooperate", "guide", "message", "product-idea", "brand-intro", "soapstring", "trial";
+
+@each $item in $jumbotron-list {
+	#jumbotron-#{$item} {
+		background-image: url(../img/jumbotrons/#{$item}.jpg);
+	}
+}
+
+.img-jumbotron {
+	position: relative;
+	width: 100vw;
+	height: 33.75vw;	// ( 486 / 1440 )
+	background-size: contain;
+	background-repeat: no-repeat;
+	text-align: center;
+	z-index: 0;
+	&::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0, 0, 0, 0.5);
+		z-index: -1;
+	}
+}
+
+.jumbotron-title,
+.jumbotron-subtitle {
+	display: block;
+	margin: 0 auto;
+	color: #fff;
+	font-weight: 100;
+}
+
+// 1 + 2 + 3 + 4 = 33.75vw
+.jumbotron-title {
+	padding-top: 3.75vw;	// 1
+	line-height: 14vw;		// 2
+}
+
+// h4 and .jumbotron-btn SHOULD NOT appear at the same time.
+.jumbotron-subtitle,
+.jumbotron-btn {
+	padding-bottom: 4vw;	// 3
+	line-height: 12vw;		// 4
+}
+
+// Laptop
+@media screen and (min-width: 980px) {
+	.jumbotron-title {
+		font-size: 60px;
+	}
+
+	.jumbotron-subtitle {
+		font-size: 24px;
+	}
+
+	.jumbotron-btn > .primary-btn {
+		padding: 16px 36px;
+		font-size: 18px;
+	}
+}
+
+// Mobile
+@media screen and (max-width: 979px) {
+	.jumbotron-title {
+		font-size: 32px;
+	}
+
+	.jumbotron-subtitle {
+		font-size: 16px;
+	}
+
+	.jumbotron-btn > .primary-btn {
+		padding: 8px 25px;
+		font-size: 16px;
+	}
+}
+
+/* =========================================================================
+ * Footer
+ * =========================================================================
+ */
+
+$footer-title-font-size: 12px;
+// default -- $footer-text-font-size: 16px;
+$footer-font-weight: 100;
+$footer-line-height: 1.7;
+
+#footer {
+	width: 100%;
+	box-sizing: border-box;
+	padding: 40px 0 20px;
+	background-color: $bg-orange;
+	color: #fff;
+	font-weight: $footer-font-weight;
+	line-height: $footer-line-height;
+	.fa {
+		color: rgba(255, 255, 255, 0.5);
+		transition: color 0.3s;
+	}
+}
+
+.footer-menu .footer-main-link {
+	display: block;
+}
+
+.footer-title {
+	margin: 20px auto;
+	font-size: $footer-title-font-size;
+}
+
+.footer-main-link {
+	margin-bottom: 6px;
+	text-decoration: none;
+	color: #fff;
+	transition: color 0.3s;
+	&:hover {
+		color: #000;
+		.fa {
+			color: #000;
+		}
+	}
+}
+
+// Laptop
+@media screen and (min-width: 980px) {
+	$footer-row-2-height: 60px;
+
+	#footer {
+		display: grid;
+		grid-template-column: 8% 3fr 2fr 2fr 2fr 3fr 8%;
+		grid-template-row: auto 40px $footer-row-2-height;
+	}
+
+	@for $i from 1 through 4 {
+		.footer-menu:nth-child(#{$i}) {
+			grid-column: calc( 2 + #{$i} ) / span 1;	// out of 8
+			grid-row: 1 / 2;	// out of 4
+		}
+	}
+
+	#community {
+		grid-column: 2 / span 1;	// out of 8
+		grid-row: 3 / 4;	// out of 4
+		.footer-main-link {
+			line-height: $footer-row-2-height;
+		}
+	}
+
+	#copyright {
+		grid-column: 3 / span 3;	// out of 8
+		grid-row: 3 / 4;	// out of 4
+	}
+}
+
+// Mobile
+@media screen and (max-width: 979px) {
+	.footer-menu,
+	#community,
+	#copyright {
+		width: 100%;
+		text-align: center;
+	}
+}
+
+/* =========================================================================
+ * Contents
+ * 0. Shared Properties
+ * 1. 首頁｜Index Page
+ * 2. 三三堅持｜Brand Intro
+ * 3. 媒體報導｜Media
+ * 4. 試用品申請｜Trial
+ * 5. 顧客問答（常見問題）｜FAQ
+ * 6. 合作夥伴｜Partner
+ * 7. 三三團隊｜About
+ * 8. 聯絡我們｜Contact
+ * 9. 購物須知｜Shopping Guide
+ * 10. 單品 / 旅用皂絲｜Soap / Soapstring
+ * 11. 希望留心語｜Heart Message
+ * =========================================================================
+ */
+
+/* -------------------------------------------------------------------------
+ * 0. Shared Properties
+ * -------------------------------------------------------------------------
+ */
+
+$wrap-lr-margin: 8%;
+$letter-spacing-18-18: 3.24px;
+$translucent-white: rgba(255, 255, 255, 0.7);
+
+a.no-href {
+	cursor: default;
+}
+
+.main-wrap {
+	margin: 60px $wrap-lr-margin;
+}
+
+.main-content-title {
+	margin-bottom: 35px;
+	color: $main-font-color;
+	font-weight: 200;
+	letter-spacing: 4.32px;
+}
+
+.main-content-subtitle {
+	@extend .main-content-text;
+}
+
+.main-content-text {
+	color: $main-font-color;
+	font-weight: 200;
+	line-height: 1.7;
+	letter-spacing: 0.03em;
+}
+
+.slogan-wrap {
+	width: 100%;
+	box-sizing: border-box;
+	padding: 60px 8%;
+	background-color: $bg-orange;
+	color: #fff;
+}
+
+.slogan {
+	text-align: center;
+	font-weight: 200;
+	line-height: 1.5;
+}
+
+.slogan-title {
+	@extend .slogan;
+	letter-spacing: $letter-spacing-18-18;
+}
+
+// Buttons, usually <a> tag
+@mixin btn($border-color, $background-color, $font-color, $border-color-hover: false, $background-color-hover: false, $font-color-hover: false) {
+	box-sizing: border-box;
+	border: solid 1px $border-color;
+	text-decoration: none;
+	text-align: center;
+	background-color: $background-color;
+	color: $font-color;
+	transition-property: border-color, background-color, color;
+	transition-duration: .3s;
+	font-weight: 200;
+	&:hover {
+		@if $border-color-hover {
+			border-color: $border-color-hover;
+		}
+		@if $background-color-hover {
+			background-color: $background-color-hover;
+		}
+		@if $font-color-hover {
+			color: $font-color-hover;
+		}
+	}
+}
+
+.primary-btn {
+	@include btn(#fff, transparent, #fff, $translucent-white, $translucent-white, #666);
+}
+
+.text-btn {
+	@include btn(#000, transparent, #000, #777, transparent, #777);
+	padding: 8px 25px;
+}
+
+.submit-btn {
+	@include btn(#000, #000, #fff, #777, #777);
+	padding: 10px 35px;
+}
+
+.form-field {
+	box-sizing: border-box;
+	padding: 10px 24px;
+	border: solid 1px #ddd;
+	color: $main-font-color;
+	font-weight: 200;
+	line-height: 1.4;
+}
+
+// hr tags
+@mixin text-sep($border-color) {
+	border-width: 1px;
+	border-color: $border-color;
+	border-style: solid none none none;
+}
+
+.text-sep-sm {
+	@include text-sep(#eee);
+	margin: 20px auto;
+}
+
+.text-sep-md {
+	@include text-sep(#ccc);
+	margin: 30px auto;
+}
+
+// JQuery UI Accordion
+.ui-accordion-header {
+	color: $main-font-color;
+	font-weight: normal;
+	outline: 0;
+}
+
+.ui-accordion-header.ui-state-hover,
+.ui-accordion-header-active {
+	font-weight: bold;
+	color: #000;
+}
+
+.ui-accordion-content {
+	font-weight: 200;
+}
+
+.trisoap-signature {
+	font-family: "Great Vibes", sans-serif;
+    font-weight: normal;
+    transform: rotate(-4deg);
+    -webkit-transform: rotate(-4deg);
+}
+
+/* -------------------------------------------------------------------------
+ * 1. 首頁｜Index Page
+ * 1.1. 立即購買
+ * 1.2. 三個故事 Slogan
+ * 1.3. 三個故事
+ * -------------------------------------------------------------------------
+ */
+
+/* 1.1. 立即購買 */
+
+$buy-now-btn-width: 44%;
+
+.buy-now {
+	position: relative;
+	box-sizing: border-box;
+	&:hover > .hover-cover {
+		opacity: 1;
+	}
+	.primary-btn {
+		display: block;
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		width: $buy-now-btn-width;
+		margin: 0 (100% - $buy-now-btn-width) / 2;
+		padding: 7px 12px;
+		font-size: 22px;
+	}
+}
+
+.buy-now-img {
+	width: 100%;
+	height: auto;
+}
+
+.hover-cover {
+	display: block;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	text-decoration: none;
+	background-color: rgba(0, 0, 0, 0.3);
+	opacity: 0;
+	transition: opacity 1s;
+}
+
+// Laptop
+@media screen and (min-width: 980px) {
+	.buy-now-wrap {
+		display: grid;
+		grid-template-columns: 8% 15px auto 30px auto 15px 8%;
+		grid-template-rows: 90px auto 90px;
+		align-items: center;
+	}
+
+	.buy-now:first-child {
+		grid-column: 3 / 4;	// out of 8
+		grid-row: 2 / 3;	// out of 4
+	}
+
+	.buy-now:last-child {
+		grid-column: 5 / 6;	// out of 8
+		grid-row: 2 / 3;	// out of 4
+	}
+}
+
+// Mobile
+@media screen and (max-width: 979px) {
+	.buy-now {
+		margin: 40px 15px;
+	}
+}
+
+/* 1.2. 三個故事 Slogan - Shared Slogan Properties */
+
+/* 1.3. 三個故事 */
+
+.story-wrap {
+	padding: 50px 0;
+}
+
+.story {
+	box-sizing: border-box;
+}
+
+.story-img {
+	width: 100%;
+	height: auto;
+}
+
+.story-text {
+	color: $main-font-color;
+	font-size: 16px;
+	font-weight: 200;
+	letter-spacing: 0.03em;
+	line-height: 1.7;
+}
+
+// Laptop
+@media screen and (min-width: 980px) {
+	.story {
+		display: grid;
+		grid-template-columns: 8% 6fr 1fr 5fr 8%;	// 6 for img, 5 for text
+		grid-template-rows: 40px auto 40px;
+		align-items: center;
+	}
+
+	.story-img-wrap {
+		grid-column: 2 / 3;	// out of 6
+		grid-row: 2 / 3;	// out of 4
+	}
+
+	.story-text {
+		grid-column: 4 / 5;	// out of 6
+		grid-row: 2 / 3;	// out of 4
+	}
+}
+
+// Mobile
+@media screen and (max-width: 979px) {
+	$story-lr-margin: 8%;
+
+	.story-img-wrap {
+		margin: 60px $story-lr-margin 30px;
+	}
+
+	.story-text {
+		margin: 30px $story-lr-margin 60px;
+		text-align: center;
+	}
+}
+
+/* -------------------------------------------------------------------------
+ * 2. 三三堅持｜Brand Intro
+ * -------------------------------------------------------------------------
+ */
+
+
+.intro {
+	box-sizing: border-box;
+}
+
+.intro-img {
+	width: 100%;
+	height: auto;
+}
+
+.intro-text {
+	color: $main-font-color;
+	font-weight: 200;
+	letter-spacing: 0.03em;
+	line-height: 1.7;
+	h3 {
+		text-align: center;
+		font-weight: 200;
+		letter-spacing: $letter-spacing-18-18;
+	}
+}
+
+// Laptop
+@media screen and (min-width: 980px) {
+	.intro {
+		display: grid;
+		grid-template-columns: 14% 5fr 1fr 5fr 14%;	// 5 for img or text
+		align-items: center;
+		&:nth-child(1) {
+			grid-template-rows: 40px auto 20px;
+			.intro-img-wrap {
+				grid-column: 2 / 3;	// out of 6
+			}
+			.intro-text {
+				grid-column: 4 / 5;	// out of 6
+			}
+		}
+		&:nth-child(2) {
+			grid-template-rows: 20px auto 40px;
+			.intro-text {
+				grid-column: 2 / 3;	// out of 6
+			}
+			.intro-img-wrap {
+				grid-column: 4 / 5;	// out of 6
+			}
+		}
+	}
+
+	.intro-img-wrap,
+	.intro-text {
+		grid-row: 2 / 3;	// out of 4
+	}
+
+	.intro-text a {
+		text-decoration: none;
+		color: #000;
+		transition: color .3s;
+		&:hover {
+			color: #777;
+		}
+	}
+}
+
+// Mobile
+@media screen and (max-width: 979px) {
+	$intro-lr-margin: 8%;
+
+	.intro-img-wrap {
+		margin: 60px $intro-lr-margin 30px;
+	}
+
+	.intro-text {
+		margin: 30px $intro-lr-margin 60px;
+		text-align: center;
+	}
+}
+
+/* -------------------------------------------------------------------------
+ * 3. 媒體報導｜Media
+ * -------------------------------------------------------------------------
+ */
+
+.media-link {
+	text-decoration: none;
+}
+
+// Laptop
+@media screen and (min-width: 980px) {
+	.media-link {
+		display: inline-block;
+		margin: 30px 20px;
+	}
+}
+
+// Mobile
+@media screen and (max-width: 979px) {
+	.media-link {
+		display: block;
+		width: 100%;
+		margin: 20px auto;
+		text-align: center;
+	}
+}
+
+/* -------------------------------------------------------------------------
+ * 4. 試用品申請｜Trial
+ * 4.1. 一致好評 - Flexslider
+ * 4.2. Slogan
+ * 4.3. 3 Main Features
+ * -------------------------------------------------------------------------
+ */
+
+/* 4.1. 一致好評 - Flexslider */
+
+#trial-recommend {
+	padding: 40px 0;
+	color: $main-font-color;
+	& > .flexslider {
+		text-align: center;
+	}
+}
+
+// Laptop
+@media screen and (min-width: 980px) {
+	#trial-recommend > .flexslider {
+		width: 60%;
+		margin: 0 auto;
+	}
+}
+
+// Mobile
+@media screen and (max-width: 979px) {
+	#trial-recommend {
+		width: 84%;
+		margin: 0 auto;
+		& > .flexslider {
+			margin: 25px auto;
+		}
+	}
+}
+
+/* 4.2. Shared Slogan Properties */
+
+/* 4.3. 3 Main Features */
+
+.feature-wrap {
+	width: 100%;
+	box-sizing: border-box;
+	padding: 12vh 16%;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	color: #fff;
+	overflow: auto;
+}
+
+#feature1 {
+	background-image: url(../img/trial/feature1.png);
+}
+
+#feature2 {
+	background-image: url(../img/trial/feature2.png);
+}
+
+#feature3 {
+	background-image: url(../img/trial/feature3.png);
+}
+
+.feature-title {
+	margin: 0;
+	padding-bottom: 5vh;
+	text-align: center;
+	font-weight: 200;
+	letter-spacing: 4.32px;
+	line-height: 1.5;
+}
+
+.feature-text {
+	margin: 0;
+	text-align: center;
+	font-weight: 200;
+	line-height: 1.7;
+}
+
+// Mobile
+@media screen and (max-width: 979px) {
+	.feature-title {
+		font-size: 16px;
+	}
+
+	.feature-text {
+		font-size: 12px;
+	}
+}
+
+/* -------------------------------------------------------------------------
+ * 5. 顧客問答（常見問題）｜FAQ
+ * -------------------------------------------------------------------------
+ */
+
+#faq-accordion {
+	margin: 60px 8%;
+	/* Completed by shared properties - accordians */
+}
+
+/* -------------------------------------------------------------------------
+ * 6. 合作夥伴｜Partner
+ * -------------------------------------------------------------------------
+ */
+
+#partner-accordion {
+	margin: 60px 8%;
+	/* Completed by shared properties - accordians */
+	& > .accordion {
+		padding-left: 0;
+		padding-right: 0;
+	}
+}
+
+.partner-logo {
+	max-width: 150px;
+	height: auto;
+}
+
+// for those partners without logo img
+.partner-text:first-child {
+	margin-top: 0;
+}
+
+/* -------------------------------------------------------------------------
+ * 7. 三三團隊｜About
+ * 7.1. 理念
+ * 7.2. 團隊
+ * -------------------------------------------------------------------------
+ */
+
+/* 7.1. 理念 */
+
+#about-concept-text {
+	color: $main-font-color;
+	font-weight: 200;
+	letter-spacing: 0.03em;
+	line-height: 1.7;
+	& > .trisoap-signature {
+		margin-top: 0;
+	}
+}
+
+#about-concept-img {
+	width: 100%;
+	height: auto;
+}
+
+/* 7.2. 團隊 */
+
+#about-team {
+	color: $main-font-color;
+}
+
+.about-team-member-img {
+	width: 100%;
+	height: auto;
+}
+
+.about-team-member-text {
+	text-align: center;
+	letter-spacing: $letter-spacing-18-18;
+	line-height: 1.7;
+	font-weight: 200;
+}
+
+.about-team-member-title,
+.about-team-member-subtitle {
+	font-weight: 200;
+}
+
+// Laptop
+@media screen and (min-width: 980px) {
+	/* 7.1. 理念 */
+	#about-concept {
+		display: grid;
+		grid-template-columns: 12% 6fr 6fr 8%;
+		grid-template-rows: 40px auto 40px;
+		align-items: center;
+	}
+
+	#about-concept-text {
+		grid-column: 2 / 3;	// out of 5
+		grid-row: 2 / 3;	// out of 4
+	}
+
+	#about-concept-img-wrap {
+		grid-column: 3 / 4;	// out of 5
+		grid-row: 2 / 3;	// out of 4
+	}
+
+	/* 7.2. 團隊 */
+
+	.about-team-member {
+		display: grid;
+		grid-template-columns: 12% 9fr 1fr 9fr 12%;
+		grid-template-rows: 40px auto 40px;
+		align-items: center;
+		&:last-child {
+			margin-bottom: 40px;
+		}
+	}
+
+	.about-team-member-img-wrap {
+		grid-column: 2 / 3;	// out of 6
+		grid-row: 2 / 3;	// out of 4
+	}
+
+	.about-team-member-text {
+		grid-column: 4 / 5;	// out of 6
+		grid-row: 2 / 3;	// out of 4
+	}
+}
+
+// Mobile
+@media screen and (max-width: 979px) {
+	$about-concept-lr-margin: 8%;
+
+	#about-concept-img-wrap,
+	#about-team {
+		margin: 30px $about-concept-lr-margin;
+	}
+
+	/* 7.1. 理念 */
+
+	#about-concept-text {
+		margin: 60px $about-concept-lr-margin 30px;
+	}
+
+	#about-concept-title,
+	.trisoap-signature {
+		text-align: center;
+	}
+
+	/* 7.2. 團隊 */
+
+	#about-team {
+		& > .slogan {
+			text-align: start;
+		}
+	}
+
+	.about-team-member {
+		margin: 30px auto;
+	}
+}
+
+/* -------------------------------------------------------------------------
+ * 8. 聯絡我們｜Contact
+ * -------------------------------------------------------------------------
+ */
+
+#contact-subject {
+	margin: 60px $wrap-lr-margin 0;
+}
+
+#contact-form-name,
+#contact-form-email,
+#contact-form-phone,
+#contact-form-message,
+#contact-form .submit-btn {
+	display: block;
+	width: 100%;
+	margin: 15px 0;
+}
+
+#contact-form-name,
+#contact-form-email,
+#contact-form-phone,
+#contact-form-message {
+	font-size: 18px;
+}
+
+#contact-form-message {
+	// resize: none;
+}
+
+#contact-info {
+	color: $main-font-color;
+	font-weight: 200;
+	letter-spacing: 0.03em;
+	line-height: 1.7;
+}
+
+// Laptop
+@media screen and (min-width: 980px) {
+	#contact {
+		display: grid;
+		grid-template-columns: 8% 3fr 4% 2fr 8%;
+		grid-template-rows: 60px auto 60px;
+		align-items: center;
+	}
+
+	#contact-map {
+		height: 400px;
+		grid-column: 2 / 3;	// out of 6
+		grid-row: 2 / 3;	// out of 4
+	}
+
+	#contact-form {
+		grid-column: 4 / 5;	// out of 6
+		grid-row: 2 / 3;	// out of 4
+	}
+}
+
+// Mobile
+@media screen and (max-width: 979px) {
+	$contact-lr-margin: 8%;
+
+	#contact {
+		margin: 40px $contact-lr-margin;
+	}
+
+	#contact-map {
+		height: 220px;
+	}
+}
+
+/* -------------------------------------------------------------------------
+ * 9. 購物須知｜Shopping Guide
+ * -------------------------------------------------------------------------
+ */
+
+#guide-wrap {
+	color: $main-font-color;
+}
+
+.guide-anchor,
+.guide-link {
+	text-decoration: none;
+	color: #EA8B3B;
+	font-weight: 200;
+}
+
+#guide-content {
+	padding: 0 $wrap-lr-margin;
+}
+
+.guide-title {
+	margin-bottom: 35px;
+	color: #000;
+	font-weight: normal;
+	letter-spacing: 0.18em;
+}
+
+.guide-subtitle {
+	margin-bottom: 20px;
+	font-weight: 200;
+	letter-spacing: 0.18em;
+}
+
+.guide-icon {
+	width: 25px;
+	height: auto;
+}
+
+.guide-text {
+	margin-bottom: 35px;
+	line-height: 1.7;
+	letter-spacing: 0.03em;
+}
+
+#shop-guide {
+	margin-top: 40px;
+}
+
+/* -------------------------------------------------------------------------
+ * 10. 單品 / 旅用皂絲｜Soap / Soapstring
+ * 10.1. 商品全覽頁｜Products
+ * 10.2. 單項商品頁｜Single Product
+ * -------------------------------------------------------------------------
+ */
+
+/* 10.1. 商品全覽頁｜Products */
+
+.products-wrap {
+	& > .slogan-title {
+		margin: 35px auto;
+	}
+	& > .slogan {
+		color: $main-font-color;
+		line-height: 1.7;
+	}
+}
+
+.products {
+	display: flex;
+	flex-flow: row wrap;
+}
+
+.product {
+	box-sizing: border-box;
+	text-align: center;
+	color: $main-font-color;
+}
+
+
+.product-cover-img {
+	width: 100%;
+	height: auto;
+}
+
+.product-link {
+	text-decoration: none;
+	color: #000;
+	transition: color .3s;
+	font-size: 14px;
+	font-weight: normal;
+	&:hover {
+		color: #666;
+	}
+}
+
+.product-intro {
+	font-weight: 200;
+	line-height: 1.7;
+	letter-spacing: 0.03em;
+}
+
+// Laptop
+@media screen and (min-width: 980px) {
+	.product {
+		width: 50%;
+		padding: 40px 20px;
+	}
+
+	.product-cover {
+		width: 100%;
+		overflow: hidden;
+	}
+
+	.product-cover-img {
+		display: block;	// dismiss inline-block default so .product-cover container has the same height as this img
+		transition: transform 0.3s;
+		&:hover {
+			transform: scale(1.1);
+		}
+	}
+}
+
+// Mobile
+@media screen and (max-width: 979px) {
+	.product {
+		width: 100%;
+		padding: 10px 20px;
+	}
+}
+
+/* 10.2. 單項商品頁｜Single Product */
+
+// Laptop
+@media screen and (min-width: 980px) {
+	#single-product-wrap {
+		display: flex;
+		flex-flow: row wrap;
+	}
+
+	#single-product-carousel,
+	#single-product-desc {
+		width: 50%;
+		box-sizing: border-box;
+		padding: 0 25px;
+	}
+}
+
+// Mobile
+@media screen and (max-width: 979px) {
+	#single-product-carousel,
+	#single-product-desc {
+		width: 100%;
+	}
+
+	#single-product-carousel {
+		margin-bottom: 35px;
+	}
+}
+
+#single-product-accordion > .ui-accordion-header {
+	margin-bottom: 20px;
+	padding: 10px 15px;
+	border-bottom: 1px solid #ddd;
+	background-color: #f5f5f5;
+	color: #000;
+	transition: color .3s;
+	font-weight: normal;
+	line-height: 1.5;
+	letter-spacing: 0.18em;
+	&.ui-state-hover {
+		color: #666;
+	}
+}
+
+#single-product-price,
+#purchase-amount,
+#single-product-purchase > .submit-btn {
+	display: inline-block;
+	vertical-align: middle;
+	margin: 10px 0;
+}
+
+#single-product-price {
+	margin: 0 20px;
+	color: $main-font-color;
+	font-weight: 200;
+	line-height: 1.5;
+	letter-spacing: 0.18em;
+}
+
+label[for="purchase-amount"] {
+	color: $main-font-color;
+}
+
+#purchase-amount {
+	min-width: 66px;
+	max-width: 120px;
+}
+
+/* -------------------------------------------------------------------------
+ * 11. 希望留心語｜Heart Message
+ * -------------------------------------------------------------------------
+ */
+
+/* Completed by shared properties */

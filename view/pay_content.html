@@ -1,0 +1,62 @@
+<h2>已選擇的商品</h2>
+<table>
+    <thead>
+        <tr>
+            <td>商品名稱</td>
+            <td>單價(NTD)</td>
+            <td>數量</td>
+            <td>金額(NTD)</td>
+            <td>操作</td>
+        </tr>
+    </thead>
+    <tbody>
+        [payOperate]
+        <tr>
+            <td>運費 : </td>
+            <td colspan="3">[order_shipfee]</td>
+        </tr>
+        <tr>
+            <td>留心語折扣 : </td>
+            <td colspan="3">[order_message]</td>
+        </tr>
+        <tr>
+            <td>折價券折扣 : </td>
+            <td colspan="3">[order_discount]</td>
+            <td><a href="index.php?route=discount&in=apply"><button>使用折價卷</button></a></td>
+        </tr>
+        <tr>
+            <td>總計 : </td>
+            <td colspan="3">[order_total]</td>
+        </tr>
+        <tr>
+            <td>寄送地址 : </td>
+            <td colspan="3"><input type="text" id="address" value="[order_address]"></td>
+        </tr>
+        <tr>
+            <td>訂單備註 : </td>
+            <td colspan="3"><input type="text" id="notice" value="[order_notice]" placeholder="可不填"></td>
+        </tr>
+        <tr>
+            <td>付款方式 : </td>
+            <td colspan="3">
+                <div class="q-select">
+                    <select id="payType">
+                        <option value="A">信用卡</option>
+                        <option value="B">ATM</option>
+                        <option value="C">網路ATM</option>
+                    </select>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p>目前全館滿777即可享臺灣本島免運費！</p>
+<a onclick="cashing('[cashing_detail]')"><button type="button" class="promise">確定結帳</button></a>
+<a href="index.php"><button type="button" class="cancel">返回首頁</button></a>
+
+<script>
+    function cashing(route) {
+        var payType = document.getElementById('payType').value;
+        location.assign(route + payType);
+    }
+</script>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" href="resource/img/misc/favicon.png">
+	<title>修改資料｜三三吾鄉手工皂Trisoap</title>
+	<meta name="author" content="2017 Trisoap Team">
+	<meta name="description" content="三三是一個社會企業手工皂品牌。協助臺東之喜憨兒社福團體研發，與在地小農合作；融合自然人文，去除多餘添加，活用醜蔬果，綠活創新皂絲體驗。邀您一同創皂，台灣公益的嶄新面貌！">
+	<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+	<link href='resource/css/sign.css' rel='stylesheet' type='text/css'>
+	<script src="resource/custom.js"></script>
+</head>
+
+<body>
+<br>
+	<div class="sign-block">
+		<h1>修改資料</h1>
+		電子信箱：[member_email]<br>
+		您的姓名：<input type="text" id="name" value="[member_name]"><br>
+		通訊地址：<input type="text" id="address" value="[member_address]"><br>
+		聯絡電話：<input type="text" id="phone" value="[member_phone]"><br>
+		統一編號：<input type="text" id="taxid" value="[member_taxid]"><br>
+		<div class="styled-select">您的膚質：
+			<select id="skintype">
+			  	<option value="A">乾性</option>
+			  	<option value="B">中性</option>
+			  	<option value="C">油性</option>
+			  	<option value="D">混和性</option>
+			</select>
+		</div>
+		<br>
+		特殊要求：<textarea id="notice" cols="45" rows="5" value="[member_notice]"></textarea><br>
+		<button class="promise" onclick="memberEdit()">確定</button>
+		<a href="index.php"><button class="cancel">取消</button></a>
+	</div>
+</body>
+</html>

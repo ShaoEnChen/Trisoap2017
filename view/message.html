@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="shortcut icon" href="resource/img/misc/favicon.png">
+        <title>留心語管理｜三三吾鄉手工皂Trisoap</title>
+        <meta name="author" content="2017 Trisoap Team">
+        <meta name="description" content="三三是一個社會企業手工皂品牌。協助臺東之喜憨兒社福團體研發，與在地小農合作；融合自然人文，去除多餘添加，活用醜蔬果，綠活創新皂絲體驗。邀您一同創皂，台灣公益的嶄新面貌！">
+        <link href="resource/css/bootstrap.min.css" rel="stylesheet">
+        <link href="resource/css/style.css" rel="stylesheet">
+        <script src="resource/custom.js"></script>
+    </head>
+    <body id="page-top">
+        <div id="cover" onclick="coverClose()"></div>
+        <div id="detailBox">
+            <p align="center" id="messageDetail"></p>
+            <p align="center">點擊框外灰色區域關閉</p>
+        </div>
+        <nav class="navbar navbar-fixed-top nav-custom">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a href="#page-top" class="navbar-brand"><img src="resource/image/logo.png" alt="" class="logo"></a>
+                </div>
+                <div class="collapse navbar-collapse navbar-main-collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="index.php">
+                                回三三首頁<i class="fa fa-angle-down" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="index.php?route=message&in=stateA">
+                                待審核留言<i class="fa fa-angle-down" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="index.php?route=message&in=stateB">
+                                已通過留言<i class="fa fa-angle-down" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="index.php?route=message&in=stateC">
+                                未通過留言<i class="fa fa-angle-down" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="index.php?route=message&in=stateD">
+                                公開中留言<i class="fa fa-angle-down" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="index.php?route=message&in=stateE">
+                                典藏留言<i class="fa fa-angle-down" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                [member_name]，您好<br>
+                            </a>
+                        </li>
+                        <li>
+                            <a onclick="memberLogout()">
+                                登出<i class="fa fa-angle-down" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <section>
+            <div class="orders">
+                搜尋依據：
+                <select id="key">
+                    <option value="MSGNO">留心語編號</option>
+                    <option value="EMAIL">顧客信箱</option>
+                </select>
+                搜尋關鍵：<input type="text" id="value"><br>
+                <button class="btn btn-dark" onclick="messageSearch()">確定</button>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <h2>留心語管理</h2>
+                <div class="manage">
+                    <div class="row table-responsive">
+                        <div class="tab-content">
+                            <div id="all" class="tab-pane fade in active">                        
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <td>留言編號</td>
+                                            <td>顧客信箱</td>
+                                            <td>留言文字</td>
+                                            <td>留言照片</td>
+                                            <td>留言影片</td>
+                                            <td>留言狀態</td>
+                                            <td>建立日期</td>
+                                            <td>發佈日期</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="messageShow">
+                                    [messageShow]
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </body>
+    <!-- jquery -->
+    <script src="resource/js/jquery-1.12.3.min.js"></script>
+    <!-- bootstrap js -->
+    <script src="resource/js/bootstrap.min.js"></script>
+    <!-- custom js -->
+    <script src="resource/js/trisoap.js"></script>
+</html>
