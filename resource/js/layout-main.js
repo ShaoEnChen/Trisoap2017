@@ -36,8 +36,8 @@ $('#trial-recommend > .flexslider').flexslider({
 	animation: "slide",
 	directionNav: false,
 	controlNav: false,
-	slideshowSpeed: 8000,
-	animationSpeed: 1500,
+	slideshowSpeed: 4000,
+	animationSpeed: 1000,
 });
 
 /* ===================================================
