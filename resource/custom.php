@@ -315,14 +315,20 @@ function callView($route, $authority=null) {
 	 * ===================================
 	 */
 
-	require('view/footer.html');
+	// Get Nav content, find '{login_status}' and replace with proper function links
+	$footer_dir = 'view/footer.html';
+	$footer_handle = fopen($footer_dir, 'r');
+	$footer_content = fread($footer_handle, filesize($footer_dir));
+	fclose($footer_handle);
 
-	// $phone = curl_post(array('module' => 'cue', 'target' => 'company_phone'), 'cue');
-	// $email = curl_post(array('module' => 'cue', 'target' => 'company_email'), 'cue');
-	// $address = curl_post(array('module' => 'cue', 'target' => 'company_address'), 'cue');
-	// $content = str_replace('[company_phone]', $phone, $content);
-	// $content = str_replace('[company_email]', $email, $content);
-	// $content = str_replace('[company_address]', $address, $content);
+	$company_phone = curl_post(array('module' => 'cue', 'target' => 'company_phone'), 'cue');
+	$company_email = curl_post(array('module' => 'cue', 'target' => 'company_email'), 'cue');
+	$company_address = curl_post(array('module' => 'cue', 'target' => 'company_address'), 'cue');
+
+	$footer_content = str_replace('{company_phone}', $company_phone, $footer_content);
+	$footer_content = str_replace('{company_email}', $company_email, $footer_content);
+	$footer_content = str_replace('{company_address}', $company_address, $footer_content);
+	echo $footer_content;
 
 	/* Needed files before </body> */
 
