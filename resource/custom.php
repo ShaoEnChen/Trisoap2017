@@ -241,19 +241,9 @@ function query_memberName($email) {
 	return $fetch['CUSNM'];
 }
 
-function callView($route, $authority=null) {
+function check_dependency_head($route) {
 	$require_flexslider = ['index', 'trial', 'single_product'];
 	$require_jquery_ui = ['faq', 'partner', 'single_product'];
-	$require_map_api = ['contact'];
-
-	/* ===================================
-	 * Header
-	 * ===================================
-	 */
-
-	require('view/head.html');
-
-	/* Needed files in <head> */
 
 	if(in_array($route, $require_flexslider)){
 		echo '		<link href="resource/flexslider/flexslider.min.css" rel="stylesheet">';
@@ -262,14 +252,34 @@ function callView($route, $authority=null) {
 	if(in_array($route, $require_jquery_ui)){
 		echo '		<link href="resource/js/jquery-ui-accordion/jquery-ui.min.css" rel="stylesheet">';
 	}
+}
 
+function check_dependency_body($route) {
+	$require_flexslider = ['index', 'trial', 'single_product'];
+	$require_jquery_ui = ['faq', 'partner', 'single_product'];
+	$require_map_api = ['contact'];
+
+	if(in_array($route, $require_flexslider)){
+		echo '		<script src="resource/flexslider/jquery.flexslider-min.js" defer></script>';
+	}
+
+	if(in_array($route, $require_jquery_ui)){
+		echo '		<script src="resource/js/jquery-ui-accordion/jquery-ui.min.js" defer></script>';
+	}
+
+	if(in_array($route, $require_map_api)){
+		echo '		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBqLzZouUqN1dWEVR9_75YO6bXL5OuhcRs"></script>';
+		echo '		<script src="resource/js/contact-map.js" defer></script>';
+	}
+}
+
+function include_view_head($route) {
+	require('view/head.html');
+	check_dependency_head($route);
 	require('view/head_finish.html');
+}
 
-	/* ===================================
-	 * Nav
-	 * ===================================
-	 */
-
+function include_view_nav($authority) {
 	// Get Nav content, find '{login_status}' and replace with proper function links
 	$nav_dir = 'view/nav.html';
 	$nav_handle = fopen($nav_dir, 'r');
@@ -295,16 +305,14 @@ function callView($route, $authority=null) {
 
 	$nav_content = str_replace('{login_status}', $nav_status_content, $nav_content);
 	echo $nav_content;
+}
 
-	/* ===================================
-	 * Content
-	 * ===================================
-	 */
-
+function include_view_jumbotron($route) {
 	if($route === 'index') {
 		include_once('view/jumbotron/index_flexslider.html');
 	}
 	else {
+		// Get img jumbotron with background image
 		$header_start_dir = 'view/jumbotron/img_jumbotron.html';
 		$header_start_handle = fopen($header_start_dir, 'r');
 		$header_start_content = fread($header_start_handle, filesize($header_start_dir));
@@ -312,16 +320,43 @@ function callView($route, $authority=null) {
 
 		$header_start_content = str_replace('{route}', $route, $header_start_content);
 		echo $header_start_content;
+
+		// Get jumbotron title
+		$title_dir = 'view/jumbotron/title.html';
+		$title_handle = fopen($title_dir, 'r');
+		$title_content = fread($title_handle, filesize($title_dir));
+		fclose($title_handle);
+
+		$title_content = str_replace('{route_title}', 'title', $title_content);
+		echo $title_content;
+
+		// Get jumbotron subtitle if $route has subtitle
+		$subtitle_dir = 'view/jumbotron/subtitle.html';
+		$subtitle_handle = fopen($subtitle_dir, 'r');
+		$subtitle_content = fread($subtitle_handle, filesize($subtitle_dir));
+		fclose($subtitle_handle);
+
+		$subtitle_content = str_replace('{route_subtitle}', 'subtitle', $subtitle_content);
+		echo $subtitle_content;
+
+		// Get jumbotron btn text & link if $route has btn
+		$btn_dir = 'view/jumbotron/btn.html';
+		$btn_handle = fopen($btn_dir, 'r');
+		$btn_content = fread($btn_handle, filesize($btn_dir));
+		fclose($btn_handle);
+
+		$btn_content = str_replace('{route_btn_link}', 'btn_link', $btn_content);
+		$btn_content = str_replace('{route_btn_text}', 'btn_text', $btn_content);
+		echo $btn_content;
 	}
 	include_once('view/jumbotron/header_finish.html');
+}
 
+function include_view_content($route) {
 	include_once('view/content/' . $route . '.html');
+}
 
-	/* ===================================
-	 * Footer
-	 * ===================================
-	 */
-
+function include_view_footer($route) {
 	// Get Footer content, find '{company_}'s and replace with proper company info
 	$footer_dir = 'view/footer.html';
 	$footer_handle = fopen($footer_dir, 'r');
@@ -337,22 +372,15 @@ function callView($route, $authority=null) {
 	$footer_content = str_replace('{company_address}', $company_address, $footer_content);
 	echo $footer_content;
 
-	/* Needed files before </body> */
-
-	if(in_array($route, $require_flexslider)){
-		echo '		<script src="resource/flexslider/jquery.flexslider-min.js" defer></script>';
-	}
-
-	if(in_array($route, $require_jquery_ui)){
-		echo '		<script src="resource/js/jquery-ui-accordion/jquery-ui.min.js" defer></script>';
-	}
-
-	if(in_array($route, $require_map_api)){
-		echo '		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBqLzZouUqN1dWEVR9_75YO6bXL5OuhcRs"></script>';
-		echo '		<script src="resource/js/contact-map.js" defer></script>';
-	}
-
+	check_dependency_body($route);
 	require('view/footer_finish.html');
+}
 
-	return true;
+function callView($route, $authority = null) {
+	include_view_head($route);
+	include_view_nav($authority);
+	include_view_jumbotron($route);
+	include_view_content($route);
+	include_view_footer($route);
+	// return true;
 }

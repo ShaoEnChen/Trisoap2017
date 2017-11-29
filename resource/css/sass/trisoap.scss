@@ -313,7 +313,7 @@ header {
 
 /* 1.2. Jumbotron - Img */
 
-$jumbotron-list: "\\[Route\\]", "about-team", "about", "attitude", "buy", "contact", "cooperate", "guide", "message", "product-idea", "brand-intro", "soapstring", "trial";
+$jumbotron-list: "about", "brand_intro", "contact", "faq", "heart_message", "media", "partner", "shopping_guide", "single_product", "soap", "soapstring", "trial";
 
 @each $item in $jumbotron-list {
 	#jumbotron-#{$item} {

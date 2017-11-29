@@ -269,48 +269,44 @@ header {
 }
 
 /* 1.2. Jumbotron - Img */
-#jumbotron-\[Route\] {
-  background-image: url(../img/jumbotrons/\[Route\].jpg);
-}
-
-#jumbotron-about-team {
-  background-image: url(../img/jumbotrons/about-team.jpg);
-}
-
 #jumbotron-about {
   background-image: url(../img/jumbotrons/about.jpg);
 }
 
-#jumbotron-attitude {
-  background-image: url(../img/jumbotrons/attitude.jpg);
-}
-
-#jumbotron-buy {
-  background-image: url(../img/jumbotrons/buy.jpg);
+#jumbotron-brand_intro {
+  background-image: url(../img/jumbotrons/brand_intro.jpg);
 }
 
 #jumbotron-contact {
   background-image: url(../img/jumbotrons/contact.jpg);
 }
 
-#jumbotron-cooperate {
-  background-image: url(../img/jumbotrons/cooperate.jpg);
+#jumbotron-faq {
+  background-image: url(../img/jumbotrons/faq.jpg);
 }
 
-#jumbotron-guide {
-  background-image: url(../img/jumbotrons/guide.jpg);
+#jumbotron-heart_message {
+  background-image: url(../img/jumbotrons/heart_message.jpg);
 }
 
-#jumbotron-message {
-  background-image: url(../img/jumbotrons/message.jpg);
+#jumbotron-media {
+  background-image: url(../img/jumbotrons/media.jpg);
 }
 
-#jumbotron-product-idea {
-  background-image: url(../img/jumbotrons/product-idea.jpg);
+#jumbotron-partner {
+  background-image: url(../img/jumbotrons/partner.jpg);
 }
 
-#jumbotron-brand-intro {
-  background-image: url(../img/jumbotrons/brand-intro.jpg);
+#jumbotron-shopping_guide {
+  background-image: url(../img/jumbotrons/shopping_guide.jpg);
+}
+
+#jumbotron-single_product {
+  background-image: url(../img/jumbotrons/single_product.jpg);
+}
+
+#jumbotron-soap {
+  background-image: url(../img/jumbotrons/soap.jpg);
 }
 
 #jumbotron-soapstring {
