@@ -345,7 +345,6 @@ header {
 
 .jumbotron-title,
 .jumbotron-subtitle {
-  display: block;
   margin: 0 auto;
   color: #fff;
   font-weight: 100;
@@ -358,8 +357,7 @@ header {
 
 .jumbotron-subtitle,
 .jumbotron-btn {
-  padding-bottom: 4vw;
-  line-height: 12vw;
+  line-height: 6vw;
 }
 
 @media screen and (min-width: 980px) {
