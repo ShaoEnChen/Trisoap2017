@@ -251,7 +251,7 @@ function callView($route, $authority=null) {
 	 * ===================================
 	 */
 
-	require('view/header.html');
+	require('view/head.html');
 
 	/* Needed files in <head> */
 
@@ -263,7 +263,7 @@ function callView($route, $authority=null) {
 		echo '		<link href="resource/js/jquery-ui-accordion/jquery-ui.min.css" rel="stylesheet">';
 	}
 
-	require('view/header_finish.html');
+	require('view/head_finish.html');
 
 	/* ===================================
 	 * Nav
@@ -302,11 +302,18 @@ function callView($route, $authority=null) {
 	 */
 
 	if($route === 'index') {
-		include_once('view/index_header.html');
+		include_once('view/jumbotron/index_flexslider.html');
 	}
 	else {
-		include_once('view/jumbotron.html');
+		$header_start_dir = 'view/jumbotron/img_jumbotron.html';
+		$header_start_handle = fopen($header_start_dir, 'r');
+		$header_start_content = fread($header_start_handle, filesize($header_start_dir));
+		fclose($header_start_handle);
+
+		$header_start_content = str_replace('{route}', $route, $header_start_content);
+		echo $header_start_content;
 	}
+	include_once('view/jumbotron/header_finish.html');
 
 	include_once('view/content/' . $route . '.html');
 
@@ -315,7 +322,7 @@ function callView($route, $authority=null) {
 	 * ===================================
 	 */
 
-	// Get Nav content, find '{login_status}' and replace with proper function links
+	// Get Footer content, find '{company_}'s and replace with proper company info
 	$footer_dir = 'view/footer.html';
 	$footer_handle = fopen($footer_dir, 'r');
 	$footer_content = fread($footer_handle, filesize($footer_dir));
