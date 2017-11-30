@@ -16,5 +16,4 @@ $content = str_replace('[author_2]', query_memberName($fetch2['EMAIL']), $conten
 $content = str_replace('[author_3]', query_memberName($fetch3['EMAIL']), $content);
 $content = str_replace('[photo]', $fetch2['MSGNO'], $content);
 $content = str_replace('[video]', $fetch3['MSGNO'], $content);
-echo 'controller/heart_message.php WTF';
 echo $content;
