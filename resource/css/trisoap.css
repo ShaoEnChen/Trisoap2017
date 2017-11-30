@@ -340,10 +340,12 @@ header {
 }
 
 .jumbotron-title,
+.jumbotron-only-title,
 .jumbotron-subtitle {
   margin: 0 auto;
   color: #fff;
   font-weight: 100;
+  letter-spacing: 0.18em;
 }
 
 .jumbotron-title {
@@ -351,13 +353,22 @@ header {
   line-height: 14vw;
 }
 
+.jumbotron-only-title {
+  line-height: 33.75vw;
+}
+
 .jumbotron-subtitle,
 .jumbotron-btn {
   line-height: 6vw;
 }
 
+.jumbotron-btn > .primary-btn {
+  letter-spacing: 2px;
+}
+
 @media screen and (min-width: 980px) {
-  .jumbotron-title {
+  .jumbotron-title,
+  .jumbotron-only-title {
     font-size: 60px;
   }
 
@@ -371,7 +382,8 @@ header {
   }
 }
 @media screen and (max-width: 979px) {
-  .jumbotron-title {
+  .jumbotron-title,
+  .jumbotron-only-title {
     font-size: 32px;
   }
 

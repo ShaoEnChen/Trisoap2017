@@ -344,10 +344,12 @@ $jumbotron-list: "about", "brand_intro", "contact", "faq", "heart_message", "med
 }
 
 .jumbotron-title,
+.jumbotron-only-title,
 .jumbotron-subtitle {
 	margin: 0 auto;
 	color: #fff;
 	font-weight: 100;
+	letter-spacing: 0.18em;
 }
 
 .jumbotron-title {
@@ -355,14 +357,23 @@ $jumbotron-list: "about", "brand_intro", "contact", "faq", "heart_message", "med
 	line-height: 14vw;
 }
 
+.jumbotron-only-title {
+	line-height: 33.75vw;
+}
+
 .jumbotron-subtitle,
 .jumbotron-btn {
 	line-height: 6vw;
 }
 
+.jumbotron-btn > .primary-btn {
+	letter-spacing: 2px;
+}
+
 // Laptop
 @media screen and (min-width: 980px) {
-	.jumbotron-title {
+	.jumbotron-title,
+	.jumbotron-only-title {
 		font-size: 60px;
 	}
 
@@ -378,7 +389,8 @@ $jumbotron-list: "about", "brand_intro", "contact", "faq", "heart_message", "med
 
 // Mobile
 @media screen and (max-width: 979px) {
-	.jumbotron-title {
+	.jumbotron-title,
+	.jumbotron-only-title {
 		font-size: 32px;
 	}
 
