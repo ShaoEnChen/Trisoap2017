@@ -32,7 +32,7 @@ function check_dependency_body($route) {
 	}
 }
 
-function get_file_content($directory) {
+function read_file($directory) {
 	$handle = fopen($directory, 'r');
 	$content = fread($handle, filesize($directory));
 	fclose($handle);
@@ -48,7 +48,7 @@ function include_view_head($route) {
 function include_view_nav($authority) {
 	// Get Nav content, find '{login_status}' and replace with proper function links
 	$nav_dir = 'view/nav.html';
-	$nav_content = get_file_content($nav_dir);
+	$nav_content = read_file($nav_dir);
 
 	// Admin
 	if ($authority == 'A') {
@@ -63,7 +63,7 @@ function include_view_nav($authority) {
 		$nav_auth_dir = 'view/component/nav/login_signup.html';
 	}
 
-	$nav_status_content = get_file_content($nav_auth_dir);
+	$nav_status_content = read_file($nav_auth_dir);
 	$nav_content = str_replace('{login_status}', $nav_status_content, $nav_content);
 	echo $nav_content;
 }
@@ -81,7 +81,7 @@ function include_view_jumbotron($route) {
 function include_view_image_jumbotron($route) {
 	// Get img jumbotron with background image
 	$header_start_dir = 'view/component/jumbotron/img_jumbotron.html';
-	$header_start_content = get_file_content($header_start_dir);
+	$header_start_content = read_file($header_start_dir);
 	$header_start_content = str_replace('{route}', $route, $header_start_content);
 	echo $header_start_content;
 
@@ -90,7 +90,7 @@ function include_view_image_jumbotron($route) {
 	if(!is_null($title)) {
 		// Get jumbotron title
 		$title_dir = 'view/component/jumbotron/title.html';
-		$title_content = get_file_content($title_dir);
+		$title_content = read_file($title_dir);
 		if(is_null($subtitle) && is_null($btn)) {
 			// change class name
 			$title_content = str_replace('jumbotron-title', 'jumbotron-only-title', $title_content);
@@ -101,14 +101,14 @@ function include_view_image_jumbotron($route) {
 	if(!is_null($subtitle)) {
 		// Get jumbotron subtitle if $route has subtitle
 		$subtitle_dir = 'view/component/jumbotron/subtitle.html';
-		$subtitle_content = get_file_content($subtitle_dir);
+		$subtitle_content = read_file($subtitle_dir);
 		$subtitle_content = str_replace('{route_subtitle}', $subtitle, $subtitle_content);
 		echo $subtitle_content;
 	}
 	if(!is_null($btn)) {
 		// Get jumbotron btn text & link if $route has btn
 		$btn_dir = 'view/component/jumbotron/btn.html';
-		$btn_content = get_file_content($btn_dir);
+		$btn_content = read_file($btn_dir);
 		$btn_content = str_replace('{route_btn_link}', $btn["link"], $btn_content);
 		$btn_content = str_replace('{route_btn_text}', $btn["text"], $btn_content);
 		echo $btn_content;
@@ -132,7 +132,7 @@ function include_view_content($route) {
 function include_view_footer($route) {
 	// Get Footer content, find '{company_}'s and replace with proper company info
 	$footer_dir = 'view/footer.html';
-	$footer_content = get_file_content($footer_dir);
+	$footer_content = read_file($footer_dir);
 
 	$company_phone = curl_post(array('module' => 'cue', 'target' => 'company_phone'), 'cue');
 	$company_email = curl_post(array('module' => 'cue', 'target' => 'company_email'), 'cue');
