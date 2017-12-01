@@ -186,12 +186,13 @@ if (isset($_POST['module'])) {
 	}
 }
 elseif (isset($_GET['route']) || isset($_POST['route'])) {
+	include_once("controller/router.php");
 	$route = isset($_GET['route']) ? $_GET['route'] : $_POST['route'];
 	if (in_array($route, array('about', 'brand_intro', 'cart', 'cashing', 'contact', 'discount', 'faq', 'heart_message', 'item', 'manager', 'media', 'member', 'message', 'order', 'partner', 'pay', 'purchaseFinish', 'service', 'shopping_guide', 'single_product', 'soap', 'soapstring', 'trial'))) {
-		include_once("controller/".$route.".php");
+		router($route);
 	}
 	else {
-		include_once("controller/index.php");
+		router('index');
 	}
 }
 else {
