@@ -1,0 +1,31 @@
+{
+	"item_no": "",
+	"name": "",
+	"intro": "",
+	"cover_photo": "",
+	"gallery": [],
+	"ingredient": "",
+	"skin_type": "",
+	"feature": "",
+	"peasant_farmer": [
+		{
+			"name": "",
+			"intro": "",
+			"link": {
+				"link_text": "",
+				"link_href": ""
+			}
+		}
+	],
+	"supporting_organization": [
+		{
+			"name": "",
+			"intro": "",
+			"link": {
+				"link_text": "",
+				"link_href": ""
+			}
+		}
+	],
+	"price": ""
+}

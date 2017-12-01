@@ -1199,7 +1199,7 @@ a.no-href {
   line-height: 1.7;
 }
 
-.products {
+#products {
   display: flex;
   flex-flow: row wrap;
 }
