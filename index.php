@@ -196,5 +196,6 @@ elseif (isset($_GET['route']) || isset($_POST['route'])) {
 	}
 }
 else {
-	include_once("controller/index.php");
+	include_once("controller/router.php");
+	router('index');
 }
