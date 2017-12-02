@@ -144,15 +144,23 @@ function include_view_content($route) {
 }
 
 function fetch_products($route, $page) {
-	$products_pages = ['soap', 'soapstring'];
-	if(!in_array($route, $products_pages)) return;	// in case this is called by wrong page/route
-
+	// Check route & set json prefix in resource/json/product/
+	switch ($route) {
+		case 'soap':
+			$item_type_prefix = 'product_sp_';
+			break;
+		case 'soapstring':
+			$item_type_prefix = 'product_ss_';
+			break;
+		default:
+			return;
+	}
+	// Get products page content & product content
 	$product_template_dir = 'view/component/product.html';
 	$product_template = file_get_contents($product_template_dir);
-
-	$products_dir = "resource/json/product/" . $route . "/";
 	$products = '';
-	foreach (glob($products_dir . "*.json") as $json_dir) {
+	$products_dir = "resource/json/product/";
+	foreach (glob($products_dir . $item_type_prefix . "*.json") as $json_dir) {
 		$json_str = file_get_contents($json_dir);
 		$product_json = json_decode($json_str, true);
 
