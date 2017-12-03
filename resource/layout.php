@@ -133,14 +133,36 @@ function include_view_content($route) {
 	$content_dir = 'view/content/' . $route . '.html';
 	$content = file_get_contents($content_dir);
 
-	if($route === 'contact') {
-		$content = replace_company_info($content);
-	}
-	else if($route === 'soap' || $route === 'soapstring') {
-		$content = fetch_products($route, $content);
+	switch ($route) {
+		case 'contact':
+			$content = replace_company_info($content);
+			break;
+		case 'soap':
+			$content = fetch_products($route, $content);
+			break;
+		case 'soapstring':
+			$content = fetch_products($route, $content);
+			break;
+		case 'single_product':
+			$content = fetch_single_product($route, $content);
+			break;
+		default:
+			break;
 	}
 
 	echo $content;
+}
+
+function fetch_json_content($criteria, $json_dir) {
+	$json_str = file_get_contents($json_dir);
+	$json = json_decode($json_str, true);
+	$contents = [];
+	foreach ($criteria as $key) {
+		$key = str_replace(['{', '}'], '', $key);
+		$value = $json[$key];
+		array_push($contents, $value);
+	}
+	return $contents;
 }
 
 function fetch_products($route, $page) {
@@ -155,22 +177,13 @@ function fetch_products($route, $page) {
 		default:
 			return;
 	}
-	// Get products page content & product content
 	$product_template_dir = 'view/component/product.html';
 	$product_template = file_get_contents($product_template_dir);
 	$products = '';
-	$products_dir = "resource/json/product/";
-	foreach (glob($products_dir . $item_type_prefix . "*.json") as $json_dir) {
-		$json_str = file_get_contents($json_dir);
-		$product_json = json_decode($json_str, true);
-
-		$item_no = $product_json["item_no"];
-		$product_name = $product_json["name"];
-		$product_intro = $product_json["intro"];
-		$product_cover_photo = $product_json["cover_photo"];
-
-		$placeholder = ['{item_no}', '{product_name}', '{product_intro}', '{product_cover_photo}'];
-		$product_contents = [$item_no, $product_name, $product_intro, $product_cover_photo];
+	$products_dir = 'resource/json/product/';
+	foreach (glob($products_dir . $item_type_prefix . '*.json') as $json_dir) {
+		$placeholder = ['{item_no}', '{name}', '{intro}', '{cover_photo}'];
+		$product_contents = fetch_json_content($placeholder, $json_dir);
 		$product = $product_template;
 		$product = str_replace($placeholder, $product_contents, $product);
 		$products .= $product;
@@ -178,8 +191,55 @@ function fetch_products($route, $page) {
 
 	require_once('resource/simple_html_dom.php');
 	$page_html = str_get_html($page);
-	$container = $page_html -> find('div#products', 0);
+	$container = $page_html -> find('#products', 0);
 	$container -> innertext = $products;
+	$page_html = $page_html -> save();	// return string type
+	return $page_html;
+}
+
+function fetch_single_product($route, $page) {
+	if($route !== 'single_product')	return;
+	if(!isset($_GET['itemno']))	return;
+	$itemno = $_GET['itemno'];
+	$json_dir = 'resource/json/product/' . $itemno . '.json';
+	$placeholder = ['{name}', '{intro}', '{ingredients}', '{skin_type}', '{feature}', '{price}'];
+	$product_contents = fetch_json_content($placeholder, $json_dir);
+	$page = str_replace($placeholder, $product_contents, $page);
+
+	// Set accordion
+	$placeholder = ['{feature}', '{peasant_farmer}', '{supporting_organization}'];
+	$templates_dir = ['view/component/single_product/feature.html', 'view/component/single_product/peasant_farmer.html', 'view/component/single_product/supporting_organization.html'];
+	$product_contents = fetch_json_content($placeholder, $json_dir);
+	$accordion = '';
+	foreach ($product_contents as $key => $value) {
+		if(!empty($value)) {
+			$template = file_get_contents($templates_dir[$key]);
+
+			// Handle different type of $value
+			if(is_array($value)) {	// has organization properties
+				$org_template_dir = 'view/component/single_product/each_org.html';
+				$orgs = '';
+				foreach ($value as $org) {
+					$org_template = file_get_contents($org_template_dir);
+					$org_placeholder = ['{name}', '{intro}', '{link_href}', '{link_text}'];
+					$org_contents = [$org['name'], $org['intro'], $org['link']['link_href'], $org['link']['link_text']];
+					$org_template = str_replace($org_placeholder, $org_contents, $org_template);
+					$orgs .= $org_template;
+				}
+				$template = str_replace($placeholder[$key], $orgs, $template);
+			}
+			else {
+				$template = str_replace($placeholder[$key], $value, $template);
+			}
+
+			$accordion .= $template;
+		}
+	}
+
+	require_once('resource/simple_html_dom.php');
+	$page_html = str_get_html($page);
+	$container = $page_html -> find('#single-product-accordion', 0);
+	$container -> innertext = $accordion;
 	$page_html = $page_html -> save();	// return string type
 	return $page_html;
 }

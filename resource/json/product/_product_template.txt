@@ -4,7 +4,7 @@
 	"intro": "",
 	"cover_photo": "",
 	"gallery": [],
-	"ingredient": "",
+	"ingredients": "",
 	"skin_type": "",
 	"feature": "",
 	"peasant_farmer": [

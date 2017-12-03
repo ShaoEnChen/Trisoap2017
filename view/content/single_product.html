@@ -2,40 +2,22 @@
 			<div id="single-product-wrap" class="main-wrap">
 				<div id="single-product-carousel">
 					<div class="flexslider">
-						<ul class="slides">
-							<li data-thumb="resource/img/product/detail/[Product Detail].jpg">
-								<img src="resource/img/product/detail/[Product Detail].jpg">
-							</li>
-						</ul>
+						<ul class="slides">{gallery}</ul>
 					</div>
 				</div>
 				<div id="single-product-desc">
-					<h3 class="main-content-title">[Product Name]</h3>
-					<p class="main-content-text">
-						[Product Intro]
-					</p>
+					<h3 class="main-content-title">{name}</h3>
+					<p class="main-content-text">{intro}</p>
 					<hr class="text-sep-sm">
-					<p class="main-content-text">
-						[Product Intro]
-					</p>
-					<div id="single-product-accordion">
-						<h3>在地小農</h3>
-						<p>
-
-						</p>
-						<h3>愛心協力</h3>
-						<p>
-
-						</p>
-					</div>
+					<p class="main-content-text">{ingredients}</p>
+					<p class="main-content-text">{skin_type}</p>
+					<div id="single-product-accordion"></div>
 					<hr class="text-sep-sm">
 					<div id="single-product-purchase">
-						<h2 id="single-product-price">[Price]</h2>
+						<h2 id="single-product-price">{price}</h2>
 						<label for="purchase-amount">數量：</label>
 						<input id="purchase-amount" class="form-field" type="number" name="ORDAMT" value="1" min="1">
-						<a class="submit-btn" href="#">
-							加入購物車
-						</a>
+						<a class="submit-btn" href="#">加入購物車</a>
 					</div>
 				</div>
 			</div>
