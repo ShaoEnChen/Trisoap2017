@@ -193,8 +193,8 @@ function fetch_products($route, $page) {
 	$page_html = str_get_html($page);
 	$container = $page_html -> find('#products', 0);
 	$container -> innertext = $products;
-	$page_html = $page_html -> save();	// return string type
-	return $page_html;
+	$page = $page_html -> save();	// return string type
+	return $page;
 }
 
 function fetch_single_product($route, $page) {
@@ -202,11 +202,25 @@ function fetch_single_product($route, $page) {
 	if(!isset($_GET['itemno']))	return;
 	$itemno = $_GET['itemno'];
 	$json_dir = 'resource/json/product/' . $itemno . '.json';
+
+	// Set info directly
 	$placeholder = ['{name}', '{intro}', '{ingredients}', '{skin_type}', '{feature}', '{price}'];
 	$product_contents = fetch_json_content($placeholder, $json_dir);
 	$page = str_replace($placeholder, $product_contents, $page);
 
-	// Set accordion
+	// Set #single-product-carousel
+	$placeholder = ['{gallery}'];
+	$gallery_dirs = fetch_json_content($placeholder, $json_dir)[0];
+	$image_template_dir = 'view/component/single_product/gallery_image.html';
+	$images = '';
+	foreach ($gallery_dirs as $value) {
+		$image_template = file_get_contents($image_template_dir);
+		$image_template = str_replace('{src}', $value, $image_template);
+		$images .= $image_template;
+	}
+	$page = str_replace($placeholder, $images, $page);
+
+	// Set #single-product-desc accordion
 	$placeholder = ['{feature}', '{peasant_farmer}', '{supporting_organization}'];
 	$templates_dir = ['view/component/single_product/feature.html', 'view/component/single_product/peasant_farmer.html', 'view/component/single_product/supporting_organization.html'];
 	$product_contents = fetch_json_content($placeholder, $json_dir);
@@ -240,8 +254,8 @@ function fetch_single_product($route, $page) {
 	$page_html = str_get_html($page);
 	$container = $page_html -> find('#single-product-accordion', 0);
 	$container -> innertext = $accordion;
-	$page_html = $page_html -> save();	// return string type
-	return $page_html;
+	$page = $page_html -> save();	// return string type
+	return $page;
 }
 
 function include_view_footer($route) {
