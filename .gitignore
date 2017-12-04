@@ -2,3 +2,4 @@
 *.sql
 resource/database.php
 resource/.sass-cache/*
+view_back/
