@@ -72,11 +72,11 @@ function include_view_nav($authority) {
 	$nav_content = file_get_contents($nav_dir);
 
 	// Admin
-	if ($authority == 'A') {
+	if ($authority === 'A') {
 		$nav_auth_dir = 'view/component/nav/login_admin.html';
 	}
 	// Member
-	elseif ($authority == 'B') {
+	elseif ($authority === 'B') {
 		$nav_auth_dir = 'view/component/nav/login_member.html';
 	}
 	// Anonymous
