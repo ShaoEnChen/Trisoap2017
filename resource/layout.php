@@ -1,30 +1,47 @@
 <?php
 
 function check_dependency_head($route) {
-	$require_flexslider = ['index', 'trial', 'single_product'];
-	$require_jquery_ui = ['faq', 'partner', 'single_product'];
+	check_dependency_head_jquery_ui($route);
+	check_dependency_head_flexslider($route);
+}
 
+function check_dependency_head_flexslider($route) {
+	$require_flexslider = ['index', 'trial', 'single_product'];
 	if(in_array($route, $require_flexslider)){
 		echo '		<link href="resource/flexslider/flexslider.min.css" rel="stylesheet">';
 	}
+}
 
+function check_dependency_head_jquery_ui($route) {
+	$require_jquery_ui = ['faq', 'partner', 'single_product'];
 	if(in_array($route, $require_jquery_ui)){
 		echo '		<link href="resource/js/jquery-ui-accordion/jquery-ui.min.css" rel="stylesheet">';
 	}
 }
 
 function check_dependency_body($route) {
-	$require_flexslider = ['index', 'trial', 'single_product'];
-	$require_jquery_ui = ['faq', 'partner', 'single_product'];
-	$require_map_api = ['contact'];
+	check_dependency_body_flexslider($route);
+	check_dependency_body_jquery_ui($route);
+	check_dependency_body_map_api($route);
+}
 
-	if(in_array($route, $require_flexslider)){
+function check_dependency_body_flexslider($route) {
+	$require_flexslider = ['index', 'trial', 'single_product'];
+	if( in_array($route, $require_flexslider) ){
 		echo '		<script src="resource/flexslider/jquery.flexslider-min.js" defer></script>';
 	}
-	if(in_array($route, $require_jquery_ui)){
+}
+
+function check_dependency_body_jquery_ui($route) {
+	$require_jquery_ui = ['faq', 'partner', 'single_product'];
+	if( in_array($route, $require_jquery_ui) ){
 		echo '		<script src="resource/js/jquery-ui-accordion/jquery-ui.min.js" defer></script>';
 	}
-	if(in_array($route, $require_map_api)){
+}
+
+function check_dependency_body_map_api($route) {
+	$require_map_api = ['contact'];
+	if( in_array($route, $require_map_api) ){
 		echo '		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBqLzZouUqN1dWEVR9_75YO6bXL5OuhcRs"></script>';
 		echo '		<script src="resource/js/contact-map.js" defer></script>';
 	}
