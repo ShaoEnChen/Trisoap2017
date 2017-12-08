@@ -202,7 +202,7 @@ CREATE TABLE `OWNMAS` (
 --
 
 INSERT INTO `OWNMAS` (`COMNM`, `COMADD`, `COMTEL`, `COMEMAIL`, `COMWEB`, `COMTAXID`, `NORDNO`, `NMSGNO`) VALUES
-('Trisoap', '台東縣台東市鐵花路86巷2號', '0952527077', 'service@trisoap.com', 'https://www.trisoap.com', '43864595', 100000001, 100001);
+('Trisoap', '台東縣台東市鐵花路86巷2號', '0952527077', 'service@trisoap.com.tw', 'https://www.trisoap.com.tw', '43864595', 100000001, 100001);
 
 --
 -- 已匯出資料表的索引
