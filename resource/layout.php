@@ -100,6 +100,11 @@ function include_view_jumbotron($route) {
 }
 
 function include_view_image_jumbotron($route) {
+	$has_jumbotron = ['about', 'brand_intro', 'contact', 'faq', 'index', 'media', 'partner', 'shopping_guide', 'single_product', 'soap', 'soapstring', 'trial'];
+	if(!in_array($route, $has_jumbotron)) {
+		return;
+	}
+
 	// Get img jumbotron with background image
 	$header_start_dir = 'view/component/jumbotron/img_jumbotron.html';
 	$header_start_content = file_get_contents($header_start_dir);

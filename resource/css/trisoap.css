@@ -493,6 +493,7 @@ header {
  * 8. 聯絡我們｜Contact
  * 9. 購物須知｜Shopping Guide
  * 10. 單品 / 旅用皂絲｜Soap / Soapstring
+ * 11. 客製化專區｜Customize
  * =========================================================================
  */
 /* -------------------------------------------------------------------------
@@ -683,18 +684,13 @@ a.no-href {
 @media screen and (min-width: 980px) {
   .buy-now-wrap {
     display: grid;
-    grid-template-columns: 8% 15px auto 30px auto 15px 8%;
+    grid-template-columns: 16% auto 16%;
     grid-template-rows: 90px auto 90px;
     align-items: center;
   }
 
   .buy-now:first-child {
-    grid-column: 3 / 4;
-    grid-row: 2 / 3;
-  }
-
-  .buy-now:last-child {
-    grid-column: 5 / 6;
+    grid-column: 2 / 3;
     grid-row: 2 / 3;
   }
 }
@@ -1318,4 +1314,19 @@ label[for="purchase-amount"] {
 #purchase-amount {
   min-width: 66px;
   max-width: 120px;
+}
+
+/* -------------------------------------------------------------------------
+ * 8. 聯絡我們｜Contact
+ * -------------------------------------------------------------------------
+ */
+#customize-wrap {
+  width: 100%;
+  margin-top: 60px;
+}
+
+#customize-content-img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
