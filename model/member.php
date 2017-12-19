@@ -6,8 +6,8 @@ include_once("../library/mail.php");
 
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 	if ($_GET['module'] == 'member') {
-		if ($_GET['event'] == 'login') {
-			$message = login($_GET['account'], $_GET['password']);
+		if ($_GET['event'] == 'signin') {
+			$message = signin($_GET['account'], $_GET['password']);
 			if (is_array($message)) {
 				echo json_encode(array('message' => $message['message'], 'token' => $message['token'], 'identity' => $message['identity']));
 				return;
@@ -22,8 +22,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 			echo json_encode(array('message' => $message));
 			return;
 		}
-		elseif ($_GET['event'] == 'logon') {
-			$message = logon($_GET['account'], $_GET['name'], $_GET['password1'], $_GET['password2'], $_GET['address'], $_GET['skintype'], $_GET['birth'], $_GET['phone'], $_GET['add'], $_GET['taxid'], $_GET['knowtype'], $_GET['notice']);
+		elseif ($_GET['event'] == 'signup') {
+			$message = signup($_GET['account'], $_GET['name'], $_GET['password1'], $_GET['password2'], $_GET['address'], $_GET['skintype'], $_GET['birth'], $_GET['phone'], $_GET['add'], $_GET['taxid'], $_GET['knowtype'], $_GET['notice']);
 			echo json_encode(array('message' => $message));
 			return;
 		}
@@ -99,8 +99,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
 elseif ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	if ($_POST['module'] == 'member') {
-		if ($_POST['event'] == 'login') {
-			$message = login($_POST['account'], $_POST['password']);
+		if ($_POST['event'] == 'signin') {
+			$message = signin($_POST['account'], $_POST['password']);
 			if (is_array($message)) {
 				echo json_encode(array('message' => $message['message'], 'token' => $message['token'], 'identity' => $message['identity']));
 				return;
@@ -115,8 +115,8 @@ elseif ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			echo json_encode(array('message' => $message));
 			return;
 		}
-		elseif ($_POST['event'] == 'logon') {
-			$message = logon($_POST['account'], $_POST['name'], $_POST['password1'], $_POST['password2'], $_POST['skintype'], $_POST['birth'], $_POST['phone'], $_POST['add'], $_POST['taxid'], $_POST['knowtype'], $_POST['notice']);
+		elseif ($_POST['event'] == 'signup') {
+			$message = signup($_POST['account'], $_POST['name'], $_POST['password1'], $_POST['password2'], $_POST['skintype'], $_POST['birth'], $_POST['phone'], $_POST['add'], $_POST['taxid'], $_POST['knowtype'], $_POST['notice']);
 			echo json_encode(array('message' => $message));
 			return;
 		}
@@ -195,7 +195,7 @@ else {
 	return;
 }
 
-function login($account, $password) {
+function signin($account, $password) {
 	$sql1 = mysql_query("SELECT * FROM CUSMAS WHERE EMAIL='$account'");
 	$fetch1 = mysql_fetch_array($sql1);
 	if (empty($account)) {
@@ -252,7 +252,7 @@ function logout($account, $token) {
 	}
 }
 
-function logon($account, $name, $password1, $password2, $skintype, $birth, $phone, $add=null, $taxid=null, $knowtype, $notice=null) {
+function signup($account, $name, $password1, $password2, $skintype, $birth, $phone, $add=null, $taxid=null, $knowtype, $notice=null) {
 	$sql1 = mysql_query("SELECT * FROM CUSMAS WHERE EMAIL='$account'");
 	$explode = explode('-', $birth);
 	if (empty($account)) {

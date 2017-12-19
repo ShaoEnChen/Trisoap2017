@@ -4,7 +4,7 @@
 discount.php
 
 function create($account, $token, $name, $price, $mode)
-	
+
 	param (string)$account -- User's email
 	param (string)$token -- User's token
 	param (string)$name -- Discount's name
@@ -18,7 +18,7 @@ function create($account, $token, $name, $price, $mode)
 --------------------------------------------------------------------------------
 
 function delete($account, $token, $index)
-	
+
 	param (string)$account -- User's email
 	param (string)$token -- User's token
 	param (string)$index -- Discount's index
@@ -69,7 +69,7 @@ function view($account, $token)
 item.php
 
 function create($account, $token, $index, $name, $amount=0, $price, $description=null)
-	
+
 	param (string)$account -- User's email
 	param (string)$token -- User's token
 	param (string)$index -- Item's index
@@ -85,7 +85,7 @@ function create($account, $token, $index, $name, $amount=0, $price, $description
 --------------------------------------------------------------------------------
 
 function edit($account, $token, $index, $name, $price, $description=null)
-	
+
 	param (string)$account -- User's email
 	param (string)$token -- User's token
 	param (string)$index -- Item's index
@@ -100,7 +100,7 @@ function edit($account, $token, $index, $name, $price, $description=null)
 --------------------------------------------------------------------------------
 
 function onshelf($account, $token, $index)
-	
+
 	param (string)$account -- User's email
 	param (string)$token -- User's token
 	param (string)$index -- Item's index
@@ -112,7 +112,7 @@ function onshelf($account, $token, $index)
 --------------------------------------------------------------------------------
 
 function offshelf($account, $token, $index)
-	
+
 	param (string)$account -- User's email
 	param (string)$token -- User's token
 	param (string)$index -- Item's index
@@ -124,7 +124,7 @@ function offshelf($account, $token, $index)
 --------------------------------------------------------------------------------
 
 function replenish($account, $token, $index, $amount=0)
-	
+
 	param (string)$account -- User's email
 	param (string)$token -- User's token
 	param (string)$index -- Item's index
@@ -137,7 +137,7 @@ function replenish($account, $token, $index, $amount=0)
 --------------------------------------------------------------------------------
 
 function sell($account, $token, $index, $amount=0)
-	
+
 	param (string)$account -- User's email
 	param (string)$token -- User's token
 	param (string)$index -- Item's index
@@ -150,7 +150,7 @@ function sell($account, $token, $index, $amount=0)
 --------------------------------------------------------------------------------
 
 function view($account, $token)
-	
+
 	param (string)$account -- User's email
 	param (string)$token -- User's token
 
@@ -192,7 +192,7 @@ function view($account, $token)
 	param (string)$account -- User's email
 	param (string)$token -- User's token
 
-	return 
+	return
 		1. Success -> (array('message' => (string)'Success', 'EMAIL' => (array(string)), 'CUSNM' => (array(string)), 'TEL' => (array(string)), 'UPDATEDATE' => (array(datetime))))
 		2. Fail -> (string)
 
@@ -201,12 +201,12 @@ function view($account, $token)
 ================================================================================
 member.php
 
-function login($account, $password)
+function signin($account, $password)
 
 	param (string)$account -- User's email
 	param (string)$password -- User's password
 
-	return 
+	return
 		1. Success -> (array('message' => (string)'Success', 'token' => (string), 'identity' => (string)))
 		2. Fail -> (string)
 
@@ -216,7 +216,7 @@ function logout($account)
 
 	param (string)$account -- User's email
 
-	return 
+	return
 		1. Success -> (string)'Success'
 		2. Fail -> (string)
 
@@ -237,7 +237,7 @@ function register($account, $name, $password1, $password2, $address, $skintype, 
 	param (string)$notice -- User's notice
 	param (bool)$privacy -- Whether user checked the privacy policy
 
-	return 
+	return
 		1. Success -> (string)'Success'
 		2. Fail -> (string)
 
@@ -248,7 +248,7 @@ function verify($account, $verify)
 	param (string)$account -- User's email
 	param (string)$verify -- User's verification code
 
-	return 
+	return
 		1. Success -> (string)'Success'
 		2. Fail -> (string)
 
@@ -265,7 +265,7 @@ function edit($account, $token, $name, $address, $skintype, $phone, $taxid=null,
 	param (string)$taxid -- User's taxid
 	param (string)$notice -- User's notice
 
-	return 
+	return
 		1. Success -> (string)'Success'
 		2. Fail -> (string)
 
@@ -279,7 +279,7 @@ function change_password($account, $token, $ori_password, $new_password1, $new_p
 	param (string)$new_password1 -- User's new password
 	param (string)$new_password2 -- User's checking new password
 
-	return 
+	return
 		1. Success -> (string)'Success'
 		2. Fail -> (string)
 
@@ -289,7 +289,7 @@ function reset_password($account)
 
 	param (string)$account -- User's email
 
-	return 
+	return
 		1. Success -> (string)'Success'
 		2. Fail -> (string)
 
@@ -302,7 +302,7 @@ function search($account, $token, $key, $value)
 	param (string)$key -- Search key
 	param (string)$value -- Key value
 
-	return 
+	return
 		1. Success -> (array('message' => (string)'Success', 'EMAIL' => (array(string)), 'CUSNM' => (array(string)), 'CUSADD' => (array(string)), 'CUSBIRTH' => (array(string)), 'COUNTRY' => (array(string)), 'ZCODE' => (array(string)), 'TEL' => (array(string)), 'CUSTYPE' => (array(string)), 'KNOWTYPE' => (array(string)), 'TAXID' => (array(string)), 'DISCOUNT' => (array(string)), 'SALEAMTMTD' => (array(string)), 'SALEAMTSTD' => (array(string)), 'SALEAMTYTD' => (array(string)), 'SALEAMT' => (array(string)), 'SPEINS' => (array(string)), 'CREATEDATE' => (array(datetime)), 'UPDATEDATE' => (array(datetime))))
 		2. Fail -> (string)
 
@@ -313,7 +313,7 @@ function view($account, $token)
 	param (string)$account -- User's email
 	param (string)$token -- User's token
 
-	return 
+	return
 		1. Success -> (array('message' => (string)'Success', 'EMAIL' => (array(string)), 'CUSNM' => (array(string)), 'CUSADD' => (array(string)), 'CUSBIRTH' => (array(string)), 'COUNTRY' => (array(string)), 'ZCODE' => (array(string)), 'TEL' => (array(string)), 'CUSTYPE' => (array(string)), 'KNOWTYPE' => (array(string)), 'TAXID' => (array(string)), 'DISCOUNT' => (array(string)), 'SALEAMTMTD' => (array(string)), 'SALEAMTSTD' => (array(string)), 'SALEAMTYTD' => (array(string)), 'SALEAMT' => (array(string)), 'SPEINS' => (array(string)), 'CREATEDATE' => (array(datetime)), 'UPDATEDATE' => (array(datetime))))
 		2. Fail -> (string)
 
@@ -330,7 +330,7 @@ function create($account, $token, $text, $picture, $video)
 	param (file)$picture -- Message picture
 	param (file)$video -- Message's video
 
-	return 
+	return
 		1. Success -> (string)'Success'
 		2. Fail -> (string)
 
@@ -342,7 +342,7 @@ function pass($account, $token, $index)
 	param (string)$token -- User's token
 	param (string)$index -- Message's index
 
-	return 
+	return
 		1. Success -> (string)'Success'
 		2. Fail -> (string)
 
@@ -354,7 +354,7 @@ function reject($account, $token, $index)
 	param (string)$token -- User's token
 	param (string)$index -- Message's index
 
-	return 
+	return
 		1. Success -> (string)'Success'
 		2. Fail -> (string)
 
@@ -366,7 +366,7 @@ function publish($account, $token, $index)
 	param (string)$token -- User's token
 	param (string)$index -- Message's index
 
-	return 
+	return
 		1. Success -> (string)'Success'
 		2. Fail -> (string)
 
@@ -378,7 +378,7 @@ function save($account, $token, $index)
 	param (string)$token -- User's token
 	param (string)$index -- Message's index
 
-	return 
+	return
 		1. Success -> (string)'Success'
 		2. Fail -> (string)
 
@@ -390,7 +390,7 @@ function delete($account, $token, $index)
 	param (string)$token -- User's token
 	param (string)$index -- Message's index
 
-	return 
+	return
 		1. Success -> (string)'Success'
 		2. Fail -> (string)
 
@@ -402,7 +402,7 @@ function search($account, $token, $index)
 	param (string)$token -- User's token
 	param (string)$index -- Message's index
 
-	return 
+	return
 		1. Success -> (array('message' => (string)'Success', 'MSGNO' => (string), 'EMAIL' => (string), 'MSGTXT' => (string), 'MSGPHOTO' => (string), 'MSGVIDEO' => (string), 'MSGSTAT' => (string), 'REWARDSTAT' => (string), 'CREATEDATE' => (datetime), 'PUBLICDATE' => (datetime)))
 		2. Fail -> (string)
 
@@ -414,7 +414,7 @@ function view($account, $token, $state='A')
 	param (string)$token -- User's token
 	param (string)$state -- Message's state
 
-	return 
+	return
 		1. Success -> (array('message' => (string)'Success', 'MSGNO' => (array(string)), 'EMAIL' => (array(string)), 'MSGTXT' => (array(string)), 'MSGPHOTO' => (array(string)), 'MSGVIDEO' => (array(string)), 'MSGSTAT' => (array(string)), 'REWARDSTAT' => (array(string)), 'CREATEDATE' => (array(datetime)), 'PUBLICDATE' => (array(datetime))))
 		2. Fail -> (string)
 
@@ -432,7 +432,7 @@ function create($account, $token, $address, $discount, $notice, $paytype)
 	param (string)$notice -- User's notice
 	param (string)$paytype -- User's paytype
 
-	return 
+	return
 		1. Success -> (array('message' => (string)'Success', 'ORDNO' => (string)))
 		2. Fail -> (string)
 
@@ -444,7 +444,7 @@ function active($account, $token, $index)
 	param (string)$token -- User's token
 	param (string)$index -- Order's index
 
-	return 
+	return
 		1. Success -> (string)'Success'
 		2. Fail -> (string)
 
@@ -456,7 +456,7 @@ function complete($account, $token, $index)
 	param (string)$token -- User's token
 	param (string)$index -- Order's index
 
-	return 
+	return
 		1. Success -> (string)'Success'
 		2. Fail -> (string)
 
@@ -468,7 +468,7 @@ function close($account, $token, $index)
 	param (string)$token -- User's token
 	param (string)$index -- Order's index
 
-	return 
+	return
 		1. Success -> (string)'Success'
 		2. Fail -> (string)
 
@@ -480,7 +480,7 @@ function search($account, $token, $index)
 	param (string)$token -- User's token
 	param (string)$index -- Order's index
 
-	return 
+	return
 		1. Success -> (array('message' => (string)'Success', 'ORDNO' => (string), 'EMAIL' => (string), 'ITEMNO' => (array(string)), 'ITEMNM' => (array(string)), 'ITEMAMT' => (array(string)), 'ITEMPRICE' => (array(string)), 'INVOICENO' => (string), 'BACKSTAT' => (string), 'ORDSTAT' => (string), 'PAYTYPE' => (string), 'ORDINST' => (string), 'TOTALAMT' => (string), 'UPDATEDATE' => (datetime)))
 		2. Fail -> (string)
 
@@ -492,7 +492,7 @@ function view($account, $token, $state='E')
 	param (string)$token -- User's token
 	param (string)$state -- Order's state
 
-	return 
+	return
 		1. Success -> (array('message' => (string)'Success', 'ORDNO' => (array(string)), 'EMAIL' => (array(string)), 'INVOICENO' => (array(string)), 'BACKSTAT' => (array(string)), 'ORDSTAT' => (array(string)), 'PAYTYPE' => (array(string)), 'ORDINST' => (array(string)), 'TOTALAMT' => (array(string)), 'UPDATEDATE' => (array(datetime))))
 		2. Fail -> (string)
 
@@ -508,7 +508,7 @@ function create($account, $token, $index, $amount)
 	param (string)$index -- Item's index
 	param (string)$amount -- Item's amount
 
-	return 
+	return
 		1. Success -> (string)'Success'
 		2. Fail -> (string)
 
@@ -521,7 +521,7 @@ function edit($account, $token, $index, $amount)
 	param (string)$index -- Item's index
 	param (string)$amount -- Item's amount
 
-	return 
+	return
 		1. Success -> (string)'Success'
 		2. Fail -> (string)
 
@@ -533,7 +533,7 @@ function delete($account, $token, $index)
 	param (string)$token -- User's token
 	param (string)$index -- Item's index
 
-	return 
+	return
 		1. Success -> (string)'Success'
 		2. Fail -> (string)
 
@@ -544,7 +544,7 @@ function search($account, $token)
 	param (string)$account -- User's email
 	param (string)$token -- User's token
 
-	return 
+	return
 		1. Success -> (array('message' => (string)'Success', 'item' => (array(string)), 'amount' => (array(string))))
 		2. Fail -> (string)
 

@@ -124,7 +124,7 @@ function orderitemCreate(index) {
 			}
 			else if (data.message == '請先註冊或登入') {
 				alert(data.message);
-				location.assign("index.php?route=member&in=login");
+				location.assign("index.php?route=member&in=signin");
 			}
 			else {
 				alert(data.message);
@@ -554,12 +554,12 @@ function messageSearch() {
 	}
 }
 
-function memberLogin() {
+function memberSignin() {
 	var request = new XMLHttpRequest();
 	request.open("POST", "index.php");
 	var account = document.getElementById("account").value;
 	var password = document.getElementById("password").value;
-	var data = "module=member&event=login&account=" + account + "&password=" + password;
+	var data = "module=member&event=signin&account=" + account + "&password=" + password;
 	request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 	request.send(data);
 	request.onreadystatechange = function() {
@@ -598,7 +598,7 @@ function memberLogout() {
 	}
 }
 
-function memberLogon() {
+function memberSignup() {
 	var request = new XMLHttpRequest();
 	request.open("POST", "index.php");
 	var account = document.getElementById("account").value;
@@ -612,7 +612,7 @@ function memberLogon() {
 	var taxid = document.getElementById("taxid").value;
 	var knowtype = document.getElementById("knowtype").value;
 	var notice = document.getElementById("notice").value;
-	var data = "module=member&event=logon&account=" + account + "&name=" + name + "&password1=" + password1 + "&password2=" + password2 + "&skintype=" + skintype + "&birth=" + birth + "&phone=" + phone + "&add=" + add + "&taxid=" + taxid + "&knowtype=" + knowtype + "&notice=" + notice;
+	var data = "module=member&event=signup&account=" + account + "&name=" + name + "&password1=" + password1 + "&password2=" + password2 + "&skintype=" + skintype + "&birth=" + birth + "&phone=" + phone + "&add=" + add + "&taxid=" + taxid + "&knowtype=" + knowtype + "&notice=" + notice;
 	request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 	request.send(data);
 	request.onreadystatechange = function() {
@@ -710,7 +710,7 @@ function memberResetPassword() {
 			var data = JSON.parse(request.responseText);
 			if (data.message == 'Success') {
 				alert("新密碼已寄至您的信箱，請前往確認。");
-				location.assign("index.php?route=member&in=login");
+				location.assign("index.php?route=member&in=signin");
 			}
 			else {
 				alert(data.message);

@@ -4,23 +4,23 @@ if (isset($_GET['in']) || isset($_POST['in'])) {
 	$in = isset($_GET['in']) ? $_GET['in'] : $_POST['in'];
 	if ($in == 'apply') {
 		if (isset($_COOKIE['account'])) {
-			include_once("view/discountApply.html");
+			include_once("view/function/discountApply.html");
 		}
 	}
 	elseif ($in == 'create') {
 		if (isset($_COOKIE['account']) && isset($_COOKIE['identity']) && $_COOKIE['identity'] == 'A') {
-			include_once("view/discountCreate.html");
+			include_once("view/function/discountCreate.html");
 		}
 	}
 	elseif ($in == 'delete') {
 		if (isset($_COOKIE['account']) && isset($_COOKIE['identity']) && $_COOKIE['identity'] == 'A') {
-			include_once("view/discountDelete.html");
+			include_once("view/function/discountDelete.html");
 		}
 	}
 	elseif ($in == 'state0') {
 		if (isset($_COOKIE['account']) && isset($_COOKIE['identity']) && $_COOKIE['identity'] == 'A') {
-			$myfile = fopen("view/discountState0.html", "r");
-			$content = fread($myfile, filesize("view/discountState0.html"));
+			$myfile = fopen("view/function/discountState0.html", "r");
+			$content = fread($myfile, filesize("view/function/discountState0.html"));
 			fclose($myfile);
 			$view = curl_post(array('module' => 'discount', 'event' => 'view', 'state' => '0', 'account' => $_COOKIE['account'], 'token' => $_COOKIE['token']), 'discount');
 			$content = str_replace('[discountView0]', $view, $content);

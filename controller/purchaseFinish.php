@@ -1,7 +1,7 @@
 <?php
 
 if (isset($_COOKIE['account'])) {
-	include_once("view/purchaseFinish.html");
+	include_once("view/function/purchaseFinish.html");
 }
 
 else {

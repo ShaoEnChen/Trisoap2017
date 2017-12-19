@@ -4,27 +4,27 @@ if (isset($_GET['in']) || isset($_POST['in'])) {
 	$in = isset($_GET['in']) ? $_GET['in'] : $_POST['in'];
 	if ($in == 'create') {
 		if (isset($_COOKIE['account']) && isset($_COOKIE['identity']) && $_COOKIE['identity'] == 'A') {
-			include_once("view/itemCreate.html");
+			include_once("view/function/itemCreate.html");
 		}
 	}
 	elseif ($in == 'edit') {
 		if (isset($_COOKIE['account']) && isset($_COOKIE['identity']) && $_COOKIE['identity'] == 'A') {
-			include_once("view/itemEdit.html");
+			include_once("view/function/itemEdit.html");
 		}
 	}
 	elseif ($in == 'offshelf') {
 		if (isset($_COOKIE['account']) && isset($_COOKIE['identity']) && $_COOKIE['identity'] == 'A') {
-			include_once("view/itemOffshelf.html");
+			include_once("view/function/itemOffshelf.html");
 		}
 	}
 	elseif ($in == 'onshelf') {
 		if (isset($_COOKIE['account']) && isset($_COOKIE['identity']) && $_COOKIE['identity'] == 'A') {
-			include_once("view/itemOnshelf.html");
+			include_once("view/function/itemOnshelf.html");
 		}
 	}
 	elseif ($in == 'replenish') {
 		if (isset($_COOKIE['account']) && isset($_COOKIE['identity']) && $_COOKIE['identity'] == 'A') {
-			include_once("view/itemReplenish.html");
+			include_once("view/function/itemReplenish.html");
 		}
 	}
 	elseif ($in == 'sell') {

@@ -243,11 +243,9 @@ function query_memberName($email) {
 
 function callView($route, $authority = null) {
 	include_once('layout.php');
-
 	include_view_head($route);
 	include_view_nav($authority);
 	include_view_jumbotron($route);
 	include_view_content($route);
 	include_view_footer($route);
-	// return true;
 }

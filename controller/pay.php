@@ -3,19 +3,19 @@
 if (isset($_GET['order']) || isset($_POST['order'])) {
 	$order = isset($_GET['order']) ? $_GET['order'] : $_POST['order'];
 	if (isset($_COOKIE['account']) && isset($_COOKIE['token'])) {
-		$myfile = fopen("view/pay.html", "r");
-		$content = fread($myfile, filesize("view/pay.html"));
+		$myfile = fopen("view/function/pay.html", "r");
+		$content = fread($myfile, filesize("view/function/pay.html"));
 		fclose($myfile);
 		$operate = curl_post(array('module' => 'orderitem', 'event' => 'orderitemOperate', 'order' => $order, 'account' => $_COOKIE['account'], 'token' => $_COOKIE['token']), 'orderitem');
 		if (empty($operate)) {
-			$myfile = fopen("view/pay_empty.html", "r");
-			$innerContent = fread($myfile, filesize("view/pay_empty.html"));
+			$myfile = fopen("view/function/pay_empty.html", "r");
+			$innerContent = fread($myfile, filesize("view/function/pay_empty.html"));
 			fclose($myfile);
 			$content = str_replace('[payContent]', $innerContent, $content);
 		}
 		else {
-			$myfile = fopen("view/pay_content.html", "r");
-			$innerContent = fread($myfile, filesize("view/pay_content.html"));
+			$myfile = fopen("view/function/pay_content.html", "r");
+			$innerContent = fread($myfile, filesize("view/function/pay_content.html"));
 			fclose($myfile);
 			$content = str_replace('[payContent]', $innerContent, $content);
 			$content = str_replace('[payOperate]', $operate, $content);
