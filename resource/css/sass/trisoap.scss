@@ -313,7 +313,7 @@ header {
 
 /* 1.2. Jumbotron - Img */
 
-$jumbotron-list: "about", "brand_intro", "contact", "faq", "heart_message", "media", "partner", "shopping_guide", "single_product", "soap", "soapstring", "trial";
+$jumbotron-list: "about", "brand_intro", "contact", "faq", "media", "partner", "shopping_guide", "single_product", "soap", "soapstring", "trial";
 
 @each $item in $jumbotron-list {
 	#jumbotron-#{$item} {
@@ -504,7 +504,6 @@ $footer-line-height: 1.7;
  * 8. 聯絡我們｜Contact
  * 9. 購物須知｜Shopping Guide
  * 10. 單品 / 旅用皂絲｜Soap / Soapstring
- * 11. 希望留心語｜Heart Message
  * =========================================================================
  */
 
@@ -1413,10 +1412,3 @@ label[for="purchase-amount"] {
 	min-width: 66px;
 	max-width: 120px;
 }
-
-/* -------------------------------------------------------------------------
- * 11. 希望留心語｜Heart Message
- * -------------------------------------------------------------------------
- */
-
-/* Completed by shared properties */

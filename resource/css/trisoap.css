@@ -285,10 +285,6 @@ header {
   background-image: url(../img/jumbotrons/faq.jpg);
 }
 
-#jumbotron-heart_message {
-  background-image: url(../img/jumbotrons/heart_message.jpg);
-}
-
 #jumbotron-media {
   background-image: url(../img/jumbotrons/media.jpg);
 }
@@ -497,7 +493,6 @@ header {
  * 8. 聯絡我們｜Contact
  * 9. 購物須知｜Shopping Guide
  * 10. 單品 / 旅用皂絲｜Soap / Soapstring
- * 11. 希望留心語｜Heart Message
  * =========================================================================
  */
 /* -------------------------------------------------------------------------
@@ -1324,9 +1319,3 @@ label[for="purchase-amount"] {
   min-width: 66px;
   max-width: 120px;
 }
-
-/* -------------------------------------------------------------------------
- * 11. 希望留心語｜Heart Message
- * -------------------------------------------------------------------------
- */
-/* Completed by shared properties */
