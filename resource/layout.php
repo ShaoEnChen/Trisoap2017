@@ -60,14 +60,40 @@ function replace_company_info($content) {
 	return $content;
 }
 
+function fetch_json($criteria, $json_dir) {
+	$json_str = file_get_contents($json_dir);
+	$json = json_decode($json_str, true);
+	$info = [];
+	foreach ($criteria as $key) {
+		$key = str_replace(['{', '}'], '', $key);
+		$value = $json[$key];
+		array_push($info, $value);
+	}
+	return $info;
+}
+
 function include_view_head($route) {
-	require('view/head.html');
+	$head_dir = 'view/head.html';
+	$head_content = file_get_contents($head_dir);
+	$placeholder = ['{title}', '{description}'];
+
+	if($route === 'single_product' && isset($_GET['itemno'])) {
+		$json_dir = 'resource/json/product/' . $_GET['itemno'] . '.json';
+		$product_attr = ['name', 'intro'];
+		$page_info = fetch_json($product_attr, $json_dir);
+	}
+	else {
+		$json_dir = 'resource/json/page_info/' . $route . '.json';
+		$page_info = fetch_json($placeholder, $json_dir);
+	}
+	$head_content = str_replace($placeholder, $page_info, $head_content);
+	echo $head_content;
+
 	check_dependency_head($route);
 	require('view/head_finish.html');
 }
 
 function include_view_nav($authority) {
-	// Get Nav content, find '{login_status}' and replace with proper function links
 	$nav_dir = 'view/nav.html';
 	$nav_content = file_get_contents($nav_dir);
 
@@ -111,19 +137,22 @@ function include_view_image_jumbotron($route) {
 	$header_start_content = str_replace('{route}', $route, $header_start_content);
 	echo $header_start_content;
 
-	list($title, $subtitle, $btn) = get_img_jumbotron_content($route);
+	$json_dir = 'resource/json/page_info/' . $route . '.json';
+	$criteria = ['title', 'subtitle', 'btn'];
+	list($title, $subtitle, $btn) = fetch_json($criteria, $json_dir);
 
 	if(!is_null($title)) {
 		// Get jumbotron title
 		$title_dir = 'view/component/jumbotron/title.html';
 		$title_content = file_get_contents($title_dir);
-		if(is_null($subtitle) && is_null($btn)) {
-			// change class name
-			$title_content = str_replace('jumbotron-title', 'jumbotron-only-title', $title_content);
-		}
 		$title_content = str_replace('{route_title}', $title, $title_content);
-		echo $title_content;
 	}
+	if(is_null($subtitle) && is_null($btn)) {
+		// change class name
+		$title_content = str_replace('jumbotron-title', 'jumbotron-only-title', $title_content);
+	}
+	echo $title_content;
+
 	if(!is_null($subtitle)) {
 		// Get jumbotron subtitle if $route has subtitle
 		$subtitle_dir = 'view/component/jumbotron/subtitle.html';
@@ -139,16 +168,6 @@ function include_view_image_jumbotron($route) {
 		$btn_content = str_replace('{route_btn_text}', $btn["text"], $btn_content);
 		echo $btn_content;
 	}
-}
-
-function get_img_jumbotron_content($route) {
-	$content_json_dir = 'resource/json/jumbotron/' . $route . '.json';
-	$content = file_get_contents($content_json_dir);
-	$content_json = json_decode($content, true);
-	$title = $content_json["title"];
-	$subtitle = $content_json["subtitle"];
-	$btn = $content_json["btn"];	// contain btn-link & btn-text if not null
-	return array($title, $subtitle, $btn);
 }
 
 function include_view_content($route) {
@@ -175,18 +194,6 @@ function include_view_content($route) {
 	echo $content;
 }
 
-function fetch_json_content($criteria, $json_dir) {
-	$json_str = file_get_contents($json_dir);
-	$json = json_decode($json_str, true);
-	$contents = [];
-	foreach ($criteria as $key) {
-		$key = str_replace(['{', '}'], '', $key);
-		$value = $json[$key];
-		array_push($contents, $value);
-	}
-	return $contents;
-}
-
 function fetch_products($route, $page) {
 	// Check route & set json prefix in resource/json/product/
 	switch ($route) {
@@ -205,9 +212,9 @@ function fetch_products($route, $page) {
 	$products_dir = 'resource/json/product/';
 	foreach (glob($products_dir . $item_type_prefix . '*.json') as $json_dir) {
 		$placeholder = ['{item_no}', '{name}', '{intro}', '{cover_photo}'];
-		$product_contents = fetch_json_content($placeholder, $json_dir);
+		$product_info = fetch_json($placeholder, $json_dir);
 		$product = $product_template;
-		$product = str_replace($placeholder, $product_contents, $product);
+		$product = str_replace($placeholder, $product_info, $product);
 		$products .= $product;
 	}
 
@@ -227,12 +234,12 @@ function fetch_single_product($route, $page) {
 
 	// Set info directly
 	$placeholder = ['{name}', '{intro}', '{ingredients}', '{skin_type}', '{feature}', '{price}'];
-	$product_contents = fetch_json_content($placeholder, $json_dir);
-	$page = str_replace($placeholder, $product_contents, $page);
+	$product_info = fetch_json($placeholder, $json_dir);
+	$page = str_replace($placeholder, $product_info, $page);
 
 	// Set #single-product-carousel
 	$placeholder = ['{gallery}'];
-	$gallery_dirs = fetch_json_content($placeholder, $json_dir)[0];
+	$gallery_dirs = fetch_json($placeholder, $json_dir)[0];
 	$image_template_dir = 'view/component/single_product/gallery_image.html';
 	$images = '';
 	foreach ($gallery_dirs as $value) {
@@ -245,9 +252,9 @@ function fetch_single_product($route, $page) {
 	// Set #single-product-desc accordion
 	$placeholder = ['{feature}', '{peasant_farmer}', '{supporting_organization}'];
 	$templates_dir = ['view/component/single_product/feature.html', 'view/component/single_product/peasant_farmer.html', 'view/component/single_product/supporting_organization.html'];
-	$product_contents = fetch_json_content($placeholder, $json_dir);
+	$product_info = fetch_json($placeholder, $json_dir);
 	$accordion = '';
-	foreach ($product_contents as $key => $value) {
+	foreach ($product_info as $key => $value) {
 		if(!empty($value)) {
 			$template = file_get_contents($templates_dir[$key]);
 
@@ -258,8 +265,8 @@ function fetch_single_product($route, $page) {
 				foreach ($value as $org) {
 					$org_template = file_get_contents($org_template_dir);
 					$org_placeholder = ['{name}', '{intro}', '{link_href}', '{link_text}'];
-					$org_contents = [$org['name'], $org['intro'], $org['link']['link_href'], $org['link']['link_text']];
-					$org_template = str_replace($org_placeholder, $org_contents, $org_template);
+					$org_info = [$org['name'], $org['intro'], $org['link']['link_href'], $org['link']['link_text']];
+					$org_template = str_replace($org_placeholder, $org_info, $org_template);
 					$orgs .= $org_template;
 				}
 				$template = str_replace($placeholder[$key], $orgs, $template);
