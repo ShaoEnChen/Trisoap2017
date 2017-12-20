@@ -1,12 +1,16 @@
 {
 	"item_no": "newyear_box_001",
 	"name": "宜蘭媽祖保庇禮",
-	"intro": "",
-	"cover_photo": "",
-	"gallery": [],
+	"intro": "受到宜蘭古城和漁港的啟發，今年春季三三吾鄉推出宜蘭媽祖保庇禮，<br>搶眼的粉紅色帶來溫馨和喜慶的意象，更讓象徵漁港平安的媽祖保佑每個三三吾鄉的支持者新的一年都能風調雨順。",
+	"cover_photo": "resource/img/product/newyear/newyear_gift_yilan01.jpg",
+	"gallery": [
+		"resource/img/product/newyear/newyear_gift_yilan01.jpg",
+		"resource/img/product/newyear/newyear_gift_yilan02.jpg",
+		"resource/img/product/newyear/newyear_gift_yilan03.jpg"
+	],
 	"ingredients": "禮盒內含 / <br>宜蘭石花淨白洗面皂一百克 x 1<br>宜蘭紅瓜天然家事皂一百克 x 1<br>宜蘭金柑苦茶洗髮皂一百克 x 1<br>宜蘭蜂蜜甜心旅用皂絲包 x2<br>宜蘭黑豆清爽旅用皂絲包 x2<br>宜蘭米糠蕁葉旅用皂絲包 x2",
 	"skin_type": "",
-	"feature": "",
+	"feature": "宜蘭是東部多漁港的古城。<br>從南方澳到烏石港，<br>從蕃薯寮到大溪漁港。<br><br>三三吾鄉的宜蘭站從頭城開始，採用頭城地區的天然石花菜經過特殊萃取而應運而生的石花淨白洗面皂，以及其他地區的特色小農單品與皂絲。",
 	"peasant_farmer": [],
 	"supporting_organization": "",
 	"price": "1100"
