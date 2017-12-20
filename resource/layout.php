@@ -126,7 +126,7 @@ function include_view_jumbotron($route) {
 }
 
 function include_view_image_jumbotron($route) {
-	$has_jumbotron = ['about', 'brand_intro', 'contact', 'faq', 'index', 'media', 'partner', 'shopping_guide', 'single_product', 'soap', 'soapstring', 'trial'];
+	$has_jumbotron = ['about', 'brand_intro', 'contact', 'faq', 'index', 'media', 'newyear', 'partner', 'shopping_guide', 'single_product', 'soap', 'soapstring', 'trial'];
 	if(!in_array($route, $has_jumbotron)) {
 		return;
 	}
@@ -179,9 +179,9 @@ function include_view_content($route) {
 			$content = replace_company_info($content);
 			break;
 		case 'soap':
-			$content = fetch_products($route, $content);
-			break;
 		case 'soapstring':
+		case 'moon':
+		case 'newyear':
 			$content = fetch_products($route, $content);
 			break;
 		case 'single_product':
@@ -202,6 +202,12 @@ function fetch_products($route, $page) {
 			break;
 		case 'soapstring':
 			$item_type_prefix = 'product_ss_';
+			break;
+		case 'moon':
+			$item_type_prefix = 'moon_';
+			break;
+		case 'newyear':
+			$item_type_prefix = 'newyear_';
 			break;
 		default:
 			return;

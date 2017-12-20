@@ -17,15 +17,6 @@
 			}
 		}
 	],
-	"supporting_organization": [
-		{
-			"name": "",
-			"intro": "",
-			"link": {
-				"link_text": "",
-				"link_href": ""
-			}
-		}
-	],
+	"supporting_organization": "",
 	"price": ""
 }

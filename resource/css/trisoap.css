@@ -289,6 +289,10 @@ header {
   background-image: url(../img/jumbotrons/media.jpg);
 }
 
+#jumbotron-newyear {
+  background-image: url(../img/jumbotrons/newyear.jpg);
+}
+
 #jumbotron-partner {
   background-image: url(../img/jumbotrons/partner.jpg);
 }
