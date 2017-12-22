@@ -5,14 +5,20 @@
 
 $navToggleBtn = $('.nav-mobile-toggle');
 $navMainMenu = $('#nav-main-menu');
-$navItemHasDropdown = $('.nav-main-item.has-dropdown');
+$hasDropdowns = $('.has-dropdown');
 
 $navToggleBtn.click(function() {
 	$navMainMenu.toggle();
 });
 
-$navItemHasDropdown.click(function() {
-	$(this).find('.nav-dropdown-menu').toggle();
+$hasDropdowns.click(function(event) {
+	event.stopPropagation();
+	if($(this).has('> .nav-dropdown-menu')) {
+		$(this).find(' > .nav-dropdown-menu').toggle();
+	}
+	if($(this).has('> .nav-dropdown-submenu')) {
+		$(this).find(' > .nav-dropdown-submenu').toggle();
+	}
 });
 
 // Initialize if FlexSlider is Loaded.

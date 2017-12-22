@@ -30,7 +30,7 @@ h1, h2, h3, h4, h5, h6, p, span, div, a, label {
  *  6:
  *  7: .flex-control-nav
  *  8: #main-navbar
- *  9: .nav-dropdown-menu
+ *  9: .nav-dropdown-menu, .nav-dropdown-submenu
  *  10:
  */
 
@@ -122,7 +122,8 @@ $nav-toggle-span-height: 2px;
 	cursor: default;
 }
 
-.nav-dropdown-menu {
+.nav-dropdown-menu,
+.nav-dropdown-submenu {
 	display: none;
 	list-style: none;
 	background-color: $main-nav-background-color;
@@ -159,6 +160,9 @@ $nav-toggle-span-height: 2px;
 
 // Laptop
 @media screen and (min-width: 980px) {
+	$main-nav-height: 60px;
+	$nav-dropdown-item-min-width: 210px;
+
 	#brand-logo {
 		height: $main-nav-height / 2;
 	}
@@ -179,12 +183,19 @@ $nav-toggle-span-height: 2px;
 
 	.nav-main-item {
 		display: inline-block;
+		line-height: $main-nav-height;
 		@extend %nav-main-padding;
+	}
+
+	.nav-dropdown-item {
+		@extend %nav-dropdown-padding;
+		line-height: normal;
 	}
 
 	.has-dropdown {
 		position: relative;
-		&:hover > .nav-dropdown-menu {
+		&:hover > .nav-dropdown-menu,
+		&:hover > .nav-dropdown-submenu {
 			display: block;
 		}
 	}
@@ -193,16 +204,23 @@ $nav-toggle-span-height: 2px;
 		@extend %nav-dropdown-padding;
 	}
 
-	.nav-dropdown-menu {
+	.nav-dropdown-menu,
+	.nav-dropdown-submenu {
 		position: absolute;
 		padding: 0;
-		min-width: 210px;
-		margin-left: - $nav-main-padding-lr;
+		min-width: $nav-dropdown-item-min-width;
 		z-index: 9;
 	}
 
-	.nav-dropdown-item {
-		@extend %nav-dropdown-padding;
+	.nav-dropdown-menu {
+		top: $main-nav-height;
+		margin-left: - $nav-main-padding-lr;
+	}
+
+	.nav-dropdown-submenu {
+		top: 0;
+		left: $nav-dropdown-item-min-width;
+		margin-left: 0;
 	}
 }
 
@@ -210,8 +228,9 @@ $nav-toggle-span-height: 2px;
 @media screen and (max-width: 979px) {
 	$nav-main-item-height: 50px;
 	$nav-dropdown-item-height: 40px;
-	$nav-main-padding-mobile: 30px;
-	$nav-dropdown-padding-mobile: 50px;
+	$nav-main-padding: 30px;
+	$nav-dropdown-menu-padding: 50px;
+	$nav-dropdown-submenu-padding: 70px;
 
 	#brand-logo {
 		height: 20px;
@@ -233,37 +252,45 @@ $nav-toggle-span-height: 2px;
 		overflow: auto;
 	}
 
-	/* Mobile menu layout */
-	%nav-dropdown-padding-mobile {
-		padding: 0 $nav-dropdown-padding-mobile;
-	}
-
 	.nav-main-item {
 		width: 100%;
-		padding: 0 $nav-main-padding-mobile;
+		box-sizing: border-box;
+		padding: 0 $nav-main-padding;
 		line-height: $nav-main-item-height;
 		&:hover {
 			background-color: #000;
 		}
 	}
 
-	.nav-dropdown-menu {
-		width: 100%;
+	.nav-dropdown-menu,
+	.nav-dropdown-submenu {
 		padding: 0;
-		margin-left: - $nav-main-padding-mobile;
+	}
+
+	.nav-dropdown-menu {
+		margin-left: - $nav-main-padding;
+		margin-right: - $nav-main-padding;
+	}
+
+	.nav-dropdown-submenu {
+		margin-left: - $nav-dropdown-menu-padding;
+		margin-right: - $nav-dropdown-menu-padding;
 	}
 
 	.nav-dropdown-header,
 	.nav-dropdown-item {
-		width: 100%;
-		height: $nav-dropdown-item-height;
 		box-sizing: border-box;
 		line-height: $nav-dropdown-item-height;
-		@extend %nav-dropdown-padding-mobile;
 	}
 
-	.nav-dropdown-item:hover {
-		background-color: #000;
+	.nav-dropdown-menu > .nav-dropdown-item,
+	.nav-dropdown-menu > .nav-dropdown-header {
+		padding: 0 $nav-dropdown-menu-padding;
+	}
+
+	.nav-dropdown-submenu > .nav-dropdown-item,
+	.nav-dropdown-submenu > .nav-dropdown-header {
+		padding: 0 $nav-dropdown-submenu-padding;
 	}
 }
 
@@ -313,7 +340,7 @@ header {
 
 /* 1.2. Jumbotron - Img */
 
-$jumbotron-list: "about", "brand_intro", "contact", "faq", "media", "newyear", "partner", "shopping_guide", "single_product", "soap", "soapstring", "trial";
+$jumbotron-list: "about", "brand_intro", "contact", "faq", "media", "moonfest", "newyear", "partner", "shopping_guide", "single_product", "soap", "soapstring", "trial";
 
 @each $item in $jumbotron-list {
 	#jumbotron-#{$item} {
