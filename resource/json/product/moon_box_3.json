@@ -2,9 +2,10 @@
 	"item_no": "moon_box_3",
 	"name": "中秋混搭單品皂絲組",
 	"intro": "月兔在台灣在地作物當中嬉笑，<br>透過全暖色的設計帶給你三三吾鄉的絕佳精神。<br>可根據顧客的需求而選擇內容物的混搭風<br>是經濟又實惠的團圓禮。",
-	"cover_photo": "",
+	"cover_photo": "resource/img/product/moonfest/moonfest_mix.jpg",
 	"gallery": [
-
+		"resource/img/product/moonfest/moonfest_mix.jpg",
+		"resource/img/product/moonfest/moonfest_mix_content.jpg"
 	],
 	"ingredients": "三三吾鄉臺東意象單皂 一入（釋迦、金針、米擇一）<br>三三吾鄉旅用皂絲三入組 一式（洛神、金針、薑黃各一）<br><br>*單品隨機出貨，如需指定單品項目，請於購買時加入備註，或加入三三吾鄉LINE@ ID: urr5353l<br><br>主要成分 / 椰子油、橄欖油、乳油木果脂、棕梠油、米糠油、葡萄籽油、蓖麻油、苦茶油、小羊釋迦天然果泥果砂、小農食在無硫金針、自然主義天然洛神、薑黃伯薑黃粉、池上米糠、紅麴粉、蕁麻葉粉、紅棕梠油等",
 	"skin_type": "",

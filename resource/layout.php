@@ -126,7 +126,7 @@ function include_view_jumbotron($route) {
 }
 
 function include_view_image_jumbotron($route) {
-	$has_jumbotron = ['about', 'brand_intro', 'contact', 'faq', 'index', 'media', 'newyear', 'partner', 'shopping_guide', 'single_product', 'soap', 'soapstring', 'trial'];
+	$has_jumbotron = ['about', 'brand_intro', 'contact', 'faq', 'index', 'media', 'moonfest', 'newyear', 'partner', 'shopping_guide', 'single_product', 'soap', 'soapstring', 'trial'];
 	if(!in_array($route, $has_jumbotron)) {
 		return;
 	}
@@ -180,7 +180,7 @@ function include_view_content($route) {
 			break;
 		case 'soap':
 		case 'soapstring':
-		case 'moon':
+		case 'moonfest':
 		case 'newyear':
 			$content = fetch_products($route, $content);
 			break;
@@ -203,7 +203,7 @@ function fetch_products($route, $page) {
 		case 'soapstring':
 			$item_type_prefix = 'product_ss_';
 			break;
-		case 'moon':
+		case 'moonfest':
 			$item_type_prefix = 'moon_';
 			break;
 		case 'newyear':
