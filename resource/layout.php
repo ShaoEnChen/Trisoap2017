@@ -199,9 +199,15 @@ function fetch_products($route, $page) {
 	switch ($route) {
 		case 'soap':
 			$item_type_prefix = 'product_sp_';
+			if(isset($_GET['cat'])) {
+				$item_type_prefix .= $_GET['cat'];
+			}
 			break;
 		case 'soapstring':
 			$item_type_prefix = 'product_ss_';
+			if(isset($_GET['cat'])) {
+				$item_type_prefix .= $_GET['cat'];
+			}
 			break;
 		case 'moonfest':
 			$item_type_prefix = 'moon_';
