@@ -179,8 +179,8 @@ function create($account, $token, $index, $name, $amount=0, $price, $description
 		$date = date("Y-m-d H:i:s");
 		$sql3 = "INSERT INTO ITEMMAS (ITEMNO, ITEMNM, ITEMAMT, PRICE, DESCRIPTION, CREATEDATE, UPDATEDATE) VALUES ('$index', '$name', '$amount', '$price', '$description', '$date', '$date')";
 		if (mysql_query($sql3)) {
-			$file = fopen("../resource/json/product/".$index.".html", "w");
-			$content = array('item_no' => $index, 'name' => $name, 'intro' => $description, 'cover_photo' => '', 'gallery' => array(), 'ingredients' => '', 'skin_type' => '', 'feature' => '', 'peasant_farmer' => array('name' => '', 'intro' => '', 'link' => array('link_text' => '', 'link_href' => '')), 'supporting_organization' => array('name' => '', 'intro' => '', 'link' => array('link_text' => '', 'link_href' => '')), 'price' => $price);
+			$file = fopen("/Library/WebServer/Documents/Trisoap/test.json", "w");
+			$content = array('item_no' => '', 'name' => '', 'intro' => '', 'cover_photo' => '', 'gallery' => array(), 'ingredients' => '', 'skin_type' => '', 'feature' => '', 'peasant_farmer' => array(array('name' => '', 'intro' => '', 'link' => array('link_text' => '', 'link_href' => ''))), 'supporting_organization' => '', 'price' => '');
 			fwrite($file, json_encode($content));
 			fclose($file);
 			return 'Success';
