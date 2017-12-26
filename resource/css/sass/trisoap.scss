@@ -71,7 +71,6 @@ $nav-toggle-span-height: 2px;
 	left: 0;
 	right: 0;
 	width: 100%;
-	height: $main-nav-height;
 	background-color: $main-nav-background-color;
 	z-index: 8;
 }
@@ -81,8 +80,6 @@ $nav-toggle-span-height: 2px;
 #nav-menu-wrap {
 	margin: auto;	// flex magic
 	display: inline-block;
-	height: $main-nav-height;
-	line-height: $main-nav-height;
 }
 
 #nav-brand-wrap {
@@ -92,20 +89,31 @@ $nav-toggle-span-height: 2px;
 .nav-brand {
 	display: block;
 	justify-self: flex-start;
+	line-height: $main-nav-height;
 }
 
 #brand-logo {
 	width: auto;
 	vertical-align: middle;
+	padding: 0 15px;
 }
 
 #nav-main-menu {
 	margin: 0;
+	padding: 0;
+	list-style: none;
+	background-color: $main-nav-background-color;
+}
+
+.nav-dropdown-menu,
+.nav-dropdown-submenu {
+	display: none;
 	list-style: none;
 	background-color: $main-nav-background-color;
 }
 
 .nav-main-link {
+	display: block;
 	@extend %nav-main-text;
 	text-decoration: none;
 	color: #fff;
@@ -120,13 +128,6 @@ $nav-toggle-span-height: 2px;
 	@extend %nav-main-text;
 	color: #777;
 	cursor: default;
-}
-
-.nav-dropdown-menu,
-.nav-dropdown-submenu {
-	display: none;
-	list-style: none;
-	background-color: $main-nav-background-color;
 }
 
 .nav-dropdown-item:hover {
@@ -161,6 +162,7 @@ $nav-toggle-span-height: 2px;
 // Laptop
 @media screen and (min-width: 980px) {
 	$main-nav-height: 60px;
+	$nav-main-link-height: 16px;
 	$nav-dropdown-item-min-width: 210px;
 
 	#brand-logo {
@@ -174,7 +176,7 @@ $nav-toggle-span-height: 2px;
 
 	/* Laptop menu layout */
 	%nav-main-padding {
-		padding: 0 $nav-main-padding-lr;
+		padding: ($main-nav-height - $nav-main-link-height)/2 $nav-main-padding-lr;
 	}
 
 	%nav-dropdown-padding {
@@ -183,13 +185,13 @@ $nav-toggle-span-height: 2px;
 
 	.nav-main-item {
 		display: inline-block;
-		line-height: $main-nav-height;
-		@extend %nav-main-padding;
+		& > .nav-main-link {
+			@extend %nav-main-padding;
+		}
 	}
 
-	.nav-dropdown-item {
+	.nav-dropdown-item > .nav-main-link {
 		@extend %nav-dropdown-padding;
-		line-height: normal;
 	}
 
 	.has-dropdown {
@@ -228,6 +230,7 @@ $nav-toggle-span-height: 2px;
 @media screen and (max-width: 979px) {
 	$nav-main-item-height: 50px;
 	$nav-dropdown-item-height: 40px;
+	$nav-main-link-height: 16px;
 	$nav-main-padding: 30px;
 	$nav-dropdown-menu-padding: 50px;
 	$nav-dropdown-submenu-padding: 70px;
@@ -255,10 +258,11 @@ $nav-toggle-span-height: 2px;
 	.nav-main-item {
 		width: 100%;
 		box-sizing: border-box;
-		padding: 0 $nav-main-padding;
-		line-height: $nav-main-item-height;
 		&:hover {
 			background-color: #000;
+		}
+		& > .nav-main-link {
+			padding: ($nav-main-item-height - $nav-main-link-height) / 2 $nav-main-padding;
 		}
 	}
 
@@ -267,30 +271,14 @@ $nav-toggle-span-height: 2px;
 		padding: 0;
 	}
 
-	.nav-dropdown-menu {
-		margin-left: - $nav-main-padding;
-		margin-right: - $nav-main-padding;
-	}
-
-	.nav-dropdown-submenu {
-		margin-left: - $nav-dropdown-menu-padding;
-		margin-right: - $nav-dropdown-menu-padding;
-	}
-
-	.nav-dropdown-header,
-	.nav-dropdown-item {
-		box-sizing: border-box;
-		line-height: $nav-dropdown-item-height;
-	}
-
-	.nav-dropdown-menu > .nav-dropdown-item,
+	.nav-dropdown-menu > .nav-dropdown-item > .nav-main-link,
 	.nav-dropdown-menu > .nav-dropdown-header {
-		padding: 0 $nav-dropdown-menu-padding;
+		padding: ($nav-dropdown-item-height - $nav-main-link-height) / 2 $nav-dropdown-menu-padding;
 	}
 
-	.nav-dropdown-submenu > .nav-dropdown-item,
+	.nav-dropdown-submenu > .nav-dropdown-item > .nav-main-link,
 	.nav-dropdown-submenu > .nav-dropdown-header {
-		padding: 0 $nav-dropdown-submenu-padding;
+		padding: ($nav-dropdown-item-height - $nav-main-link-height) / 2 $nav-dropdown-submenu-padding;
 	}
 }
 
