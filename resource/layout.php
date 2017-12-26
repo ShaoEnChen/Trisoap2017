@@ -97,20 +97,24 @@ function include_view_nav($authority) {
 	$nav_dir = 'view/nav.html';
 	$nav_content = file_get_contents($nav_dir);
 
-	// Admin
-	if ($authority === 'A') {
+	// Get admin dropdown
+	if($authority === 'A') {
 		$nav_auth_dir = 'view/component/nav/login_admin.html';
+		$nav_admin_content = file_get_contents($nav_auth_dir);
 	}
-	// Member
-	elseif ($authority === 'B') {
+
+	// Get member dropdown
+	if($authority === 'A' || $authority === 'B') {
 		$nav_auth_dir = 'view/component/nav/login_member.html';
 	}
-	// Anonymous
 	else {
 		$nav_auth_dir = 'view/component/nav/login_signup.html';
 	}
 
 	$nav_status_content = file_get_contents($nav_auth_dir);
+	if(!empty($nav_admin_content)) {
+		$nav_status_content = $nav_admin_content . $nav_status_content;
+	}
 	$nav_content = str_replace('{login_status}', $nav_status_content, $nav_content);
 	echo $nav_content;
 }
