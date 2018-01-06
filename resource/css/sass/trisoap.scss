@@ -31,7 +31,7 @@ h1, h2, h3, h4, h5, h6, p, span, div, a, label {
  *  7: .flex-control-nav
  *  8: #main-navbar
  *  9: .nav-dropdown-menu, .nav-dropdown-submenu
- *  10:
+ *  10: #preloader
  */
 
 $bg-orange: #F18C41;
@@ -43,7 +43,13 @@ $main-font-color: #555;
  */
 
 #preloader {
-	display: none;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-color: #B29772;
+	transition: opacity 1.5s ease;
+	z-index: 10;
 }
 
 /* =========================================================================
@@ -73,6 +79,7 @@ $nav-toggle-span-height: 2px;
 	width: 100%;
 	background-color: $main-nav-background-color;
 	z-index: 8;
+	opacity: 1;
 }
 
 #nav-brand-wrap,
@@ -234,6 +241,10 @@ $nav-toggle-span-height: 2px;
 	$nav-main-padding: 30px;
 	$nav-dropdown-menu-padding: 50px;
 	$nav-dropdown-submenu-padding: 70px;
+
+	.fa-angle-right {
+		transform: rotate(90deg);
+	}
 
 	#brand-logo {
 		height: 20px;
@@ -443,7 +454,7 @@ $footer-line-height: 1.7;
 	}
 }
 
-.footer-menu .footer-main-link {
+.footer-menu:not(#company-info) .footer-main-link {
 	display: block;
 }
 
@@ -531,6 +542,10 @@ $footer-line-height: 1.7;
 $wrap-lr-margin: 8%;
 $letter-spacing-18-18: 3.24px;
 $translucent-white: rgba(255, 255, 255, 0.7);
+
+.no-scroll {
+	overflow: hidden;
+}
 
 a.no-href {
 	cursor: default;

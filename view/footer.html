@@ -47,17 +47,21 @@
 					試用品申請
 				</a>
 			</div>
-			<div class="footer-menu">
+			<div id="company-info" class="footer-menu">
 				<p class="footer-title">
 					聯絡我們
 				</p>
 				<p>
 					<i class="fa fa-phone fa-fw fa-lg"></i>
-					{company_phone}
+					<a class="footer-main-link" href="tel:{company_phone}">
+						{company_phone}
+					</a>
 				</p>
 				<p>
 					<i class="fa fa-envelope fa-fw fa-lg"></i>
-					{company_email}
+					<a class="footer-main-link" href="mailto:{company_email}">
+						{company_email}
+					</a>
 				</p>
 				<p>
 					<i class="fa fa-map-marker fa-fw fa-lg"></i>
@@ -79,3 +83,4 @@
 				<p>Copyright &copy; 2017 TriSoap All Rights Reserved</p>
 			</div>
 		</footer>
+		<script src="resource/js/jquery-3.2.1.min.js"></script>
