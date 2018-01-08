@@ -21,7 +21,8 @@ function router($route) {
 		callView($route, $identity);
 	}
 	elseif(in_array($route, $function_pages)) {
-		include_once('controller/' . $route . '.php');
+		// include_once('controller/' . $route . '.php');
+		include_once('view/under_construction.html');
 	}
 	else {
 		callView('index', $identity);
