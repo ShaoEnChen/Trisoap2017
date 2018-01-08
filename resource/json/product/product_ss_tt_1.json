@@ -2,11 +2,11 @@
 	"item_no": "product_ss_tt_1",
 	"name": "洛神紅麴旅用皂絲",
 	"intro": "台東的艷麗珍寶，捧在農友的手上閃閃發光。<br>自然主義之下的友善農法，<br>將洛神與紅麴乾燥後添入的獨門絕配。",
-	"cover_photo": "resource/img/product/string_roselle.jpg",
+	"cover_photo": "resource/img/product/string/tt/string_roselle.jpg",
 	"gallery": [
-		"resource/img/product/detail/string_roselle00.jpg",
-		"resource/img/product/detail/string_roselle01.jpg",
-		"resource/img/product/detail/string_roselle02.jpg"
+		"resource/img/product/string/tt/string_roselle00.jpg",
+		"resource/img/product/string/tt/string_roselle01.jpg",
+		"resource/img/product/string/tt/string_roselle02.jpg"
 	],
 	"ingredients": "主要成分 / 椰子油、棕櫚油、苦茶油、米糠油、蓖麻油、乾燥研磨臺東自然主義洛神花、天然紅麴粉",
 	"skin_type": "適用膚質 / 油性中性膚質適用，亦適合作洗髮皂使用",

@@ -2,8 +2,11 @@
 	"item_no": "product_ss_yl_2",
 	"name": "黑豆清爽旅用皂絲",
 	"intro": "三三吾鄉首推清爽配方，經過多次試驗以及修正的清爽配方，<br>搭配在地小農黑豆萃取特色入皂，洗完不黏膩的清爽感受，一洗就印象深刻。",
-	"cover_photo": "",
-	"gallery": [],
+	"cover_photo": "resource/img/product/string/yl/string_black_bean01.jpg",
+	"gallery": [
+		"resource/img/product/string/yl/string_black_bean01.jpg",
+		"resource/img/product/string/yl/string_black_bean02.jpg"
+	],
 	"ingredients": "主要成分 / 蓖麻油、米糠油、甜杏仁油、椰子油、棕櫚油、芥花油、水、在地小農黑豆",
 	"skin_type": "適用膚質 / 中性、油性膚質",
 	"feature": "蓖麻油 – 含有緩和及潤滑皮膚的功能，特有的蓖麻酸醇軟作用，能製造清爽、泡沫多的肥皂。",

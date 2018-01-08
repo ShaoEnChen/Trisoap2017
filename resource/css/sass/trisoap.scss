@@ -43,13 +43,29 @@ $main-font-color: #555;
  */
 
 #preloader {
+	display: flex;
 	position: fixed;
 	top: 0;
 	width: 100%;
 	height: 100%;
+	justify-content: center;
+	align-items: center;
 	background-color: #B29772;
 	transition: opacity 1.5s ease;
 	z-index: 10;
+}
+
+#preloader-canvas {
+	// ==========
+	// fallbacks
+	// ==========
+	// position: absolute;
+	// top: 50%;
+	// left: 50%;
+	// transform: translate(-50%, -50%);
+	width: 250px;
+	height: 250px;
+	background-color: #000;
 }
 
 /* =========================================================================
@@ -351,9 +367,9 @@ $jumbotron-list: "about", "brand_intro", "contact", "faq", "media", "moonfest", 
 	position: relative;
 	width: 100vw;
 	height: 33.75vw;	// ( 486 / 1440 )
+	text-align: center;
 	background-size: contain;
 	background-repeat: no-repeat;
-	text-align: center;
 	z-index: 0;
 	&::before {
 		content: '';

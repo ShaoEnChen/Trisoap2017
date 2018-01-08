@@ -2,11 +2,11 @@
 	"item_no": "product_ss_tt_3",
 	"name": "萱草米黃旅用皂絲",
 	"intro": "盛開在池上的橘黃萱草，<br>象徵著溫暖又偉大的母親。<br>搭配來自非洲的紅棕櫚油，一起享受如母親溫暖般的呵護。",
-	"cover_photo": "resource/img/product/string_lily.jpg",
+	"cover_photo": "resource/img/product/string/tt/string_lily.jpg",
 	"gallery": [
-		"resource/img/product/detail/string_lily00.jpg",
-		"resource/img/product/detail/string_lily01.jpg",
-		"resource/img/product/detail/string_lily02.jpg"
+		"resource/img/product/string/tt/string_lily00.jpg",
+		"resource/img/product/string/tt/string_lily01.jpg",
+		"resource/img/product/string/tt/string_lily02.jpg"
 	],
 	"ingredients": "主要成分 / 椰子油、棕櫚油、橄欖油、乳油木果脂、米糠油、台東小農食在金針花粉、非洲紅棕櫚油",
 	"skin_type": "適用膚質 / 中性、乾性膚質適用",
