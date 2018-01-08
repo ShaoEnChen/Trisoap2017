@@ -23,35 +23,26 @@ function check_dependency_body($route) {
 	check_dependency_script_flexslider($route);
 	check_dependency_script_jquery_ui($route);
 	check_dependency_script_map_api($route);
-	check_dependency_script_init($route);
 }
 
 function check_dependency_script_flexslider($route) {
-	$require_flexslider = ['index', 'trial', 'single_product'];
-	if( in_array($route, $require_flexslider) ){
+	if( file_exists('resource/js/view/flexslider/' . $route . '.js') ){
 		echo '		<script src="resource/flexslider/jquery.flexslider-min.js" defer></script>';
+		echo '		<script src="resource/js/view/flexslider/' . $route . '.js" defer></script>';
 	}
 }
 
 function check_dependency_script_jquery_ui($route) {
-	$require_jquery_ui = ['faq', 'partner', 'single_product'];
-	if( in_array($route, $require_jquery_ui) ){
+	if( file_exists('resource/js/view/jquery_ui/' . $route . '.js') ){
 		echo '		<script src="resource/js/jquery-ui-accordion/jquery-ui.min.js" defer></script>';
+		echo '		<script src="resource/js/view/jquery_ui/' . $route . '.js" defer></script>';
 	}
 }
 
 function check_dependency_script_map_api($route) {
-	$require_map_api = ['contact'];
-	if( in_array($route, $require_map_api) ){
+	if( file_exists('resource/js/view/google_map/' . $route . '.js') ){
 		echo '		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBqLzZouUqN1dWEVR9_75YO6bXL5OuhcRs"></script>';
-		echo '		<script src="resource/js/contact-map.js" defer></script>';
-	}
-}
-
-function check_dependency_script_init($route) {
-	$require_init = ['index', 'trial', 'single_product', 'faq', 'partner'];
-	if( in_array($route, $require_init) ){
-		echo '		<script src="resource/js/view/' . $route . '.js" defer></script>';
+		echo '		<script src="resource/js/view/google_map/' . $route . '.js" defer></script>';
 	}
 }
 
