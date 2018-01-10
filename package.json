@@ -1,0 +1,19 @@
+{
+  "name": "trisoap-official",
+  "version": "1.0.0",
+  "description": "Trisoap Official Site 2017 - 2018",
+  "main": "resource/js/trisoap.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ShaoEnChen/Trisoap2017.git"
+  },
+  "author": "2017 Trisoap Team",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ShaoEnChen/Trisoap2017/issues"
+  },
+  "homepage": "https://github.com/ShaoEnChen/Trisoap2017#readme"
+}
