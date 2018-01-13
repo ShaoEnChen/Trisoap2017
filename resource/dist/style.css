@@ -1,0 +1,1542 @@
+@import url(https://fonts.googleapis.com/css?family=Great+Vibes);/*! normalize.css v7.0.0 | MIT License | github.com/necolas/normalize.css */
+
+/* Document
+   ========================================================================== */
+
+/**
+ * 1. Correct the line height in all browsers.
+ * 2. Prevent adjustments of font size after orientation changes in
+ *    IE on Windows Phone and in iOS.
+ */
+
+html {
+  line-height: 1.15; /* 1 */
+  -ms-text-size-adjust: 100%; /* 2 */
+  -webkit-text-size-adjust: 100%; /* 2 */
+}
+
+/* Sections
+   ========================================================================== */
+
+/**
+ * Remove the margin in all browsers (opinionated).
+ */
+
+body {
+  margin: 0;
+}
+
+/**
+ * Add the correct display in IE 9-.
+ */
+
+article,
+aside,
+footer,
+header,
+nav,
+section {
+  display: block;
+}
+
+/**
+ * Correct the font size and margin on `h1` elements within `section` and
+ * `article` contexts in Chrome, Firefox, and Safari.
+ */
+
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+/* Grouping content
+   ========================================================================== */
+
+/**
+ * Add the correct display in IE 9-.
+ * 1. Add the correct display in IE.
+ */
+
+figcaption,
+figure,
+main { /* 1 */
+  display: block;
+}
+
+/**
+ * Add the correct margin in IE 8.
+ */
+
+figure {
+  margin: 1em 40px;
+}
+
+/**
+ * 1. Add the correct box sizing in Firefox.
+ * 2. Show the overflow in Edge and IE.
+ */
+
+hr {
+  box-sizing: content-box; /* 1 */
+  height: 0; /* 1 */
+  overflow: visible; /* 2 */
+}
+
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+
+pre {
+  font-family: monospace, monospace; /* 1 */
+  font-size: 1em; /* 2 */
+}
+
+/* Text-level semantics
+   ========================================================================== */
+
+/**
+ * 1. Remove the gray background on active links in IE 10.
+ * 2. Remove gaps in links underline in iOS 8+ and Safari 8+.
+ */
+
+a {
+  background-color: transparent; /* 1 */
+  -webkit-text-decoration-skip: objects; /* 2 */
+}
+
+/**
+ * 1. Remove the bottom border in Chrome 57- and Firefox 39-.
+ * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
+ */
+
+abbr[title] {
+  border-bottom: none; /* 1 */
+  text-decoration: underline; /* 2 */
+  text-decoration: underline dotted; /* 2 */
+}
+
+/**
+ * Prevent the duplicate application of `bolder` by the next rule in Safari 6.
+ */
+
+b,
+strong {
+  font-weight: inherit;
+}
+
+/**
+ * Add the correct font weight in Chrome, Edge, and Safari.
+ */
+
+b,
+strong {
+  font-weight: bolder;
+}
+
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+
+code,
+kbd,
+samp {
+  font-family: monospace, monospace; /* 1 */
+  font-size: 1em; /* 2 */
+}
+
+/**
+ * Add the correct font style in Android 4.3-.
+ */
+
+dfn {
+  font-style: italic;
+}
+
+/**
+ * Add the correct background and color in IE 9-.
+ */
+
+mark {
+  background-color: #ff0;
+  color: #000;
+}
+
+/**
+ * Add the correct font size in all browsers.
+ */
+
+small {
+  font-size: 80%;
+}
+
+/**
+ * Prevent `sub` and `sup` elements from affecting the line height in
+ * all browsers.
+ */
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+/* Embedded content
+   ========================================================================== */
+
+/**
+ * Add the correct display in IE 9-.
+ */
+
+audio,
+video {
+  display: inline-block;
+}
+
+/**
+ * Add the correct display in iOS 4-7.
+ */
+
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+/**
+ * Remove the border on images inside links in IE 10-.
+ */
+
+img {
+  border-style: none;
+}
+
+/**
+ * Hide the overflow in IE.
+ */
+
+svg:not(:root) {
+  overflow: hidden;
+}
+
+/* Forms
+   ========================================================================== */
+
+/**
+ * 1. Change the font styles in all browsers (opinionated).
+ * 2. Remove the margin in Firefox and Safari.
+ */
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: sans-serif; /* 1 */
+  font-size: 100%; /* 1 */
+  line-height: 1.15; /* 1 */
+  margin: 0; /* 2 */
+}
+
+/**
+ * Show the overflow in IE.
+ * 1. Show the overflow in Edge.
+ */
+
+button,
+input { /* 1 */
+  overflow: visible;
+}
+
+/**
+ * Remove the inheritance of text transform in Edge, Firefox, and IE.
+ * 1. Remove the inheritance of text transform in Firefox.
+ */
+
+button,
+select { /* 1 */
+  text-transform: none;
+}
+
+/**
+ * 1. Prevent a WebKit bug where (2) destroys native `audio` and `video`
+ *    controls in Android 4.
+ * 2. Correct the inability to style clickable types in iOS and Safari.
+ */
+
+button,
+html [type="button"], /* 1 */
+[type="reset"],
+[type="submit"] {
+  -webkit-appearance: button; /* 2 */
+}
+
+/**
+ * Remove the inner border and padding in Firefox.
+ */
+
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+/**
+ * Restore the focus styles unset by the previous rule.
+ */
+
+button:-moz-focusring,
+[type="button"]:-moz-focusring,
+[type="reset"]:-moz-focusring,
+[type="submit"]:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
+/**
+ * Correct the padding in Firefox.
+ */
+
+fieldset {
+  padding: 0.35em 0.75em 0.625em;
+}
+
+/**
+ * 1. Correct the text wrapping in Edge and IE.
+ * 2. Correct the color inheritance from `fieldset` elements in IE.
+ * 3. Remove the padding so developers are not caught out when they zero out
+ *    `fieldset` elements in all browsers.
+ */
+
+legend {
+  box-sizing: border-box; /* 1 */
+  color: inherit; /* 2 */
+  display: table; /* 1 */
+  max-width: 100%; /* 1 */
+  padding: 0; /* 3 */
+  white-space: normal; /* 1 */
+}
+
+/**
+ * 1. Add the correct display in IE 9-.
+ * 2. Add the correct vertical alignment in Chrome, Firefox, and Opera.
+ */
+
+progress {
+  display: inline-block; /* 1 */
+  vertical-align: baseline; /* 2 */
+}
+
+/**
+ * Remove the default vertical scrollbar in IE.
+ */
+
+textarea {
+  overflow: auto;
+}
+
+/**
+ * 1. Add the correct box sizing in IE 10-.
+ * 2. Remove the padding in IE 10-.
+ */
+
+[type="checkbox"],
+[type="radio"] {
+  box-sizing: border-box; /* 1 */
+  padding: 0; /* 2 */
+}
+
+/**
+ * Correct the cursor style of increment and decrement buttons in Chrome.
+ */
+
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/**
+ * 1. Correct the odd appearance in Chrome and Safari.
+ * 2. Correct the outline style in Safari.
+ */
+
+[type="search"] {
+  -webkit-appearance: textfield; /* 1 */
+  outline-offset: -2px; /* 2 */
+}
+
+/**
+ * Remove the inner padding and cancel buttons in Chrome and Safari on macOS.
+ */
+
+[type="search"]::-webkit-search-cancel-button,
+[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/**
+ * 1. Correct the inability to style clickable types in iOS and Safari.
+ * 2. Change font properties to `inherit` in Safari.
+ */
+
+::-webkit-file-upload-button {
+  -webkit-appearance: button; /* 1 */
+  font: inherit; /* 2 */
+}
+
+/* Interactive
+   ========================================================================== */
+
+/*
+ * Add the correct display in IE 9-.
+ * 1. Add the correct display in Edge, IE, and Firefox.
+ */
+
+details, /* 1 */
+menu {
+  display: block;
+}
+
+/*
+ * Add the correct display in all browsers.
+ */
+
+summary {
+  display: list-item;
+}
+
+/* Scripting
+   ========================================================================== */
+
+/**
+ * Add the correct display in IE 9-.
+ */
+
+canvas {
+  display: inline-block;
+}
+
+/**
+ * Add the correct display in IE.
+ */
+
+template {
+  display: none;
+}
+
+/* Hidden
+   ========================================================================== */
+
+/**
+ * Add the correct display in IE 10-.
+ */
+
+[hidden] {
+  display: none;
+}
+@charset "UTF-8";
+/*
+ * Import fonts
+ */
+/* =========================================================================
+ * CSS Normalization
+ * =========================================================================
+ */
+h1, h2, h3, h4, h5, h6, p, span, div, a, label {
+  font-family: sans-serif; }
+
+/* z-index Scale: -1 - 10
+ * -1: .img-jumbotron::before
+ *  0: .img-jumbotron
+ *  1:
+ *  2:
+ *  3:
+ *  4:
+ *  5:
+ *  6:
+ *  7: .flex-control-nav
+ *  8: #main-navbar
+ *  9: .nav-dropdown-menu, .nav-dropdown-submenu
+ *  10: #preloader
+ */
+/* =========================================================================
+ * Preloader
+ * =========================================================================
+ */
+#preloader {
+  display: flex;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  background-color: #B29772;
+  transition: opacity 1.5s ease;
+  z-index: 10; }
+
+#preloader-canvas {
+  width: 250px;
+  height: 250px;
+  background-color: #000; }
+
+/* =========================================================================
+ * Main Navigation Bar
+ * =========================================================================
+ */
+.nav-main-link, .nav-dropdown-header {
+  font: 11px sans-serif;
+  font-weight: 100;
+  letter-spacing: 2px; }
+
+#main-navbar {
+  display: flex;
+  justify-content: flex-end;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  background-color: #18191B;
+  z-index: 8;
+  opacity: 1; }
+
+#nav-brand-wrap,
+#nav-toggle-wrap,
+#nav-menu-wrap {
+  margin: auto;
+  display: inline-block; }
+
+#nav-brand-wrap {
+  justify-self: flex-start; }
+
+.nav-brand {
+  display: block;
+  justify-self: flex-start;
+  line-height: 60px; }
+
+#brand-logo {
+  width: auto;
+  vertical-align: middle;
+  padding: 0 15px; }
+
+#nav-main-menu {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  background-color: #18191B; }
+
+.nav-dropdown-menu,
+.nav-dropdown-submenu {
+  display: none;
+  list-style: none;
+  background-color: #18191B; }
+
+.nav-main-link {
+  display: block;
+  text-decoration: none;
+  color: #fff;
+  transition: color .3s ease-in-out; }
+  .nav-main-link:hover, .nav-main-link:active {
+    color: #d3bd98; }
+
+.nav-dropdown-header {
+  color: #777;
+  cursor: default; }
+
+.nav-dropdown-item:hover {
+  background-color: #000; }
+
+.nav-mobile-toggle {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  cursor: pointer; }
+
+.toggle-bar {
+  display: block;
+  position: absolute;
+  left: 25%;
+  width: 50%;
+  height: 2px;
+  background-color: #fff; }
+  .toggle-bar:nth-child(1) {
+    top: 23px; }
+  .toggle-bar:nth-child(2) {
+    top: 29px; }
+  .toggle-bar:nth-child(3) {
+    top: 35px; }
+
+@media screen and (min-width: 980px) {
+  #brand-logo {
+    height: 30px; }
+  /* Hide toggle button */
+  .nav-mobile-toggle {
+    display: none; }
+  /* Laptop menu layout */
+  .nav-main-item > .nav-main-link {
+    padding: 22px 13px; }
+  .nav-dropdown-item > .nav-main-link, .nav-dropdown-header {
+    padding: 12px 18px; }
+  .nav-main-item {
+    display: inline-block; }
+  .has-dropdown {
+    position: relative; }
+    .has-dropdown:hover > .nav-dropdown-menu,
+    .has-dropdown:hover > .nav-dropdown-submenu {
+      display: block; }
+  .nav-dropdown-menu,
+  .nav-dropdown-submenu {
+    position: absolute;
+    padding: 0;
+    min-width: 210px;
+    z-index: 9; }
+  .nav-dropdown-menu {
+    top: 60px;
+    margin-left: -13px; }
+  .nav-dropdown-submenu {
+    top: 0;
+    left: 210px;
+    margin-left: 0; } }
+
+@media screen and (max-width: 979px) {
+  .nav-main-link > .fa-angle-right {
+    transform: rotate(90deg); }
+  #brand-logo {
+    height: 20px; }
+  /* Hide main menu and show when toggled */
+  #nav-menu-wrap {
+    margin: 0; }
+  #nav-main-menu {
+    display: none;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    max-height: calc(100vh - 60px);
+    padding: 0;
+    overflow: auto; }
+  .nav-main-item {
+    width: 100%;
+    box-sizing: border-box; }
+    .nav-main-item:hover {
+      background-color: #000; }
+    .nav-main-item > .nav-main-link {
+      padding: 17px 30px; }
+  .nav-dropdown-menu,
+  .nav-dropdown-submenu {
+    padding: 0; }
+  .nav-dropdown-menu > .nav-dropdown-item > .nav-main-link,
+  .nav-dropdown-menu > .nav-dropdown-header {
+    padding: 12px 50px; }
+  .nav-dropdown-submenu > .nav-dropdown-item > .nav-main-link,
+  .nav-dropdown-submenu > .nav-dropdown-header {
+    padding: 12px 70px; } }
+
+/* =========================================================================
+ * Header
+ * 1. Jumbotron
+ * =========================================================================
+ */
+header {
+  margin-top: 60px; }
+
+/* -------------------------------------------------------------------------
+ * 1. Jumbotron
+ * 1.1. Index Header Jumbotron - FlexSlider
+ * 1.2. Jumbotron - Img
+ * -------------------------------------------------------------------------
+ */
+/* 1.1. Index Header Jumbotron - FlexSlider */
+.flexslider {
+  margin: 0;
+  border: none; }
+
+#index-header .flex-control-nav {
+  position: absolute;
+  bottom: 14%;
+  z-index: 7; }
+  #index-header .flex-control-nav li a {
+    background-color: #fff; }
+    #index-header .flex-control-nav li a:hover {
+      background-color: #fff; }
+    #index-header .flex-control-nav li a.flex-active {
+      background-color: #F18C41;
+      cursor: pointer; }
+
+.flex-control-paging li a {
+  box-shadow: none; }
+
+/* 1.2. Jumbotron - Img */
+#jumbotron-about {
+  background-image: url(82b56164415f65d105e2c1f69ce39468.jpg); }
+
+#jumbotron-brand_intro {
+  background-image: url(cb5501548b57c1f14da20b9db3e81d81.jpg); }
+
+#jumbotron-contact {
+  background-image: url(d1262c7dc11a50b5fdbfe8df9ca24103.jpg); }
+
+#jumbotron-faq {
+  background-image: url(477b51790da23c766d360be26f4b2b83.jpg); }
+
+#jumbotron-media {
+  background-image: url(c1bb380441093600108359779e5b2b26.jpg); }
+
+#jumbotron-moonfest {
+  background-image: url(91f2707092d0d07a49878aa0d900c4d4.jpg); }
+
+#jumbotron-newyear {
+  background-image: url(5954cc9305cfec52439564ff0949f5b0.jpg); }
+
+#jumbotron-partner {
+  background-image: url(c1bb380441093600108359779e5b2b26.jpg); }
+
+#jumbotron-shopping_guide {
+  background-image: url(4863ecdfbac6c509a7f14b8a769dd6ff.jpg); }
+
+#jumbotron-single_product {
+  background-image: url(b00b3f4910f5795e8ddf224716800339.jpg); }
+
+#jumbotron-soap {
+  background-image: url(79ed00dcff56ab4a2524af70ff92b778.jpg); }
+
+#jumbotron-soapstring {
+  background-image: url(b74396a704994a529ec9e2d03dbcca4c.jpg); }
+
+#jumbotron-trial {
+  background-image: url(7fb107c349ac98be245d078906d67291.jpg); }
+
+.img-jumbotron {
+  position: relative;
+  width: 100vw;
+  height: 33.75vw;
+  text-align: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index: 0; }
+  .img-jumbotron::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: -1; }
+
+.jumbotron-title,
+.jumbotron-only-title,
+.jumbotron-subtitle {
+  margin: 0 auto;
+  color: #fff;
+  font-weight: 100;
+  letter-spacing: 0.18em; }
+
+.jumbotron-title {
+  padding-top: 3.75vw;
+  line-height: 14vw; }
+
+.jumbotron-only-title {
+  line-height: 33.75vw; }
+
+.jumbotron-subtitle,
+.jumbotron-btn {
+  line-height: 6vw; }
+
+.jumbotron-btn > .primary-btn {
+  letter-spacing: 2px; }
+
+@media screen and (min-width: 980px) {
+  .jumbotron-title,
+  .jumbotron-only-title {
+    font-size: 60px; }
+  .jumbotron-subtitle {
+    font-size: 24px; }
+  .jumbotron-btn > .primary-btn {
+    padding: 16px 36px;
+    font-size: 18px; } }
+
+@media screen and (max-width: 979px) {
+  .jumbotron-title,
+  .jumbotron-only-title {
+    font-size: 32px; }
+  .jumbotron-subtitle {
+    font-size: 16px; }
+  .jumbotron-btn > .primary-btn {
+    padding: 8px 25px;
+    font-size: 16px; } }
+
+/* =========================================================================
+ * Footer
+ * =========================================================================
+ */
+#footer {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 40px 0 20px;
+  background-color: #F18C41;
+  color: #fff;
+  font-weight: 100;
+  line-height: 1.7; }
+  #footer .fa {
+    color: rgba(255, 255, 255, 0.5);
+    transition: color 0.3s; }
+
+.footer-menu:not(#company-info) .footer-main-link {
+  display: block; }
+
+.footer-title {
+  margin: 20px auto;
+  font-size: 12px; }
+
+.footer-main-link {
+  margin-bottom: 6px;
+  text-decoration: none;
+  color: #fff;
+  transition: color 0.3s; }
+  .footer-main-link:hover {
+    color: #000; }
+    .footer-main-link:hover .fa {
+      color: #000; }
+
+@media screen and (min-width: 980px) {
+  #footer {
+    display: grid;
+    grid-template-column: 8% 3fr 2fr 2fr 2fr 3fr 8%;
+    grid-template-row: auto 40px 60px; }
+  .footer-menu:nth-child(1) {
+    grid-column: calc( 2 + 1)/span 1;
+    grid-row: 1 / 2; }
+  .footer-menu:nth-child(2) {
+    grid-column: calc( 2 + 2)/span 1;
+    grid-row: 1 / 2; }
+  .footer-menu:nth-child(3) {
+    grid-column: calc( 2 + 3)/span 1;
+    grid-row: 1 / 2; }
+  .footer-menu:nth-child(4) {
+    grid-column: calc( 2 + 4)/span 1;
+    grid-row: 1 / 2; }
+  #community {
+    grid-column: 2 / span 1;
+    grid-row: 3 / 4; }
+    #community .footer-main-link {
+      line-height: 60px; }
+  #copyright {
+    grid-column: 3 / span 3;
+    grid-row: 3 / 4; } }
+
+@media screen and (max-width: 979px) {
+  .footer-menu,
+  #community,
+  #copyright {
+    width: 100%;
+    text-align: center; } }
+
+/* =========================================================================
+ * Contents
+ * 0. Shared Properties
+ * 1. 首頁｜Index Page
+ * 2. 三三堅持｜Brand Intro
+ * 3. 媒體報導｜Media
+ * 4. 試用品申請｜Trial
+ * 5. 顧客問答（常見問題）｜FAQ
+ * 6. 合作夥伴｜Partner
+ * 7. 三三團隊｜About
+ * 8. 聯絡我們｜Contact
+ * 9. 購物須知｜Shopping Guide
+ * 10. 單品 / 旅用皂絲｜Soap / Soapstring
+ * 11. 客製化專區｜Customize
+ * =========================================================================
+ */
+/* -------------------------------------------------------------------------
+ * 0. Shared Properties
+ * -------------------------------------------------------------------------
+ */
+.no-scroll {
+  overflow: hidden; }
+
+a.no-href {
+  cursor: default; }
+
+.main-wrap {
+  margin: 60px 8%; }
+
+.main-content-title {
+  margin-bottom: 35px;
+  color: #555;
+  font-weight: 200;
+  letter-spacing: 4.32px; }
+
+.main-content-text, .main-content-subtitle {
+  color: #555;
+  font-weight: 200;
+  line-height: 1.7;
+  letter-spacing: 0.03em; }
+
+.slogan-wrap {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 60px 8%;
+  background-color: #F18C41;
+  color: #fff; }
+
+.slogan, .slogan-title {
+  text-align: center;
+  font-weight: 200;
+  line-height: 1.5; }
+
+.slogan-title {
+  letter-spacing: 3.24px; }
+
+.primary-btn {
+  box-sizing: border-box;
+  border: solid 1px #fff;
+  text-decoration: none;
+  text-align: center;
+  background-color: transparent;
+  color: #fff;
+  transition-property: border-color, background-color, color;
+  transition-duration: .3s;
+  font-weight: 200; }
+  .primary-btn:hover {
+    border-color: rgba(255, 255, 255, 0.7);
+    background-color: rgba(255, 255, 255, 0.7);
+    color: #666; }
+
+.text-btn {
+  box-sizing: border-box;
+  border: solid 1px #000;
+  text-decoration: none;
+  text-align: center;
+  background-color: transparent;
+  color: #000;
+  transition-property: border-color, background-color, color;
+  transition-duration: .3s;
+  font-weight: 200;
+  padding: 8px 25px; }
+  .text-btn:hover {
+    border-color: #777;
+    background-color: transparent;
+    color: #777; }
+
+.submit-btn {
+  box-sizing: border-box;
+  border: solid 1px #000;
+  text-decoration: none;
+  text-align: center;
+  background-color: #000;
+  color: #fff;
+  transition-property: border-color, background-color, color;
+  transition-duration: .3s;
+  font-weight: 200;
+  padding: 10px 35px; }
+  .submit-btn:hover {
+    border-color: #777;
+    background-color: #777; }
+
+.form-field {
+  box-sizing: border-box;
+  padding: 10px 24px;
+  border: solid 1px #ddd;
+  color: #555;
+  font-weight: 200;
+  line-height: 1.4; }
+
+.text-sep-sm {
+  border-width: 1px;
+  border-color: #eee;
+  border-style: solid none none none;
+  margin: 20px auto; }
+
+.text-sep-md {
+  border-width: 1px;
+  border-color: #ccc;
+  border-style: solid none none none;
+  margin: 30px auto; }
+
+.ui-accordion-header {
+  color: #555;
+  font-weight: normal;
+  outline: 0; }
+
+.ui-accordion-header.ui-state-hover,
+.ui-accordion-header-active {
+  font-weight: bold;
+  color: #000; }
+
+.ui-accordion-content {
+  font-weight: 200; }
+
+.trisoap-signature {
+  font-family: "Great Vibes", sans-serif;
+  font-weight: normal;
+  transform: rotate(-4deg);
+  -webkit-transform: rotate(-4deg); }
+
+/* -------------------------------------------------------------------------
+ * 1. 首頁｜Index Page
+ * 1.1. 立即購買
+ * 1.2. 三個故事 Slogan
+ * 1.3. 三個故事
+ * -------------------------------------------------------------------------
+ */
+/* 1.1. 立即購買 */
+.buy-now {
+  position: relative;
+  box-sizing: border-box; }
+  .buy-now:hover > .hover-cover {
+    opacity: 1; }
+  .buy-now .primary-btn {
+    display: block;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 44%;
+    margin: 0 28%;
+    padding: 7px 12px;
+    font-size: 22px; }
+
+.buy-now-img {
+  display: block;
+  width: 100%;
+  height: auto; }
+
+.hover-cover {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  background-color: rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  transition: opacity 1s; }
+
+@media screen and (min-width: 980px) {
+  .buy-now-wrap {
+    display: grid;
+    grid-template-columns: 16% auto 16%;
+    grid-template-rows: 90px auto 90px;
+    align-items: center; }
+  .buy-now:first-child {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3; } }
+
+@media screen and (max-width: 979px) {
+  .buy-now {
+    margin: 40px 15px; } }
+
+/* 1.2. 三個故事 Slogan - Shared Slogan Properties */
+/* 1.3. 三個故事 */
+.story-wrap {
+  padding: 50px 0; }
+
+.story {
+  box-sizing: border-box; }
+
+.story-img {
+  width: 100%;
+  height: auto; }
+
+.story-text {
+  color: #555;
+  font-size: 16px;
+  font-weight: 200;
+  letter-spacing: 0.03em;
+  line-height: 1.7; }
+
+@media screen and (min-width: 980px) {
+  .story {
+    display: grid;
+    grid-template-columns: 8% 6fr 1fr 5fr 8%;
+    grid-template-rows: 40px auto 40px;
+    align-items: center; }
+  .story-img-wrap {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3; }
+  .story-text {
+    grid-column: 4 / 5;
+    grid-row: 2 / 3; } }
+
+@media screen and (max-width: 979px) {
+  .story-img-wrap {
+    margin: 60px 8% 30px; }
+  .story-text {
+    margin: 30px 8% 60px;
+    text-align: center; } }
+
+/* -------------------------------------------------------------------------
+ * 2. 三三堅持｜Brand Intro
+ * -------------------------------------------------------------------------
+ */
+.intro {
+  box-sizing: border-box; }
+
+.intro-img {
+  width: 100%;
+  height: auto; }
+
+.intro-text {
+  color: #555;
+  font-weight: 200;
+  letter-spacing: 0.03em;
+  line-height: 1.7; }
+  .intro-text h3 {
+    text-align: center;
+    font-weight: 200;
+    letter-spacing: 3.24px; }
+
+@media screen and (min-width: 980px) {
+  .intro {
+    display: grid;
+    grid-template-columns: 14% 5fr 1fr 5fr 14%;
+    align-items: center; }
+    .intro:nth-child(1) {
+      grid-template-rows: 40px auto 20px; }
+      .intro:nth-child(1) .intro-img-wrap {
+        grid-column: 2 / 3; }
+      .intro:nth-child(1) .intro-text {
+        grid-column: 4 / 5; }
+    .intro:nth-child(2) {
+      grid-template-rows: 20px auto 40px; }
+      .intro:nth-child(2) .intro-text {
+        grid-column: 2 / 3; }
+      .intro:nth-child(2) .intro-img-wrap {
+        grid-column: 4 / 5; }
+  .intro-img-wrap,
+  .intro-text {
+    grid-row: 2 / 3; }
+  .intro-text a {
+    text-decoration: none;
+    color: #000;
+    transition: color .3s; }
+    .intro-text a:hover {
+      color: #777; } }
+
+@media screen and (max-width: 979px) {
+  .intro-img-wrap {
+    margin: 60px 8% 30px; }
+  .intro-text {
+    margin: 30px 8% 60px;
+    text-align: center; } }
+
+/* -------------------------------------------------------------------------
+ * 3. 媒體報導｜Media
+ * -------------------------------------------------------------------------
+ */
+.media-link {
+  text-decoration: none; }
+
+@media screen and (min-width: 980px) {
+  .media-link {
+    display: inline-block;
+    margin: 30px 20px; } }
+
+@media screen and (max-width: 979px) {
+  .media-link {
+    display: block;
+    width: 100%;
+    margin: 20px auto;
+    text-align: center; } }
+
+/* -------------------------------------------------------------------------
+ * 4. 試用品申請｜Trial
+ * 4.1. 一致好評 - Flexslider
+ * 4.2. Slogan
+ * 4.3. 3 Main Features
+ * -------------------------------------------------------------------------
+ */
+/* 4.1. 一致好評 - Flexslider */
+#trial-recommend {
+  padding: 40px 0;
+  color: #555; }
+  #trial-recommend > .flexslider {
+    text-align: center; }
+
+@media screen and (min-width: 980px) {
+  #trial-recommend > .flexslider {
+    width: 60%;
+    margin: 0 auto; } }
+
+@media screen and (max-width: 979px) {
+  #trial-recommend {
+    width: 84%;
+    margin: 0 auto; }
+    #trial-recommend > .flexslider {
+      margin: 25px auto; } }
+
+/* 4.2. Shared Slogan Properties */
+/* 4.3. 3 Main Features */
+.feature-wrap {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12vh 16%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: #fff;
+  overflow: auto; }
+
+#feature1 {
+  background-image: url(b26b46b4014cd2781a03ea220d80730a.jpg); }
+
+#feature2 {
+  background-image: url(93dd5bde641ad748869a0e00776652ae.jpg); }
+
+#feature3 {
+  background-image: url(84073dfe78fee4a8bbfb439cdd4c6380.jpg); }
+
+.feature-title {
+  margin: 0;
+  padding-bottom: 5vh;
+  text-align: center;
+  font-weight: 200;
+  letter-spacing: 4.32px;
+  line-height: 1.5; }
+
+.feature-text {
+  margin: 0;
+  text-align: center;
+  font-weight: 200;
+  line-height: 1.7; }
+
+@media screen and (max-width: 979px) {
+  .feature-title {
+    font-size: 16px; }
+  .feature-text {
+    font-size: 12px; } }
+
+/* -------------------------------------------------------------------------
+ * 5. 顧客問答（常見問題）｜FAQ
+ * -------------------------------------------------------------------------
+ */
+#faq-accordion {
+  margin: 60px 8%;
+  /* Completed by shared properties - accordians */ }
+
+/* -------------------------------------------------------------------------
+ * 6. 合作夥伴｜Partner
+ * -------------------------------------------------------------------------
+ */
+#partner-accordion {
+  margin: 60px 8%;
+  /* Completed by shared properties - accordians */ }
+  #partner-accordion > .accordion {
+    padding-left: 0;
+    padding-right: 0; }
+
+.partner-logo {
+  max-width: 150px;
+  height: auto; }
+
+.partner-text:first-child {
+  margin-top: 0; }
+
+/* -------------------------------------------------------------------------
+ * 7. 三三團隊｜About
+ * 7.1. 理念
+ * 7.2. 團隊
+ * -------------------------------------------------------------------------
+ */
+/* 7.1. 理念 */
+#about-concept-text {
+  color: #555;
+  font-weight: 200;
+  letter-spacing: 0.03em;
+  line-height: 1.7; }
+  #about-concept-text > .trisoap-signature {
+    margin-top: 0; }
+
+#about-concept-img {
+  width: 100%;
+  height: auto; }
+
+/* 7.2. 團隊 */
+#about-team {
+  color: #555; }
+
+.about-team-member-img {
+  width: 100%;
+  height: auto; }
+
+.about-team-member-text {
+  text-align: center;
+  letter-spacing: 3.24px;
+  line-height: 1.7;
+  font-weight: 200; }
+
+.about-team-member-title,
+.about-team-member-subtitle {
+  font-weight: 200; }
+
+@media screen and (min-width: 980px) {
+  /* 7.1. 理念 */
+  #about-concept {
+    display: grid;
+    grid-template-columns: 12% 6fr 6fr 8%;
+    grid-template-rows: 40px auto 40px;
+    align-items: center; }
+  #about-concept-text {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3; }
+  #about-concept-img-wrap {
+    grid-column: 3 / 4;
+    grid-row: 2 / 3; }
+  /* 7.2. 團隊 */
+  .about-team-member {
+    display: grid;
+    grid-template-columns: 12% 9fr 1fr 9fr 12%;
+    grid-template-rows: 40px auto 40px;
+    align-items: center; }
+    .about-team-member:last-child {
+      margin-bottom: 40px; }
+  .about-team-member-img-wrap {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3; }
+  .about-team-member-text {
+    grid-column: 4 / 5;
+    grid-row: 2 / 3; } }
+
+@media screen and (max-width: 979px) {
+  #about-concept-img-wrap,
+  #about-team {
+    margin: 30px 8%; }
+  /* 7.1. 理念 */
+  #about-concept-text {
+    margin: 60px 8% 30px; }
+  #about-concept-title,
+  .trisoap-signature {
+    text-align: center; }
+  /* 7.2. 團隊 */
+  #about-team > .slogan, #about-team > .slogan-title {
+    text-align: start; }
+  .about-team-member {
+    margin: 30px auto; } }
+
+/* -------------------------------------------------------------------------
+ * 8. 聯絡我們｜Contact
+ * -------------------------------------------------------------------------
+ */
+#contact-subject {
+  margin: 60px 8% 0; }
+
+#contact-form-name,
+#contact-form-email,
+#contact-form-phone,
+#contact-form-message,
+#contact-form .submit-btn {
+  display: block;
+  width: 100%;
+  margin: 15px 0; }
+
+#contact-form-name,
+#contact-form-email,
+#contact-form-phone,
+#contact-form-message {
+  font-size: 18px; }
+
+#contact-info {
+  color: #555;
+  font-weight: 200;
+  letter-spacing: 0.03em;
+  line-height: 1.7; }
+
+@media screen and (min-width: 980px) {
+  #contact {
+    display: grid;
+    grid-template-columns: 8% 3fr 4% 2fr 8%;
+    grid-template-rows: 60px auto 60px;
+    align-items: center; }
+  #contact-map {
+    height: 400px;
+    grid-column: 2 / 3;
+    grid-row: 2 / 3; }
+  #contact-form {
+    grid-column: 4 / 5;
+    grid-row: 2 / 3; } }
+
+@media screen and (max-width: 979px) {
+  #contact {
+    margin: 40px 8%; }
+  #contact-map {
+    height: 220px; } }
+
+/* -------------------------------------------------------------------------
+ * 9. 購物須知｜Shopping Guide
+ * -------------------------------------------------------------------------
+ */
+#guide-wrap {
+  color: #555; }
+
+.guide-anchor,
+.guide-link {
+  text-decoration: none;
+  color: #EA8B3B;
+  font-weight: 200; }
+
+#guide-content {
+  padding: 0 8%; }
+
+.guide-title {
+  margin-bottom: 35px;
+  color: #000;
+  font-weight: normal;
+  letter-spacing: 0.18em; }
+
+.guide-subtitle {
+  margin-bottom: 20px;
+  font-weight: 200;
+  letter-spacing: 0.18em; }
+
+.guide-icon {
+  width: 25px;
+  height: auto; }
+
+.guide-text {
+  margin-bottom: 35px;
+  line-height: 1.7;
+  letter-spacing: 0.03em; }
+
+#shop-guide {
+  margin-top: 40px; }
+
+/* -------------------------------------------------------------------------
+ * 10. 單品 / 旅用皂絲｜Soap / Soapstring
+ * 10.1. 商品全覽頁｜Products
+ * 10.2. 單項商品頁｜Single Product
+ * -------------------------------------------------------------------------
+ */
+/* 10.1. 商品全覽頁｜Products */
+.products-wrap > .slogan-title {
+  margin: 35px auto; }
+
+.products-wrap > .slogan, .products-wrap > .slogan-title {
+  color: #555;
+  line-height: 1.7; }
+
+#products {
+  display: flex;
+  flex-flow: row wrap; }
+
+.product {
+  box-sizing: border-box;
+  text-align: center;
+  color: #555; }
+
+.product-cover-img {
+  width: 100%;
+  height: auto; }
+
+.product-link {
+  text-decoration: none;
+  color: #000;
+  transition: color .3s;
+  font-size: 14px;
+  font-weight: normal; }
+  .product-link:hover {
+    color: #666; }
+
+.product-intro {
+  font-weight: 200;
+  line-height: 1.7;
+  letter-spacing: 0.03em; }
+
+@media screen and (min-width: 980px) {
+  .product {
+    width: 50%;
+    padding: 40px 20px; }
+  .product-cover {
+    width: 100%;
+    overflow: hidden; }
+  .product-cover-img {
+    display: block;
+    transition: transform 0.3s; }
+    .product-cover-img:hover {
+      transform: scale(1.1); } }
+
+@media screen and (max-width: 979px) {
+  .product {
+    width: 100%;
+    padding: 10px 20px; } }
+
+/* 10.2. 單項商品頁｜Single Product */
+@media screen and (min-width: 980px) {
+  #single-product-wrap {
+    display: flex;
+    flex-flow: row wrap; }
+  #single-product-carousel,
+  #single-product-desc {
+    width: 50%;
+    box-sizing: border-box;
+    padding: 0 25px; } }
+
+@media screen and (max-width: 979px) {
+  #single-product-carousel,
+  #single-product-desc {
+    width: 100%; }
+  #single-product-carousel {
+    margin-bottom: 35px; } }
+
+#single-product-accordion > .ui-accordion-header {
+  margin-bottom: 1em;
+  padding: 10px 15px;
+  border-bottom: 1px solid #ddd;
+  background-color: #f5f5f5;
+  color: #000;
+  transition: color .3s;
+  font-weight: normal;
+  line-height: 1.5;
+  letter-spacing: 0.18em; }
+  #single-product-accordion > .ui-accordion-header.ui-state-hover {
+    color: #666; }
+
+.ui-accordion .ui-accordion-content {
+  padding-top: 0; }
+
+#single-product-price,
+#purchase-amount,
+#single-product-purchase > .submit-btn {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 10px 0; }
+
+#single-product-price {
+  margin: 0 20px;
+  color: #555;
+  font-weight: 200;
+  line-height: 1.5;
+  letter-spacing: 0.18em; }
+
+label[for="purchase-amount"] {
+  color: #555; }
+
+#purchase-amount {
+  min-width: 66px;
+  max-width: 120px; }
+
+/* -------------------------------------------------------------------------
+ * 11. 客製化專區｜Customize
+ * -------------------------------------------------------------------------
+ */
+#customize-wrap {
+  width: 100%;
+  margin-top: 60px; }
+
+#customize-content-img {
+  display: block;
+  width: 100%;
+  height: auto; }
