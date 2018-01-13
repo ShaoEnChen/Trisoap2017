@@ -311,55 +311,55 @@ header {
 
 /* 1.2. Jumbotron - Img */
 #jumbotron-about {
-  background-image: url(../../img/jumbotrons/about.jpg);
+  background-image: url(../img/jumbotrons/about.jpg);
 }
 
 #jumbotron-brand_intro {
-  background-image: url(../../img/jumbotrons/brand_intro.jpg);
+  background-image: url(../img/jumbotrons/brand_intro.jpg);
 }
 
 #jumbotron-contact {
-  background-image: url(../../img/jumbotrons/contact.jpg);
+  background-image: url(../img/jumbotrons/contact.jpg);
 }
 
 #jumbotron-faq {
-  background-image: url(../../img/jumbotrons/faq.jpg);
+  background-image: url(../img/jumbotrons/faq.jpg);
 }
 
 #jumbotron-media {
-  background-image: url(../../img/jumbotrons/media.jpg);
+  background-image: url(../img/jumbotrons/media.jpg);
 }
 
 #jumbotron-moonfest {
-  background-image: url(../../img/jumbotrons/moonfest.jpg);
+  background-image: url(../img/jumbotrons/moonfest.jpg);
 }
 
 #jumbotron-newyear {
-  background-image: url(../../img/jumbotrons/newyear.jpg);
+  background-image: url(../img/jumbotrons/newyear.jpg);
 }
 
 #jumbotron-partner {
-  background-image: url(../../img/jumbotrons/partner.jpg);
+  background-image: url(../img/jumbotrons/partner.jpg);
 }
 
 #jumbotron-shopping_guide {
-  background-image: url(../../img/jumbotrons/shopping_guide.jpg);
+  background-image: url(../img/jumbotrons/shopping_guide.jpg);
 }
 
 #jumbotron-single_product {
-  background-image: url(../../img/jumbotrons/single_product.jpg);
+  background-image: url(../img/jumbotrons/single_product.jpg);
 }
 
 #jumbotron-soap {
-  background-image: url(../../img/jumbotrons/soap.jpg);
+  background-image: url(../img/jumbotrons/soap.jpg);
 }
 
 #jumbotron-soapstring {
-  background-image: url(../../img/jumbotrons/soapstring.jpg);
+  background-image: url(../img/jumbotrons/soapstring.jpg);
 }
 
 #jumbotron-trial {
-  background-image: url(../../img/jumbotrons/trial.jpg);
+  background-image: url(../img/jumbotrons/trial.jpg);
 }
 
 .img-jumbotron {
@@ -972,15 +972,15 @@ a.no-href {
 }
 
 #feature1 {
-  background-image: url(../../img/trial/feature1.jpg);
+  background-image: url(../img/trial/feature1.jpg);
 }
 
 #feature2 {
-  background-image: url(../../img/trial/feature2.jpg);
+  background-image: url(../img/trial/feature2.jpg);
 }
 
 #feature3 {
-  background-image: url(../../img/trial/feature3.jpg);
+  background-image: url(../img/trial/feature3.jpg);
 }
 
 .feature-title {
