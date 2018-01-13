@@ -31,14 +31,21 @@ h1, h2, h3, h4, h5, h6, p, span, div, a, label {
  * =========================================================================
  */
 #preloader {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   position: fixed;
   top: 0;
   width: 100%;
   height: 100%;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   background-color: #B29772;
+  -webkit-transition: opacity 1.5s ease;
   transition: opacity 1.5s ease;
   z-index: 10;
 }
@@ -60,8 +67,12 @@ h1, h2, h3, h4, h5, h6, p, span, div, a, label {
 }
 
 #main-navbar {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: flex-end;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
   position: fixed;
   top: 0;
   left: 0;
@@ -113,6 +124,7 @@ h1, h2, h3, h4, h5, h6, p, span, div, a, label {
   display: block;
   text-decoration: none;
   color: #fff;
+  -webkit-transition: color .3s ease-in-out;
   transition: color .3s ease-in-out;
 }
 .nav-main-link:hover, .nav-main-link:active {
@@ -204,7 +216,8 @@ h1, h2, h3, h4, h5, h6, p, span, div, a, label {
 }
 @media screen and (max-width: 979px) {
   .nav-main-link > .fa-angle-right {
-    transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+            transform: rotate(90deg);
   }
 
   #brand-logo {
@@ -229,7 +242,8 @@ h1, h2, h3, h4, h5, h6, p, span, div, a, label {
 
   .nav-main-item {
     width: 100%;
-    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
   }
   .nav-main-item:hover {
     background-color: #000;
@@ -291,60 +305,61 @@ header {
 }
 
 .flex-control-paging li a {
-  box-shadow: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 
 /* 1.2. Jumbotron - Img */
 #jumbotron-about {
-  background-image: url(../img/jumbotrons/about.jpg);
+  background-image: url(../../img/jumbotrons/about.jpg);
 }
 
 #jumbotron-brand_intro {
-  background-image: url(../img/jumbotrons/brand_intro.jpg);
+  background-image: url(../../img/jumbotrons/brand_intro.jpg);
 }
 
 #jumbotron-contact {
-  background-image: url(../img/jumbotrons/contact.jpg);
+  background-image: url(../../img/jumbotrons/contact.jpg);
 }
 
 #jumbotron-faq {
-  background-image: url(../img/jumbotrons/faq.jpg);
+  background-image: url(../../img/jumbotrons/faq.jpg);
 }
 
 #jumbotron-media {
-  background-image: url(../img/jumbotrons/media.jpg);
+  background-image: url(../../img/jumbotrons/media.jpg);
 }
 
 #jumbotron-moonfest {
-  background-image: url(../img/jumbotrons/moonfest.jpg);
+  background-image: url(../../img/jumbotrons/moonfest.jpg);
 }
 
 #jumbotron-newyear {
-  background-image: url(../img/jumbotrons/newyear.jpg);
+  background-image: url(../../img/jumbotrons/newyear.jpg);
 }
 
 #jumbotron-partner {
-  background-image: url(../img/jumbotrons/partner.jpg);
+  background-image: url(../../img/jumbotrons/partner.jpg);
 }
 
 #jumbotron-shopping_guide {
-  background-image: url(../img/jumbotrons/shopping_guide.jpg);
+  background-image: url(../../img/jumbotrons/shopping_guide.jpg);
 }
 
 #jumbotron-single_product {
-  background-image: url(../img/jumbotrons/single_product.jpg);
+  background-image: url(../../img/jumbotrons/single_product.jpg);
 }
 
 #jumbotron-soap {
-  background-image: url(../img/jumbotrons/soap.jpg);
+  background-image: url(../../img/jumbotrons/soap.jpg);
 }
 
 #jumbotron-soapstring {
-  background-image: url(../img/jumbotrons/soapstring.jpg);
+  background-image: url(../../img/jumbotrons/soapstring.jpg);
 }
 
 #jumbotron-trial {
-  background-image: url(../img/jumbotrons/trial.jpg);
+  background-image: url(../../img/jumbotrons/trial.jpg);
 }
 
 .img-jumbotron {
@@ -432,7 +447,8 @@ header {
  */
 #footer {
   width: 100%;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   padding: 40px 0 20px;
   background-color: #F18C41;
   color: #fff;
@@ -441,6 +457,7 @@ header {
 }
 #footer .fa {
   color: rgba(255, 255, 255, 0.5);
+  -webkit-transition: color 0.3s;
   transition: color 0.3s;
 }
 
@@ -457,6 +474,7 @@ header {
   margin-bottom: 6px;
   text-decoration: none;
   color: #fff;
+  -webkit-transition: color 0.3s;
   transition: color 0.3s;
 }
 .footer-main-link:hover {
@@ -562,7 +580,8 @@ a.no-href {
 
 .slogan-wrap {
   width: 100%;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   padding: 60px 8%;
   background-color: #F18C41;
   color: #fff;
@@ -579,14 +598,17 @@ a.no-href {
 }
 
 .primary-btn {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   border: solid 1px #fff;
   text-decoration: none;
   text-align: center;
   background-color: transparent;
   color: #fff;
+  -webkit-transition-property: border-color, background-color, color;
   transition-property: border-color, background-color, color;
-  transition-duration: .3s;
+  -webkit-transition-duration: .3s;
+          transition-duration: .3s;
   font-weight: 200;
 }
 .primary-btn:hover {
@@ -596,14 +618,17 @@ a.no-href {
 }
 
 .text-btn {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   border: solid 1px #000;
   text-decoration: none;
   text-align: center;
   background-color: transparent;
   color: #000;
+  -webkit-transition-property: border-color, background-color, color;
   transition-property: border-color, background-color, color;
-  transition-duration: .3s;
+  -webkit-transition-duration: .3s;
+          transition-duration: .3s;
   font-weight: 200;
   padding: 8px 25px;
 }
@@ -614,14 +639,17 @@ a.no-href {
 }
 
 .submit-btn {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   border: solid 1px #000;
   text-decoration: none;
   text-align: center;
   background-color: #000;
   color: #fff;
+  -webkit-transition-property: border-color, background-color, color;
   transition-property: border-color, background-color, color;
-  transition-duration: .3s;
+  -webkit-transition-duration: .3s;
+          transition-duration: .3s;
   font-weight: 200;
   padding: 10px 35px;
 }
@@ -631,7 +659,8 @@ a.no-href {
 }
 
 .form-field {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   padding: 10px 24px;
   border: solid 1px #ddd;
   color: #555;
@@ -686,7 +715,8 @@ a.no-href {
 /* 1.1. 立即購買 */
 .buy-now {
   position: relative;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 .buy-now:hover > .hover-cover {
   opacity: 1;
@@ -695,7 +725,8 @@ a.no-href {
   display: block;
   position: absolute;
   top: 50%;
-  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
   width: 44%;
   margin: 0 28%;
   padding: 7px 12px;
@@ -716,6 +747,7 @@ a.no-href {
   text-decoration: none;
   background-color: rgba(0, 0, 0, 0.3);
   opacity: 0;
+  -webkit-transition: opacity 1s;
   transition: opacity 1s;
 }
 
@@ -724,7 +756,9 @@ a.no-href {
     display: grid;
     grid-template-columns: 16% auto 16%;
     grid-template-rows: 90px auto 90px;
-    align-items: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
 
   .buy-now:first-child {
@@ -744,7 +778,8 @@ a.no-href {
 }
 
 .story {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 .story-img {
@@ -765,7 +800,9 @@ a.no-href {
     display: grid;
     grid-template-columns: 8% 6fr 1fr 5fr 8%;
     grid-template-rows: 40px auto 40px;
-    align-items: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
 
   .story-img-wrap {
@@ -793,7 +830,8 @@ a.no-href {
  * -------------------------------------------------------------------------
  */
 .intro {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 .intro-img {
@@ -817,7 +855,9 @@ a.no-href {
   .intro {
     display: grid;
     grid-template-columns: 14% 5fr 1fr 5fr 14%;
-    align-items: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
   .intro:nth-child(1) {
     grid-template-rows: 40px auto 20px;
@@ -846,6 +886,7 @@ a.no-href {
   .intro-text a {
     text-decoration: none;
     color: #000;
+    -webkit-transition: color .3s;
     transition: color .3s;
   }
   .intro-text a:hover {
@@ -919,7 +960,8 @@ a.no-href {
 /* 4.3. 3 Main Features */
 .feature-wrap {
   width: 100%;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   padding: 12vh 16%;
   background-size: cover;
   background-position: center;
@@ -930,15 +972,15 @@ a.no-href {
 }
 
 #feature1 {
-  background-image: url(../img/trial/feature1.jpg);
+  background-image: url(../../img/trial/feature1.jpg);
 }
 
 #feature2 {
-  background-image: url(../img/trial/feature2.jpg);
+  background-image: url(../../img/trial/feature2.jpg);
 }
 
 #feature3 {
-  background-image: url(../img/trial/feature3.jpg);
+  background-image: url(../../img/trial/feature3.jpg);
 }
 
 .feature-title {
@@ -1047,7 +1089,9 @@ a.no-href {
     display: grid;
     grid-template-columns: 12% 6fr 6fr 8%;
     grid-template-rows: 40px auto 40px;
-    align-items: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
 
   #about-concept-text {
@@ -1065,7 +1109,9 @@ a.no-href {
     display: grid;
     grid-template-columns: 12% 9fr 1fr 9fr 12%;
     grid-template-rows: 40px auto 40px;
-    align-items: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
   .about-team-member:last-child {
     margin-bottom: 40px;
@@ -1143,7 +1189,9 @@ a.no-href {
     display: grid;
     grid-template-columns: 8% 3fr 4% 2fr 8%;
     grid-template-rows: 60px auto 60px;
-    align-items: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
 
   #contact-map {
@@ -1229,12 +1277,18 @@ a.no-href {
 }
 
 #products {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-flow: row wrap;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
 }
 
 .product {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   text-align: center;
   color: #555;
 }
@@ -1247,6 +1301,7 @@ a.no-href {
 .product-link {
   text-decoration: none;
   color: #000;
+  -webkit-transition: color .3s;
   transition: color .3s;
   font-size: 14px;
   font-weight: normal;
@@ -1274,10 +1329,14 @@ a.no-href {
 
   .product-cover-img {
     display: block;
+    -webkit-transition: -webkit-transform 0.3s;
+    transition: -webkit-transform 0.3s;
     transition: transform 0.3s;
+    transition: transform 0.3s, -webkit-transform 0.3s;
   }
   .product-cover-img:hover {
-    transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
   }
 }
 @media screen and (max-width: 979px) {
@@ -1289,14 +1348,20 @@ a.no-href {
 /* 10.2. 單項商品頁｜Single Product */
 @media screen and (min-width: 980px) {
   #single-product-wrap {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-flow: row wrap;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: row wrap;
+            flex-flow: row wrap;
   }
 
   #single-product-carousel,
   #single-product-desc {
     width: 50%;
-    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
     padding: 0 25px;
   }
 }
@@ -1316,6 +1381,7 @@ a.no-href {
   border-bottom: 1px solid #ddd;
   background-color: #f5f5f5;
   color: #000;
+  -webkit-transition: color .3s;
   transition: color .3s;
   font-weight: normal;
   line-height: 1.5;
