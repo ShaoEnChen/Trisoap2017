@@ -3,3 +3,4 @@
 resource/database.php
 resource/.sass-cache/*
 Trisoap_WL/
+.well-known/
