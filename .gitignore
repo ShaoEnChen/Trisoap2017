@@ -1,6 +1,20 @@
-.DS_Store
+# file types
 *.sql
+
+# Mac OS Desktop Services Store
+.DS_Store
+
+# ssl-for-free https
+well-known/
+
+# packages can be installed from package.json
 node_modules/
+
+# WL has its own repository
 Trisoap_WL/
+
+# security
 resource/database.php
+
+# SASS temp files
 resource/.sass-cache/
