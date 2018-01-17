@@ -1,5 +1,6 @@
 .DS_Store
 *.sql
-resource/database.php
-resource/.sass-cache/*
+node_module/
 Trisoap_WL/
+resource/database.php
+resource/.sass-cache/
