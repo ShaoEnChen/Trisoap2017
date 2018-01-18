@@ -623,6 +623,7 @@ h1, h2, h3, h4, h5, h6, p, span, div, a, label {
 @media screen and (max-width: 979px) {
   .nav-main-link > .fa-angle-right {
     -webkit-transform: rotate(90deg);
+        -ms-transform: rotate(90deg);
             transform: rotate(90deg); }
   #brand-logo {
     height: 20px; }
@@ -691,43 +692,43 @@ header {
 
 /* 1.2. Jumbotron - Img */
 #jumbotron-about {
-  background-image: url(resource/img/jumbotrons/about.jpg); }
+  background-image: url(/resource/img/jumbotrons/about.jpg); }
 
 #jumbotron-brand_intro {
-  background-image: url(resource/img/jumbotrons/brand_intro.jpg); }
+  background-image: url(/resource/img/jumbotrons/brand_intro.jpg); }
 
 #jumbotron-contact {
-  background-image: url(resource/img/jumbotrons/contact.jpg); }
+  background-image: url(/resource/img/jumbotrons/contact.jpg); }
 
 #jumbotron-faq {
-  background-image: url(resource/img/jumbotrons/faq.jpg); }
+  background-image: url(/resource/img/jumbotrons/faq.jpg); }
 
 #jumbotron-media {
-  background-image: url(resource/img/jumbotrons/media.jpg); }
+  background-image: url(/resource/img/jumbotrons/media.jpg); }
 
 #jumbotron-moonfest {
-  background-image: url(resource/img/jumbotrons/moonfest.jpg); }
+  background-image: url(/resource/img/jumbotrons/moonfest.jpg); }
 
 #jumbotron-newyear {
-  background-image: url(resource/img/jumbotrons/newyear.jpg); }
+  background-image: url(/resource/img/jumbotrons/newyear.jpg); }
 
 #jumbotron-partner {
-  background-image: url(resource/img/jumbotrons/partner.jpg); }
+  background-image: url(/resource/img/jumbotrons/partner.jpg); }
 
 #jumbotron-shopping_guide {
-  background-image: url(resource/img/jumbotrons/shopping_guide.jpg); }
+  background-image: url(/resource/img/jumbotrons/shopping_guide.jpg); }
 
 #jumbotron-single_product {
-  background-image: url(resource/img/jumbotrons/single_product.jpg); }
+  background-image: url(/resource/img/jumbotrons/single_product.jpg); }
 
 #jumbotron-soap {
-  background-image: url(resource/img/jumbotrons/soap.jpg); }
+  background-image: url(/resource/img/jumbotrons/soap.jpg); }
 
 #jumbotron-soapstring {
-  background-image: url(resource/img/jumbotrons/soapstring.jpg); }
+  background-image: url(/resource/img/jumbotrons/soapstring.jpg); }
 
 #jumbotron-trial {
-  background-image: url(resource/img/jumbotrons/trial.jpg); }
+  background-image: url(/resource/img/jumbotrons/trial.jpg); }
 
 .img-jumbotron {
   position: relative;
@@ -1008,7 +1009,8 @@ a.no-href {
 .trisoap-signature {
   font-family: "Great Vibes", sans-serif;
   font-weight: normal;
-  transform: rotate(-4deg);
+  -ms-transform: rotate(-4deg);
+      transform: rotate(-4deg);
   -webkit-transform: rotate(-4deg); }
 
 /* -------------------------------------------------------------------------
@@ -1029,6 +1031,7 @@ a.no-href {
     position: absolute;
     top: 50%;
     -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
             transform: translateY(-50%);
     width: 44%;
     margin: 0 28%;
@@ -1233,13 +1236,13 @@ a.no-href {
   overflow: auto; }
 
 #feature1 {
-  background-image: url(resource/img/trial/feature1.jpg); }
+  background-image: url(/resource/img/trial/feature1.jpg); }
 
 #feature2 {
-  background-image: url(resource/img/trial/feature2.jpg); }
+  background-image: url(/resource/img/trial/feature2.jpg); }
 
 #feature3 {
-  background-image: url(resource/img/trial/feature3.jpg); }
+  background-image: url(/resource/img/trial/feature3.jpg); }
 
 .feature-title {
   margin: 0;
@@ -1529,6 +1532,7 @@ a.no-href {
     transition: transform 0.3s, -webkit-transform 0.3s; }
     .product-cover-img:hover {
       -webkit-transform: scale(1.1);
+          -ms-transform: scale(1.1);
               transform: scale(1.1); } }
 
 @media screen and (max-width: 979px) {

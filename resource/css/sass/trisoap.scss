@@ -359,7 +359,7 @@ $jumbotron-list: "about", "brand_intro", "contact", "faq", "media", "moonfest", 
 
 @each $item in $jumbotron-list {
 	#jumbotron-#{$item} {
-		background-image: url(../../img/jumbotrons/#{$item}.jpg);
+		background-image: url(/resource/img/jumbotrons/#{$item}.jpg);
 	}
 }
 
@@ -992,15 +992,15 @@ $buy-now-btn-width: 44%;
 }
 
 #feature1 {
-	background-image: url(../../img/trial/feature1.jpg);
+	background-image: url(/resource/img/trial/feature1.jpg);
 }
 
 #feature2 {
-	background-image: url(../../img/trial/feature2.jpg);
+	background-image: url(/resource/img/trial/feature2.jpg);
 }
 
 #feature3 {
-	background-image: url(../../img/trial/feature3.jpg);
+	background-image: url(/resource/img/trial/feature3.jpg);
 }
 
 .feature-title {
