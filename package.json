@@ -4,7 +4,8 @@
   "description": "Trisoap Official Site 2017 - 2018",
   "main": "./resource/js/trisoap.js",
   "scripts": {
-    "build": "webpack",
+    "build": "gulp",
+    "webpack": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -25,6 +26,8 @@
     "extract-text-webpack-plugin": "^3.0.2",
     "file-loader": "^1.1.6",
     "gulp": "^3.9.1",
+    "gulp-babel": "^7.0.0",
+    "gulp-uglify": "^3.0.0",
     "node-sass": "^4.7.2",
     "postcss-loader": "^2.0.10",
     "resolve-url-loader": "^2.2.1",
