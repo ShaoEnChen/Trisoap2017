@@ -1,6 +1,6 @@
 <?php
 
-$GLOBALS['view_dir'] = "resource/js/view/";
+$GLOBALS['view_dir'] = "resource/dist/js/view/";
 
 function get_view_js_path($api, $route) {
 	global $view_dir;
@@ -21,7 +21,7 @@ function check_dependency_css_flexslider($route) {
 }
 
 function check_dependency_css_jquery_ui($route) {
-	$jquery_ui_css_dir = "resource/js/jquery-ui-accordion/jquery-ui.min.css";
+	$jquery_ui_css_dir = "resource/dist/js/jquery-ui-accordion/jquery-ui.min.css";
 
 	if(file_exists(get_view_js_path('jquery_ui', $route))){
 		echo '		<link href="' . $jquery_ui_css_dir . '" rel="stylesheet">';
@@ -44,7 +44,7 @@ function check_dependency_script_flexslider($route) {
 }
 
 function check_dependency_script_jquery_ui($route) {
-	$jquery_ui_js_dir = "resource/js/jquery-ui-accordion/jquery-ui.min.js";
+	$jquery_ui_js_dir = "resource/dist/js/jquery-ui-accordion/jquery-ui.min.js";
 
 	if(file_exists(get_view_js_path('jquery_ui', $route))){
 		echo '		<script src="' . $jquery_ui_js_dir . '" defer></script>';
