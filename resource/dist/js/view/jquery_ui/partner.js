@@ -1,0 +1,1 @@
+"use strict";window.jQuery.ui&&($("#partner-accordion").accordion({collapsible:!0,heightStyle:"content"}),$("#partner-accordion > .accordion").accordion({collapsible:!0,heightStyle:"content"}));

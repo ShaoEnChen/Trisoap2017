@@ -1,0 +1,1 @@
+"use strict";window.jQuery.ui&&$("#single-product-accordion").accordion({active:!1,collapsible:!0,heightStyle:"content"});

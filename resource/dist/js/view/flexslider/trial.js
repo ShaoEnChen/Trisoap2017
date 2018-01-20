@@ -1,0 +1,1 @@
+"use strict";$.isFunction($.fn.flexslider)&&$("#trial-recommend > .flexslider").flexslider({animation:"slide",directionNav:!1,controlNav:!1,slideshowSpeed:4e3,animationSpeed:1e3});
