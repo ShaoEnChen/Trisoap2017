@@ -1,0 +1,140 @@
+$wrap-lr-margin: 8%;
+$letter-spacing-18-18: 3.24px;
+$translucent-white: rgba(255, 255, 255, 0.7);
+
+.no-scroll {
+	overflow: hidden;
+}
+
+a.no-href {
+	cursor: default;
+}
+
+.main-wrap {
+	margin: 60px $wrap-lr-margin;
+}
+
+.main-content-title {
+	margin-bottom: 35px;
+	color: $main-font-color;
+	font-weight: 200;
+	letter-spacing: 4.32px;
+}
+
+.main-content-subtitle {
+	@extend .main-content-text;
+}
+
+.main-content-text {
+	color: $main-font-color;
+	font-weight: 200;
+	line-height: 1.7;
+	letter-spacing: 0.03em;
+}
+
+.slogan-wrap {
+	width: 100%;
+	box-sizing: border-box;
+	padding: 60px 8%;
+	background-color: $bg-orange;
+	color: #fff;
+}
+
+.slogan {
+	text-align: center;
+	font-weight: 200;
+	line-height: 1.5;
+}
+
+.slogan-title {
+	@extend .slogan;
+	letter-spacing: $letter-spacing-18-18;
+}
+
+// Buttons, usually <a> tag
+@mixin btn($border-color, $background-color, $font-color, $border-color-hover: false, $background-color-hover: false, $font-color-hover: false) {
+	box-sizing: border-box;
+	border: solid 1px $border-color;
+	text-decoration: none;
+	text-align: center;
+	background-color: $background-color;
+	color: $font-color;
+	transition-property: border-color, background-color, color;
+	transition-duration: .3s;
+	font-weight: 200;
+	&:hover {
+		@if $border-color-hover {
+			border-color: $border-color-hover;
+		}
+		@if $background-color-hover {
+			background-color: $background-color-hover;
+		}
+		@if $font-color-hover {
+			color: $font-color-hover;
+		}
+	}
+}
+
+.primary-btn {
+	@include btn(#fff, transparent, #fff, $translucent-white, $translucent-white, #666);
+}
+
+.text-btn {
+	@include btn(#000, transparent, #000, #777, transparent, #777);
+	padding: 8px 25px;
+}
+
+.submit-btn {
+	@include btn(#000, #000, #fff, #777, #777);
+	padding: 10px 35px;
+}
+
+.form-field {
+	box-sizing: border-box;
+	padding: 10px 24px;
+	border: solid 1px #ddd;
+	color: $main-font-color;
+	font-weight: 200;
+	line-height: 1.4;
+}
+
+// hr tags
+@mixin text-sep($border-color) {
+	border-width: 1px;
+	border-color: $border-color;
+	border-style: solid none none none;
+}
+
+.text-sep-sm {
+	@include text-sep(#eee);
+	margin: 20px auto;
+}
+
+.text-sep-md {
+	@include text-sep(#ccc);
+	margin: 30px auto;
+}
+
+// JQuery UI Accordion
+.ui-accordion-header {
+	color: $main-font-color;
+	font-weight: normal;
+	outline: 0;
+}
+
+.ui-accordion-header.ui-state-hover,
+.ui-accordion-header-active {
+	font-weight: bold;
+	color: #000;
+}
+
+.ui-accordion-content {
+	font-weight: 200;
+}
+
+.trisoap-signature {
+	font-family: "Great Vibes", sans-serif;
+    font-weight: normal;
+    transform: rotate(-4deg);
+    -webkit-transform: rotate(-4deg);
+}

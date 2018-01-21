@@ -418,155 +418,132 @@ h1, h2, h3, h4, h5, h6, p, span, div, a, label {
  *  9:
  *  10:
  */
-/* =========================================================================
- * Main Navigation Bar
- * =========================================================================
+/* -------------------------------------------------------------------------
+ * 0. Shared Properties
+ * -------------------------------------------------------------------------
  */
-.nav-main-link, .nav-dropdown-header {
-  font: 11px sans-serif;
-  font-weight: 100;
-  letter-spacing: 2px; }
+.no-scroll {
+  overflow: hidden; }
 
-#main-navbar {
-  display: flex;
-  justify-content: flex-end;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  width: 100%;
-  background-color: #18191B;
-  z-index: 8;
-  opacity: 1; }
-
-#nav-brand-wrap,
-#nav-toggle-wrap,
-#nav-menu-wrap {
-  margin: auto;
-  display: inline-block; }
-
-#nav-brand-wrap {
-  justify-self: flex-start; }
-
-.nav-brand {
-  display: block;
-  justify-self: flex-start;
-  line-height: 60px; }
-
-#brand-logo {
-  width: auto;
-  vertical-align: middle;
-  padding: 0 15px; }
-
-#nav-main-menu {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  background-color: #18191B; }
-
-.nav-dropdown-menu,
-.nav-dropdown-submenu {
-  display: none;
-  list-style: none;
-  background-color: #18191B; }
-
-.nav-main-link {
-  display: block;
-  text-decoration: none;
-  color: #fff;
-  transition: color .3s ease-in-out; }
-  .nav-main-link:hover, .nav-main-link:active {
-    color: #d3bd98; }
-
-.nav-dropdown-header {
-  color: #777;
+a.no-href {
   cursor: default; }
 
-.nav-dropdown-item:hover {
-  background-color: #000; }
+.main-wrap {
+  margin: 60px 8%; }
 
-.nav-mobile-toggle {
-  position: relative;
-  width: 60px;
-  height: 60px;
-  cursor: pointer; }
+.main-content-title {
+  margin-bottom: 35px;
+  color: #555;
+  font-weight: 200;
+  letter-spacing: 4.32px; }
 
-.toggle-bar {
-  display: block;
-  position: absolute;
-  left: 25%;
-  width: 50%;
-  height: 2px;
-  background-color: #fff; }
-  .toggle-bar:nth-child(1) {
-    top: 23px; }
-  .toggle-bar:nth-child(2) {
-    top: 29px; }
-  .toggle-bar:nth-child(3) {
-    top: 35px; }
+.main-content-text, .main-content-subtitle {
+  color: #555;
+  font-weight: 200;
+  line-height: 1.7;
+  letter-spacing: 0.03em; }
 
-@media screen and (min-width: 980px) {
-  #brand-logo {
-    height: 30px; }
-  /* Hide toggle button */
-  .nav-mobile-toggle {
-    display: none; }
-  /* Laptop menu layout */
-  .nav-main-item > .nav-main-link {
-    padding: 22px 13px; }
-  .nav-dropdown-item > .nav-main-link, .nav-dropdown-header {
-    padding: 12px 18px; }
-  .nav-main-item {
-    display: inline-block; }
-  .has-dropdown {
-    position: relative; }
-    .has-dropdown:hover > .nav-dropdown-menu,
-    .has-dropdown:hover > .nav-dropdown-submenu {
-      display: block; }
-  .nav-dropdown-menu,
-  .nav-dropdown-submenu {
-    position: absolute;
-    padding: 0;
-    min-width: 210px;
-    z-index: 9; }
-  .nav-dropdown-menu {
-    top: 60px;
-    margin-left: -13px; }
-  .nav-dropdown-submenu {
-    top: 0;
-    left: 210px;
-    margin-left: 0; } }
+.slogan-wrap {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 60px 8%;
+  background-color: #F18C41;
+  color: #fff; }
 
-@media screen and (max-width: 979px) {
-  .nav-main-link > .fa-angle-right {
-    transform: rotate(90deg); }
-  #brand-logo {
-    height: 20px; }
-  /* Hide main menu and show when toggled */
-  #nav-menu-wrap {
-    margin: 0; }
-  #nav-main-menu {
-    display: none;
-    position: absolute;
-    top: 60px;
-    left: 0;
-    right: 0;
-    max-height: calc(100vh - 60px);
-    padding: 0;
-    overflow: auto; }
-  .nav-main-item {
-    width: 100%;
-    box-sizing: border-box; }
-    .nav-main-item:hover {
-      background-color: #000; }
-    .nav-main-item > .nav-main-link {
-      padding: 17px 30px; }
-  .nav-dropdown-menu,
-  .nav-dropdown-submenu {
-    padding: 0; }
-  .nav-dropdown-menu > .nav-dropdown-item > .nav-main-link,
-  .nav-dropdown-menu > .nav-dropdown-header {
-    padding: 12px 50px; }
-  .nav-dropdown-submenu > .nav-dropdown-item > .nav-main-link,
-  .nav-dropdown-submenu > .nav-dropdown-header {
-    padding: 12px 70px; } }
+.slogan, .slogan-title {
+  text-align: center;
+  font-weight: 200;
+  line-height: 1.5; }
+
+.slogan-title {
+  letter-spacing: 3.24px; }
+
+.primary-btn {
+  box-sizing: border-box;
+  border: solid 1px #fff;
+  text-decoration: none;
+  text-align: center;
+  background-color: transparent;
+  color: #fff;
+  transition-property: border-color, background-color, color;
+  transition-duration: .3s;
+  font-weight: 200; }
+  .primary-btn:hover {
+    border-color: rgba(255, 255, 255, 0.7);
+    background-color: rgba(255, 255, 255, 0.7);
+    color: #666; }
+
+.text-btn {
+  box-sizing: border-box;
+  border: solid 1px #000;
+  text-decoration: none;
+  text-align: center;
+  background-color: transparent;
+  color: #000;
+  transition-property: border-color, background-color, color;
+  transition-duration: .3s;
+  font-weight: 200;
+  padding: 8px 25px; }
+  .text-btn:hover {
+    border-color: #777;
+    background-color: transparent;
+    color: #777; }
+
+.submit-btn {
+  box-sizing: border-box;
+  border: solid 1px #000;
+  text-decoration: none;
+  text-align: center;
+  background-color: #000;
+  color: #fff;
+  transition-property: border-color, background-color, color;
+  transition-duration: .3s;
+  font-weight: 200;
+  padding: 10px 35px; }
+  .submit-btn:hover {
+    border-color: #777;
+    background-color: #777; }
+
+.form-field {
+  box-sizing: border-box;
+  padding: 10px 24px;
+  border: solid 1px #ddd;
+  color: #555;
+  font-weight: 200;
+  line-height: 1.4; }
+
+.text-sep-sm {
+  border-width: 1px;
+  border-color: #eee;
+  border-style: solid none none none;
+  margin: 20px auto; }
+
+.text-sep-md {
+  border-width: 1px;
+  border-color: #ccc;
+  border-style: solid none none none;
+  margin: 30px auto; }
+
+.ui-accordion-header {
+  color: #555;
+  font-weight: normal;
+  outline: 0; }
+
+.ui-accordion-header.ui-state-hover,
+.ui-accordion-header-active {
+  font-weight: bold;
+  color: #000; }
+
+.ui-accordion-content {
+  font-weight: 200; }
+
+.trisoap-signature {
+  font-family: "Great Vibes", sans-serif;
+  font-weight: normal;
+  transform: rotate(-4deg);
+  -webkit-transform: rotate(-4deg); }
+
+/* =========================================================================
+ * Member
+ * =========================================================================
+ */
