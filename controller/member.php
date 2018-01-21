@@ -8,7 +8,7 @@ if(isset($_GET['in']) || isset($_POST['in'])) {
 			router('index');
 		}
 		else {
-			include_once("view/function/memberSignin.html");
+			include_once("view/manage_ui/memberSignin.html");
 		}
 	}
 	elseif($in == 'signup') {
@@ -16,7 +16,7 @@ if(isset($_GET['in']) || isset($_POST['in'])) {
 			router('index');
 		}
 		else {
-			include_once("view/function/memberSignup.html");
+			include_once("view/manage_ui/memberSignup.html");
 		}
 	}
 	elseif($in == 'resetPassword') {
@@ -24,12 +24,12 @@ if(isset($_GET['in']) || isset($_POST['in'])) {
 			router('index');
 		}
 		else {
-			include_once("view/function/memberResetPassword.html");
+			include_once("view/manage_ui/memberResetPassword.html");
 		}
 	}
 	elseif($in == 'changePassword') {
 		if(isset($_COOKIE['account'])) {
-			include_once("view/function/memberChangePassword.html");
+			include_once("view/manage_ui/memberChangePassword.html");
 		}
 		else {
 			router('index');
@@ -37,8 +37,8 @@ if(isset($_GET['in']) || isset($_POST['in'])) {
 	}
 	elseif($in == 'edit') {
 		if(isset($_COOKIE['account'])) {
-			$myfile = fopen("view/function/memberEdit.html", "r");
-			$content = fread($myfile, filesize("view/function/memberEdit.html"));
+			$myfile = fopen("view/manage_ui/memberEdit.html", "r");
+			$content = fread($myfile, filesize("view/manage_ui/memberEdit.html"));
 			fclose($myfile);
 			$name = curl_post(array('module' => 'cue', 'target' => 'member_name', 'account' => $_COOKIE['account']), 'cue');
 			$address = curl_post(array('module' => 'cue', 'target' => 'member_address', 'account' => $_COOKIE['account']), 'cue');
@@ -59,7 +59,7 @@ if(isset($_GET['in']) || isset($_POST['in'])) {
 	}
 	elseif($in == 'verify') {
 		if(isset($_COOKIE['account'])) {
-			include_once("view/function/memberVerify.html");
+			include_once("view/manage_ui/memberVerify.html");
 		}
 		else {
 			router('index');
@@ -71,8 +71,8 @@ if(isset($_GET['in']) || isset($_POST['in'])) {
 }
 
 elseif(isset($_COOKIE['account']) && isset($_COOKIE['identity']) && $_COOKIE['identity'] == 'A') {
-	$myfile = fopen("view/function/member.html", "r");
-	$content = fread($myfile, filesize("view/function/member.html"));
+	$myfile = fopen("view/manage_ui/member.html", "r");
+	$content = fread($myfile, filesize("view/manage_ui/member.html"));
 	fclose($myfile);
 	$show = curl_post(array('module' => 'member', 'event' => 'show', 'account' => $_COOKIE['account'], 'token' => $_COOKIE['token']), 'member');
 	$content = str_replace('[memberShow]', $show, $content);
