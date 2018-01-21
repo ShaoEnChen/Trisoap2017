@@ -8,7 +8,7 @@ if(isset($_GET['in']) || isset($_POST['in'])) {
 			router('index');
 		}
 		else {
-			include_once("view/manage_ui/memberSignin.html");
+			include_once("view/user_function/member_signin.html");
 		}
 	}
 	elseif($in == 'signup') {
@@ -16,7 +16,7 @@ if(isset($_GET['in']) || isset($_POST['in'])) {
 			router('index');
 		}
 		else {
-			include_once("view/manage_ui/memberSignup.html");
+			include_once("view/user_function/member_signup.html");
 		}
 	}
 	elseif($in == 'resetPassword') {
@@ -24,12 +24,12 @@ if(isset($_GET['in']) || isset($_POST['in'])) {
 			router('index');
 		}
 		else {
-			include_once("view/manage_ui/memberResetPassword.html");
+			include_once("view/user_function/member_reset_password.html");
 		}
 	}
 	elseif($in == 'changePassword') {
 		if(isset($_COOKIE['account'])) {
-			include_once("view/manage_ui/memberChangePassword.html");
+			include_once("view/user_function/member_change_password.html");
 		}
 		else {
 			router('index');
@@ -37,8 +37,8 @@ if(isset($_GET['in']) || isset($_POST['in'])) {
 	}
 	elseif($in == 'edit') {
 		if(isset($_COOKIE['account'])) {
-			$myfile = fopen("view/manage_ui/memberEdit.html", "r");
-			$content = fread($myfile, filesize("view/manage_ui/memberEdit.html"));
+			$myfile = fopen("view/user_function/member_edit.html", "r");
+			$content = fread($myfile, filesize("view/user_function/member_edit.html"));
 			fclose($myfile);
 			$name = curl_post(array('module' => 'cue', 'target' => 'member_name', 'account' => $_COOKIE['account']), 'cue');
 			$address = curl_post(array('module' => 'cue', 'target' => 'member_address', 'account' => $_COOKIE['account']), 'cue');
@@ -59,7 +59,7 @@ if(isset($_GET['in']) || isset($_POST['in'])) {
 	}
 	elseif($in == 'verify') {
 		if(isset($_COOKIE['account'])) {
-			include_once("view/manage_ui/memberVerify.html");
+			include_once("view/user_function/member_verify.html");
 		}
 		else {
 			router('index');
