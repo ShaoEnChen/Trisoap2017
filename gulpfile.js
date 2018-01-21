@@ -22,7 +22,7 @@ gulp.task('css', ['sass'], () => {
 });
 
 gulp.task('sass', () => {
-	gulp.src(`${sass_src}/**/*.scss`)
+	gulp.src(`${sass_src}/*.scss`)
 		.pipe(sass().on('error', sass.logError))
 		.pipe(gulp.dest(css_src));
 });
