@@ -1,5 +1,7 @@
 $wrap-lr-margin: 8%;
 $letter-spacing-18-18: 3.24px;
+$text-orange: #ff9c3f;
+$text-orange-hover: lighten($text-orange, 10%);
 $translucent-white: rgba(255, 255, 255, 0.7);
 
 .no-scroll {
@@ -8,6 +10,14 @@ $translucent-white: rgba(255, 255, 255, 0.7);
 
 a.no-href {
 	cursor: default;
+}
+
+.text-center {
+	text-align: center;
+}
+
+.nowrap {
+	white-space: nowrap;
 }
 
 .main-wrap {
@@ -87,6 +97,16 @@ a.no-href {
 .submit-btn {
 	@include btn(#000, #000, #fff, #777, #777);
 	padding: 10px 35px;
+}
+
+.promise-btn {
+	@include btn($text-orange, $text-orange, #000, $text-orange-hover, $text-orange-hover);
+	padding: 8px 25px;
+}
+
+.neural-btn {
+	@include btn(#ccc, #ccc, #000, #aaa, #aaa);
+	padding: 8px 25px;
 }
 
 .form-field {

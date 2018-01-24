@@ -821,6 +821,12 @@ header {
 a.no-href {
   cursor: default; }
 
+.text-center {
+  text-align: center; }
+
+.nowrap {
+  white-space: nowrap; }
+
 .main-wrap {
   margin: 60px 8%; }
 
@@ -896,6 +902,36 @@ a.no-href {
   .submit-btn:hover {
     border-color: #777;
     background-color: #777; }
+
+.promise-btn {
+  box-sizing: border-box;
+  border: solid 1px #ff9c3f;
+  text-decoration: none;
+  text-align: center;
+  background-color: #ff9c3f;
+  color: #000;
+  transition-property: border-color, background-color, color;
+  transition-duration: .3s;
+  font-weight: 200;
+  padding: 8px 25px; }
+  .promise-btn:hover {
+    border-color: #ffb672;
+    background-color: #ffb672; }
+
+.neural-btn {
+  box-sizing: border-box;
+  border: solid 1px #ccc;
+  text-decoration: none;
+  text-align: center;
+  background-color: #ccc;
+  color: #000;
+  transition-property: border-color, background-color, color;
+  transition-duration: .3s;
+  font-weight: 200;
+  padding: 8px 25px; }
+  .neural-btn:hover {
+    border-color: #aaa;
+    background-color: #aaa; }
 
 .form-field {
   box-sizing: border-box;

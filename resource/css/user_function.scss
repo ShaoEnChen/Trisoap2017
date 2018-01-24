@@ -40,6 +40,56 @@ $main-font-color: #555;
 
 @import 'general';
 
+.sign-wrap {
+	display: flex;
+	width: 100vw;
+	height: 100vh;
+	justify-content: center;
+	align-items: center;
+	background: url(/resource/img/jumbotrons/single_product.jpg) center center no-repeat;
+	background-size: cover;
+}
+
+.sign {
+	border-radius: 16px;
+	box-sizing: border-box;
+	background-color: rgba(255, 255, 255, 0.63);
+	label {
+		display: inline-block;
+		margin: 6px auto;
+	}
+	input[type='text'],
+	input[type='password'] {
+		max-width: 100%;
+	}
+	[class*='-btn'] {
+		display: inline-block;
+		margin: 2px auto;
+	}
+}
+
+.sign-block {
+	padding: 10px 0;
+}
+
+// Laptop
+@media screen and (min-width: 980px) {
+	$sign-width: 40%;
+	.sign {
+		width: $sign-width;
+		padding: 40px ($wrap-lr-margin * $sign-width / 100%);
+	}
+}
+
+// Mobile
+@media screen and (max-width: 979px) {
+	$sign-width: 80%;
+	.sign {
+		width: $sign-width;
+		padding: 8% ($wrap-lr-margin * $sign-width / 100%);
+	}
+}
+
 /* =========================================================================
  * Member
  * =========================================================================

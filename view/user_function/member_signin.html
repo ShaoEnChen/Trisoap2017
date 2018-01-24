@@ -6,26 +6,36 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>登入｜三三吾鄉手工皂Trisoap</title>
         <meta name="author" content="2017 Trisoap Team">
-        <meta property="og:title" content="{title}｜三三吾鄉手工皂 Trisoap" >
+        <meta property="og:title" content="登入｜三三吾鄉手工皂 Trisoap" >
         <meta property="og:url" content="https://www.trisoap.com.tw">
         <meta property="og:image" content="resource/img/index/index01.jpg">
         <link rel="shortcut icon" href="resource/img/misc/favicon.png">
+        <link rel="stylesheet" href="resource/dist/css/user_function.css">
     </head>
     <body>
-        <div class="sign-block">
-            <h1>登入</h1>
-            <input type="text" placeholder="電子信箱" id="account">
-            <input type="password" placeholder="密碼" id="password">
-            <button class="promise" onclick="memberSignin()">登入</button>
-            <a href="index.php?route=member&in=signup">
-                <button class="promise">立即註冊</button>
-            </a>
-            <a href="index.php">
-                <button type="button" class="cancel">取消</button>
-            </a>
-            <a href="index.php?route=member&in=resetPassword">
-                <button class="cancel">忘記密碼</button>
-            </a>
+        <div class="sign-wrap">
+            <div class="sign text-center">
+                <h2>登入</h2>
+                <div class="sign-block">
+                    <label for="account">電子信箱</label>
+                    <br>
+                    <input id="account" type="text">
+                </div>
+                <div class="sign-block">
+                    <label for="password">密碼</label>
+                    <br>
+                    <input id="password" type="password">
+                </div>
+                <div class="sign-block">
+                    <a class="promise-btn" href="javascript:void(0)" onclick="memberSignin()">登入</a>
+                    <a class="promise-btn" href="index.php?route=member&in=signup">立即註冊</a>
+                </div>
+                <div class="sign-block">
+                    <a class="neural-btn" href="index.php">取消</a>
+                    <a class="neural-btn" href="index.php?route=member&in=resetPassword">忘記密碼</a>
+                </div>
+            </div>
         </div>
+        <script src="resource/dist/js/view/user_function.js"></script>
     </body>
 </html>
