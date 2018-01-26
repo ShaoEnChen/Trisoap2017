@@ -1,0 +1,1 @@
+"use strict";var act=document.getElementById("personal-info-protect-act");fetch("resource/text/personal_information_protection_act.txt").then(function(t){return t.text()}).then(function(t){act.innerHTML=t});

@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*
  * Import fonts
  */
@@ -581,26 +582,29 @@ a.no-href {
 
 .sign-wrap {
   display: flex;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  min-height: 100vh;
   justify-content: center;
   align-items: center;
   background: url(/resource/img/jumbotrons/single_product.jpg) center center no-repeat;
   background-size: cover; }
 
 .sign {
+  margin: 40px auto;
   border-radius: 16px;
   box-sizing: border-box;
   background-color: rgba(255, 255, 255, 0.63); }
   .sign label {
     display: inline-block;
     margin: 6px auto; }
-  .sign input[type='text'],
-  .sign input[type='password'] {
-    max-width: 100%; }
+  .sign input,
+  .sign textarea {
+    max-width: 92%; }
   .sign [class*='-btn'] {
     display: inline-block;
     margin: 2px auto; }
+  .sign .text-sep-sm {
+    border-color: #999; }
 
 .sign-block {
   padding: 10px 0; }
@@ -619,3 +623,9 @@ a.no-href {
  * Member
  * =========================================================================
  */
+/* -------------------------------------------------------------------------
+ * 註冊會員｜Signup
+ * -------------------------------------------------------------------------
+ */
+#personal-info-protect-act {
+  width: 92%; }
