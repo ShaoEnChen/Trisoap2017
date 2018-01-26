@@ -18,6 +18,7 @@ function fadePreloader() {
 }
 
 function hidePreloader() {
+	// transition duration 1.5s (1500ms) set in trisoap.scss
 	setTimeout(() => {
 		$preloader.css('display', 'none');
 	}, 1500);
