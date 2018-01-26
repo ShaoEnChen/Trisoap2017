@@ -7,12 +7,12 @@ if(window.jQuery.ui) {
 
 	$('#partner-accordion').accordion({
 		collapsible: true,
-		heightStyle: "content",
+		heightStyle: 'content',
 	});
 
 	// Nested Accordion
 	$('#partner-accordion > .accordion').accordion({
 		collapsible: true,
-		heightStyle: "content",
+		heightStyle: 'content',
 	});
 }

@@ -7,6 +7,6 @@ if(window.jQuery.ui) {
 
 	$('#faq-accordion').accordion({
 		collapsible: true,
-		heightStyle: "content",
+		heightStyle: 'content',
 	});
 }

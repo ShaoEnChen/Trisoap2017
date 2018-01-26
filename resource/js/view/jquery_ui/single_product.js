@@ -8,6 +8,6 @@ if(window.jQuery.ui) {
 	$('#single-product-accordion').accordion({
 		active: false,
 		collapsible: true,
-		heightStyle: "content",
+		heightStyle: 'content',
 	});
 }
