@@ -32,6 +32,7 @@ function check_dependency_body($route) {
 	check_dependency_script_flexslider($route);
 	check_dependency_script_jquery_ui($route);
 	check_dependency_script_map_api($route);
+	check_dependency_script_user_function($route);
 }
 
 function check_dependency_script_flexslider($route) {
@@ -59,6 +60,15 @@ function check_dependency_script_map_api($route) {
 	if(file_exists(get_view_js_path('google_map', $route))){
 		echo '		<script src="' . $google_map_src . '"></script>';
 		echo '		<script src="' . get_view_js_path('google_map', $route) . '" defer></script>';
+	}
+}
+
+function check_dependency_script_user_function($route) {
+	$user_function_js_dir = "resource/dist/js/view/user_function.js";
+	$need_user_function = ['single_product'];
+
+	if(in_array($route, $need_user_function)) {
+		echo '		<script src="' . $user_function_js_dir . '" defer></script>';
 	}
 }
 

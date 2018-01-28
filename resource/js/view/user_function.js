@@ -6,7 +6,7 @@ function coverClose() {
 function orderitemCreate(index) {
 	var request = new XMLHttpRequest();
 	request.open("POST", "index.php");
-	var amount = document.getElementById("amount").value;
+	var amount = document.getElementById("purchase-amount").value;
 	var data = "module=orderitem&event=create&index=" + index + "&amount=" + amount;
 	request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 	request.send(data);
