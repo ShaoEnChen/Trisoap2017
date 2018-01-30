@@ -303,7 +303,7 @@ function memberSignup() {
 	var skintype = document.getElementById("skintype").value;
 	var birth = document.getElementById("birth").value;
 	var phone = document.getElementById("phone").value;
-	var add = document.getElementById("add").value;
+	var add = document.getElementById("address").value;
 	var taxid = document.getElementById("taxid").value;
 	var knowtype = document.getElementById("knowtype").value;
 	var notice = document.getElementById("notice").value;
