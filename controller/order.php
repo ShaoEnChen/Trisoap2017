@@ -9,8 +9,8 @@ if (isset($_GET['in']) || isset($_POST['in'])) {
 	}
 	elseif ($in == 'stateE') {
 		if (isset($_COOKIE['account']) && isset($_COOKIE['identity']) && $_COOKIE['identity'] == 'A') {
-			$myfile = fopen("view/manage_ui/orderStateE.html", "r");
-			$content = fread($myfile, filesize("view/manage_ui/orderStateE.html"));
+			$myfile = fopen("view/manage_ui/order_state_E.html", "r");
+			$content = fread($myfile, filesize("view/manage_ui/order_state_E.html"));
 			fclose($myfile);
 			$operate = curl_post(array('module' => 'order', 'event' => 'operate', 'state' => 'E', 'account' => $_COOKIE['account'], 'token' => $_COOKIE['token']), 'order');
 			$content = str_replace('[orderOperateE]', $operate, $content);
@@ -21,8 +21,8 @@ if (isset($_GET['in']) || isset($_POST['in'])) {
 	}
 	elseif ($in == 'stateR') {
 		if (isset($_COOKIE['account']) && isset($_COOKIE['identity']) && $_COOKIE['identity'] == 'A') {
-			$myfile = fopen("view/manage_ui/orderStateR.html", "r");
-			$content = fread($myfile, filesize("view/manage_ui/orderStateR.html"));
+			$myfile = fopen("view/manage_ui/order_state_R.html", "r");
+			$content = fread($myfile, filesize("view/manage_ui/order_state_R.html"));
 			fclose($myfile);
 			$operate = curl_post(array('module' => 'order', 'event' => 'operate', 'state' => 'R', 'account' => $_COOKIE['account'], 'token' => $_COOKIE['token']), 'order');
 			$content = str_replace('[orderOperateR]', $operate, $content);
@@ -33,8 +33,8 @@ if (isset($_GET['in']) || isset($_POST['in'])) {
 	}
 	elseif ($in == 'state1') {
 		if (isset($_COOKIE['account']) && isset($_COOKIE['identity']) && $_COOKIE['identity'] == 'A') {
-			$myfile = fopen("view/manage_ui/orderState1.html", "r");
-			$content = fread($myfile, filesize("view/manage_ui/orderState1.html"));
+			$myfile = fopen("view/manage_ui/order_state_1.html", "r");
+			$content = fread($myfile, filesize("view/manage_ui/order_state_1.html"));
 			fclose($myfile);
 			$operate = curl_post(array('module' => 'order', 'event' => 'operate', 'state' => '1', 'account' => $_COOKIE['account'], 'token' => $_COOKIE['token']), 'order');
 			$content = str_replace('[orderOperate1]', $operate, $content);
@@ -45,8 +45,8 @@ if (isset($_GET['in']) || isset($_POST['in'])) {
 	}
 	elseif ($in == 'stateC') {
 		if (isset($_COOKIE['account']) && isset($_COOKIE['identity']) && $_COOKIE['identity'] == 'A') {
-			$myfile = fopen("view/manage_ui/orderStateC.html", "r");
-			$content = fread($myfile, filesize("view/manage_ui/orderStateC.html"));
+			$myfile = fopen("view/manage_ui/order_state_C.html", "r");
+			$content = fread($myfile, filesize("view/manage_ui/order_state_C.html"));
 			fclose($myfile);
 			$operate = curl_post(array('module' => 'order', 'event' => 'operate', 'state' => 'C', 'account' => $_COOKIE['account'], 'token' => $_COOKIE['token']), 'order');
 			$content = str_replace('[orderOperateC]', $operate, $content);
@@ -57,8 +57,8 @@ if (isset($_GET['in']) || isset($_POST['in'])) {
 	}
 	elseif ($in == 'stateF') {
 		if (isset($_COOKIE['account']) && isset($_COOKIE['identity']) && $_COOKIE['identity'] == 'A') {
-			$myfile = fopen("view/manage_ui/orderStateF.html", "r");
-			$content = fread($myfile, filesize("view/manage_ui/orderStateF.html"));
+			$myfile = fopen("view/manage_ui/order_state_F.html", "r");
+			$content = fread($myfile, filesize("view/manage_ui/order_state_F.html"));
 			fclose($myfile);
 			$operate = curl_post(array('module' => 'order', 'event' => 'operate', 'state' => 'F', 'account' => $_COOKIE['account'], 'token' => $_COOKIE['token']), 'order');
 			$content = str_replace('[orderOperateF]', $operate, $content);
@@ -69,8 +69,8 @@ if (isset($_GET['in']) || isset($_POST['in'])) {
 	}
 	elseif ($in == 'cusView') {
 		if (isset($_COOKIE['account'])) {
-			$myfile = fopen("view/manage_ui/orderCusView.html", "r");
-			$content = fread($myfile, filesize("view/manage_ui/orderCusView.html"));
+			$myfile = fopen("view/user_function/order_cus_view.html", "r");
+			$content = fread($myfile, filesize("view/user_function/order_cus_view.html"));
 			fclose($myfile);
 			$operate = curl_post(array('module' => 'order', 'event' => 'cusOperate', 'account' => $_COOKIE['account'], 'token' => $_COOKIE['token']), 'order');
 			$content = str_replace('[cusOrderOperate]', $operate, $content);
