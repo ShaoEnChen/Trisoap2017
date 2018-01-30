@@ -274,7 +274,7 @@ function fetch_single_product($route, $page) {
 	$json_dir = 'resource/json/product/' . $itemno . '.json';
 
 	// Set info directly
-	$placeholder = ['{name}', '{intro}', '{ingredients}', '{skin_type}', '{feature}', '{price}'];
+	$placeholder = ['{item_no}', '{name}', '{intro}', '{ingredients}', '{skin_type}', '{feature}', '{price}'];
 	$product_info = fetch_json($placeholder, $json_dir);
 	$page = str_replace($placeholder, $product_info, $page);
 
