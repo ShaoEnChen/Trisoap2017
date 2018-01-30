@@ -243,7 +243,7 @@ function cartOperate($account, $token) {
 		$content = '';
 		$sql2 = mysql_query("SELECT * FROM ORDITEMMAS WHERE ORDNO='0' AND EMAIL='$account' AND ACTCODE='1' ORDER BY CREATEDATE ASC");
 		while ($fetch2 = mysql_fetch_array($sql2)) {
-			$content .= '<tr><td>'.query_name($fetch2['ITEMNO']).'</td><td>'.query_price($fetch2['ITEMNO']).'</td><td>'.$fetch2['ORDAMT'].'</td><td>'.(query_price($fetch2['ITEMNO']) * $fetch2['ORDAMT']).'</td><td><a class="neural-btn" href="javascript:void(0)" onclick="cartDelete(\''.$fetch2['ITEMNO'].'\')">移除</a></td></tr>';
+			$content .= '<tr><td>'.query_name($fetch2['ITEMNO']).'</td><td>'.query_price($fetch2['ITEMNO']).'</td><td>'.$fetch2['ORDAMT'].'</td><td>'.(query_price($fetch2['ITEMNO']) * $fetch2['ORDAMT']).'</td><td><button class="neural-btn" onclick="cartDelete(\''.$fetch2['ITEMNO'].'\')">移除</button></td></tr>';
 		}
 		return array('message' => 'Success', 'content' => $content);
 	}
@@ -268,7 +268,7 @@ function orderitemOperate($account, $token, $order) {
 	else {
 		$content = '';
 		while ($fetch2 = mysql_fetch_array($sql2)) {
-			$content .= '<tr><td>'.query_name($fetch2['ITEMNO']).'</td><td>'.query_price($fetch2['ITEMNO']).'</td><td>'.$fetch2['ORDAMT'].'</td><td>'.(query_price($fetch2['ITEMNO']) * $fetch2['ORDAMT']).'</td><td><button onclick="cartDelete(\''.$fetch2['ITEMNO'].'\')">取消</button></td></tr>';
+			$content .= '<tr><td>'.query_name($fetch2['ITEMNO']).'</td><td>'.query_price($fetch2['ITEMNO']).'</td><td>'.$fetch2['ORDAMT'].'</td><td>'.(query_price($fetch2['ITEMNO']) * $fetch2['ORDAMT']).'</td><td><button class="neural-btn" onclick="cartDelete(\''.$fetch2['ITEMNO'].'\')">移除</button></td></tr>';
 		}
 		return array('message' => 'Success', 'content' => $content);
 	}

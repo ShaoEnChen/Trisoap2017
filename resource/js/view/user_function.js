@@ -14,7 +14,7 @@ function orderitemCreate(index) {
 		if (request.readyState === 4 && request.status === 200) {
 			var data = JSON.parse(request.responseText);
 			if (data.message == 'Success') {
-				location.assign("index.php?route=purchaseFinish");
+				location.assign("index.php?route=purchase_finish");
 			}
 			else if (data.message == '請先註冊或登入') {
 				alert(data.message);
@@ -748,10 +748,15 @@ function discountSearch() {
 	}
 }
 
+function makePayment(route) {
+    var payType = document.getElementById('paytype').value;
+    location.assign(route + payType);
+}
+
 function cashing(account, ordno) {
 	var request = new XMLHttpRequest();
 	request.open("POST", "resource/cashing.php");
-	var payType = document.getElementById("payType").value;
+	var payType = document.getElementById("paytype").value;
 	var data = "account=" + account + "&ordno=" + ordno + "&payType=" + payType;
 	request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 	request.send(data);
