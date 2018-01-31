@@ -1,5 +1,6 @@
 <?php
-include_once("router.php");
+include_once('router.php');
+include_once('resource/layout.php');
 
 if(isset($_GET['in']) || isset($_POST['in'])) {
 	$in = isset($_GET['in']) ? $_GET['in'] : $_POST['in'];
@@ -8,7 +9,13 @@ if(isset($_GET['in']) || isset($_POST['in'])) {
 			router('index');
 		}
 		else {
-			include_once("view/user_function/member_signin.html");
+			$page = 'member_signin';
+			include_u_view_head($page);
+
+			$content_dir = 'view/user_function/' . $page . '.html';
+			include_once($content_dir);
+
+			include_u_view_footer();
 		}
 	}
 	elseif($in == 'signup') {
@@ -16,7 +23,13 @@ if(isset($_GET['in']) || isset($_POST['in'])) {
 			router('index');
 		}
 		else {
-			include_once("view/user_function/member_signup.html");
+			$page = 'member_signup';
+			include_u_view_head($page);
+
+			$content_dir = 'view/user_function/' . $page . '.html';
+			include_once($content_dir);
+
+			include_u_view_footer();
 		}
 	}
 	elseif($in == 'resetPassword') {
@@ -24,12 +37,24 @@ if(isset($_GET['in']) || isset($_POST['in'])) {
 			router('index');
 		}
 		else {
-			include_once("view/user_function/member_reset_password.html");
+			$page = 'member_reset_password';
+			include_u_view_head($page);
+
+			$content_dir = 'view/user_function/' . $page . '.html';
+			include_once($content_dir);
+
+			include_u_view_footer();
 		}
 	}
 	elseif($in == 'changePassword') {
 		if(isset($_COOKIE['account'])) {
-			include_once("view/user_function/member_change_password.html");
+			$page = 'member_change_password';
+			include_u_view_head($page);
+
+			$content_dir = 'view/user_function/' . $page . '.html';
+			include_once($content_dir);
+
+			include_u_view_footer();
 		}
 		else {
 			router('index');
@@ -37,9 +62,12 @@ if(isset($_GET['in']) || isset($_POST['in'])) {
 	}
 	elseif($in == 'edit') {
 		if(isset($_COOKIE['account'])) {
-			$myfile = fopen("view/user_function/member_edit.html", "r");
-			$content = fread($myfile, filesize("view/user_function/member_edit.html"));
-			fclose($myfile);
+			$page = 'member_edit';
+			include_u_view_head($page);
+
+			$content_dir = 'view/user_function/' . $page . '.html';
+			$content = file_get_contents($content_dir);
+
 			$name = curl_post(array('module' => 'cue', 'target' => 'member_name', 'account' => $_COOKIE['account']), 'cue');
 			$address = curl_post(array('module' => 'cue', 'target' => 'member_address', 'account' => $_COOKIE['account']), 'cue');
 			$phone = curl_post(array('module' => 'cue', 'target' => 'member_phone', 'account' => $_COOKIE['account']), 'cue');
@@ -52,6 +80,8 @@ if(isset($_GET['in']) || isset($_POST['in'])) {
 			$content = str_replace('[member_taxid]', $taxid, $content);
 			$content = str_replace('[member_notice]', $notice, $content);
 			echo $content;
+
+			include_u_view_footer();
 		}
 		else {
 			router('index');
@@ -59,7 +89,13 @@ if(isset($_GET['in']) || isset($_POST['in'])) {
 	}
 	elseif($in == 'verify') {
 		if(isset($_COOKIE['account'])) {
-			include_once("view/user_function/member_verify.html");
+			$page = 'member_verify';
+			include_u_view_head($page);
+
+			$content_dir = 'view/user_function/' . $page . '.html';
+			include_once($content_dir);
+
+			include_u_view_footer();
 		}
 		else {
 			router('index');

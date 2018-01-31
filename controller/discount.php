@@ -1,10 +1,18 @@
 <?php
+include_once('router.php');
+include_once('resource/layout.php');
 
 if (isset($_GET['in']) || isset($_POST['in'])) {
 	$in = isset($_GET['in']) ? $_GET['in'] : $_POST['in'];
 	if ($in == 'apply') {
 		if (isset($_COOKIE['account'])) {
-			include_once("view/user_function/discount_apply.html");
+			$page = 'discount_apply';
+			include_u_view_head($page);
+
+			$content_dir = 'view/user_function/' . $page . '.html';
+			include_once($content_dir);
+
+			include_u_view_footer();
 		}
 	}
 	elseif ($in == 'create') {
@@ -67,5 +75,5 @@ elseif (isset($_COOKIE['account']) && isset($_COOKIE['identity']) && $_COOKIE['i
 }
 
 else {
-	include_once("controller/index.php");
+	router('index');
 }

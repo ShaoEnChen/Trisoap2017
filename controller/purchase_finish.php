@@ -1,9 +1,17 @@
 <?php
+include_once('router.php');
+include_once('resource/layout.php');
 
 if (isset($_COOKIE['account'])) {
-	include_once("view/user_function/purchase_finish.html");
+	$page = 'purchase_finish';
+	include_u_view_head($page);
+
+	$content_dir = 'view/user_function/' . $page . '.html';
+	include_once($content_dir);
+
+	include_u_view_footer();
 }
 
 else {
-	include_once("controller/index.php");
+	router('index');
 }

@@ -1,4 +1,6 @@
 <?php
+include_once('router.php');
+include_once('resource/layout.php');
 
 if (isset($_GET['in']) || isset($_POST['in'])) {
 	$in = isset($_GET['in']) ? $_GET['in'] : $_POST['in'];
@@ -69,14 +71,21 @@ if (isset($_GET['in']) || isset($_POST['in'])) {
 	}
 	elseif ($in == 'cusView') {
 		if (isset($_COOKIE['account'])) {
-			$myfile = fopen("view/user_function/order_cus_view.html", "r");
-			$content = fread($myfile, filesize("view/user_function/order_cus_view.html"));
-			fclose($myfile);
+			$page = 'order_cus_view';
+			include_u_view_head($page);
+
+			$content_dir = 'view/user_function/' . $page . '.html';
+			$content = file_get_contents($content_dir);
+
 			$operate = curl_post(array('module' => 'order', 'event' => 'cusOperate', 'account' => $_COOKIE['account'], 'token' => $_COOKIE['token']), 'order');
 			$content = str_replace('[cusOrderOperate]', $operate, $content);
+
 			$name = curl_post(array('module' => 'cue', 'target' => 'member_name', 'account' => $_COOKIE['account']), 'cue');
 			$content = str_replace('[member_name]', $name, $content);
+
 			echo $content;
+
+			include_u_view_footer();
 		}
 	}
 }
@@ -93,5 +102,5 @@ elseif (isset($_COOKIE['account']) && isset($_COOKIE['identity']) && $_COOKIE['i
 }
 
 else {
-	include_once("controller/index.php");
+	router('index');
 }

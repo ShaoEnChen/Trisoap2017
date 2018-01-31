@@ -3,12 +3,11 @@ include_once("resource/custom.php");
 
 function check_identity() {
 	if(isset($_COOKIE['identity'])) {
-		$identity = $_COOKIE['identity'];
+		return $_COOKIE['identity'];
 	}
 	else {
-		$identity = null;
+		return null;
 	}
-	return $identity;
 }
 
 function router($route) {
@@ -21,8 +20,12 @@ function router($route) {
 		callView($route, $identity);
 	}
 	elseif(in_array($route, $function_pages)) {
+		// if($under_construction) {
+		// 	include_once('view/under_construction.html');
+		// 	return;
+		// }
+
 		include_once('controller/' . $route . '.php');
-		// include_once('view/under_construction.html');
 	}
 	else {
 		callView('index', $identity);

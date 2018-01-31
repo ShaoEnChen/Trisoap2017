@@ -1,4 +1,5 @@
 <?php
+include_once('router.php');
 
 if (isset($_GET['in']) || isset($_POST['in'])) {
 	$in = isset($_GET['in']) ? $_GET['in'] : $_POST['in'];
@@ -46,5 +47,5 @@ elseif (isset($_COOKIE['account']) && isset($_COOKIE['identity']) && $_COOKIE['i
 }
 
 else {
-	include_once("controller/index.php");
+	router('index');
 }

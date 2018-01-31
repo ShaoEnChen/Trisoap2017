@@ -7,9 +7,9 @@ try
 {
 	$obj = new AllInOne();
  	// AllPay Service Parameter
- 	$obj->HashKey     = 'bwqFcafJNX4GzAWO'; 
+ 	$obj->HashKey     = 'bwqFcafJNX4GzAWO';
     $obj->HashIV      = 'mJf0B3ONPbCfwkmF';
-    $obj->MerchantID  = '1385617'; 
+    $obj->MerchantID  = '1385617';
 	// FeedBack Parameter
  	$arFeedback = $obj->CheckOutFeedback();
  	/* 檢核與變更訂單狀態 */
@@ -52,7 +52,7 @@ try
 		    mail_receive_order_notice();
 		    print '1|OK'; // tell AllPay that we get the feedback
  		}
- 	} 
+ 	}
  	else {
  		print '0|Fail';
  	}

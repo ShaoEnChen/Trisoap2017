@@ -338,3 +338,38 @@ function include_view_footer($route) {
 	check_dependency_body($route);
 	require('view/footer_finish.html');
 }
+
+/*
+ * user_function/ pages view functions
+ */
+
+function check_dependency_u_head($page) {
+	// currently there's no link needed in head in user_funtion/ pages
+	return;
+}
+
+function check_dependency_u_footer($page) {
+	// currently there's no script needed in footer in user_funtion/ pages
+	return;
+}
+
+function include_u_view_head($page) {
+	$u_head_dir = 'view/user_function/u_header.html';
+	$u_head_content = file_get_contents($u_head_dir);
+
+	$placeholder = ['{title}'];
+	$json_dir = 'resource/json/page_info/user_function/' . $page . '.json';
+	$page_info = fetch_json($placeholder, $json_dir);
+
+	$u_head_content = str_replace($placeholder, $page_info, $u_head_content);
+	echo $u_head_content;
+
+	check_dependency_u_head($page);
+	require('view/user_function/u_header_finish.html');
+}
+
+function include_u_view_footer() {
+	// currently there's no footer needed in user_funtion/ pages
+	// check_dependency_u_footer($page);
+	require('view/user_function/u_footer_finish.html');
+}

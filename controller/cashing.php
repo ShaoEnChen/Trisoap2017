@@ -1,4 +1,6 @@
 <?php
+include_once('router.php');
+
 include_once("library/AllPay.Payment.Integration.php");
 include_once("resource/database.php");
 
@@ -52,7 +54,7 @@ if (isset($_GET['ordno']) && isset($_GET['account']) && isset($_GET['payType']))
 	    }
 
 	    array_push($obj->Send['Items'], array('Name' => "運費", 'Price' => $shipfee, 'Currency' => "元", 'Quantity' => (int) "1", 'URL' => "xxx"));
-	    
+
 	    if ($message > 0) {
 	    	array_push($obj->Send['Items'], array('Name' => "留心語折扣", 'Price' => -$message, 'Currency' => "元", 'Quantity' => (int) "1", 'URL' => "xxx"));
 	    }
@@ -71,5 +73,5 @@ if (isset($_GET['ordno']) && isset($_GET['account']) && isset($_GET['payType']))
 }
 
 else {
-	include_once("controller/index.php");
+	router('index');
 }
