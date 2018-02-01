@@ -37,10 +37,6 @@
                     // 3. Not logged into Facebook and can't tell if they are logged into
                     //    your app or not.
                     statusChangeCallback(response);
-                    if(response.status === 'connected') {
-                        // Logged into your app and Facebook.
-                        testAPI();
-                    }
                 });
             };
 
