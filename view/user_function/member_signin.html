@@ -1,6 +1,63 @@
+        <script>
+            function statusChangeCallback(response) {
+                console.log('statusChangeCallback');
+                console.log(response);
+
+                if (response.status === 'connected') {
+                    testAPI();
+                } else {
+                    console.log('Not logged into your app or unable to tell');
+                }
+            }
+
+            function checkLoginState() {
+                FB.getLoginStatus(function(response) {
+                    statusChangeCallback(response);
+                });
+            }
+
+            window.fbAsyncInit = function() {
+                FB.init({
+                    appId      : '403462720092445',
+                    xfbml      : true,
+                    version    : 'v2.12'
+                });
+                FB.AppEvents.logPageView();
+
+                FB.getLoginStatus(function(response) {
+                    // 1. Logged into your app ('connected')
+                    // 2. Logged into Facebook, but not your app ('not_authorized')
+                    // 3. Not logged into Facebook and can't tell if they are logged into
+                    //    your app or not.
+                    statusChangeCallback(response);
+                    if(response.status === 'connected') {
+                        // Logged into your app and Facebook.
+                        testAPI();
+                    }
+                });
+            };
+
+            // Load the SDK asynchronously
+            (function(d, s, id){
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) {return;}
+                js = d.createElement(s); js.id = id;
+                js.src = "https://connect.facebook.net/en_US/sdk.js";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+
+            function testAPI() {
+                console.log('Welcome!  Fetching your information.... ');
+                FB.api('/me', function(response) {
+                    console.log('Successful login for: ' + response.name);
+                });
+            }
+        </script>
         <div class="sign-wrap">
             <div class="sign text-center">
                 <h2>登入</h2>
+                <div class="fb-login-button" onlogin="checkLoginState()" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="true"></div>
+                <hr class="text-sep-sm">
                 <div class="sign-block">
                     <label for="account">電子信箱</label>
                     <br>
