@@ -5,7 +5,7 @@ include_once("library/AllPay.Payment.Integration.php");
 include_once("resource/database.php");
 
 if (isset($_GET['ordno']) && isset($_GET['account']) && isset($_GET['payType'])) {
-	$ordno = $_GET['ordno'];
+	$ordno = ($_GET['ordno'] == 'cart') ? '0' : $_GET['ordno'];
 	$account = $_GET['account'];
 	$payType = $_GET['payType'];
 	$sql1 = mysql_query("SELECT * FROM ORDMAS WHERE ORDNO='$ordno' AND EMAIL='$account'");
@@ -42,8 +42,6 @@ if (isset($_GET['ordno']) && isset($_GET['account']) && isset($_GET['payType']))
 	        $obj->Send['ChoosePayment'] = PaymentMethod::Credit;
 	    }
 	    $obj->Send['ClientBackURL']     = "http://trisoap.com";
-
-	    $ordno = ($ordno == 'cart') ? '0' : $ordno;
 
 	    $sql2 = "UPDATE ORDMAS SET MerchantTradeNo='$TradeNo' WHERE ORDNO='$ordno' AND EMAIL='$account'";
 	    mysql_query($sql2);
