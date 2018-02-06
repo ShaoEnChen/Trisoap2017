@@ -1,8 +1,3 @@
-function coverClose() {
-	document.getElementById("cover").style.display = 'none';
-	document.getElementById("detailBox").style.display = 'none';
-}
-
 function orderitemCreate(index) {
 	var request = new XMLHttpRequest();
 	request.open("POST", "index.php");
