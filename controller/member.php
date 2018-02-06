@@ -107,14 +107,21 @@ if(isset($_GET['in']) || isset($_POST['in'])) {
 }
 
 elseif(isset($_COOKIE['account']) && isset($_COOKIE['identity']) && $_COOKIE['identity'] == 'A') {
-	$myfile = fopen("view/manage_ui/member.html", "r");
-	$content = fread($myfile, filesize("view/manage_ui/member.html"));
-	fclose($myfile);
+	$page = 'member';
+	include_m_view_head($page);
+
+	$content_dir = 'view/manage_ui/' . $page . '.html';
+	$content = file_get_contents($content_dir);
+
 	$show = curl_post(array('module' => 'member', 'event' => 'show', 'account' => $_COOKIE['account'], 'token' => $_COOKIE['token']), 'member');
 	$content = str_replace('[memberShow]', $show, $content);
+
 	$name = curl_post(array('module' => 'cue', 'target' => 'member_name', 'account' => $_COOKIE['account']), 'cue');
 	$content = str_replace('[member_name]', $name, $content);
+
 	echo $content;
+
+	include_m_view_footer();
 }
 
 else {
