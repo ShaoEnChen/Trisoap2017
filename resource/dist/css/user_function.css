@@ -1,8 +1,4 @@
 @charset "UTF-8";
-/*
- * Import fonts
- */
-@import url("https://fonts.googleapis.com/css?family=Great+Vibes");
 /* =========================================================================
  * CSS Normalization
  * =========================================================================
@@ -15,6 +11,7 @@
  * 2. Prevent adjustments of font size after orientation changes in
  *    IE on Windows Phone and in iOS.
  */
+@import url("https://fonts.googleapis.com/css?family=Great+Vibes");
 html {
   line-height: 1.15;
   /* 1 */
@@ -452,7 +449,8 @@ a.no-href {
 
 .slogan-wrap {
   width: 100%;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   padding: 60px 8%;
   background-color: #F18C41;
   color: #fff; }
@@ -466,14 +464,17 @@ a.no-href {
   letter-spacing: 3.24px; }
 
 .primary-btn {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   border: solid 1px #fff;
   text-decoration: none;
   text-align: center;
   background-color: transparent;
   color: #fff;
+  -webkit-transition-property: border-color, background-color, color;
   transition-property: border-color, background-color, color;
-  transition-duration: .3s;
+  -webkit-transition-duration: .3s;
+          transition-duration: .3s;
   font-weight: 200; }
   .primary-btn:hover {
     border-color: rgba(255, 255, 255, 0.7);
@@ -481,14 +482,17 @@ a.no-href {
     color: #666; }
 
 .text-btn {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   border: solid 1px #000;
   text-decoration: none;
   text-align: center;
   background-color: transparent;
   color: #000;
+  -webkit-transition-property: border-color, background-color, color;
   transition-property: border-color, background-color, color;
-  transition-duration: .3s;
+  -webkit-transition-duration: .3s;
+          transition-duration: .3s;
   font-weight: 200;
   padding: 8px 25px; }
   .text-btn:hover {
@@ -497,14 +501,17 @@ a.no-href {
     color: #777; }
 
 .submit-btn {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   border: solid 1px #000;
   text-decoration: none;
   text-align: center;
   background-color: #000;
   color: #fff;
+  -webkit-transition-property: border-color, background-color, color;
   transition-property: border-color, background-color, color;
-  transition-duration: .3s;
+  -webkit-transition-duration: .3s;
+          transition-duration: .3s;
   font-weight: 200;
   padding: 10px 35px; }
   .submit-btn:hover {
@@ -512,14 +519,17 @@ a.no-href {
     background-color: #777; }
 
 .promise-btn {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   border: solid 1px #ff9c3f;
   text-decoration: none;
   text-align: center;
   background-color: #ff9c3f;
   color: #000;
+  -webkit-transition-property: border-color, background-color, color;
   transition-property: border-color, background-color, color;
-  transition-duration: .3s;
+  -webkit-transition-duration: .3s;
+          transition-duration: .3s;
   font-weight: 200;
   padding: 8px 25px; }
   .promise-btn:hover {
@@ -527,14 +537,17 @@ a.no-href {
     background-color: #ffb672; }
 
 .neural-btn {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   border: solid 1px #ccc;
   text-decoration: none;
   text-align: center;
   background-color: #ccc;
   color: #000;
+  -webkit-transition-property: border-color, background-color, color;
   transition-property: border-color, background-color, color;
-  transition-duration: .3s;
+  -webkit-transition-duration: .3s;
+          transition-duration: .3s;
   font-weight: 200;
   padding: 8px 25px; }
   .neural-btn:hover {
@@ -542,7 +555,8 @@ a.no-href {
     background-color: #aaa; }
 
 .form-field {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   padding: 10px 24px;
   border: solid 1px #ddd;
   color: #555;
@@ -581,18 +595,25 @@ a.no-href {
   -webkit-transform: rotate(-4deg); }
 
 .sign-wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   width: 100%;
   min-height: 100vh;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   background: url(/resource/img/jumbotrons/single_product.jpg) center center no-repeat;
   background-size: cover; }
 
 .sign {
   margin: 40px auto;
   border-radius: 16px;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   background-color: rgba(255, 255, 255, 0.63);
   overflow: auto; }
   .sign table {
