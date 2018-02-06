@@ -370,7 +370,12 @@ function include_u_view_head($page) {
 
 function include_u_view_footer() {
 	// currently there's no footer needed in user_funtion/ pages
+	// ... require('footer_dir');
+
+	// also there's no dependency needed
+	// hence no parameter ($page)
 	// check_dependency_u_footer($page);
+
 	require('view/user_function/u_footer_finish.html');
 }
 
@@ -390,21 +395,25 @@ function check_dependency_m_footer($page) {
 
 function include_m_view_head($page) {
 	$m_head_dir = 'view/manage_ui/m_header.html';
-	$m_head_content = file_get_contents($u_head_dir);
+	$m_head_content = file_get_contents($m_head_dir);
 
 	$placeholder = ['{title}'];
 	$json_dir = 'resource/json/page_info/manage_ui/' . $page . '.json';
 	$page_info = fetch_json($placeholder, $json_dir);
 
-	$m_head_content = str_replace($placeholder, $page_info, $u_head_content);
+	$m_head_content = str_replace($placeholder, $page_info, $m_head_content);
 	echo $m_head_content;
 
-	check_dependency_u_head($page);
+	check_dependency_m_head($page);
 	require('view/manage_ui/m_header_finish.html');
 }
 
 function include_m_view_footer() {
-	// currently there's no footer needed in user_funtion/ pages
+	// currently there's no footer needed in manage_ui/ pages
+	// ... require('footer_dir');
+
+	// also there's no dependency needed
+	// hence no parameter ($page)
 	// check_dependency_m_footer($page);
 	require('view/manage_ui/m_footer_finish.html');
 }

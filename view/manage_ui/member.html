@@ -1,24 +1,4 @@
-<!DOCTYPE html>
-<html lang="zh-Hant-TW">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="shortcut icon" href="resource/img/misc/favicon.png">
-        <title>查看客戶｜三三吾鄉手工皂Trisoap</title>
-        <meta name="author" content="2017 Trisoap Team">
-        <meta name="description" content="三三是一個社會企業手工皂品牌。協助臺東之喜憨兒社福團體研發，與在地小農合作；融合自然人文，去除多餘添加，活用醜蔬果，綠活創新皂絲體驗。邀您一同創皂，台灣公益的嶄新面貌！">
-        <link href="resource/css/bootstrap.min.css" rel="stylesheet">
-        <link href="resource/css/style.css" rel="stylesheet">
-        <script src="resource/functions.js"></script>
-    </head>
-    <body id="page-top">
-        <div id="cover" onclick="coverClose()"></div>
-        <div id="detailBox">
-            <p id="memberDetail"></p>
-            <p align="center">點擊框外灰色區域關閉</p>
-        </div>
-        <nav class="navbar navbar-fixed-top nav-custom">
+        <!-- <nav class="navbar navbar-fixed-top nav-custom">
             <div class="container-fluid">
                 <div class="navbar-header">
                     <a href="#page-top" class="navbar-brand"><img src="resource/image/logo.png" class="logo"></a>
@@ -43,21 +23,19 @@
                     </ul>
                 </div>
             </div>
-        </nav>
-
+        </nav> -->
         <section>
             <div class="orders">
-                    搜尋依據：
-                    <select id="key">
-                        <option value="EMAIL">電子信箱</option>
-                        <option value="CUSNM">客戶姓名</option>
-                        <option value="TEL">聯絡電話</option>
-                    </select>
-                    搜尋關鍵：<input type="text" id="value"><br>
-                    <button onclick="memberSearch()">確定</button>
+                搜尋依據：
+                <select id="key">
+                    <option value="EMAIL">電子信箱</option>
+                    <option value="CUSNM">客戶姓名</option>
+                    <option value="TEL">聯絡電話</option>
+                </select>
+                搜尋關鍵：<input type="text" id="value"><br>
+                <button onclick="memberSearch()">確定</button>
             </div>
         </section>
-
         <section>
             <div class="container">
                 <h2>客戶一覽</h2>
@@ -89,11 +67,3 @@
                 </div>
             </div>
         </section>
-    </body>
-    <!-- jquery -->
-    <script src="resource/js/jquery-1.12.3.min.js"></script>
-    <!-- bootstrap js -->
-    <script src="resource/js/bootstrap.min.js"></script>
-    <!-- custom js -->
-    <script src="resource/js/trisoap.js"></script>
-</html>
