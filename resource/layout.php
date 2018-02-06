@@ -373,3 +373,38 @@ function include_u_view_footer() {
 	// check_dependency_u_footer($page);
 	require('view/user_function/u_footer_finish.html');
 }
+
+/*
+ * manage_ui/ pages view functions
+ */
+
+function check_dependency_m_head($page) {
+	// currently there's no link needed in head in manage_ui/ pages
+	return;
+}
+
+function check_dependency_m_footer($page) {
+	// currently there's no script needed in footer in manage_ui/ pages
+	return;
+}
+
+function include_m_view_head($page) {
+	$m_head_dir = 'view/manage_ui/m_header.html';
+	$m_head_content = file_get_contents($u_head_dir);
+
+	$placeholder = ['{title}'];
+	$json_dir = 'resource/json/page_info/manage_ui/' . $page . '.json';
+	$page_info = fetch_json($placeholder, $json_dir);
+
+	$m_head_content = str_replace($placeholder, $page_info, $u_head_content);
+	echo $m_head_content;
+
+	check_dependency_u_head($page);
+	require('view/manage_ui/m_header_finish.html');
+}
+
+function include_m_view_footer() {
+	// currently there's no footer needed in user_funtion/ pages
+	// check_dependency_m_footer($page);
+	require('view/manage_ui/m_footer_finish.html');
+}
