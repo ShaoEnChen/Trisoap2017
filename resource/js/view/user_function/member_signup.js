@@ -6,4 +6,4 @@ fetch('resource/text/personal_information_protection_act.txt')
 	.then((response) => response.text())
 	.then((text) => {
 		act.innerHTML = text;
-	})
+	});
