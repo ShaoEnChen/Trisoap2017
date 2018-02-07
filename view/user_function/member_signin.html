@@ -43,28 +43,31 @@
                 fjs.parentNode.insertBefore(js, fjs);
             }(document, 'script', 'facebook-jssdk'));
         </script>
-        <div class="sign-wrap">
-            <div class="sign text-center">
-                <h2>登入</h2>
-                <div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="true"></div>
-                <hr class="text-sep-sm">
-                <div class="sign-block">
-                    <label for="account">電子信箱</label>
-                    <br>
-                    <input type="email" id="account">
-                </div>
-                <div class="sign-block">
-                    <label for="password">密碼</label>
-                    <br>
-                    <input type="password" id="password">
-                </div>
-                <div class="sign-block">
-                    <a class="promise-btn" href="javascript:void(0)" onclick="memberSignin()">登入</a>
-                    <a class="promise-btn" href="index.php?route=member&in=signup">立即註冊</a>
-                </div>
-                <div class="sign-block">
-                    <a class="neural-btn" href="index.php">取消</a>
-                    <a class="neural-btn" href="index.php?route=member&in=resetPassword">忘記密碼</a>
+
+        <main>
+            <div class="sign-wrap">
+                <div class="sign text-center">
+                    <h2>登入</h2>
+                    <div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="true"></div>
+                    <hr class="text-sep-sm">
+                    <div class="sign-block">
+                        <label for="account">電子信箱</label>
+                        <br>
+                        <input type="email" id="account">
+                    </div>
+                    <div class="sign-block">
+                        <label for="password">密碼</label>
+                        <br>
+                        <input type="password" id="password">
+                    </div>
+                    <div class="sign-block">
+                        <a class="promise-btn" href="javascript:void(0)" onclick="memberSignin()">登入</a>
+                        <a class="promise-btn" href="index.php?route=member&in=signup">立即註冊</a>
+                    </div>
+                    <div class="sign-block">
+                        <a class="neural-btn" href="index.php">取消</a>
+                        <a class="neural-btn" href="index.php?route=member&in=resetPassword">忘記密碼</a>
+                    </div>
                 </div>
             </div>
-        </div>
+        </main>
