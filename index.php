@@ -4,7 +4,7 @@ include_once("resource/custom.php");
 include_once("library/message.php");
 include_once("controller/router.php");
 
-function event_post_acion() {
+function event_post_action() {
 	$id = array('account' => $_COOKIE['account'], 'token' => $_COOKIE['token']);
 	$post = array_merge($id, $_POST);
 	echo curl_post($post, $_POST['module']);
@@ -20,7 +20,7 @@ if(isset($_POST['module']) && isset($_POST['event'])) {
 		case 'edit':
 		case 'change_password':
 		case 'detail':
-			event_post_acion();
+			event_post_action();
 			break;
 
 		case 'signin':
@@ -87,7 +87,7 @@ if(isset($_POST['module']) && isset($_POST['event'])) {
 		case 'delete':
 		case 'apply':
 		case 'search':
-			event_post_acion();
+			event_post_action();
 			break;
 
 		default:
@@ -104,7 +104,7 @@ if(isset($_POST['module']) && isset($_POST['event'])) {
 		case 'offshelf':
 		case 'replenish':
 		case 'sell':
-			event_post_acion();
+			event_post_action();
 			break;
 
 		default:
@@ -116,7 +116,7 @@ if(isset($_POST['module']) && isset($_POST['event'])) {
 		switch ($event) {
 		case 'create':
 		case 'delete':
-			event_post_acion();
+			event_post_action();
 			break;
 
 		default:
@@ -133,7 +133,7 @@ if(isset($_POST['module']) && isset($_POST['event'])) {
 		case 'complete':
 		case 'close':
 		case 'create':
-			event_post_acion();
+			event_post_action();
 			break;
 
 		default:
@@ -146,7 +146,7 @@ if(isset($_POST['module']) && isset($_POST['event'])) {
 		case 'create':
 		case 'cartDelete':
 			if(isset($_COOKIE['account']) && isset($_COOKIE['token'])) {
-				event_post_acion();
+				event_post_action();
 			}
 			else {
 				echo json_encode(array('message' => '請先註冊或登入'));
