@@ -491,7 +491,7 @@ function search($account, $token, $key, $value) {
 		$content = '';
 		$sql2 = mysql_query("SELECT * FROM CUSMAS WHERE $key='$value' ORDER BY CREATEDATE DESC");
 		while ($fetch2 = mysql_fetch_array($sql2)) {
-			$content .= '<tr><td>'.$fetch2['EMAIL'].'</td><td>'.$fetch2['CUSNM'].'</td><td>'.$fetch2['CUSADD'].'</td><td>'.$fetch2['CUSTYPE'].'</td><td>'.$fetch2['CUSBIRTH'].'</td><td>'.$fetch2['TEL'].'</td><td>'.$fetch2['KNOWTYPE'].'</td><td>'.$fetch2['CREATEDATE'].'</td><td>'.$fetch2['UPDATEDATE'].'</td></tr>';
+			$content .= '<tr><td data-title="信箱">'.$fetch2['EMAIL'].'</td><td data-title="姓名">'.$fetch2['CUSNM'].'</td><td data-title="地址">'.$fetch2['CUSADD'].'</td><td data-title="膚質">'.$fetch2['CUSTYPE'].'</td><td data-title="生日">'.$fetch2['CUSBIRTH'].'</td><td data-title="聯絡電話">'.$fetch2['TEL'].'</td><td data-title="如何得知">'.$fetch2['KNOWTYPE'].'</td><td data-title="建立時間">'.$fetch2['CREATEDATE'].'</td><td data-title="最後修改時間">'.$fetch2['UPDATEDATE'].'</td><td data-title="操作"><button onclick="memberDetail(\''.$fetch2['EMAIL'].'\')">查看</button></td></tr>';
 		}
 		return array('message' => 'Success', 'content' => $content);
 	}
@@ -566,7 +566,7 @@ function show($account, $token) {
 		$content = '';
 		$sql2 = mysql_query("SELECT * FROM CUSMAS ORDER BY CREATEDATE DESC");
 		while ($fetch2 = mysql_fetch_array($sql2)) {
-			$content .= '<tr><td>'.$fetch2['EMAIL'].'</td><td>'.$fetch2['CUSNM'].'</td><td>'.$fetch2['CUSADD'].'</td><td>'.$fetch2['CUSTYPE'].'</td><td>'.$fetch2['CUSBIRTH'].'</td><td>'.$fetch2['TEL'].'</td><td>'.$fetch2['CREATEDATE'].'</td><td>'.$fetch2['UPDATEDATE'].'</td><td><button onclick="memberDetail(\''.$fetch2['EMAIL'].'\')">查看</button></td></tr>';
+			$content .= '<tr><td data-title="信箱">'.$fetch2['EMAIL'].'</td><td data-title="姓名">'.$fetch2['CUSNM'].'</td><td data-title="地址">'.$fetch2['CUSADD'].'</td><td data-title="膚質">'.$fetch2['CUSTYPE'].'</td><td data-title="生日">'.$fetch2['CUSBIRTH'].'</td><td data-title="聯絡電話">'.$fetch2['TEL'].'</td><td data-title="如何得知">'.$fetch2['KNOWTYPE'].'</td><td data-title="建立時間">'.$fetch2['CREATEDATE'].'</td><td data-title="最後修改時間">'.$fetch2['UPDATEDATE'].'</td><td data-title="操作"><button onclick="memberDetail(\''.$fetch2['EMAIL'].'\')">查看</button></td></tr>';
 		}
 		return array('message' => 'Success', 'content' => $content);
 	}
