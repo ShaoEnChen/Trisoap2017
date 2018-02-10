@@ -1,0 +1,1 @@
+"use strict";var $preloader=$("#preloader");function fadePreloader(){return new Promise(function(e,o){setTimeout(function(){$("body").removeClass("no-scroll"),$preloader.css("opacity","0"),e()},500)})}function hidePreloader(){setTimeout(function(){$preloader.css("display","none")},1500)}$(document).ready(function(){fadePreloader().then(hidePreloader)});

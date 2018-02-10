@@ -1,52 +1,15 @@
-const $body = $('body');
+const dest = 'resource/dist/js/';
 
 /* ===================================================
  * Preloader
  * ===================================================
  */
 
-const $preloader = $('#preloader');
-
-function fadePreloader() {
-	return new Promise((resolve, reject) => {
-		setTimeout(() => {
-			$body.removeClass('no-scroll');
-			$preloader.css('opacity', '0');
-			resolve();
-		}, 500);
-	});
-}
-
-function hidePreloader() {
-	// transition duration 1.5s (1500ms) set in trisoap.scss
-	setTimeout(() => {
-		$preloader.css('display', 'none');
-	}, 1500);
-}
-
-$(document).ready(() => {
-	fadePreloader().then(hidePreloader);
-});
+$.getScript(`${dest}view/preloader/preloader.js`);
 
 /* ===================================================
  * Navigation - mobile toggle menu
  * ===================================================
  */
 
-const $navToggleBtn = $('.nav-mobile-toggle');
-const $navMainMenu = $('#nav-main-menu');
-const $hasDropdowns = $('.has-dropdown');
-
-$navToggleBtn.click(function() {
-	$navMainMenu.toggle();
-});
-
-$hasDropdowns.click(function(event) {
-	event.stopPropagation();
-	if($(this).has('> .nav-dropdown-menu')) {
-		$(this).find(' > .nav-dropdown-menu').toggle();
-	}
-	if($(this).has('> .nav-dropdown-submenu')) {
-		$(this).find(' > .nav-dropdown-submenu').toggle();
-	}
-});
+$.getScript(`${dest}view/navigation.js`);

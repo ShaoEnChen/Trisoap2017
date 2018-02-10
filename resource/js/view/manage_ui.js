@@ -47,6 +47,24 @@
 // 	$('.nav-pills a[href="#' + map[index] + '"]').tab('show');
 // }
 
+/* ===================================================
+ * view functions for layout
+ * ===================================================
+ */
+
+const dest = 'resource/dist/js/';
+
+/* ---------------------------------------------------
+ * 	  Navigation - mobile toggle menu
+ * ---------------------------------------------------
+ */
+
+$.getScript(`${dest}view/navigation.js`);
+
+/* ===================================================
+ * main functions implementation
+ * ===================================================
+ */
 
 function orderCreate() {
 	var request = new XMLHttpRequest();
