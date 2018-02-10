@@ -1,69 +1,73 @@
-        <!-- <nav class="navbar navbar-fixed-top nav-custom">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <a href="#page-top" class="navbar-brand"><img src="resource/image/logo.png" class="logo"></a>
-                </div>
-                <div class="collapse navbar-collapse navbar-main-collapse">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li>
-                            <a href="index.php">
-                                回三三首頁<i class="fa fa-angle-down" aria-hidden="true"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                [member_name]，您好<br>
-                            </a>
-                        </li>
-                        <li>
-                            <a onclick="memberLogout()">
-                                登出<i class="fa fa-angle-down" aria-hidden="true"></i>
-                            </a>
-                        </li>
-                    </ul>
+        <nav id="main-navbar">
+            <div id="nav-brand-wrap">
+                <a href="/" class="nav-brand">
+                    <img id="brand-logo" src="resource/img/logo.png" alt="三三吾鄉皂 Trisoap">
+                </a>
+            </div>
+            <div id="nav-toggle-wrap">
+                <div class="nav-mobile-toggle">
+                    <span class="toggle-bar"></span>
+                    <span class="toggle-bar"></span>
+                    <span class="toggle-bar"></span>
                 </div>
             </div>
-        </nav> -->
-        <section>
-            <div class="orders">
-                搜尋依據：
-                <select id="key">
-                    <option value="EMAIL">電子信箱</option>
-                    <option value="CUSNM">客戶姓名</option>
-                    <option value="TEL">聯絡電話</option>
-                </select>
-                搜尋關鍵：<input type="text" id="value"><br>
-                <button onclick="memberSearch()">確定</button>
+            <div id="nav-menu-wrap">
+                <ul id="nav-main-menu">
+                    <li class="nav-main-item">
+                        <a class="nav-main-link" href="/">
+                            首頁
+                        </a>
+                    </li>
+                    <li class="nav-main-item has-dropdown">
+                        <a class="nav-main-link" href="javascript:void(0)">
+                            [member_name]，您好
+                            <i class="fa fa-angle-down"></i>
+                        </a>
+                        <ul class="nav-dropdown-menu">
+                            <li class="nav-dropdown-item">
+                                <a class="nav-main-link" href="javascript:void(0)" onclick="memberLogout()">
+                                    登出
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
             </div>
-        </section>
-        <section>
-            <div class="container">
-                <h2>客戶一覽</h2>
-                <div class="manage">
-                    <div class="row table-responsive">
-                        <div class="tab-content">
-                            <div id="all" class="tab-pane fade in active">
-                                <table class="table table-hover">
-                                    <thead>
-                                        <tr>
-                                            <td>信箱</td>
-                                            <td>姓名</td>
-                                            <td>地址</td>
-                                            <td>膚質</td>
-                                            <td>生日</td>
-                                            <td>聯絡電話</td>
-                                            <td>建立時間</td>
-                                            <td>最後修改時間</td>
-                                            <td>操作</td>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="memberShow">
-                                    [memberShow]
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
+        </nav>
+        <main>
+            <div class="main-wrap">
+                <div id="member-search">
+                    <label for="search-option">搜尋依據</label>
+                    <select id="search-option">
+                        <option value="EMAIL">電子信箱</option>
+                        <option value="CUSNM">客戶姓名</option>
+                        <option value="TEL">聯絡電話</option>
+                    </select>
+                    <label for="search-value">搜尋關鍵</label>
+                    <input type="text" id="search-value" class="form-field">
+                    <button class="neural-btn" onclick="memberSearch()">確定</button>
+                </div>
+                <div class="data-retrieval">
+                    <h2>客戶一覽</h2>
+                    <table class="rwd-table">
+                        <thead>
+                            <tr>
+                                <th>信箱</th>
+                                <th>姓名</th>
+                                <th>地址</th>
+                                <th>膚質</th>
+                                <th>生日</th>
+                                <th>聯絡電話</th>
+                                <th>如何得知</th>
+                                <th>建立時間</th>
+                                <th>最後修改時間</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody id="memberShow">
+                        [memberShow]
+                        </tbody>
+                    </table>
                 </div>
             </div>
-        </section>
+        </main>

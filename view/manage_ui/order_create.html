@@ -1,60 +1,41 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="shortcut icon" href="resource/img/misc/favicon.png">
-	<title>建立訂單｜三三吾鄉手工皂Trisoap</title>
-	<meta name="author" content="2017 Trisoap Team">
-	<meta name="description" content="三三是一個社會企業手工皂品牌。協助臺東之喜憨兒社福團體研發，與在地小農合作；融合自然人文，去除多餘添加，活用醜蔬果，綠活創新皂絲體驗。邀您一同創皂，台灣公益的嶄新面貌！">
-	<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
-	<link href='resource/css/sign.css' rel='stylesheet' type='text/css'>
-	<script src="resource/functions.js"></script>
-</head>
-
-<body>
-	<div class="sign-block">
-		<h1>建立訂單</h1>
-		<table>
-			<tr><th>商品名稱</th><th>訂購數量</th></tr>
-			<tr><td>田靜山巒禾風皂</td><td><input type="number" id="num_1" value="0" min="0"></td></tr>
-			<tr><td>金絲森林渲染皂</td><td><input type="number" id="num_2" value="0" min="0"></td></tr>
-			<tr><td>釋迦手感果力皂</td><td><input type="number" id="num_3" value="0" min="0"></td></tr>
-			<tr><td>三三臺東意象禮盒組</td><td><input type="number" id="num_4" value="0" min="0"></td></tr>
-			<tr><td>三三臺東意象皂絲旅行組</td><td><input type="number" id="num_5" value="0" min="0"></td></tr>
-			<tr><td>洛神紅麴旅用皂絲</td><td><input type="number" id="num_6" value="0" min="0"></td></tr>
-			<tr><td>暖暖薑黃旅用皂絲</td><td><input type="number" id="num_7" value="0" min="0"></td></tr>
-			<tr><td>萱草米黃旅用皂絲</td><td><input type="number" id="num_8" value="0" min="0"></td></tr>
-		</table>
-		計價方式：
-		<div class="b-select">
-			<select id="priceType" onchange="priceTypeChange()">
-				<option value="A">自訂價格</option>
-				<option value="B">原價收費</option>
-				<option value="C">九折收費</option>
-				<option value="D">八折收費</option>
-				<option value="E">七折收費</option>
-				<option value="F">六折收費</option>
-				<option value="G">五折收費</option>
-			</select>
-			<input type="text" id="setPrice" placeholder="自訂價格">
+		<div class="sign-block">
+			<h1>建立訂單</h1>
+			<table>
+				<tr><th>商品名稱</th><th>訂購數量</th></tr>
+				<tr><td>田靜山巒禾風皂</td><td><input type="number" id="num_1" value="0" min="0"></td></tr>
+				<tr><td>金絲森林渲染皂</td><td><input type="number" id="num_2" value="0" min="0"></td></tr>
+				<tr><td>釋迦手感果力皂</td><td><input type="number" id="num_3" value="0" min="0"></td></tr>
+				<tr><td>三三臺東意象禮盒組</td><td><input type="number" id="num_4" value="0" min="0"></td></tr>
+				<tr><td>三三臺東意象皂絲旅行組</td><td><input type="number" id="num_5" value="0" min="0"></td></tr>
+				<tr><td>洛神紅麴旅用皂絲</td><td><input type="number" id="num_6" value="0" min="0"></td></tr>
+				<tr><td>暖暖薑黃旅用皂絲</td><td><input type="number" id="num_7" value="0" min="0"></td></tr>
+				<tr><td>萱草米黃旅用皂絲</td><td><input type="number" id="num_8" value="0" min="0"></td></tr>
+			</table>
+			計價方式：
+			<div class="b-select">
+				<select id="priceType" onchange="priceTypeChange()">
+					<option value="A">自訂價格</option>
+					<option value="B">原價收費</option>
+					<option value="C">九折收費</option>
+					<option value="D">八折收費</option>
+					<option value="E">七折收費</option>
+					<option value="F">六折收費</option>
+					<option value="G">五折收費</option>
+				</select>
+				<input type="text" id="setPrice" placeholder="自訂價格">
+			</div>
+			<textarea id="notice" rows="3" placeholder="訂單特殊要求"></textarea>
+			<button class="promise" onclick="orderCreate()">確定</button>
+			<a href="index.php"><button class="cancel">取消</button></a>
 		</div>
-		<textarea id="notice" rows="3" placeholder="訂單特殊要求"></textarea>
-		<button class="promise" onclick="orderCreate()">確定</button>
-		<a href="index.php"><button class="cancel">取消</button></a>
-	</div>
-</body>
-<script>
-	function priceTypeChange() {
-		var option = document.getElementById("priceType").value;
-		if (option == 'A') {
-			document.getElementById("setPrice").style.display = '';
-		}
-		else {
-			document.getElementById("setPrice").style.display = 'none';
-		}
-	}
-</script>
-</html>
+		<script>
+			function priceTypeChange() {
+				var option = document.getElementById("priceType").value;
+				if (option == 'A') {
+					document.getElementById("setPrice").style.display = '';
+				}
+				else {
+					document.getElementById("setPrice").style.display = 'none';
+				}
+			}
+		</script>
