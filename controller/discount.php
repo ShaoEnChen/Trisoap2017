@@ -17,61 +17,101 @@ if (isset($_GET['in']) || isset($_POST['in'])) {
 	}
 	elseif ($in == 'create') {
 		if (isset($_COOKIE['account']) && isset($_COOKIE['identity']) && $_COOKIE['identity'] == 'A') {
-			include_once("view/manage_ui/discount_create.html");
+			$page = 'discount_create';
+			include_m_view_head($page);
+
+			$content_dir = 'view/manage_ui/' . $page . '.html';
+			include_once($content_dir);
+
+			include_m_view_footer();
 		}
 	}
 	elseif ($in == 'delete') {
 		if (isset($_COOKIE['account']) && isset($_COOKIE['identity']) && $_COOKIE['identity'] == 'A') {
-			include_once("view/manage_ui/discount_delete.html");
+			$page = 'discount_delete';
+			include_m_view_head($page);
+
+			$content_dir = 'view/manage_ui/' . $page . '.html';
+			include_once($content_dir);
+
+			include_m_view_footer();
 		}
 	}
 	elseif ($in == 'state0') {
 		if (isset($_COOKIE['account']) && isset($_COOKIE['identity']) && $_COOKIE['identity'] == 'A') {
-			$myfile = fopen("view/manage_ui/discount_state_0.html", "r");
-			$content = fread($myfile, filesize("view/manage_ui/discount_state_0.html"));
-			fclose($myfile);
+			$page = 'discount_state_0';
+			include_m_view_head($page);
+
+			$content_dir = 'view/manage_ui/' . $page . '.html';
+			$content = file_get_contents($content_dir);
+
 			$view = curl_post(array('module' => 'discount', 'event' => 'view', 'state' => '0', 'account' => $_COOKIE['account'], 'token' => $_COOKIE['token']), 'discount');
 			$content = str_replace('[discountView0]', $view, $content);
+
 			$name = curl_post(array('module' => 'cue', 'target' => 'member_name', 'account' => $_COOKIE['account']), 'cue');
 			$content = str_replace('[member_name]', $name, $content);
+
 			echo $content;
+
+			include_m_view_footer();
 		}
 	}
 	elseif ($in == 'state1') {
 		if (isset($_COOKIE['account']) && isset($_COOKIE['identity']) && $_COOKIE['identity'] == 'A') {
-			$myfile = fopen("view/manage_ui/discount_state_1.html", "r");
-			$content = fread($myfile, filesize("view/manage_ui/discount_state_1.html"));
-			fclose($myfile);
+			$page = 'discount_state_1';
+			include_m_view_head($page);
+
+			$content_dir = 'view/manage_ui/' . $page . '.html';
+			$content = file_get_contents($content_dir);
+
 			$view = curl_post(array('module' => 'discount', 'event' => 'view', 'state' => '1', 'account' => $_COOKIE['account'], 'token' => $_COOKIE['token']), 'discount');
 			$content = str_replace('[discountView1]', $view, $content);
+
 			$name = curl_post(array('module' => 'cue', 'target' => 'member_name', 'account' => $_COOKIE['account']), 'cue');
 			$content = str_replace('[member_name]', $name, $content);
+
 			echo $content;
+
+			include_m_view_footer();
 		}
 	}
 	elseif ($in == 'state2') {
 		if (isset($_COOKIE['account']) && isset($_COOKIE['identity']) && $_COOKIE['identity'] == 'A') {
-			$myfile = fopen("view/manage_ui/discount_state_2.html", "r");
-			$content = fread($myfile, filesize("view/manage_ui/discount_state_2.html"));
-			fclose($myfile);
+			$page = 'discount_state_2';
+			include_m_view_head($page);
+
+			$content_dir = 'view/manage_ui/' . $page . '.html';
+			$content = file_get_contents($content_dir);
+
 			$view = curl_post(array('module' => 'discount', 'event' => 'view', 'state' => '2', 'account' => $_COOKIE['account'], 'token' => $_COOKIE['token']), 'discount');
 			$content = str_replace('[discountView2]', $view, $content);
+
 			$name = curl_post(array('module' => 'cue', 'target' => 'member_name', 'account' => $_COOKIE['account']), 'cue');
 			$content = str_replace('[member_name]', $name, $content);
+
 			echo $content;
+
+			include_m_view_footer();
 		}
 	}
 }
 
 elseif (isset($_COOKIE['account']) && isset($_COOKIE['identity']) && $_COOKIE['identity'] == 'A') {
-	$myfile = fopen("view/manage_ui/discount.html", "r");
-	$content = fread($myfile, filesize("view/manage_ui/discount.html"));
-	fclose($myfile);
+	$page = 'discount';
+	include_m_view_head($page);
+
+	$content_dir = 'view/manage_ui/' . $page . '.html';
+	$content = file_get_contents($content_dir);
+
 	$show = curl_post(array('module' => 'discount', 'event' => 'show', 'account' => $_COOKIE['account'], 'token' => $_COOKIE['token']), 'discount');
 	$content = str_replace('[discountShow]', $show, $content);
+
 	$name = curl_post(array('module' => 'cue', 'target' => 'member_name', 'account' => $_COOKIE['account']), 'cue');
 	$content = str_replace('[member_name]', $name, $content);
+
 	echo $content;
+
+	include_m_view_footer();
 }
 
 else {

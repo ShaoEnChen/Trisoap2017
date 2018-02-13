@@ -1,95 +1,151 @@
-        <nav class="navbar navbar-fixed-top nav-custom">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <a href="#page-top" class="navbar-brand"><img src="resource/image/logo.png" alt="" class="logo"></a>
+        <nav id="main-navbar">
+            <div id="nav-brand-wrap">
+                <a href="/" class="nav-brand">
+                    <img id="brand-logo" src="resource/img/logo.png" alt="三三吾鄉皂 Trisoap">
+                </a>
+            </div>
+            <div id="nav-toggle-wrap">
+                <div class="nav-mobile-toggle">
+                    <span class="toggle-bar"></span>
+                    <span class="toggle-bar"></span>
+                    <span class="toggle-bar"></span>
                 </div>
-                <div class="collapse navbar-collapse navbar-main-collapse">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li>
-                            <a href="index.php">
-                                回三三首頁<i class="fa fa-angle-down" aria-hidden="true"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="index.php?route=discount&in=create">
-                                新增折扣<i class="fa fa-angle-down" aria-hidden="true"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="index.php?route=discount&in=delete">
-                                刪除折扣<i class="fa fa-angle-down" aria-hidden="true"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="index.php?route=discount&in=state0">
-                                已失效折扣<i class="fa fa-angle-down" aria-hidden="true"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="index.php?route=discount&in=state1">
-                                一次有效折扣<i class="fa fa-angle-down" aria-hidden="true"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="index.php?route=discount&in=state2">
-                                永久有效折扣<i class="fa fa-angle-down" aria-hidden="true"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                [member_name]，您好<br>
-                            </a>
-                        </li>
-                        <li>
-                            <a onclick="memberLogout()">
-                                登出<i class="fa fa-angle-down" aria-hidden="true"></i>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
+            </div>
+            <div id="nav-menu-wrap">
+                <ul id="nav-main-menu">
+                    <li class="nav-main-item">
+                        <a class="nav-main-link" href="/">
+                            首頁
+                        </a>
+                    </li>
+                    <li class="nav-main-item has-dropdown">
+                        <a class="nav-main-link" href="javascript:void(0)">
+                            管理平台
+                            <i class="fa fa-angle-down"></i>
+                        </a>
+                        <ul class="nav-dropdown-menu">
+                            <li class="nav-dropdown-item">
+                                <a class="nav-main-link" href="/Trisoap_WL/index.php">
+                                    倉儲暨物流管理
+                                </a>
+                            </li>
+                            <li class="nav-dropdown-item">
+                                <a class="nav-main-link" href="index.php?route=manager">
+                                    權限管理
+                                </a>
+                            </li>
+                            <li class="nav-dropdown-item">
+                                <a class="nav-main-link" href="index.php?route=item">
+                                    商品管理
+                                </a>
+                            </li>
+                            <li class="nav-dropdown-item">
+                                <a class="nav-main-link" href="index.php?route=order">
+                                    訂單管理
+                                </a>
+                            </li>
+                            <li class="nav-dropdown-item">
+                                <a class="nav-main-link" href="index.php?route=discount">
+                                    折扣管理
+                                </a>
+                            </li>
+                            <li class="nav-dropdown-item">
+                                <a class="nav-main-link" href="index.php?route=member">
+                                    查看客戶
+                                </a>
+                            </li>
+                            <li class="nav-dropdown-item">
+                                <a class="nav-main-link" href="index.php?route=order&in=create">
+                                    建立訂單
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-main-item has-dropdown">
+                        <a class="nav-main-link" href="javascript:void(0)">
+                            折扣管理
+                            <i class="fa fa-angle-down"></i>
+                        </a>
+                        <ul class="nav-dropdown-menu">
+                            <li class="nav-dropdown-item">
+                                <a class="nav-main-link" href="index.php?route=discount&in=create">
+                                    新增折扣
+                                </a>
+                            </li>
+                            <li class="nav-dropdown-item">
+                                <a class="nav-main-link" href="index.php?route=discount&in=delete">
+                                    刪除折扣
+                                </a>
+                            </li>
+                            <li class="nav-dropdown-item">
+                                <a class="nav-main-link" href="index.php?route=discount&in=state0">
+                                    已失效折扣
+                                </a>
+                            </li>
+                            <li class="nav-dropdown-item">
+                                <a class="nav-main-link" href="index.php?route=discount&in=state1">
+                                    一次有效折扣
+                                </a>
+                            </li>
+                            <li class="nav-dropdown-item">
+                                <a class="nav-main-link" href="index.php?route=discount&in=state2">
+                                    永久有效折扣
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-main-item has-dropdown">
+                        <a class="nav-main-link" href="javascript:void(0)">
+                            [member_name]，您好
+                            <i class="fa fa-angle-down"></i>
+                        </a>
+                        <ul class="nav-dropdown-menu">
+                            <li class="nav-dropdown-item">
+                                <a class="nav-main-link" href="javascript:void(0)" onclick="memberLogout()">
+                                    登出
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
             </div>
         </nav>
-
-        <section>
-            <div class="orders">
-                    搜尋依據：
-                    <select id="key">
-                        <option value="DCTID">折扣兌換碼</option>
-                        <option value="DCTNM">折扣名稱</option>
-                        <option value="DCTPRICE">折扣金額</option>
-                        <option value="CREATEPERSON">設定人員</option>
-                    </select>
-                    搜尋關鍵：<input type="text" id="value"> <br>
-                    <button onclick="discountSearch()">確定</button>
-            </div>
-        </section>
-
-        <section>
-            <div class="container">
-                <h2>折扣管理</h2>
-                <div class="manage">
-                    <div class="row table-responsive">
-                        <div class="tab-content">
-                            <div id="all" class="tab-pane fade in active">
-                                <table class="table table-hover">
-                                    <thead>
-                                        <tr>
-                                            <td>折扣兌換碼</td>
-                                            <td>折扣名稱</td>
-                                            <td>折扣金額</td>
-                                            <td>折扣狀態</td>
-                                            <td>設定人員</td>
-                                            <td>建立日期</td>
-                                            <td>使用日期</td>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="discountShow">
-                                    [discountShow]
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
+        <main>
+            <div class="main-wrap">
+                <div id="discount-search" class="search-div">
+                    <div>
+                        <label for="search-basis">搜尋依據</label>
+                        <select id="search-basis">
+                            <option value="DCTID">折扣兌換碼</option>
+                            <option value="DCTNM">折扣名稱</option>
+                            <option value="DCTPRICE">折扣金額</option>
+                            <option value="CREATEPERSON">設定人員</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="search-value">搜尋關鍵</label>
+                        <input type="text" id="search-value" class="form-field">
+                        <button class="neural-btn" onclick="discountSearch()">確定</button>
                     </div>
                 </div>
+                <div class="data-retrieval">
+                    <h2>折扣一覽</h2>
+                    <table class="rwd-table">
+                        <thead>
+                            <tr>
+                                <th>折扣兌換碼</th>
+                                <th>折扣名稱</th>
+                                <th>折扣金額</th>
+                                <th>折扣狀態</th>
+                                <th>設定人員</th>
+                                <th>建立日期</th>
+                                <th>使用日期</th>
+                            </tr>
+                        </thead>
+                        <tbody id="discountShow">
+                            [discountShow]
+                        </tbody>
+                    </table>
+                </div>
             </div>
-        </section>
+        </main>
