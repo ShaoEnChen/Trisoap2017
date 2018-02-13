@@ -173,7 +173,7 @@ $jumbotron-list: "about", "brand_intro", "contact", "faq", "media", "moonfest", 
 }
 
 // Laptop
-@media screen and (min-width: 980px) {
+@media screen and (min-width: $media-breakpoint-laptop) {
 	.jumbotron-title,
 	.jumbotron-only-title {
 		font-size: 60px;
@@ -190,7 +190,7 @@ $jumbotron-list: "about", "brand_intro", "contact", "faq", "media", "moonfest", 
 }
 
 // Mobile
-@media screen and (max-width: 979px) {
+@media screen and (max-width: $media-breakpoint-mobile) {
 	.jumbotron-title,
 	.jumbotron-only-title {
 		font-size: 32px;
@@ -253,7 +253,7 @@ $footer-line-height: 1.7;
 }
 
 // Laptop
-@media screen and (min-width: 980px) {
+@media screen and (min-width: $media-breakpoint-laptop) {
 	$footer-row-2-height: 60px;
 
 	#footer {
@@ -284,7 +284,7 @@ $footer-line-height: 1.7;
 }
 
 // Mobile
-@media screen and (max-width: 979px) {
+@media screen and (max-width: $media-breakpoint-mobile) {
 	.footer-menu,
 	#community,
 	#copyright {
@@ -357,7 +357,7 @@ $buy-now-btn-width: 44%;
 }
 
 // Laptop
-@media screen and (min-width: 980px) {
+@media screen and (min-width: $media-breakpoint-laptop) {
 	.buy-now-wrap {
 		display: grid;
 		grid-template-columns: 16% auto 16%;
@@ -377,7 +377,7 @@ $buy-now-btn-width: 44%;
 }
 
 // Mobile
-@media screen and (max-width: 979px) {
+@media screen and (max-width: $media-breakpoint-mobile) {
 	.buy-now {
 		margin: 40px 15px;
 	}
@@ -409,7 +409,7 @@ $buy-now-btn-width: 44%;
 }
 
 // Laptop
-@media screen and (min-width: 980px) {
+@media screen and (min-width: $media-breakpoint-laptop) {
 	.story {
 		display: grid;
 		grid-template-columns: 8% 6fr 1fr 5fr 8%;	// 6 for img, 5 for text
@@ -429,7 +429,7 @@ $buy-now-btn-width: 44%;
 }
 
 // Mobile
-@media screen and (max-width: 979px) {
+@media screen and (max-width: $media-breakpoint-mobile) {
 	$story-lr-margin: 8%;
 
 	.story-img-wrap {
@@ -470,7 +470,7 @@ $buy-now-btn-width: 44%;
 }
 
 // Laptop
-@media screen and (min-width: 980px) {
+@media screen and (min-width: $media-breakpoint-laptop) {
 	.intro {
 		display: grid;
 		grid-template-columns: 14% 5fr 1fr 5fr 14%;	// 5 for img or text
@@ -511,7 +511,7 @@ $buy-now-btn-width: 44%;
 }
 
 // Mobile
-@media screen and (max-width: 979px) {
+@media screen and (max-width: $media-breakpoint-mobile) {
 	$intro-lr-margin: 8%;
 
 	.intro-img-wrap {
@@ -534,7 +534,7 @@ $buy-now-btn-width: 44%;
 }
 
 // Laptop
-@media screen and (min-width: 980px) {
+@media screen and (min-width: $media-breakpoint-laptop) {
 	.media-link {
 		display: inline-block;
 		margin: 30px 20px;
@@ -542,7 +542,7 @@ $buy-now-btn-width: 44%;
 }
 
 // Mobile
-@media screen and (max-width: 979px) {
+@media screen and (max-width: $media-breakpoint-mobile) {
 	.media-link {
 		display: block;
 		width: 100%;
@@ -570,7 +570,7 @@ $buy-now-btn-width: 44%;
 }
 
 // Laptop
-@media screen and (min-width: 980px) {
+@media screen and (min-width: $media-breakpoint-laptop) {
 	#trial-recommend > .flexslider {
 		width: 60%;
 		margin: 0 auto;
@@ -578,7 +578,7 @@ $buy-now-btn-width: 44%;
 }
 
 // Mobile
-@media screen and (max-width: 979px) {
+@media screen and (max-width: $media-breakpoint-mobile) {
 	#trial-recommend {
 		width: 84%;
 		margin: 0 auto;
@@ -633,7 +633,7 @@ $buy-now-btn-width: 44%;
 }
 
 // Mobile
-@media screen and (max-width: 979px) {
+@media screen and (max-width: $media-breakpoint-mobile) {
 	.feature-title {
 		font-size: 16px;
 	}
@@ -725,7 +725,7 @@ $buy-now-btn-width: 44%;
 }
 
 // Laptop
-@media screen and (min-width: 980px) {
+@media screen and (min-width: $media-breakpoint-laptop) {
 	/* 7.1. 理念 */
 	#about-concept {
 		display: grid;
@@ -768,7 +768,7 @@ $buy-now-btn-width: 44%;
 }
 
 // Mobile
-@media screen and (max-width: 979px) {
+@media screen and (max-width: $media-breakpoint-mobile) {
 	$about-concept-lr-margin: 8%;
 
 	#about-concept-img-wrap,
@@ -838,7 +838,7 @@ $buy-now-btn-width: 44%;
 }
 
 // Laptop
-@media screen and (min-width: 980px) {
+@media screen and (min-width: $media-breakpoint-laptop) {
 	#contact {
 		display: grid;
 		grid-template-columns: 8% 3fr 4% 2fr 8%;
@@ -859,7 +859,7 @@ $buy-now-btn-width: 44%;
 }
 
 // Mobile
-@media screen and (max-width: 979px) {
+@media screen and (max-width: $media-breakpoint-mobile) {
 	$contact-lr-margin: 8%;
 
 	#contact {
@@ -972,7 +972,7 @@ $buy-now-btn-width: 44%;
 }
 
 // Laptop
-@media screen and (min-width: 980px) {
+@media screen and (min-width: $media-breakpoint-laptop) {
 	.product {
 		width: 50%;
 		padding: 40px 20px;
@@ -993,7 +993,7 @@ $buy-now-btn-width: 44%;
 }
 
 // Mobile
-@media screen and (max-width: 979px) {
+@media screen and (max-width: $media-breakpoint-mobile) {
 	.product {
 		width: 100%;
 		padding: 10px 20px;
@@ -1003,7 +1003,7 @@ $buy-now-btn-width: 44%;
 /* 10.2. 單項商品頁｜Single Product */
 
 // Laptop
-@media screen and (min-width: 980px) {
+@media screen and (min-width: $media-breakpoint-laptop) {
 	#single-product-wrap {
 		display: flex;
 		flex-flow: row wrap;
@@ -1018,7 +1018,7 @@ $buy-now-btn-width: 44%;
 }
 
 // Mobile
-@media screen and (max-width: 979px) {
+@media screen and (max-width: $media-breakpoint-mobile) {
 	#single-product-carousel,
 	#single-product-desc {
 		width: 100%;

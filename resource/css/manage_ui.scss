@@ -24,6 +24,13 @@ h1, h2, h3, h4, h5, h6, p, span, div, a, label {
  *  10:
  */
 
+/* -------------------------------------------------------------------------
+ * Shared Properties
+ * -------------------------------------------------------------------------
+ */
+
+@import 'general';
+
 /* =========================================================================
  * Main Navigation Bar
  * =========================================================================
@@ -31,4 +38,21 @@ h1, h2, h3, h4, h5, h6, p, span, div, a, label {
 
 @import 'nav';
 
+main {
+	margin-top: $main-nav-height;
+}
 
+.search-div {
+	padding: 1.2em;
+	line-height: 1.5;
+
+	#search-basis,
+	#search-value,
+	.neural-btn {
+		margin: 10px 0;
+	}
+
+	#search-value {
+		max-width: 100%;
+	}
+}

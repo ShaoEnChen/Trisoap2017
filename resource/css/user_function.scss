@@ -72,7 +72,7 @@ h1, h2, h3, h4, h5, h6, p, span, div, a, label {
 }
 
 // Laptop
-@media screen and (min-width: 980px) {
+@media screen and (min-width: $media-breakpoint-laptop) {
 	$sign-width: 40%;
 	.sign {
 		width: $sign-width;
@@ -81,7 +81,7 @@ h1, h2, h3, h4, h5, h6, p, span, div, a, label {
 }
 
 // Mobile
-@media screen and (max-width: 979px) {
+@media screen and (max-width: $media-breakpoint-mobile) {
 	$sign-width: 80%;
 	.sign {
 		width: $sign-width;
@@ -102,3 +102,4 @@ h1, h2, h3, h4, h5, h6, p, span, div, a, label {
 #personal-info-protect-act {
 	width: 92%;
 }
+

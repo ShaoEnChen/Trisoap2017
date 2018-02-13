@@ -558,6 +558,24 @@ a.no-href {
   border-style: solid none none none;
   margin: 30px auto; }
 
+.rwd-table {
+  width: 100%; }
+  .rwd-table td:first-child {
+    padding-top: 1em; }
+  .rwd-table td:last-child {
+    padding-bottom: 1em; }
+  .rwd-table td {
+    padding: 0.4em; }
+  @media screen and (max-width: 979px) {
+    .rwd-table thead {
+      display: none; }
+    .rwd-table td {
+      display: block; }
+    .rwd-table td:before {
+      content: attr(data-title);
+      display: inline-block;
+      width: 7em; } }
+
 .ui-accordion-header {
   color: #555;
   font-weight: normal;
