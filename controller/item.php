@@ -5,45 +5,88 @@ if (isset($_GET['in']) || isset($_POST['in'])) {
 	$in = isset($_GET['in']) ? $_GET['in'] : $_POST['in'];
 	if ($in == 'create') {
 		if (isset($_COOKIE['account']) && isset($_COOKIE['identity']) && $_COOKIE['identity'] == 'A') {
-			include_once("view/manage_ui/itemCreate.html");
+			$page = 'item_create';
+			include_m_view_head($page);
+
+			$content_dir = 'view/manage_ui/' . $page . '.html';
+			include_once($content_dir);
+
+			include_m_view_footer();
 		}
 	}
 	elseif ($in == 'edit') {
 		if (isset($_COOKIE['account']) && isset($_COOKIE['identity']) && $_COOKIE['identity'] == 'A') {
-			include_once("view/manage_ui/itemEdit.html");
+			$page = 'item_edit';
+			include_m_view_head($page);
+
+			$content_dir = 'view/manage_ui/' . $page . '.html';
+			include_once($content_dir);
+
+			include_m_view_footer();
 		}
 	}
 	elseif ($in == 'offshelf') {
 		if (isset($_COOKIE['account']) && isset($_COOKIE['identity']) && $_COOKIE['identity'] == 'A') {
-			include_once("view/manage_ui/itemOffshelf.html");
+			$page = 'item_offshelf';
+			include_m_view_head($page);
+
+			$content_dir = 'view/manage_ui/' . $page . '.html';
+			include_once($content_dir);
+
+			include_m_view_footer();
 		}
 	}
 	elseif ($in == 'onshelf') {
 		if (isset($_COOKIE['account']) && isset($_COOKIE['identity']) && $_COOKIE['identity'] == 'A') {
-			include_once("view/manage_ui/itemOnshelf.html");
+			$page = 'item_onshelf';
+			include_m_view_head($page);
+
+			$content_dir = 'view/manage_ui/' . $page . '.html';
+			include_once($content_dir);
+
+			include_m_view_footer();
 		}
 	}
 	elseif ($in == 'replenish') {
 		if (isset($_COOKIE['account']) && isset($_COOKIE['identity']) && $_COOKIE['identity'] == 'A') {
-			include_once("view/manage_ui/itemReplenish.html");
+			$page = 'item_replenish';
+			include_m_view_head($page);
+
+			$content_dir = 'view/manage_ui/' . $page . '.html';
+			include_once($content_dir);
+
+			include_m_view_footer();
 		}
 	}
 	elseif ($in == 'sell') {
 		if (isset($_COOKIE['account']) && isset($_COOKIE['identity']) && $_COOKIE['identity'] == 'A') {
-			include_once("view/manage_ui/itemSell.html");
+			$page = 'item_sell';
+			include_m_view_head($page);
+
+			$content_dir = 'view/manage_ui/' . $page . '.html';
+			include_once($content_dir);
+
+			include_m_view_footer();
 		}
 	}
 }
 
 elseif (isset($_COOKIE['account']) && isset($_COOKIE['identity']) && $_COOKIE['identity'] == 'A') {
-	$myfile = fopen("view/manage_ui/item.html", "r");
-	$content = fread($myfile, filesize("view/manage_ui/item.html"));
-	fclose($myfile);
+	$page = 'item';
+	include_m_view_head($page);
+
+	$content_dir = 'view/manage_ui/' . $page . '.html';
+	$content = file_get_contents($content_dir);
+
 	$show = curl_post(array('module' => 'item', 'event' => 'show', 'account' => $_COOKIE['account'], 'token' => $_COOKIE['token']), 'item');
 	$content = str_replace('[itemShow]', $show, $content);
+
 	$name = curl_post(array('module' => 'cue', 'target' => 'member_name', 'account' => $_COOKIE['account']), 'cue');
 	$content = str_replace('[member_name]', $name, $content);
+
 	echo $content;
+
+	include_m_view_footer();
 }
 
 else {
