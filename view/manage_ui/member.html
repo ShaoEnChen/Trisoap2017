@@ -20,6 +20,49 @@
                     </li>
                     <li class="nav-main-item has-dropdown">
                         <a class="nav-main-link" href="javascript:void(0)">
+                            管理平台
+                            <i class="fa fa-angle-down"></i>
+                        </a>
+                        <ul class="nav-dropdown-menu">
+                            <li class="nav-dropdown-item">
+                                <a class="nav-main-link" href="/Trisoap_WL/index.php">
+                                    倉儲暨物流管理
+                                </a>
+                            </li>
+                            <li class="nav-dropdown-item">
+                                <a class="nav-main-link" href="index.php?route=manager">
+                                    權限管理
+                                </a>
+                            </li>
+                            <li class="nav-dropdown-item">
+                                <a class="nav-main-link" href="index.php?route=item">
+                                    商品管理
+                                </a>
+                            </li>
+                            <li class="nav-dropdown-item">
+                                <a class="nav-main-link" href="index.php?route=order">
+                                    訂單管理
+                                </a>
+                            </li>
+                            <li class="nav-dropdown-item">
+                                <a class="nav-main-link" href="index.php?route=discount">
+                                    折扣管理
+                                </a>
+                            </li>
+                            <li class="nav-dropdown-item">
+                                <a class="nav-main-link" href="index.php?route=member">
+                                    查看客戶
+                                </a>
+                            </li>
+                            <li class="nav-dropdown-item">
+                                <a class="nav-main-link" href="index.php?route=order&in=create">
+                                    建立訂單
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-main-item has-dropdown">
+                        <a class="nav-main-link" href="javascript:void(0)">
                             [member_name]，您好
                             <i class="fa fa-angle-down"></i>
                         </a>
@@ -36,16 +79,20 @@
         </nav>
         <main>
             <div class="main-wrap">
-                <div id="member-search">
-                    <label for="search-option">搜尋依據</label>
-                    <select id="search-option">
-                        <option value="EMAIL">電子信箱</option>
-                        <option value="CUSNM">客戶姓名</option>
-                        <option value="TEL">聯絡電話</option>
-                    </select>
-                    <label for="search-value">搜尋關鍵</label>
-                    <input type="text" id="search-value" class="form-field">
-                    <button class="neural-btn" onclick="memberSearch()">確定</button>
+                <div id="member-search" class="search-div">
+                    <div>
+                        <label for="search-basis">搜尋依據</label>
+                        <select id="search-basis">
+                            <option value="EMAIL">電子信箱</option>
+                            <option value="CUSNM">客戶姓名</option>
+                            <option value="TEL">聯絡電話</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="search-value">搜尋關鍵</label>
+                        <input type="text" id="search-value" class="form-field">
+                        <button class="neural-btn" onclick="memberSearch()">確定</button>
+                    </div>
                 </div>
                 <div class="data-retrieval">
                     <h2>客戶一覽</h2>
@@ -65,7 +112,7 @@
                             </tr>
                         </thead>
                         <tbody id="memberShow">
-                        [memberShow]
+                            [memberShow]
                         </tbody>
                     </table>
                 </div>

@@ -211,8 +211,8 @@ function orderDetail(index) {
 function orderSearch() {
 	var request = new XMLHttpRequest();
 	request.open("POST", "index.php");
-	var key = document.getElementById("key").value;
-	var value = document.getElementById("value").value;
+	var key = document.getElementById("search-basis").value;
+	var value = document.getElementById("search-value").value;
 	var data = "module=order&event=search&key=" + key + "&value=" + value;
 	request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 	request.send(data);
@@ -232,7 +232,7 @@ function orderSearch() {
 function memberSearch() {
 	var request = new XMLHttpRequest();
 	request.open("POST", "index.php");
-	var key = document.getElementById("search-option").value;
+	var key = document.getElementById("search-basis").value;
 	var value = document.getElementById("search-value").value;
 	var data = "module=member&event=search&key=" + key + "&value=" + value;
 	request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
@@ -525,8 +525,8 @@ function discountDelete() {
 function discountSearch() {
 	var request = new XMLHttpRequest();
 	request.open("POST", "index.php");
-	var key = document.getElementById("key").value;
-	var value = document.getElementById("value").value;
+	var key = document.getElementById("search-basis").value;
+	var value = document.getElementById("search-value").value;
 	var data = "module=discount&event=search&key=" + key + "&value=" + value;
 	request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 	request.send(data);
