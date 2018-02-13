@@ -1,5 +1,6 @@
 <?php
 include_once('router.php');
+include_once('resource/layout.php');
 
 if (isset($_GET['in']) || isset($_POST['in'])) {
 	$in = isset($_GET['in']) ? $_GET['in'] : $_POST['in'];
