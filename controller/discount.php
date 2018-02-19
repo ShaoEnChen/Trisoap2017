@@ -10,7 +10,12 @@ if (isset($_GET['in']) || isset($_POST['in'])) {
 			include_u_view_head($page);
 
 			$content_dir = 'view/user_function/' . $page . '.html';
-			include_once($content_dir);
+			$content = file_get_contents($content_dir);
+
+			$name = curl_post(array('module' => 'cue', 'target' => 'member_name', 'account' => $_COOKIE['account']), 'cue');
+			$content = str_replace('[member_name]', $name, $content);
+
+			echo $content;
 
 			include_u_view_footer();
 		}
@@ -21,7 +26,12 @@ if (isset($_GET['in']) || isset($_POST['in'])) {
 			include_m_view_head($page);
 
 			$content_dir = 'view/manage_ui/' . $page . '.html';
-			include_once($content_dir);
+			$content = file_get_contents($content_dir);
+
+			$name = curl_post(array('module' => 'cue', 'target' => 'member_name', 'account' => $_COOKIE['account']), 'cue');
+			$content = str_replace('[member_name]', $name, $content);
+
+			echo $content;
 
 			include_m_view_footer();
 		}
@@ -32,7 +42,12 @@ if (isset($_GET['in']) || isset($_POST['in'])) {
 			include_m_view_head($page);
 
 			$content_dir = 'view/manage_ui/' . $page . '.html';
-			include_once($content_dir);
+			$content = file_get_contents($content_dir);
+
+			$name = curl_post(array('module' => 'cue', 'target' => 'member_name', 'account' => $_COOKIE['account']), 'cue');
+			$content = str_replace('[member_name]', $name, $content);
+
+			echo $content;
 
 			include_m_view_footer();
 		}
