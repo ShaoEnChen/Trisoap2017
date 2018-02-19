@@ -9,13 +9,10 @@ if (isset($_GET['in']) || isset($_POST['in'])) {
 			$page = 'discount_apply';
 			include_u_view_head($page);
 
+			controller_get_nav('discount');
+
 			$content_dir = 'view/user_function/' . $page . '.html';
-			$content = file_get_contents($content_dir);
-
-			$name = curl_post(array('module' => 'cue', 'target' => 'member_name', 'account' => $_COOKIE['account']), 'cue');
-			$content = str_replace('[member_name]', $name, $content);
-
-			echo $content;
+			include_once($content_dir);
 
 			include_u_view_footer();
 		}
@@ -25,13 +22,10 @@ if (isset($_GET['in']) || isset($_POST['in'])) {
 			$page = 'discount_create';
 			include_m_view_head($page);
 
+			controller_get_nav('discount');
+
 			$content_dir = 'view/manage_ui/' . $page . '.html';
-			$content = file_get_contents($content_dir);
-
-			$name = curl_post(array('module' => 'cue', 'target' => 'member_name', 'account' => $_COOKIE['account']), 'cue');
-			$content = str_replace('[member_name]', $name, $content);
-
-			echo $content;
+			include_once($content_dir);
 
 			include_m_view_footer();
 		}
@@ -41,13 +35,10 @@ if (isset($_GET['in']) || isset($_POST['in'])) {
 			$page = 'discount_delete';
 			include_m_view_head($page);
 
+			controller_get_nav('discount');
+
 			$content_dir = 'view/manage_ui/' . $page . '.html';
-			$content = file_get_contents($content_dir);
-
-			$name = curl_post(array('module' => 'cue', 'target' => 'member_name', 'account' => $_COOKIE['account']), 'cue');
-			$content = str_replace('[member_name]', $name, $content);
-
-			echo $content;
+			include_once($content_dir);
 
 			include_m_view_footer();
 		}
@@ -56,6 +47,8 @@ if (isset($_GET['in']) || isset($_POST['in'])) {
 		if (isset($_COOKIE['account']) && isset($_COOKIE['identity']) && $_COOKIE['identity'] == 'A') {
 			$page = 'discount_state_0';
 			include_m_view_head($page);
+
+			controller_get_nav('discount');
 
 			$content_dir = 'view/manage_ui/' . $page . '.html';
 			$content = file_get_contents($content_dir);
@@ -76,6 +69,8 @@ if (isset($_GET['in']) || isset($_POST['in'])) {
 			$page = 'discount_state_1';
 			include_m_view_head($page);
 
+			controller_get_nav('discount');
+
 			$content_dir = 'view/manage_ui/' . $page . '.html';
 			$content = file_get_contents($content_dir);
 
@@ -95,6 +90,8 @@ if (isset($_GET['in']) || isset($_POST['in'])) {
 			$page = 'discount_state_2';
 			include_m_view_head($page);
 
+			controller_get_nav('discount');
+
 			$content_dir = 'view/manage_ui/' . $page . '.html';
 			$content = file_get_contents($content_dir);
 
@@ -110,10 +107,11 @@ if (isset($_GET['in']) || isset($_POST['in'])) {
 		}
 	}
 }
-
 elseif (isset($_COOKIE['account']) && isset($_COOKIE['identity']) && $_COOKIE['identity'] == 'A') {
 	$page = 'discount';
 	include_m_view_head($page);
+
+	controller_get_nav('discount');
 
 	$content_dir = 'view/manage_ui/' . $page . '.html';
 	$content = file_get_contents($content_dir);
@@ -128,7 +126,6 @@ elseif (isset($_COOKIE['account']) && isset($_COOKIE['identity']) && $_COOKIE['i
 
 	include_m_view_footer();
 }
-
 else {
 	router('index');
 }

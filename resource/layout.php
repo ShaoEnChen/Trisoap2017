@@ -417,3 +417,13 @@ function include_m_view_footer() {
 	// check_dependency_m_footer($page);
 	require('view/manage_ui/m_footer_finish.html');
 }
+
+function controller_get_nav($controller) {
+	$nav_content_dir = 'view/manage_ui/nav/nav_' . $controller . '.html';
+	$nav_content = file_get_contents($nav_content_dir);
+
+	$name = curl_post(array('module' => 'cue', 'target' => 'member_name', 'account' => $_COOKIE['account']), 'cue');
+	$nav_content = str_replace('[member_name]', $name, $nav_content);
+
+	echo $nav_content;
+}
