@@ -33,7 +33,7 @@ if (isset($_GET['in']) || isset($_POST['in'])) {
 }
 
 elseif (isset($_COOKIE['account']) && isset($_COOKIE['identity']) && $_COOKIE['identity'] == 'A') {
-	$page = 'member';
+	$page = 'manager';
 	include_m_view_head($page);
 
 	controller_get_nav('manager');
@@ -41,11 +41,8 @@ elseif (isset($_COOKIE['account']) && isset($_COOKIE['identity']) && $_COOKIE['i
 	$content_dir = 'view/manage_ui/' . $page . '.html';
 	$content = file_get_contents($content_dir);
 
-	$show = curl_post(array('module' => 'member', 'event' => 'show', 'account' => $_COOKIE['account'], 'token' => $_COOKIE['token']), 'member');
-	$content = str_replace('[memberShow]', $show, $content);
-
-	$name = curl_post(array('module' => 'cue', 'target' => 'member_name', 'account' => $_COOKIE['account']), 'cue');
-	$content = str_replace('[member_name]', $name, $content);
+	$show = curl_post(array('module' => 'manager', 'event' => 'show', 'account' => $_COOKIE['account'], 'token' => $_COOKIE['token']), 'manager');
+	$content = str_replace('[managerShow]', $show, $content);
 
 	echo $content;
 
