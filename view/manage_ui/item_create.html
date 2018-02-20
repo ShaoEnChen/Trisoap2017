@@ -1,10 +1,31 @@
-        <div class="sign-block" style="width: 350px;">
-            <h1>新增商品</h1>
-            商品編號：<input type="text" id="index">
-        	商品名稱：<input type="text" id="name">
-        	商品數量：<input type="text" id="amount">
-        	商品價格：<input type="text" id="price">
-        	商品描述：<input type="text" id="description">
-            <button class="promise" onclick="itemCreate()">確定</button>
-            <a href="index.php?route=item"><button class="cancel">取消</button></a>
-        </div>
+        <main>
+            <div class="main-wrap">
+                <h2>商品新增</h2>
+                <div class="create-div">
+                    <div>
+                        <label for="index">商品編號</label>
+                        <input type="text" id="index" class="form-field">
+                    </div>
+                    <div>
+                        <label for="name">商品名稱</label>
+                        <input type="text" id="name" class="form-field">
+                    </div>
+                    <div>
+                        <label for="amount">商品數量</label>
+                        <input type="text" id="amount" class="form-field">
+                    </div>
+                    <div>
+                        <label for="price">商品價格</label>
+                        <input type="text" id="price" class="form-field">
+                    </div>
+                    <div>
+                        <label for="description">商品描述</label>
+                        <input type="text" id="description" class="form-field">
+                    </div>
+                    <div>
+                        <button class="promise-btn" onclick="itemCreate()">確定</button>
+                        <a class="neural-btn" href="index.php?route=item">取消</a>
+                    </div>
+                </div>
+            </div>
+        </main>

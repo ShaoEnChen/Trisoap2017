@@ -1,19 +1,42 @@
-        <div class="sign-block" style="width: 350px;">
-            <h1>商品進貨</h1>
-            <div class="q-select">商品名稱：
-                <select id="index">
-                    <option value="0"></option>
-                    <option value="1">田靜山巒禾風皂</option>
-                    <option value="2">金絲森林渲染皂</option>
-                    <option value="3">釋迦手感果力皂</option>
-                    <option value="4">三三臺東意象禮盒組</option>
-                    <option value="5">三三臺東意象皂絲旅行組</option>
-                    <option value="6">洛神紅麴旅用皂絲</option>
-                    <option value="7">暖暖薑黃旅用皂絲</option>
-                    <option value="8">萱草米黃旅用皂絲</option>
-                </select>
+        <main>
+            <div class="main-wrap">
+                <h2>商品進貨</h2>
+                <div class="update-div">
+                    <div>
+                        <label for="index">欲進貨的商品</label>
+                        <select id="index" class="form-field">
+                            <option value="0" selected disabled>請選擇商品</option>
+                            <option value="moon_box_1">中秋禮皂-月兔捉迷藏</option>
+                            <option value="moon_box_2">中秋禮皂-熱氣球登月</option>
+                            <option value="moon_box_3">中秋小禮盒</option>
+                            <option value="newyear_box_1">宜蘭媽祖保庇禮盒</option>
+                            <option value="newyear_box_2">台東新春嘉年禮盒</option>
+                            <option value="product_sp_tt_1">田靜山巒禾風皂</option>
+                            <option value="product_sp_tt_2">金絲森林渲染皂</option>
+                            <option value="product_sp_tt_3">釋迦手感果力皂</option>
+                            <option value="product_sp_tt_box_1">三三臺東意象禮盒組</option>
+                            <option value="product_sp_yl_1">紅瓜天然家事皂</option>
+                            <option value="product_sp_yl_2">金柑苦茶洗髮皂</option>
+                            <option value="product_sp_yl_3">石花淨白洗面皂</option>
+                            <option value="product_sp_yl_box_1">三三宜蘭經典禮盒組</option>
+                            <option value="product_ss_tt_1">洛神紅麴旅用皂絲</option>
+                            <option value="product_ss_tt_2">暖暖薑黃旅用皂絲</option>
+                            <option value="product_ss_tt_3">萱草米黃旅用皂絲</option>
+                            <option value="product_ss_tt_box_1">三三臺東意象皂絲旅行組</option>
+                            <option value="product_ss_yl_1">黑豆清爽旅用皂絲</option>
+                            <option value="product_ss_yl_2">米糠馬賽旅用皂絲</option>
+                            <option value="product_ss_yl_3">蜂蜜甜心旅用皂絲</option>
+                            <option value="product_ss_yl_box_1">三三宜蘭經典皂絲旅行組</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="amount">進貨數量</label>
+                        <input type="text" id="amount" class="form-field">
+                    </div>
+                    <div>
+                        <button class="promise-btn" onclick="itemReplenish()">確定</button>
+                        <a class="neural-btn" href="index.php?route=item">取消</a>
+                    </div>
+                </div>
             </div>
-            進貨數量：<input type="text" id="amount">
-            <button class="promise" onclick="itemReplenish()">確定</button>
-            <a href="index.php?route=item"><button class="cancel">取消</button></a>
-        </div>
+        </main>
