@@ -280,7 +280,7 @@ function search($account, $token, $key, $value) {
 		$content = '';
 		$sql2 = mysql_query("SELECT * FROM DCTMAS WHERE $key='$value' ORDER BY CREATEDATE ASC");
 		while ($fetch2 = mysql_fetch_array($sql2)) {
-			$content .= '<tr><td>'.$fetch2['DCTID'].'</td><td>'.$fetch2['DCTNM'].'</td><td>'.$fetch2['DCTPRICE'].'</td><td>'.$fetch2['DCTSTAT'].'</td><td>'.$fetch2['CREATEPERSON'].'</td><td>'.$fetch2['CREATEDATE'].'</td><td>'.$fetch2['USEDATE'].'</td></tr>';
+			$content .= '<tr><td data-title="折扣兌換碼">'.$fetch2['DCTID'].'</td><td data-title="折扣名稱">'.$fetch2['DCTNM'].'</td><td data-title="折扣金額">'.$fetch2['DCTPRICE'].'</td><td data-title="折扣狀態">'.$fetch2['DCTSTAT'].'</td><td data-title="設定人員">'.$fetch2['CREATEPERSON'].'</td><td data-title="建立日期">'.$fetch2['CREATEDATE'].'</td><td data-title="使用日期">'.$fetch2['USEDATE'].'</td></tr>';
 		}
 		return array('message' => 'Success', 'content' => $content);
 	}
@@ -308,7 +308,7 @@ function view($account, $token, $state='0') {
 		$content = '';
 		$sql2 = mysql_query("SELECT * FROM DCTMAS WHERE DCTSTAT='$state' ORDER BY CREATEDATE ASC");
 		while ($fetch2 = mysql_fetch_array($sql2)) {
-			$content .= '<tr><td>'.$fetch2['DCTID'].'</td><td>'.$fetch2['DCTNM'].'</td><td>'.$fetch2['DCTPRICE'].'</td><td>'.$fetch2['DCTSTAT'].'</td><td>'.$fetch2['CREATEPERSON'].'</td><td>'.$fetch2['CREATEDATE'].'</td><td>'.$fetch2['USEDATE'].'</td></tr>';
+			$content .= '<tr><td data-title="折扣兌換碼">'.$fetch2['DCTID'].'</td><td data-title="折扣名稱">'.$fetch2['DCTNM'].'</td><td data-title="折扣金額">'.$fetch2['DCTPRICE'].'</td><td data-title="折扣狀態">'.$fetch2['DCTSTAT'].'</td><td data-title="設定人員">'.$fetch2['CREATEPERSON'].'</td><td data-title="建立日期">'.$fetch2['CREATEDATE'].'</td><td data-title="使用日期">'.$fetch2['USEDATE'].'</td></tr>';
 		}
 		return array('message' => 'Success', 'content' => $content);
 	}
@@ -336,7 +336,7 @@ function show($account, $token) {
 		$content = '';
 		$sql2 = mysql_query("SELECT * FROM DCTMAS ORDER BY CREATEDATE DESC");
 		while ($fetch2 = mysql_fetch_array($sql2)) {
-			$content .= '<tr><td>'.$fetch2['DCTID'].'</td><td>'.$fetch2['DCTNM'].'</td><td>'.$fetch2['DCTPRICE'].'</td><td>'.$fetch2['DCTSTAT'].'</td><td>'.$fetch2['CREATEPERSON'].'</td><td>'.$fetch2['CREATEDATE'].'</td><td>'.$fetch2['USEDATE'].'</td></tr>';
+			$content .= '<tr><td data-title="折扣兌換碼">'.$fetch2['DCTID'].'</td><td data-title="折扣名稱">'.$fetch2['DCTNM'].'</td><td data-title="折扣金額">'.$fetch2['DCTPRICE'].'</td><td data-title="折扣狀態">'.$fetch2['DCTSTAT'].'</td><td data-title="設定人員">'.$fetch2['CREATEPERSON'].'</td><td data-title="建立日期">'.$fetch2['CREATEDATE'].'</td><td data-title="使用日期">'.$fetch2['USEDATE'].'</td></tr>';
 		}
 		return array('message' => 'Success', 'content' => $content);
 	}
