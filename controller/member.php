@@ -110,6 +110,8 @@ elseif(isset($_COOKIE['account']) && isset($_COOKIE['identity']) && $_COOKIE['id
 	$page = 'member';
 	include_m_view_head($page);
 
+	controller_get_nav('member');
+
 	$content_dir = 'view/manage_ui/' . $page . '.html';
 	$content = file_get_contents($content_dir);
 

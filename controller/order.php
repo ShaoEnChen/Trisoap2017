@@ -9,6 +9,8 @@ if (isset($_GET['in']) || isset($_POST['in'])) {
 			$page = 'order_create';
 			include_m_view_head($page);
 
+			controller_get_nav('order');
+
 			$content_dir = 'view/manage_ui/' . $page . '.html';
 			include_once($content_dir);
 
@@ -19,6 +21,8 @@ if (isset($_GET['in']) || isset($_POST['in'])) {
 		if (isset($_COOKIE['account']) && isset($_COOKIE['identity']) && $_COOKIE['identity'] == 'A') {
 			$page = 'order_state_E';
 			include_m_view_head($page);
+
+			controller_get_nav('order');
 
 			$content_dir = 'view/manage_ui/' . $page . '.html';
 			$content = file_get_contents($content_dir);
@@ -39,6 +43,8 @@ if (isset($_GET['in']) || isset($_POST['in'])) {
 			$page = 'order_state_R';
 			include_m_view_head($page);
 
+			controller_get_nav('order');
+
 			$content_dir = 'view/manage_ui/' . $page . '.html';
 			$content = file_get_contents($content_dir);
 
@@ -57,6 +63,8 @@ if (isset($_GET['in']) || isset($_POST['in'])) {
 		if (isset($_COOKIE['account']) && isset($_COOKIE['identity']) && $_COOKIE['identity'] == 'A') {
 			$page = 'order_state_1';
 			include_m_view_head($page);
+
+			controller_get_nav('order');
 
 			$content_dir = 'view/manage_ui/' . $page . '.html';
 			$content = file_get_contents($content_dir);
@@ -77,6 +85,8 @@ if (isset($_GET['in']) || isset($_POST['in'])) {
 			$page = 'order_state_C';
 			include_m_view_head($page);
 
+			controller_get_nav('order');
+
 			$content_dir = 'view/manage_ui/' . $page . '.html';
 			$content = file_get_contents($content_dir);
 
@@ -95,6 +105,8 @@ if (isset($_GET['in']) || isset($_POST['in'])) {
 		if (isset($_COOKIE['account']) && isset($_COOKIE['identity']) && $_COOKIE['identity'] == 'A') {
 			$page = 'order_state_F';
 			include_m_view_head($page);
+
+			controller_get_nav('order');
 
 			$content_dir = 'view/manage_ui/' . $page . '.html';
 			$content = file_get_contents($content_dir);
@@ -134,6 +146,8 @@ if (isset($_GET['in']) || isset($_POST['in'])) {
 elseif (isset($_COOKIE['account']) && isset($_COOKIE['identity']) && $_COOKIE['identity'] == 'A') {
 	$page = 'order';
 	include_m_view_head($page);
+
+	controller_get_nav('order');
 
 	$content_dir = 'view/manage_ui/' . $page . '.html';
 	$content = file_get_contents($content_dir);

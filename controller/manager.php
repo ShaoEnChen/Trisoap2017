@@ -9,6 +9,8 @@ if (isset($_GET['in']) || isset($_POST['in'])) {
 			$page = 'manager_create';
 			include_m_view_head($page);
 
+			controller_get_nav('manager');
+
 			$content_dir = 'view/manage_ui/' . $page . '.html';
 			include_once($content_dir);
 
@@ -19,6 +21,8 @@ if (isset($_GET['in']) || isset($_POST['in'])) {
 		if (isset($_COOKIE['account']) && isset($_COOKIE['identity']) && $_COOKIE['identity'] == 'A') {
 			$page = 'manager_delete';
 			include_m_view_head($page);
+
+			controller_get_nav('manager');
 
 			$content_dir = 'view/manage_ui/' . $page . '.html';
 			include_once($content_dir);
@@ -31,6 +35,8 @@ if (isset($_GET['in']) || isset($_POST['in'])) {
 elseif (isset($_COOKIE['account']) && isset($_COOKIE['identity']) && $_COOKIE['identity'] == 'A') {
 	$page = 'member';
 	include_m_view_head($page);
+
+	controller_get_nav('manager');
 
 	$content_dir = 'view/manage_ui/' . $page . '.html';
 	$content = file_get_contents($content_dir);

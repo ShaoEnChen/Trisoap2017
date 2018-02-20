@@ -9,8 +9,6 @@ if (isset($_GET['in']) || isset($_POST['in'])) {
 			$page = 'discount_apply';
 			include_u_view_head($page);
 
-			controller_get_nav('discount');
-
 			$content_dir = 'view/user_function/' . $page . '.html';
 			include_once($content_dir);
 
