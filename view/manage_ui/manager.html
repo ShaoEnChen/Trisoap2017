@@ -1,63 +1,21 @@
-        <nav class="navbar navbar-fixed-top nav-custom">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <a href="#page-top" class="navbar-brand"><img src="resource/image/logo.png" alt="" class="logo"></a>
-                </div>
-                <div class="collapse navbar-collapse navbar-main-collapse">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li>
-                            <a href="index.php">
-                                回三三首頁<i class="fa fa-angle-down" aria-hidden="true"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="index.php?route=manager&in=create">
-                                新增管理員<i class="fa fa-angle-down" aria-hidden="true"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="index.php?route=manager&in=delete">
-                                刪除管理員<i class="fa fa-angle-down" aria-hidden="true"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                [member_name]，您好<br>
-                            </a>
-                        </li>
-                        <li>
-                            <a onclick="memberLogout()">
-                                登出<i class="fa fa-angle-down" aria-hidden="true"></i>
-                            </a>
-                        </li>
-                    </ul>
+        <main>
+            <div class="main-wrap">
+                <div class="data-retrieval">
+                    <h2>管理員一覽</h2>
+                    <table class="rwd-table">
+                        <thead>
+                            <tr>
+                                <td>電子信箱</td>
+                                <td>姓名</td>
+                                <td>電話</td>
+                                <td>地址</td>
+                                <td>帳號建立日期</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            [managerShow]
+                        </tbody>
+                    </table>
                 </div>
             </div>
-        </nav>
-        <section>
-            <div class="container">
-                <h2>權限管理</h2>
-                <div class="manage">
-                    <div class="row table-responsive">
-                        <div class="tab-content">
-                            <div id="all" class="tab-pane fade in active">
-                                <table class="table table-hover">
-                                    <thead>
-                                        <tr>
-                                            <td>電子信箱</td>
-                                            <td>姓名</td>
-                                            <td>電話</td>
-                                            <td>地址</td>
-                                            <td>帳號建立日期</td>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                    [managerShow]
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+        </main>
