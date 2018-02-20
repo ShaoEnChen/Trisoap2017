@@ -1,13 +1,26 @@
-        <div class="sign-block">
-            <h1>新增折扣</h1>
-            <input type="text" id="name" placeholder="折扣名稱">
-            <input type="text" id="price" placeholder="折扣金額">
-            <div class="q-select">
-                <select id="mode">
-                    <option value="1">一次有效</option>
-                    <option value="2">永久有效</option>
-                </select>
+        <main>
+            <div class="main-wrap">
+                <h2>新增折扣</h2>
+                <div class="create-div">
+                    <div>
+                        <label for="name">折扣名稱</label>
+                        <input type="text" id="name" class="form-field">
+                    </div>
+                    <div>
+                        <label for="price">折扣金額</label>
+                        <input type="text" id="price" class="form-field">
+                    </div>
+                    <div>
+                        <label for="mode">折扣狀態</label>
+                        <select id="mode">
+                            <option value="1">一次有效</option>
+                            <option value="2">永久有效</option>
+                        </select>
+                    </div>
+                    <div>
+                        <button class="promise-btn" onclick="discountCreate()">確定</button>
+                        <a class="neural-btn" href="index.php?route=discount">取消</a>
+                    </div>
+                </div>
             </div>
-            <button class="promise" onclick="discountCreate()">確定</button>
-            <a href="index.php?route=discount"><button class="cancel">取消</button></a>
-        </div>
+        </main>
