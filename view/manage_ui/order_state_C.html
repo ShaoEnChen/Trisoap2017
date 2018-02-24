@@ -1,88 +1,26 @@
-        <div id="cover" onclick="coverClose()"></div>
-        <div id="detailBox">
-            <p id="orderDetail"></p>
-            <p align="center">點擊框外灰色區域關閉</p>
-        </div>
-        <nav class="navbar navbar-fixed-top nav-custom">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <a href="#page-top" class="navbar-brand"><img src="resource/image/logo.png" alt="" class="logo"></a>
-                </div>
-                <div class="collapse navbar-collapse navbar-main-collapse">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li>
-                            <a href="index.php">
-                                回三三首頁<i class="fa fa-angle-down" aria-hidden="true"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="index.php?route=order&in=stateE">
-                                待執行訂單<i class="fa fa-angle-down" aria-hidden="true"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="index.php?route=order&in=stateR">
-                                執行中訂單<i class="fa fa-angle-down" aria-hidden="true"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="index.php?route=order&in=state1">
-                                缺貨中訂單<i class="fa fa-angle-down" aria-hidden="true"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="index.php?route=order&in=stateC">
-                                已完成訂單<i class="fa fa-angle-down" aria-hidden="true"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="index.php?route=order&in=stateF">
-                                強制結束訂單<i class="fa fa-angle-down" aria-hidden="true"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                [member_name]，您好<br>
-                            </a>
-                        </li>
-                        <li>
-                            <a onclick="memberLogout()">
-                                登出<i class="fa fa-angle-down" aria-hidden="true"></i>
-                            </a>
-                        </li>
-                    </ul>
+        <main>
+            <div class="main-wrap">
+                <div class="data-retrieval">
+                    <h2>已完成訂單</h2>
+                    <table class="rwd-table">
+                        <thead>
+                            <tr>
+                                <th>訂單編號</th>
+                                <th>發票編號</th>
+                                <th>缺貨狀態</th>
+                                <th>訂單狀態</th>
+                                <th>付款狀態</th>
+                                <th>訂單總額</th>
+                                <th>運費</th>
+                                <th>實收金額</th>
+                                <th>建立日期</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            [orderOperateC]
+                        </tbody>
+                    </table>
                 </div>
             </div>
-        </nav>
-        <section>
-            <div class="container">
-                <h2>已完成訂單</h2>
-                <div class="manage">
-                    <div class="row table-responsive">
-                        <div class="tab-content">
-                            <div id="all" class="tab-pane fade in active">
-                                <table class="table table-hover">
-                                    <thead>
-                                        <tr>
-                                            <td>訂單編號</td>
-                                            <td>發票編號</td>
-                                            <td>缺貨狀態</td>
-                                            <td>訂單狀態</td>
-                                            <td>付款狀態</td>
-                                            <td>訂單總額</td>
-                                            <td>運費</td>
-                                            <td>實收金額</td>
-                                            <td>建立日期</td>
-                                            <td>操作</td>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                    [orderOperateC]
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+        </main>
