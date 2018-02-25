@@ -149,7 +149,7 @@ function orderClose(index) {
 }
 
 function orderDetail(index) {
-	const $detail = $('.order-detail#' + index);
+	const $detail = $(document.getElementById(index));
 	if($detail.is(':empty')) {
 		var request = new XMLHttpRequest();
 		request.open("POST", "index.php");
@@ -217,22 +217,28 @@ function memberSearch() {
 }
 
 function memberDetail(index) {
-	var request = new XMLHttpRequest();
-	request.open("POST", "index.php");
-	var data = "module=member&event=detail&index=" + index;
-	request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-	request.send(data);
-	request.onreadystatechange = function() {
-		if (request.readyState === 4 && request.status === 200) {
-			var data = JSON.parse(request.responseText);
-			if (data.message == 'Success') {
-				document.getElementById("detailBox").style.display = 'block';
-				document.getElementById("memberDetail").innerHTML = data.content;
-			}
-			else {
-				alert(data.message);
+	const $detail = $(document.getElementById(index));
+	if($detail.is(':empty')) {
+		var request = new XMLHttpRequest();
+		request.open("POST", "index.php");
+		var data = "module=member&event=detail&index=" + index;
+		request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+		request.send(data);
+		request.onreadystatechange = function() {
+			if (request.readyState === 4 && request.status === 200) {
+				var data = JSON.parse(request.responseText);
+				if (data.message == 'Success') {
+					$detail.html(data.content);
+					$detail.toggle();
+				}
+				else {
+					alert(data.message);
+				}
 			}
 		}
+	}
+	else {
+		$detail.toggle();
 	}
 }
 
