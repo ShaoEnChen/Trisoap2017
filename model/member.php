@@ -491,7 +491,20 @@ function search($account, $token, $key, $value) {
 		$content = '';
 		$sql2 = mysql_query("SELECT * FROM CUSMAS WHERE $key='$value' ORDER BY CREATEDATE DESC");
 		while ($fetch2 = mysql_fetch_array($sql2)) {
-			$content .= '<tr><td data-title="信箱">'.$fetch2['EMAIL'].'</td><td data-title="姓名">'.$fetch2['CUSNM'].'</td><td data-title="地址">'.$fetch2['CUSADD'].'</td><td data-title="膚質">'.$fetch2['CUSTYPE'].'</td><td data-title="生日">'.$fetch2['CUSBIRTH'].'</td><td data-title="聯絡電話">'.$fetch2['TEL'].'</td><td data-title="如何得知">'.$fetch2['KNOWTYPE'].'</td><td data-title="建立時間">'.$fetch2['CREATEDATE'].'</td><td data-title="最後修改時間">'.$fetch2['UPDATEDATE'].'</td><td data-title="操作"><button onclick="memberDetail(\''.$fetch2['EMAIL'].'\')">查看</button></td></tr>';
+			$content .= '<tr>';
+			$content .= '<td data-title="信箱">' . $fetch2['EMAIL'] . '</td>';
+			$content .= '<td data-title="姓名">' . $fetch2['CUSNM'] . '</td>';
+			$content .= '<td data-title="地址">' . $fetch2['CUSADD'] . '</td>';
+			$content .= '<td data-title="膚質">' . $fetch2['CUSTYPE'] . '</td>';
+			$content .= '<td data-title="生日">' . $fetch2['CUSBIRTH'] . '</td>';
+			$content .= '<td data-title="聯絡電話">' . $fetch2['TEL'] . '</td>';
+			$content .= '<td data-title="如何得知">' . $fetch2['KNOWTYPE'] . '</td>';
+			$content .= '<td data-title="建立時間">' . $fetch2['CREATEDATE'] . '</td>';
+			$content .= '<td data-title="最後修改時間">' . $fetch2['UPDATEDATE'] .'</td>';
+			$content .= '<td data-title="操作">';
+			$content .= '<button onclick="memberDetail(\'' . $fetch2['EMAIL'] . '\')">查看</button>';
+			$content .= '</td>';
+			$content .= '</tr>';
 		}
 		return array('message' => 'Success', 'content' => $content);
 	}
@@ -566,7 +579,25 @@ function show($account, $token) {
 		$content = '';
 		$sql2 = mysql_query("SELECT * FROM CUSMAS ORDER BY CREATEDATE DESC");
 		while ($fetch2 = mysql_fetch_array($sql2)) {
-			$content .= '<tr><td data-title="信箱">'.$fetch2['EMAIL'].'</td><td data-title="姓名">'.$fetch2['CUSNM'].'</td><td data-title="地址">'.$fetch2['CUSADD'].'</td><td data-title="膚質">'.$fetch2['CUSTYPE'].'</td><td data-title="生日">'.$fetch2['CUSBIRTH'].'</td><td data-title="聯絡電話">'.$fetch2['TEL'].'</td><td data-title="如何得知">'.$fetch2['KNOWTYPE'].'</td><td data-title="建立時間">'.$fetch2['CREATEDATE'].'</td><td data-title="最後修改時間">'.$fetch2['UPDATEDATE'].'</td><td data-title="操作"><button onclick="memberDetail(\''.$fetch2['EMAIL'].'\')">查看</button></td></tr>';
+			$content .= '<tr>';
+			$content .= '<td data-title="信箱">' . $fetch2['EMAIL'] . '</td>';
+			$content .= '<td data-title="姓名">' . $fetch2['CUSNM'] . '</td>';
+			$content .= '<td data-title="地址">' . $fetch2['CUSADD'] . '</td>';
+			$content .= '<td data-title="膚質">' . $fetch2['CUSTYPE'] . '</td>';
+			$content .= '<td data-title="生日">' . $fetch2['CUSBIRTH'] . '</td>';
+			$content .= '<td data-title="聯絡電話">' . $fetch2['TEL'] . '</td>';
+			$content .= '<td data-title="如何得知">' . $fetch2['KNOWTYPE'] . '</td>';
+			$content .= '<td data-title="建立時間">' . $fetch2['CREATEDATE'] . '</td>';
+			$content .= '<td data-title="最後修改時間">' . $fetch2['UPDATEDATE'] . '</td>';
+			$content .= '<td data-title="操作">';
+			$content .= '<button onclick="memberDetail(\'' . $fetch2['EMAIL'] . '\')">查看</button>';
+			$content .= '</td>';
+			$content .= '</tr>';
+
+			$content .= '<tr>';
+			$content .= '<td id="' . $fetch2['EMAIL'] . '" class="member-detail" colspan=10>';
+			$content .= '</td>';
+			$content .= '</tr>';
 		}
 		return array('message' => 'Success', 'content' => $content);
 	}

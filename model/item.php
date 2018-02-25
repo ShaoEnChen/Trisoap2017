@@ -453,7 +453,14 @@ function show($account, $token) {
 		$content = '';
 		$sql2 = mysql_query("SELECT * FROM ITEMMAS ORDER BY ITEMNO ASC");
 		while ($fetch2 = mysql_fetch_array($sql2)) {
-			$content .= '<tr><td>'.$fetch2['ITEMNO'].'</td><td>'.$fetch2['ITEMNM'].'</td><td>'.$fetch2['ITEMAMT'].'</td><td>'.$fetch2['PRICE'].'</td><td>'.$fetch2['DESCRIPTION'].'</td><td>'.$fetch2['ACTCODE'].'</td></tr>';
+			$content .= '<tr>';
+			$content .= '<td data-title="商品編號">' . $fetch2['ITEMNO'] . '</td>';
+			$content .= '<td data-title="商品名稱">' . $fetch2['ITEMNM'] . '</td>';
+			$content .= '<td data-title="商品數量">' . $fetch2['ITEMAMT'] . '</td>';
+			$content .= '<td data-title="商品價格">' . $fetch2['PRICE'] . '</td>';
+			$content .= '<td data-title="商品描述	">' . $fetch2['DESCRIPTION'] . '</td>';
+			$content .= '<td data-title="商品狀態">' . $fetch2['ACTCODE'] . '</td>';
+			$content .= '</tr>';
 		}
 		return array('message' => 'Success', 'content' => $content);
 	}

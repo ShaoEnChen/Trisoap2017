@@ -654,7 +654,17 @@ function search($account, $token, $key, $value) {
 		$content = '';
 		$sql2 = mysql_query("SELECT * FROM ORDMAS WHERE $key='$value' AND ACTCODE='1' ORDER BY UPDATEDATE DESC");
 		while ($fetch2 = mysql_fetch_array($sql2)) {
-			$content .= '<tr><td>'.$fetch2['ORDNO'].'</td><td>'.$fetch2['INVOICENO'].'</td><td>'.$fetch2['BACKSTAT'].'</td><td>'.$fetch2['ORDSTAT'].'</td><td>'.$fetch2['PAYSTAT'].'</td><td>'.$fetch2['TOTALPRICE'].'</td><td>'.$fetch2['TOTALAMT'].'</td><td>'.$fetch2['REALPRICE'].'</td><td>'.$fetch2['CREATEDATE'].'</td></tr>';
+			$content .= '<tr>';
+			$content .= '<td data-title="訂單編號	">' . $fetch2['ORDNO'] . '</td>';
+			$content .= '<td data-title="發票編號">' . $fetch2['INVOICENO'] . '</td>';
+			$content .= '<td data-title="缺貨狀態">' . $fetch2['BACKSTAT'] . '</td>';
+			$content .= '<td data-title="訂單狀態">' . $fetch2['ORDSTAT'] . '</td>';
+			$content .= '<td data-title="付款狀態">' . $fetch2['PAYSTAT'] . '</td>';
+			$content .= '<td data-title="訂單總額">' . $fetch2['TOTALPRICE'] . '</td>';
+			$content .= '<td data-title="運費">' . $fetch2['SHIPFEE'] . '</td>';
+			$content .= '<td data-title="實收金額">' . $fetch2['REALPRICE'] . '</td>';
+			$content .= '<td data-title="建立日期">' . $fetch2['CREATEDATE'] . '</td>';
+			$content .= '</tr>';
 		}
 		return array('message' => 'Success', 'content' => $content);
 	}
@@ -680,24 +690,61 @@ function operate($account, $token, $state='E') {
 	}
 	else {
 		$content = '';
-		$sql2 = ($state == '1') ? mysql_query("SELECT * FROM ORDMAS WHERE ORDSTAT='R' AND BACKSTAT='1' AND ACTCODE='1' ORDER BY CREATEDATE ASC") : mysql_query("SELECT * FROM ORDMAS WHERE ORDNO>0 AND ORDSTAT='$state' AND BACKSTAT='0' AND ACTCODE='1' ORDER BY CREATEDATE ASC");
+		$sql2 = ($state == '1') ?
+			mysql_query("SELECT * FROM ORDMAS WHERE ORDSTAT='R' AND BACKSTAT='1' AND ACTCODE='1' ORDER BY CREATEDATE ASC") :
+			mysql_query("SELECT * FROM ORDMAS WHERE ORDNO>0 AND ORDSTAT='$state' AND BACKSTAT='0' AND ACTCODE='1' ORDER BY CREATEDATE ASC");
 		while ($fetch2 = mysql_fetch_array($sql2)) {
-			$content .= '<tr><td>'.$fetch2['ORDNO'].'</td><td>'.$fetch2['INVOICENO'].'</td><td>'.$fetch2['BACKSTAT'].'</td><td>'.$fetch2['ORDSTAT'].'</td><td>'.$fetch2['PAYTYPE'].'</td><td>'.$fetch2['TOTALPRICE'].'</td><td>'.$fetch2['SHIPFEE'].'</td><td>'.$fetch2['REALPRICE'].'</td><td>'.$fetch2['CREATEDATE'].'</td>';
+			$content .= '<tr>';
+			$content .= '<td data-title="訂單編號	">' . $fetch2['ORDNO'] . '</td>';
+			$content .= '<td data-title="發票編號">' . $fetch2['INVOICENO'] . '</td>';
+			$content .= '<td data-title="缺貨狀態">' . $fetch2['BACKSTAT'] . '</td>';
+			$content .= '<td data-title="訂單狀態">' . $fetch2['ORDSTAT'] . '</td>';
+			$content .= '<td data-title="付款狀態">' . $fetch2['PAYSTAT'] . '</td>';
+			$content .= '<td data-title="訂單總額">' . $fetch2['TOTALPRICE'] . '</td>';
+			$content .= '<td data-title="運費">' . $fetch2['SHIPFEE'] . '</td>';
+			$content .= '<td data-title="實收金額">' . $fetch2['REALPRICE'] . '</td>';
+			$content .= '<td data-title="建立日期">' . $fetch2['CREATEDATE'] . '</td>';
+
 			if ($state == 'E') {
-				$content .= '<td><button onclick="orderDetail(\''.$fetch2['ORDNO'].'\')">查看</button><button onclick="orderActive(\''.$fetch2['ORDNO'].'\')">執行</button><button onclick="orderClose(\''.$fetch2['ORDNO'].'\')">結束</button></td>';
+				$content .= '<td data-title="操作">';
+				$content .= '<button class="neural-btn" onclick="orderDetail(\'' . $fetch2['ORDNO'] . '\')">查看</button>';
+				$content .= '<button class="neural-btn" onclick="orderActive(\'' . $fetch2['ORDNO'] . '\')">執行</button>';
+				$content .= '<button class="neural-btn" onclick="orderClose(\'' . $fetch2['ORDNO'] . '\')">結束</button>';
+				$content .= '</td>';
 			}
 			elseif ($state == 'R') {
-				$content .= '<td><button onclick="orderDetail(\''.$fetch2['ORDNO'].'\')">查看</button><button onclick="orderOutstock(\''.$fetch2['ORDNO'].'\')">缺貨</button><button onclick="orderComplete(\''.$fetch2['ORDNO'].'\')">完成</button><button onclick="orderClose(\''.$fetch2['ORDNO'].'\')">結束</button></td>';
+				$content .= '<td data-title="操作">';
+				$content .= '<button class="neural-btn" onclick="orderDetail(\'' . $fetch2['ORDNO'] . '\')">查看</button>';
+				$content .= '<button class="neural-btn" onclick="orderOutstock(\'' . $fetch2['ORDNO'] . '\')">缺貨</button>';
+				$content .= '<button class="neural-btn" onclick="orderComplete(\'' . $fetch2['ORDNO'] . '\')">完成</button>';
+				$content .= '<button class="neural-btn" onclick="orderClose(\'' . $fetch2['ORDNO'] . '\')">結束</button>';
+				$content .= '</td>';
 			}
 			elseif ($state == '1') {
-				$content .= '<td><button onclick="orderDetail(\''.$fetch2['ORDNO'].'\')">查看</button><button onclick="orderActive(\''.$fetch2['ORDNO'].'\')">執行</button><button onclick="orderClose(\''.$fetch2['ORDNO'].'\')">結束</button></td>';
+				$content .= '<td data-title="操作">';
+				$content .= '<button class="neural-btn" onclick="orderDetail(\'' . $fetch2['ORDNO'] . '\')">查看</button>';
+				$content .= '<button class="neural-btn" onclick="orderActive(\'' . $fetch2['ORDNO'] . '\')">執行</button>';
+				$content .= '<button class="neural-btn" onclick="orderClose(\'' . $fetch2['ORDNO'] . '\')">結束</button>';
+				$content .= '</td>';
 			}
 			elseif ($state == 'C') {
-				$content .= '<td><button onclick="orderDetail(\''.$fetch2['ORDNO'].'\')">查看</button></td>';
+				$content .= '<td data-title="操作">';
+				$content .= '<button class="neural-btn" onclick="orderDetail(\'' . $fetch2['ORDNO'] . '\')">查看</button>';
+				$content .= '</td>';
 			}
 			elseif ($state == 'F') {
-				$content .= '<td><button onclick="orderDetail(\''.$fetch2['ORDNO'].'\')">查看</button><button onclick="orderActive(\''.$fetch2['MSGNO'].'\')">執行</button><button onclick="orderOutstock(\''.$fetch2['MSGNO'].'\')">缺貨</button></td>';
+				$content .= '<td data-title="操作">';
+				$content .= '<button class="neural-btn" onclick="orderDetail(\'' . $fetch2['ORDNO'] . '\')">查看</button>';
+				$content .= '<button class="neural-btn" onclick="orderActive(\'' . $fetch2['MSGNO'] . '\')">執行</button>';
+				$content .= '<button class="neural-btn" onclick="orderOutstock(\'' . $fetch2['MSGNO'] . '\')">缺貨</button>';
+				$content .= '</td>';
 			}
+
+			$content .= '</tr>';
+
+			$content .= '<tr>';
+			$content .= '<td id="' . $fetch2['ORDNO'] . '" class="order-detail" colspan=10>';
+			$content .= '</td>';
 			$content .= '</tr>';
 		}
 		return array('message' => 'Success', 'content' => $content);
@@ -726,7 +773,17 @@ function show($account, $token) {
 		$content = '';
 		$sql2 = mysql_query("SELECT * FROM ORDMAS WHERE ORDNO>0 ORDER BY UPDATEDATE DESC");
 		while ($fetch2 = mysql_fetch_array($sql2)) {
-			$content .= '<tr><td>'.$fetch2['ORDNO'].'</td><td>'.$fetch2['INVOICENO'].'</td><td>'.$fetch2['BACKSTAT'].'</td><td>'.$fetch2['ORDSTAT'].'</td><td>'.$fetch2['PAYSTAT'].'</td><td>'.$fetch2['TOTALPRICE'].'</td><td>'.$fetch2['SHIPFEE'].'</td><td>'.$fetch2['REALPRICE'].'</td><td>'.$fetch2['CREATEDATE'].'</td></tr>';
+			$content .= '<tr>';
+			$content .= '<td data-title="訂單編號	">' . $fetch2['ORDNO'] . '</td>';
+			$content .= '<td data-title="發票編號">' . $fetch2['INVOICENO'] . '</td>';
+			$content .= '<td data-title="缺貨狀態">' . $fetch2['BACKSTAT'] . '</td>';
+			$content .= '<td data-title="訂單狀態">' . $fetch2['ORDSTAT'] . '</td>';
+			$content .= '<td data-title="付款狀態">' . $fetch2['PAYSTAT'] . '</td>';
+			$content .= '<td data-title="訂單總額">' . $fetch2['TOTALPRICE'] . '</td>';
+			$content .= '<td data-title="運費">' . $fetch2['SHIPFEE'] . '</td>';
+			$content .= '<td data-title="實收金額">' . $fetch2['REALPRICE'] . '</td>';
+			$content .= '<td data-title="建立日期">' . $fetch2['CREATEDATE'] . '</td>';
+			$content .= '</tr>';
 		}
 		return array('message' => 'Success', 'content' => $content);
 	}
@@ -751,7 +808,21 @@ function cusOperate($account, $token) {
 		$content = '';
 		$sql2 = mysql_query("SELECT * FROM ORDMAS WHERE EMAIL='$account' AND ORDNO>0 AND ACTCODE='1' ORDER BY CREATEDATE DESC");
 		while ($fetch2 = mysql_fetch_array($sql2)) {
-			$content .= '<tr><td>'.$fetch2['ORDNO'].'</td><td>'.$fetch2['INVOICENO'].'</td><td>'.show_BACKSTAT($fetch2['BACKSTAT']).'</td><td>'.show_ORDSTAT($fetch2['ORDSTAT']).'</td><td>'.show_PAYSTAT($fetch2['PAYSTAT'], $fetch2['ORDNO']).'</td><td>'.show_PAYTYPE($fetch2['PAYTYPE']).'</td><td>'.$fetch2['TOTALPRICE'].'</td><td>'.$fetch2['SHIPFEE'].'</td><td>'.$fetch2['REALPRICE'].'</td><td>'.$fetch2['CREATEDATE'].'</td><td><button onclick="orderDetail(\''.$fetch2['ORDNO'].'\')">查看</button><button onclick="orderDelete(\''.$fetch2['ORDNO'].'\')">取消</button></td></tr>';
+			$content .= '<tr>';
+			$content .= '<td data-title="訂單編號	">' . $fetch2['ORDNO'] . '</td>';
+			$content .= '<td data-title="發票編號">' . $fetch2['INVOICENO'] . '</td>';
+			$content .= '<td data-title="缺貨狀態">' . $fetch2['BACKSTAT'] . '</td>';
+			$content .= '<td data-title="訂單狀態">' . $fetch2['ORDSTAT'] . '</td>';
+			$content .= '<td data-title="付款狀態">' . $fetch2['PAYSTAT'] . '</td>';
+			$content .= '<td data-title="訂單總額">' . $fetch2['TOTALPRICE'] . '</td>';
+			$content .= '<td data-title="運費">' . $fetch2['SHIPFEE'] . '</td>';
+			$content .= '<td data-title="實收金額">' . $fetch2['REALPRICE'] . '</td>';
+			$content .= '<td data-title="建立日期">' . $fetch2['CREATEDATE'] . '</td>';
+			$content .= '<td>';
+			$content .= '<button class="neural-btn" onclick="orderDetail(\''.$fetch2['ORDNO'].'\')">查看</button>';
+			$content .= '<button class="neural-btn" onclick="orderDelete(\''.$fetch2['ORDNO'].'\')">取消</button>';
+			$content .= '</td>';
+			$content .= '</tr>';
 		}
 		return array('message' => 'Success', 'content' => $content);
 	}

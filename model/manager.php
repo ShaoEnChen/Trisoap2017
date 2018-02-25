@@ -169,7 +169,13 @@ function show($account, $token) {
 		$content = '';
 		$sql2 = mysql_query("SELECT * FROM CUSMAS WHERE CUSIDT='A' ORDER BY CREATEDATE DESC");
 		while ($fetch2 = mysql_fetch_array($sql2)) {
-			$content .= '<tr><td>'.$fetch2['EMAIL'].'</td><td>'.$fetch2['CUSNM'].'</td><td>'.$fetch2['TEL'].'</td><td>'.$fetch2['CUSADD'].'</td><td>'.$fetch2['CREATEDATE'].'</td></tr>';
+			$content .= '<tr>';
+			$content .= '<td data-title="電子信箱">' . $fetch2['EMAIL'] . '</td>';
+			$content .= '<td data-title="姓名">' . $fetch2['CUSNM'] . '</td>';
+			$content .= '<td data-title="電話">' . $fetch2['TEL'] . '</td>';
+			$content .= '<td data-title="地址">' . $fetch2['CUSADD'] . '</td>';
+			$content .= '<td data-title="帳號建立日期">' . $fetch2['CREATEDATE'] . '</td>';
+			$content .= '</tr>';
 		}
 		return array('message' => 'Success', 'content' => $content);
 	}

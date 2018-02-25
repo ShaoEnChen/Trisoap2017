@@ -243,7 +243,15 @@ function cartOperate($account, $token) {
 		$content = '';
 		$sql2 = mysql_query("SELECT * FROM ORDITEMMAS WHERE ORDNO='0' AND EMAIL='$account' AND ACTCODE='1' ORDER BY CREATEDATE ASC");
 		while ($fetch2 = mysql_fetch_array($sql2)) {
-			$content .= '<tr><td>'.query_name($fetch2['ITEMNO']).'</td><td>'.query_price($fetch2['ITEMNO']).'</td><td>'.$fetch2['ORDAMT'].'</td><td>'.(query_price($fetch2['ITEMNO']) * $fetch2['ORDAMT']).'</td><td><button class="neural-btn" onclick="cartDelete(\''.$fetch2['ITEMNO'].'\')">移除</button></td></tr>';
+			$content .= '<tr>';
+			$content .= '<td data-title="商品名稱">' . query_name($fetch2['ITEMNO']) . '</td>';
+			$content .= '<td data-title="單價（NTD）">' . query_price($fetch2['ITEMNO']) . '</td>';
+			$content .= '<td data-title="數量">' . $fetch2['ORDAMT'] . '</td>';
+			$content .= '<td data-title="金額（NTD）">' . (query_price($fetch2['ITEMNO']) * $fetch2['ORDAMT']) . '</td>';
+			$content .= '<td data-title="選項">';
+			$content .= '<button class="neural-btn" onclick="cartDelete(\'' . $fetch2['ITEMNO'] . '\')">移除</button>';
+			$content .= '</td>';
+			$content .= '</tr>';
 		}
 		return array('message' => 'Success', 'content' => $content);
 	}
@@ -268,7 +276,15 @@ function orderitemOperate($account, $token, $order) {
 	else {
 		$content = '';
 		while ($fetch2 = mysql_fetch_array($sql2)) {
-			$content .= '<tr><td>'.query_name($fetch2['ITEMNO']).'</td><td>'.query_price($fetch2['ITEMNO']).'</td><td>'.$fetch2['ORDAMT'].'</td><td>'.(query_price($fetch2['ITEMNO']) * $fetch2['ORDAMT']).'</td><td><button class="neural-btn" onclick="cartDelete(\''.$fetch2['ITEMNO'].'\')">移除</button></td></tr>';
+			$content .= '<tr>';
+			$content .= '<td data-title="商品名稱">' . query_name($fetch2['ITEMNO']) . '</td>';
+			$content .= '<td data-title="單價（NTD）">' . query_price($fetch2['ITEMNO']) . '</td>';
+			$content .= '<td data-title="數量">' . $fetch2['ORDAMT'] . '</td>';
+			$content .= '<td data-title="金額（NTD）">' . (query_price($fetch2['ITEMNO']) * $fetch2['ORDAMT']) . '</td>';
+			$content .= '<td data-title="選項">';
+			$content .= '<button class="neural-btn" onclick="cartDelete(\'' . $fetch2['ITEMNO'] . '\')">移除</button>';
+			$content .= '</td>';
+			$content .= '</tr>';
 		}
 		return array('message' => 'Success', 'content' => $content);
 	}
