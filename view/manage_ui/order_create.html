@@ -1,41 +1,69 @@
-		<div class="sign-block">
-			<h1>建立訂單</h1>
-			<table>
-				<tr><th>商品名稱</th><th>訂購數量</th></tr>
-				<tr><td>田靜山巒禾風皂</td><td><input type="number" id="num_1" value="0" min="0"></td></tr>
-				<tr><td>金絲森林渲染皂</td><td><input type="number" id="num_2" value="0" min="0"></td></tr>
-				<tr><td>釋迦手感果力皂</td><td><input type="number" id="num_3" value="0" min="0"></td></tr>
-				<tr><td>三三臺東意象禮盒組</td><td><input type="number" id="num_4" value="0" min="0"></td></tr>
-				<tr><td>三三臺東意象皂絲旅行組</td><td><input type="number" id="num_5" value="0" min="0"></td></tr>
-				<tr><td>洛神紅麴旅用皂絲</td><td><input type="number" id="num_6" value="0" min="0"></td></tr>
-				<tr><td>暖暖薑黃旅用皂絲</td><td><input type="number" id="num_7" value="0" min="0"></td></tr>
-				<tr><td>萱草米黃旅用皂絲</td><td><input type="number" id="num_8" value="0" min="0"></td></tr>
-			</table>
-			計價方式：
-			<div class="b-select">
-				<select id="priceType" onchange="priceTypeChange()">
-					<option value="A">自訂價格</option>
-					<option value="B">原價收費</option>
-					<option value="C">九折收費</option>
-					<option value="D">八折收費</option>
-					<option value="E">七折收費</option>
-					<option value="F">六折收費</option>
-					<option value="G">五折收費</option>
-				</select>
-				<input type="text" id="setPrice" placeholder="自訂價格">
+		<main>
+			<div class="main-wrap">
+				<div class="create-div">
+					<h2>建立訂單</h2>
+					<table class="rwd-table">
+						<thead>
+							<tr>
+								<th>商品名稱</th>
+								<th>訂購數量</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>田靜山巒禾風皂</td>
+								<td><input type="number" id="num_1" value="0" min="0"></td>
+							</tr>
+							<tr>
+								<td>金絲森林渲染皂</td>
+								<td><input type="number" id="num_2" value="0" min="0"></td>
+							</tr>
+							<tr>
+								<td>釋迦手感果力皂</td>
+								<td><input type="number" id="num_3" value="0" min="0"></td>
+							</tr>
+							<tr>
+								<td>三三臺東意象禮盒組</td>
+								<td><input type="number" id="num_4" value="0" min="0"></td>
+							</tr>
+							<tr>
+								<td>三三臺東意象皂絲旅行組</td>
+								<td><input type="number" id="num_5" value="0" min="0"></td>
+							</tr>
+							<tr>
+								<td>洛神紅麴旅用皂絲</td>
+								<td><input type="number" id="num_6" value="0" min="0"></td>
+							</tr>
+							<tr>
+								<td>暖暖薑黃旅用皂絲</td>
+								<td><input type="number" id="num_7" value="0" min="0"></td>
+							</tr>
+							<tr>
+								<td>萱草米黃旅用皂絲</td>
+								<td><input type="number" id="num_8" value="0" min="0"></td>
+							</tr>
+						</tbody>
+					</table>
+					<div>
+						<label for="priceType">計價方式</label>
+						<select id="priceType" onchange="priceTypeChange()">
+							<option value="A">自訂價格</option>
+							<option value="B">原價收費</option>
+							<option value="C">九折收費</option>
+							<option value="D">八折收費</option>
+							<option value="E">七折收費</option>
+							<option value="F">六折收費</option>
+							<option value="G">五折收費</option>
+						</select>
+						<input type="text" id="setPrice" placeholder="自訂價格">
+					</div>
+					<div>
+						<textarea id="notice" rows="3" placeholder="訂單特殊要求"></textarea>
+					</div>
+					<div>
+						<button class="promise-btn" onclick="orderCreate()">確定</button>
+						<a class="neural-btn" href="index.php">取消</a>
+					</div>
+				</div>
 			</div>
-			<textarea id="notice" rows="3" placeholder="訂單特殊要求"></textarea>
-			<button class="promise" onclick="orderCreate()">確定</button>
-			<a href="index.php"><button class="cancel">取消</button></a>
-		</div>
-		<script>
-			function priceTypeChange() {
-				var option = document.getElementById("priceType").value;
-				if (option == 'A') {
-					document.getElementById("setPrice").style.display = '';
-				}
-				else {
-					document.getElementById("setPrice").style.display = 'none';
-				}
-			}
-		</script>
+		</main>
