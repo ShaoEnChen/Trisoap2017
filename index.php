@@ -12,9 +12,8 @@ function event_post_action() {
 }
 
 if (isset($_GET['operation']) && $_GET['operation'] == 'logout') {
-	$id = array('account' => $_COOKIE['account'], 'token' => $_COOKIE['token']);
-	$post = array_merge($id, $_GET);
-	$return = json_decode(curl_post($post, 'member'), true);
+	$id = array('account' => $_COOKIE['account'], 'token' => $_COOKIE['token'], 'module' => 'member', 'event' => 'logout');
+	$return = json_decode(curl_post($id, 'member'), true);
 	if ($return['message'] == 'Success') {
 		setcookie("account", "", time()-3600);
 		setcookie("token", "", time()-3600);
