@@ -495,14 +495,14 @@ function search($account, $token, $key, $value) {
 			$content .= '<td data-title="信箱">' . $fetch2['EMAIL'] . '</td>';
 			$content .= '<td data-title="姓名">' . $fetch2['CUSNM'] . '</td>';
 			$content .= '<td data-title="地址">' . $fetch2['CUSADD'] . '</td>';
-			$content .= '<td data-title="膚質">' . $fetch2['CUSTYPE'] . '</td>';
+			$content .= '<td data-title="膚質">' . show_CUSTYPE($fetch2['CUSTYPE']) . '</td>';
 			$content .= '<td data-title="生日">' . $fetch2['CUSBIRTH'] . '</td>';
 			$content .= '<td data-title="聯絡電話">' . $fetch2['TEL'] . '</td>';
-			$content .= '<td data-title="如何得知">' . $fetch2['KNOWTYPE'] . '</td>';
+			$content .= '<td data-title="如何得知">' . show_KNOWTYPE($fetch2['KNOWTYPE']) . '</td>';
 			$content .= '<td data-title="建立時間">' . $fetch2['CREATEDATE'] . '</td>';
 			$content .= '<td data-title="最後修改時間">' . $fetch2['UPDATEDATE'] .'</td>';
-			$content .= '<td data-title="操作">';
-			$content .= '<button onclick="memberDetail(\'' . $fetch2['EMAIL'] . '\')">查看</button>';
+			$content .= '<td class="td-whole-line-title" data-title="操作">';
+			$content .= '<button class="neural-btn" onclick="memberDetail(\'' . $fetch2['EMAIL'] . '\')">查看</button>';
 			$content .= '</td>';
 			$content .= '</tr>';
 		}
@@ -534,25 +534,23 @@ function detail($account, $token, $index) {
 	}
 	else {
 		$fetch2 = mysql_fetch_array($sql2);
-		$content = '<table><tbody>';
-		$content .= '<tr><td>顧客信箱</td><td>'.$fetch2['EMAIL'].'</td></tr>';
-		$content .= '<tr><td>顧客姓名</td><td>'.$fetch2['CUSNM'].'</td></tr>';
-		$content .= '<tr><td>顧客權限</td><td>'.show_CUSIDT($fetch2['CUSIDT']).'</td></tr>';
-		$content .= '<tr><td>顧客地址</td><td>'.$fetch2['CUSADD'].'</td></tr>';
-		$content .= '<tr><td>顧客生日</td><td>'.$fetch2['CUSBIRTH'].'</td></tr>';
-		$content .= '<tr><td>顧客電話</td><td>'.$fetch2['TEL'].'</td></tr>';
-		$content .= '<tr><td>顧客膚質</td><td>'.show_CUSTYPE($fetch2['CUSTYPE']).'</td></tr>';
-		$content .= '<tr><td>如何認識三三</td><td>'.show_KNOWTYPE($fetch2['KNOWTYPE']).'</td></tr>';
-		$content .= '<tr><td>統一編號</td><td>'.$fetch2['TAXID'].'</td></tr>';
-		$content .= '<tr><td>留心語折扣</td><td>'.$fetch2['DISCOUNT'].'</td></tr>';
-		$content .= '<tr><td>月消費額</td><td>'.$fetch2['SALEAMTMTD'].'</td></tr>';
-		$content .= '<tr><td>季消費額</td><td>'.$fetch2['SALEAMTSTD'].'</td></tr>';
-		$content .= '<tr><td>年消費額</td><td>'.$fetch2['SALEAMTYTD'].'</td></tr>';
-		$content .= '<tr><td>總消費額</td><td>'.$fetch2['SALEAMT'].'</td></tr>';
-		$content .= '<tr><td>備註</td><td>'.$fetch2['SPEINS'].'</td></tr>';
-		$content .= '<tr><td>建立日期</td><td>'.$fetch2['CREATEDATE'].'</td></tr>';
-		$content .= '<tr><td>最後修改日期</td><td>'.$fetch2['UPDATEDATE'].'</td></tr>';
-		$content .= '</tbody></table>';
+
+		$content .= '<p>顧客權限 ' . show_CUSIDT($fetch2['CUSIDT']) . '</p>';
+
+		$content .= '<p>顧客膚質 ' . show_CUSTYPE($fetch2['CUSTYPE']) . '</p>';
+
+		$content .= '<p>統一編號 ' . $fetch2['TAXID'] . '</p>';
+
+		$content .= '<p>月消費額 ' . $fetch2['SALEAMTMTD'] . '</p>';
+
+		$content .= '<p>季消費額 ' . $fetch2['SALEAMTSTD'] . '</p>';
+
+		$content .= '<p>年消費額 ' . $fetch2['SALEAMTYTD'] . '</p>';
+
+		$content .= '<p>總消費額 ' . $fetch2['SALEAMT'] . '</p>';
+
+		$content .= '<p>備註 ' . $fetch2['SPEINS'] . '</p>';
+
 		return array('message' => 'Success', 'content' => $content);
 	}
 }
@@ -589,8 +587,8 @@ function show($account, $token) {
 			$content .= '<td data-title="如何得知">' . $fetch2['KNOWTYPE'] . '</td>';
 			$content .= '<td data-title="建立時間">' . $fetch2['CREATEDATE'] . '</td>';
 			$content .= '<td data-title="最後修改時間">' . $fetch2['UPDATEDATE'] . '</td>';
-			$content .= '<td data-title="操作">';
-			$content .= '<button onclick="memberDetail(\'' . $fetch2['EMAIL'] . '\')">查看</button>';
+			$content .= '<td class="td-whole-line-title" data-title="操作">';
+			$content .= '<button class="neural-btn" onclick="memberDetail(\'' . $fetch2['EMAIL'] . '\')">查看</button>';
 			$content .= '</td>';
 			$content .= '</tr>';
 
