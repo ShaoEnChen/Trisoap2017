@@ -27,7 +27,8 @@ function router($route) {
 
 		include_once('controller/' . $route . '.php');
 	}
-	else {
-		callView('index', $identity);
+	else {	// $route not set or not found in above arrays -> clear url and route to 'index'
+		header('Location: /index.php');
+		die();
 	}
 }
