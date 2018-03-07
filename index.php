@@ -11,7 +11,19 @@ function event_post_action() {
 	return;
 }
 
-if(isset($_POST['module']) && isset($_POST['event'])) {
+if (isset($_GET['operation']) && $_GET['operation'] == 'logout') {
+	$id = array('account' => $_COOKIE['account'], 'token' => $_COOKIE['token']);
+	$post = array_merge($id, $_GET);
+	$return = json_decode(curl_post($post, 'member'), true);
+	if ($return['message'] == 'Success') {
+		setcookie("account", "", time()-3600);
+		setcookie("token", "", time()-3600);
+		setcookie("identity", "", time()-3600);
+	}
+	router('index');
+}
+
+elseif (isset($_POST['module']) && isset($_POST['event'])) {
 	$event = $_POST['event'];
 	switch ($_POST['module']) {
 	case 'member':
@@ -45,18 +57,6 @@ if(isset($_POST['module']) && isset($_POST['event'])) {
 			$return = json_decode(curl_post($_POST, $_POST['module']), true);
 			if($return['message'] == 'Success') {
 				setcookie('account', $_POST['account']);
-			}
-			echo json_encode(array('message' => $return['message']));
-			break;
-
-		case 'logout':
-			$id = array('account' => $_COOKIE['account'], 'token' => $_COOKIE['token']);
-			$post = array_merge($id, $_POST);
-			$return = json_decode(curl_post($post, $_POST['module']), true);
-			if($return['message'] == 'Success') {
-				setcookie("account", "", time()-3600);
-				setcookie("token", "", time()-3600);
-				setcookie("identity", "", time()-3600);
 			}
 			echo json_encode(array('message' => $return['message']));
 			break;
@@ -164,10 +164,12 @@ if(isset($_POST['module']) && isset($_POST['event'])) {
 		break;
 	}	// #end of switch ($_POST['module'])
 }
-elseif(isset($_GET['route']) || isset($_POST['route'])) {
+
+elseif (isset($_GET['route']) || isset($_POST['route'])) {
 	$route = isset($_GET['route']) ? $_GET['route'] : $_POST['route'];
 	router($route);
 }
+
 else {
 	router('index');
 }
