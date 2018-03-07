@@ -173,7 +173,7 @@ $jumbotron-list: "about", "brand_intro", "contact", "faq", "media", "moonfest", 
 }
 
 // Laptop
-@media screen and (min-width: $media-breakpoint-laptop) {
+@media screen and (min-width: $media-breakpoint-mobile + 1px) {
 	.jumbotron-title,
 	.jumbotron-only-title {
 		font-size: 60px;
@@ -253,7 +253,7 @@ $footer-line-height: 1.7;
 }
 
 // Laptop
-@media screen and (min-width: $media-breakpoint-laptop) {
+@media screen and (min-width: $media-breakpoint-mobile + 1px) {
 	$footer-row-2-height: 60px;
 
 	#footer {
@@ -357,7 +357,7 @@ $buy-now-btn-width: 44%;
 }
 
 // Laptop
-@media screen and (min-width: $media-breakpoint-laptop) {
+@media screen and (min-width: $media-breakpoint-mobile + 1px) {
 	.buy-now-wrap {
 		display: grid;
 		grid-template-columns: 16% auto 16%;
@@ -409,7 +409,7 @@ $buy-now-btn-width: 44%;
 }
 
 // Laptop
-@media screen and (min-width: $media-breakpoint-laptop) {
+@media screen and (min-width: $media-breakpoint-mobile + 1px) {
 	.story {
 		display: grid;
 		grid-template-columns: 8% 6fr 1fr 5fr 8%;	// 6 for img, 5 for text
@@ -470,7 +470,7 @@ $buy-now-btn-width: 44%;
 }
 
 // Laptop
-@media screen and (min-width: $media-breakpoint-laptop) {
+@media screen and (min-width: $media-breakpoint-mobile + 1px) {
 	.intro {
 		display: grid;
 		grid-template-columns: 14% 5fr 1fr 5fr 14%;	// 5 for img or text
@@ -534,7 +534,7 @@ $buy-now-btn-width: 44%;
 }
 
 // Laptop
-@media screen and (min-width: $media-breakpoint-laptop) {
+@media screen and (min-width: $media-breakpoint-mobile + 1px) {
 	.media-link {
 		display: inline-block;
 		margin: 30px 20px;
@@ -570,7 +570,7 @@ $buy-now-btn-width: 44%;
 }
 
 // Laptop
-@media screen and (min-width: $media-breakpoint-laptop) {
+@media screen and (min-width: $media-breakpoint-mobile + 1px) {
 	#trial-recommend > .flexslider {
 		width: 60%;
 		margin: 0 auto;
@@ -725,7 +725,7 @@ $buy-now-btn-width: 44%;
 }
 
 // Laptop
-@media screen and (min-width: $media-breakpoint-laptop) {
+@media screen and (min-width: $media-breakpoint-mobile + 1px) {
 	/* 7.1. 理念 */
 	#about-concept {
 		display: grid;
@@ -838,7 +838,7 @@ $buy-now-btn-width: 44%;
 }
 
 // Laptop
-@media screen and (min-width: $media-breakpoint-laptop) {
+@media screen and (min-width: $media-breakpoint-mobile + 1px) {
 	#contact {
 		display: grid;
 		grid-template-columns: 8% 3fr 4% 2fr 8%;
@@ -972,7 +972,7 @@ $buy-now-btn-width: 44%;
 }
 
 // Laptop
-@media screen and (min-width: $media-breakpoint-laptop) {
+@media screen and (min-width: $media-breakpoint-mobile + 1px) {
 	.product {
 		width: 50%;
 		padding: 40px 20px;
@@ -1003,7 +1003,7 @@ $buy-now-btn-width: 44%;
 /* 10.2. 單項商品頁｜Single Product */
 
 // Laptop
-@media screen and (min-width: $media-breakpoint-laptop) {
+@media screen and (min-width: $media-breakpoint-mobile + 1px) {
 	#single-product-wrap {
 		display: flex;
 		flex-flow: row wrap;

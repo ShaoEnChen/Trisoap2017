@@ -1,7 +1,6 @@
 // font for Trisoap signature
 @import url('https://fonts.googleapis.com/css?family=Great+Vibes');
 
-$media-breakpoint-laptop: 980px;
 $media-breakpoint-mobile: 979px;
 $wrap-lr-margin: 8%;
 $letter-spacing-18-18: 3.24px;
@@ -73,13 +72,14 @@ a.no-href {
 @mixin btn($border-color, $background-color, $font-color, $border-color-hover: false, $background-color-hover: false, $font-color-hover: false) {
 	box-sizing: border-box;
 	border: solid 1px $border-color;
+	padding: 8px 25px;
 	text-decoration: none;
 	text-align: center;
 	background-color: $background-color;
 	color: $font-color;
+	font-weight: 200;
 	transition-property: border-color, background-color, color;
 	transition-duration: .3s;
-	font-weight: 200;
 	&:hover {
 		@if $border-color-hover {
 			border-color: $border-color-hover;
@@ -99,7 +99,6 @@ a.no-href {
 
 .text-btn {
 	@include btn(#000, transparent, #000, #777, transparent, #777);
-	padding: 8px 25px;
 }
 
 .submit-btn {
@@ -109,12 +108,10 @@ a.no-href {
 
 .promise-btn {
 	@include btn($text-orange, $text-orange, #000, $text-orange-hover, $text-orange-hover);
-	padding: 8px 25px;
 }
 
 .neural-btn {
 	@include btn(#ccc, #ccc, #000, #aaa, #aaa);
-	padding: 8px 25px;
 }
 
 // input[type='text, email, phone, textarea, ...']
@@ -148,31 +145,62 @@ a.no-href {
 .rwd-table {
 	width: 100%;
 
-	td:first-child {
-		padding-top: 1em;
-	}
-
-	td:last-child {
-		padding-bottom: 1em;
-	}
-
 	td {
 		padding: 0.4em;
 	}
 
+	.neural-btn,
+	.promise-btn {
+		margin: 0.2em;
+		padding: 8px 12px;
+	}
+
+	// laptop
+	@media screen and (min-width: $media-breakpoint-mobile + 1px) {
+		td {
+			text-align: center;
+		}
+	}
+
+	// max-width for 4 buttons display
+	@media screen and (min-width: $media-breakpoint-mobile + 1px) and (max-width: 1167px) {
+		.neural-btn,
+		.promise-btn {
+			display: block;
+			margin: 0.2em auto;
+		}
+	}
+
+	// mobile
 	@media screen and (max-width: $media-breakpoint-mobile) {
+		text-align: left;
+
 		thead {
 			display: none;
 		}
 
 		td {
 			display: block;
+
+			&:first-child {
+				padding-top: 1em;
+			}
+			&:last-child {
+				padding-bottom: 1em;
+			}
+			&:before {
+				content: attr(data-title);
+				display: inline-block;
+				width: 7em;
+			}
+			&.td-whole-line-title:before {
+				width: 100%;
+			}
 		}
 
-		td:before {
-			content: attr(data-title);
-			display: inline-block;
-			width: 7em;
+		.neural-btn,
+		.promise-btn {
+			margin: 1em 0.2em;
 		}
 	}
 }

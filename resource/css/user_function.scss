@@ -72,7 +72,7 @@ h1, h2, h3, h4, h5, h6, p, span, div, a, label {
 }
 
 // Laptop
-@media screen and (min-width: $media-breakpoint-laptop) {
+@media screen and (min-width: $media-breakpoint-mobile + 1px) {
 	$sign-width: 40%;
 	.sign {
 		width: $sign-width;

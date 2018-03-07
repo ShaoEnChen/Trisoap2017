@@ -464,13 +464,14 @@ a.no-href {
 .primary-btn {
   box-sizing: border-box;
   border: solid 1px #fff;
+  padding: 8px 25px;
   text-decoration: none;
   text-align: center;
   background-color: transparent;
   color: #fff;
+  font-weight: 200;
   transition-property: border-color, background-color, color;
-  transition-duration: .3s;
-  font-weight: 200; }
+  transition-duration: .3s; }
   .primary-btn:hover {
     border-color: rgba(255, 255, 255, 0.7);
     background-color: rgba(255, 255, 255, 0.7);
@@ -479,14 +480,14 @@ a.no-href {
 .text-btn {
   box-sizing: border-box;
   border: solid 1px #000;
+  padding: 8px 25px;
   text-decoration: none;
   text-align: center;
   background-color: transparent;
   color: #000;
-  transition-property: border-color, background-color, color;
-  transition-duration: .3s;
   font-weight: 200;
-  padding: 8px 25px; }
+  transition-property: border-color, background-color, color;
+  transition-duration: .3s; }
   .text-btn:hover {
     border-color: #777;
     background-color: transparent;
@@ -495,13 +496,14 @@ a.no-href {
 .submit-btn {
   box-sizing: border-box;
   border: solid 1px #000;
+  padding: 8px 25px;
   text-decoration: none;
   text-align: center;
   background-color: #000;
   color: #fff;
+  font-weight: 200;
   transition-property: border-color, background-color, color;
   transition-duration: .3s;
-  font-weight: 200;
   padding: 10px 35px; }
   .submit-btn:hover {
     border-color: #777;
@@ -510,14 +512,14 @@ a.no-href {
 .promise-btn {
   box-sizing: border-box;
   border: solid 1px #ff9c3f;
+  padding: 8px 25px;
   text-decoration: none;
   text-align: center;
   background-color: #ff9c3f;
   color: #000;
-  transition-property: border-color, background-color, color;
-  transition-duration: .3s;
   font-weight: 200;
-  padding: 8px 25px; }
+  transition-property: border-color, background-color, color;
+  transition-duration: .3s; }
   .promise-btn:hover {
     border-color: #ffb672;
     background-color: #ffb672; }
@@ -525,14 +527,14 @@ a.no-href {
 .neural-btn {
   box-sizing: border-box;
   border: solid 1px #ccc;
+  padding: 8px 25px;
   text-decoration: none;
   text-align: center;
   background-color: #ccc;
   color: #000;
-  transition-property: border-color, background-color, color;
-  transition-duration: .3s;
   font-weight: 200;
-  padding: 8px 25px; }
+  transition-property: border-color, background-color, color;
+  transition-duration: .3s; }
   .neural-btn:hover {
     border-color: #aaa;
     background-color: #aaa; }
@@ -559,21 +561,40 @@ a.no-href {
 
 .rwd-table {
   width: 100%; }
-  .rwd-table td:first-child {
-    padding-top: 1em; }
-  .rwd-table td:last-child {
-    padding-bottom: 1em; }
   .rwd-table td {
     padding: 0.4em; }
-  @media screen and (max-width: 979px) {
-    .rwd-table thead {
-      display: none; }
+  .rwd-table .neural-btn,
+  .rwd-table .promise-btn {
+    margin: 0.2em;
+    padding: 8px 12px; }
+  @media screen and (min-width: 980px) {
     .rwd-table td {
-      display: block; }
-    .rwd-table td:before {
-      content: attr(data-title);
-      display: inline-block;
-      width: 7em; } }
+      text-align: center; } }
+  @media screen and (min-width: 980px) and (max-width: 1167px) {
+    .rwd-table .neural-btn,
+    .rwd-table .promise-btn {
+      display: block;
+      margin: 0.2em auto; } }
+  @media screen and (max-width: 979px) {
+    .rwd-table {
+      text-align: left; }
+      .rwd-table thead {
+        display: none; }
+      .rwd-table td {
+        display: block; }
+        .rwd-table td:first-child {
+          padding-top: 1em; }
+        .rwd-table td:last-child {
+          padding-bottom: 1em; }
+        .rwd-table td:before {
+          content: attr(data-title);
+          display: inline-block;
+          width: 7em; }
+        .rwd-table td.td-whole-line-title:before {
+          width: 100%; }
+      .rwd-table .neural-btn,
+      .rwd-table .promise-btn {
+        margin: 1em 0.2em; } }
 
 .ui-accordion-header {
   color: #555;
@@ -747,15 +768,73 @@ a.no-href {
   .nav-dropdown-submenu > .nav-dropdown-header {
     padding: 12px 70px; } }
 
+/* =========================================================================
+ * Manage UI Pages
+ * =========================================================================
+ */
 main {
   margin-top: 60px; }
 
-.search-div {
-  padding: 1.2em;
+.main-wrap {
+  padding-top: 1.2em; }
+
+.create-div,
+.search-div,
+.update-div,
+.delete-div {
+  padding: 1.2em 0;
   line-height: 1.5; }
-  .search-div #search-basis,
-  .search-div #search-value,
-  .search-div .neural-btn {
-    margin: 10px 0; }
-  .search-div #search-value {
+  .create-div > div > span,
+  .create-div > div > select,
+  .create-div > div > input[type='text'],
+  .create-div > div > input[type='number'],
+  .create-div > div > input[type='email'],
+  .create-div > div > .promise-btn,
+  .create-div > div > .neural-btn,
+  .search-div > div > span,
+  .search-div > div > select,
+  .search-div > div > input[type='text'],
+  .search-div > div > input[type='number'],
+  .search-div > div > input[type='email'],
+  .search-div > div > .promise-btn,
+  .search-div > div > .neural-btn,
+  .update-div > div > span,
+  .update-div > div > select,
+  .update-div > div > input[type='text'],
+  .update-div > div > input[type='number'],
+  .update-div > div > input[type='email'],
+  .update-div > div > .promise-btn,
+  .update-div > div > .neural-btn,
+  .delete-div > div > span,
+  .delete-div > div > select,
+  .delete-div > div > input[type='text'],
+  .delete-div > div > input[type='number'],
+  .delete-div > div > input[type='email'],
+  .delete-div > div > .promise-btn,
+  .delete-div > div > .neural-btn {
+    margin: 1em 0;
+    line-height: normal; }
+  .create-div > div > span,
+  .search-div > div > span,
+  .update-div > div > span,
+  .delete-div > div > span {
+    display: inline-block; }
+  .create-div > div > input[type='text'],
+  .create-div > div > input[type='number'],
+  .create-div > div > input[type='email'],
+  .search-div > div > input[type='text'],
+  .search-div > div > input[type='number'],
+  .search-div > div > input[type='email'],
+  .update-div > div > input[type='text'],
+  .update-div > div > input[type='number'],
+  .update-div > div > input[type='email'],
+  .delete-div > div > input[type='text'],
+  .delete-div > div > input[type='number'],
+  .delete-div > div > input[type='email'] {
     max-width: 100%; }
+
+.rwd-table .member-detail,
+.rwd-table .order-detail {
+  display: none;
+  padding: 1em;
+  background-color: #ddd; }

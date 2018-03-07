@@ -465,13 +465,14 @@ a.no-href {
 .primary-btn {
   box-sizing: border-box;
   border: solid 1px #fff;
+  padding: 8px 25px;
   text-decoration: none;
   text-align: center;
   background-color: transparent;
   color: #fff;
+  font-weight: 200;
   transition-property: border-color, background-color, color;
-  transition-duration: .3s;
-  font-weight: 200; }
+  transition-duration: .3s; }
   .primary-btn:hover {
     border-color: rgba(255, 255, 255, 0.7);
     background-color: rgba(255, 255, 255, 0.7);
@@ -480,14 +481,14 @@ a.no-href {
 .text-btn {
   box-sizing: border-box;
   border: solid 1px #000;
+  padding: 8px 25px;
   text-decoration: none;
   text-align: center;
   background-color: transparent;
   color: #000;
-  transition-property: border-color, background-color, color;
-  transition-duration: .3s;
   font-weight: 200;
-  padding: 8px 25px; }
+  transition-property: border-color, background-color, color;
+  transition-duration: .3s; }
   .text-btn:hover {
     border-color: #777;
     background-color: transparent;
@@ -496,13 +497,14 @@ a.no-href {
 .submit-btn {
   box-sizing: border-box;
   border: solid 1px #000;
+  padding: 8px 25px;
   text-decoration: none;
   text-align: center;
   background-color: #000;
   color: #fff;
+  font-weight: 200;
   transition-property: border-color, background-color, color;
   transition-duration: .3s;
-  font-weight: 200;
   padding: 10px 35px; }
   .submit-btn:hover {
     border-color: #777;
@@ -511,14 +513,14 @@ a.no-href {
 .promise-btn {
   box-sizing: border-box;
   border: solid 1px #ff9c3f;
+  padding: 8px 25px;
   text-decoration: none;
   text-align: center;
   background-color: #ff9c3f;
   color: #000;
-  transition-property: border-color, background-color, color;
-  transition-duration: .3s;
   font-weight: 200;
-  padding: 8px 25px; }
+  transition-property: border-color, background-color, color;
+  transition-duration: .3s; }
   .promise-btn:hover {
     border-color: #ffb672;
     background-color: #ffb672; }
@@ -526,14 +528,14 @@ a.no-href {
 .neural-btn {
   box-sizing: border-box;
   border: solid 1px #ccc;
+  padding: 8px 25px;
   text-decoration: none;
   text-align: center;
   background-color: #ccc;
   color: #000;
-  transition-property: border-color, background-color, color;
-  transition-duration: .3s;
   font-weight: 200;
-  padding: 8px 25px; }
+  transition-property: border-color, background-color, color;
+  transition-duration: .3s; }
   .neural-btn:hover {
     border-color: #aaa;
     background-color: #aaa; }
@@ -560,21 +562,40 @@ a.no-href {
 
 .rwd-table {
   width: 100%; }
-  .rwd-table td:first-child {
-    padding-top: 1em; }
-  .rwd-table td:last-child {
-    padding-bottom: 1em; }
   .rwd-table td {
     padding: 0.4em; }
-  @media screen and (max-width: 979px) {
-    .rwd-table thead {
-      display: none; }
+  .rwd-table .neural-btn,
+  .rwd-table .promise-btn {
+    margin: 0.2em;
+    padding: 8px 12px; }
+  @media screen and (min-width: 980px) {
     .rwd-table td {
-      display: block; }
-    .rwd-table td:before {
-      content: attr(data-title);
-      display: inline-block;
-      width: 7em; } }
+      text-align: center; } }
+  @media screen and (min-width: 980px) and (max-width: 1167px) {
+    .rwd-table .neural-btn,
+    .rwd-table .promise-btn {
+      display: block;
+      margin: 0.2em auto; } }
+  @media screen and (max-width: 979px) {
+    .rwd-table {
+      text-align: left; }
+      .rwd-table thead {
+        display: none; }
+      .rwd-table td {
+        display: block; }
+        .rwd-table td:first-child {
+          padding-top: 1em; }
+        .rwd-table td:last-child {
+          padding-bottom: 1em; }
+        .rwd-table td:before {
+          content: attr(data-title);
+          display: inline-block;
+          width: 7em; }
+        .rwd-table td.td-whole-line-title:before {
+          width: 100%; }
+      .rwd-table .neural-btn,
+      .rwd-table .promise-btn {
+        margin: 1em 0.2em; } }
 
 .ui-accordion-header {
   color: #555;

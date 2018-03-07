@@ -38,21 +38,51 @@ h1, h2, h3, h4, h5, h6, p, span, div, a, label {
 
 @import 'nav';
 
+/* =========================================================================
+ * Manage UI Pages
+ * =========================================================================
+ */
+
 main {
 	margin-top: $main-nav-height;
 }
 
-.search-div {
-	padding: 1.2em;
+.main-wrap {
+	padding-top: 1.2em;
+}
+
+.create-div,
+.search-div,
+.update-div,
+.delete-div {
+	padding: 1.2em 0;
 	line-height: 1.5;
 
-	#search-basis,
-	#search-value,
-	.neural-btn {
-		margin: 10px 0;
+	& > div > span,
+	& > div > select,
+	& > div > input[type='text'],
+	& > div > input[type='number'],
+	& > div > input[type='email'],
+	& > div > .promise-btn,
+	& > div > .neural-btn {
+		margin: 1em 0;
+		line-height: normal;
 	}
 
-	#search-value {
+	& > div > span {
+		display: inline-block;
+	}
+
+	& > div > input[type='text'],
+	& > div > input[type='number'],
+	& > div > input[type='email'] {
 		max-width: 100%;
 	}
+}
+
+.rwd-table .member-detail,
+.rwd-table .order-detail {
+	display: none;
+	padding: 1em;
+	background-color: #ddd;
 }
