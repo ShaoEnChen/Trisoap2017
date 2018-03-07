@@ -5,7 +5,7 @@
 .DS_Store
 
 # ssl-for-free https
-well-known/
+.well-known/
 
 # packages can be installed from package.json
 node_modules/
