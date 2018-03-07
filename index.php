@@ -19,7 +19,8 @@ if (isset($_GET['operation']) && $_GET['operation'] == 'logout') {
 		setcookie("token", "", time()-3600);
 		setcookie("identity", "", time()-3600);
 	}
-	router('index');
+	header('Location: /');
+	die();
 }
 
 elseif (isset($_POST['module']) && isset($_POST['event'])) {
