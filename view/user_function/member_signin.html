@@ -1,8 +1,11 @@
         <script>
-            function statusChangeCallback(response) {
-                console.log('statusChangeCallback');
-                console.log(response);
+	    function checkLoginState() {
+		FB.getLoginStatus(function(response) {
+		    statusChangeCallback(response);
+		});
+	    }
 
+            function statusChangeCallback(response) {
                 if (response.status === 'connected') {
                     testAPI();
                 } else {
