@@ -38,7 +38,7 @@ if (isset($_GET['order']) || isset($_POST['order'])) {
 		}
 		echo $content;
 
-		include_u_view_footer();
+		include_u_view_footer($page);
 	}
 	else {
 		router('index');

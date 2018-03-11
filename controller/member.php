@@ -15,7 +15,7 @@ if(isset($_GET['in']) || isset($_POST['in'])) {
 			$content_dir = 'view/user_function/' . $page . '.html';
 			include_once($content_dir);
 
-			include_u_view_footer();
+			include_u_view_footer($page);
 		}
 	}
 	elseif($in == 'signup') {
@@ -29,7 +29,7 @@ if(isset($_GET['in']) || isset($_POST['in'])) {
 			$content_dir = 'view/user_function/' . $page . '.html';
 			include_once($content_dir);
 
-			include_u_view_footer();
+			include_u_view_footer($page);
 		}
 	}
 	elseif($in == 'resetPassword') {
@@ -43,7 +43,7 @@ if(isset($_GET['in']) || isset($_POST['in'])) {
 			$content_dir = 'view/user_function/' . $page . '.html';
 			include_once($content_dir);
 
-			include_u_view_footer();
+			include_u_view_footer($page);
 		}
 	}
 	elseif($in == 'changePassword') {
@@ -54,7 +54,7 @@ if(isset($_GET['in']) || isset($_POST['in'])) {
 			$content_dir = 'view/user_function/' . $page . '.html';
 			include_once($content_dir);
 
-			include_u_view_footer();
+			include_u_view_footer($page);
 		}
 		else {
 			router('index');
@@ -81,7 +81,7 @@ if(isset($_GET['in']) || isset($_POST['in'])) {
 			$content = str_replace('[member_notice]', $notice, $content);
 			echo $content;
 
-			include_u_view_footer();
+			include_u_view_footer($page);
 		}
 		else {
 			router('index');
@@ -95,7 +95,7 @@ if(isset($_GET['in']) || isset($_POST['in'])) {
 			$content_dir = 'view/user_function/' . $page . '.html';
 			include_once($content_dir);
 
-			include_u_view_footer();
+			include_u_view_footer($page);
 		}
 		else {
 			router('index');

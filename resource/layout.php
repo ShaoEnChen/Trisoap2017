@@ -28,7 +28,7 @@ function check_dependency_css_jquery_ui($route) {
 	}
 }
 
-function check_dependency_body($route) {
+function check_dependency_footer($route) {
 	check_dependency_script_flexslider($route);
 	check_dependency_script_jquery_ui($route);
 	check_dependency_script_map_api($route);
@@ -37,29 +37,32 @@ function check_dependency_body($route) {
 
 function check_dependency_script_flexslider($route) {
 	$flexslider_js_dir = "resource/flexslider/jquery.flexslider-min.js";
+	$js_for_the_route = get_view_js_path('flexslider', $route);
 
-	if(file_exists(get_view_js_path('flexslider', $route))){
+	if(file_exists($js_for_the_route)){
 		echo '		<script src="' . $flexslider_js_dir . '" defer></script>';
-		echo '		<script src="' . get_view_js_path('flexslider', $route) . '" defer></script>';
+		echo '		<script src="' . $js_for_the_route . '" defer></script>';
 	}
 }
 
 function check_dependency_script_jquery_ui($route) {
 	$jquery_ui_js_dir = "resource/dist/js/jquery-ui-accordion/jquery-ui.min.js";
+	$js_for_the_route = get_view_js_path('jquery_ui', $route);
 
-	if(file_exists(get_view_js_path('jquery_ui', $route))){
+	if(file_exists($js_for_the_route)){
 		echo '		<script src="' . $jquery_ui_js_dir . '" defer></script>';
-		echo '		<script src="' . get_view_js_path('jquery_ui', $route) . '" defer></script>';
+		echo '		<script src="' . $js_for_the_route . '" defer></script>';
 	}
 }
 
 function check_dependency_script_map_api($route) {
 	$google_map_api_key = "AIzaSyBqLzZouUqN1dWEVR9_75YO6bXL5OuhcRs";
 	$google_map_src = "https://maps.googleapis.com/maps/api/js?key=" . $google_map_api_key;
+	$js_for_the_route = get_view_js_path('google_map', $route);
 
-	if(file_exists(get_view_js_path('google_map', $route))){
+	if(file_exists($js_for_the_route)){
 		echo '		<script src="' . $google_map_src . '"></script>';
-		echo '		<script src="' . get_view_js_path('google_map', $route) . '" defer></script>';
+		echo '		<script src="' . $js_for_the_route . '" defer></script>';
 	}
 }
 
@@ -335,7 +338,7 @@ function include_view_footer($route) {
 	$footer_content = replace_company_info($footer_content);
 
 	echo $footer_content;
-	check_dependency_body($route);
+	check_dependency_footer($route);
 	require('view/footer_finish.html');
 }
 
@@ -349,8 +352,11 @@ function check_dependency_u_head($route) {
 }
 
 function check_dependency_u_footer($route) {
-	// currently there's no script needed in footer in user_funtion/ pages
-	return;
+	$js_for_the_route = get_view_js_path('user_function', $route);
+
+	if(file_exists($js_for_the_route)){
+		echo '		<script src="' . $js_for_the_route . '" defer></script>';
+	}
 }
 
 function include_u_view_head($route) {
@@ -368,14 +374,9 @@ function include_u_view_head($route) {
 	require('view/user_function/u_header_finish.html');
 }
 
-function include_u_view_footer() {
-	// currently there's no footer needed in user_funtion/ pages
-	// ... require('footer_dir');
-
-	// also there's no dependency needed
-	// hence no parameter ($route)
-	// check_dependency_u_footer($route);
-
+function include_u_view_footer($route) {
+	require('view/user_function/u_footer.html');
+	check_dependency_u_footer($route);
 	require('view/user_function/u_footer_finish.html');
 }
 

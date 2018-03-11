@@ -138,7 +138,7 @@ if (isset($_GET['in']) || isset($_POST['in'])) {
 
 			echo $content;
 
-			include_u_view_footer();
+			include_u_view_footer($page);
 		}
 	}
 }

@@ -9,7 +9,7 @@ if (isset($_COOKIE['account'])) {
 	$content_dir = 'view/user_function/' . $page . '.html';
 	include_once($content_dir);
 
-	include_u_view_footer();
+	include_u_view_footer($page);
 }
 
 else {
