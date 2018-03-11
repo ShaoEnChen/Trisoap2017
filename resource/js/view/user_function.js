@@ -1,3 +1,24 @@
+function FBmemberSignin(content) {
+	var request = new XMLHttpRequest();
+	request.open("POST", "index.php");
+	var account = content.email;
+	var name = content.name;
+	var data = "module=member&event=FBsignin&account=" + account + "&name=" + name;
+	request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+	request.send(data);
+	request.onreadystatechange = function() {
+		if (request.readyState === 4 && request.status === 200) {
+			var data = JSON.parse(request.responseText);
+			if (data.message == 'Success') {
+				location.assign("index.php");
+			}
+			else {
+				alert(data.message);
+			}
+		}
+	}
+}
+
 function orderitemCreate(index) {
 	var request = new XMLHttpRequest();
 	request.open("POST", "index.php");

@@ -52,6 +52,16 @@ elseif (isset($_POST['module']) && isset($_POST['event'])) {
 			echo json_encode(array('message' => $return['message']));
 			break;
 
+		case 'FBsignin':
+			$return = json_decode(curl_post($_POST, $_POST['module']), true);
+			if($return['message'] == 'Success') {
+				setcookie('account', $_POST['account']);
+				setcookie('token', $return['token']);
+				setcookie('identity', $return['identity']);
+			}
+			echo json_encode(array('message' => $return['message']));
+			break;
+
 		case 'signup':
 			$return = json_decode(curl_post($_POST, $_POST['module']), true);
 			if($return['message'] == 'Success') {

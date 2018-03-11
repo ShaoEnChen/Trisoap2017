@@ -17,6 +17,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 				return;
 			}
 		}
+		elseif ($_GET['event'] == 'FBsignin') {
+			$message = FBsignin($_GET['account'], $_GET['name']);
+			if (is_array($message)) {
+				echo json_encode(array('message' => $message['message'], 'token' => $message['token'], 'identity' => $message['identity']));
+				return;
+			}
+			else {
+				echo json_encode(array('message' => $message));
+				return;
+			}
+		}
 		elseif ($_GET['event'] == 'logout') {
 			$message = logout($_GET['account'], $_GET['token']);
 			echo json_encode(array('message' => $message));
@@ -101,6 +112,17 @@ elseif ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	if ($_POST['module'] == 'member') {
 		if ($_POST['event'] == 'signin') {
 			$message = signin($_POST['account'], $_POST['password']);
+			if (is_array($message)) {
+				echo json_encode(array('message' => $message['message'], 'token' => $message['token'], 'identity' => $message['identity']));
+				return;
+			}
+			else {
+				echo json_encode(array('message' => $message));
+				return;
+			}
+		}
+		elseif ($_POST['event'] == 'FBsignin') {
+			$message = FBsignin($_POST['account'], $_POST['name']);
 			if (is_array($message)) {
 				echo json_encode(array('message' => $message['message'], 'token' => $message['token'], 'identity' => $message['identity']));
 				return;
@@ -222,6 +244,50 @@ function signin($account, $password) {
 		}
 		else {
 			return 'Database operation error';
+		}
+	}
+}
+
+function FBsignin($account, $name) {
+	$account = 'FB_'.$account;
+	$sql1 = mysql_query("SELECT * FROM CUSMAS WHERE EMAIL='$account'");
+	$fetch1 = mysql_fetch_array($sql1);
+	if (empty($account)) {
+		return 'Empty account';
+	}
+	elseif (empty($name)) {
+		return 'Empty name';
+	}
+	elseif (mysql_num_rows($sql1) == 0) {
+		return 'Unregistered account';
+	}
+	else {
+		if ($sql1 == false || mysql_num_rows($sql1) == 0) {
+			$verify = get_verify();
+			date_default_timezone_set('Asia/Taipei');
+			$date = date("Y-m-d H:i:s");
+			
+			$token = get_token();
+			$encrypted_token = md5($account.$token);
+
+			$sql2 = "INSERT INTO CUSMAS (EMAIL, CUSPW, CUSNM, CUSBIRTH, TEL, CUSTYPE, KNOWTYPE, TOKEN, VERIFY, CREATEDATE, UPDATEDATE, ACTCODE) VALUES ('$account', 'facebook', '$name', '1999-03-03', '0987654321', 'A', 'A', '$encrypted_token', '$verify', '$date', '$date', '1')";
+			if (mysql_query($sql2)) {
+				return array('message' => 'Success', 'token' => $token, 'identity' => 'B');
+			}
+			else {
+				return 'Database operation error';
+			}
+		}
+		else {
+			$token = get_token();
+			$encrypted_token = md5($account.$token);
+			$sql2 = "UPDATE CUSMAS SET TOKEN='$encrypted_token' WHERE EMAIL='$account'";
+			if (mysql_query($sql2)) {
+				return array('message' => 'Success', 'token' => $token, 'identity' => $fetch1['CUSIDT']);
+			}
+			else {
+				return 'Database operation error';
+			}
 		}
 	}
 }

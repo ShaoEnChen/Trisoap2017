@@ -1,25 +1,4 @@
         <script>
-	    function checkLoginState() {
-		FB.getLoginStatus(function(response) {
-		    statusChangeCallback(response);
-		});
-	    }
-
-            function statusChangeCallback(response) {
-                if (response.status === 'connected') {
-                    testAPI();
-                } else {
-                    console.log('Not logged into your app or unable to tell');
-                }
-            }
-
-            function testAPI() {
-                console.log('Welcome!  Fetching your information.... ');
-                FB.api('/me', function(response) {
-                    console.log('Successful login for: ' + response.name);
-                });
-            }
-
             window.fbAsyncInit = function() {
                 FB.init({
                     appId      : '403462720092445',
@@ -36,9 +15,11 @@
                     statusChangeCallback(response);
                 });
 
-		FB.Event.subscribe('auth.login', () => {
-		    checkLoginState();
-		});
+        		FB.Event.subscribe('auth.login', function() {
+        		    FB.getLoginStatus(function(response) {
+                        FBmemberSignin(response);
+                    });
+        		});
             };
 
             // Load the SDK asynchronously
@@ -55,7 +36,7 @@
             <div class="sign-wrap">
                 <div class="sign text-center">
                     <h2>登入</h2>
-		    <fb:login-button data-auto-logout-link="true" data-size="large" data-button-type="login_with"></fb:login-button>
+                    <fb:login-button data-auto-logout-link="true" data-size="large" data-button-type="login_with"></fb:login-button>
                     <hr class="text-sep-sm">
                     <div class="sign-block">
                         <label for="account">電子信箱</label>
