@@ -258,15 +258,12 @@ function FBsignin($account, $name) {
 	elseif (empty($name)) {
 		return 'Empty name';
 	}
-	elseif (mysql_num_rows($sql1) == 0) {
-		return 'Unregistered account';
-	}
 	else {
 		if ($sql1 == false || mysql_num_rows($sql1) == 0) {
 			$verify = get_verify();
 			date_default_timezone_set('Asia/Taipei');
 			$date = date("Y-m-d H:i:s");
-			
+
 			$token = get_token();
 			$encrypted_token = md5($account.$token);
 
