@@ -55,7 +55,7 @@ elseif (isset($_POST['module']) && isset($_POST['event'])) {
 		case 'FBsignin':
 			$return = json_decode(curl_post($_POST, $_POST['module']), true);
 			if($return['message'] == 'Success') {
-				setcookie('account', $_POST['account']);
+				setcookie('account', 'FB_'.$_POST['account']);
 				setcookie('token', $return['token']);
 				setcookie('identity', $return['identity']);
 			}
