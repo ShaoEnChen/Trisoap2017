@@ -1,3 +1,19 @@
+function statusChangeCallback(response) {
+    if (response.status === 'connected') {
+        fbApiRequest();
+    } else {
+        // The person is not logged into your app or we are unable to tell.
+    }
+}
+
+function fbApiRequest() {
+    FB.api('/me', function(response) {
+        console.log(response.name, response.email);
+        // Signin current FB user to Trisoap server to provide advanced service
+        FBmemberSignin(response);
+    });
+}
+
 window.fbAsyncInit = function() {
     FB.init({
         appId      : '403462720092445',
@@ -6,17 +22,9 @@ window.fbAsyncInit = function() {
     });
     FB.AppEvents.logPageView();
 
-    FB.getLoginStatus(function(response) {
-        // 1. Logged into your app ('connected')
-        // 2. Logged into Facebook, but not your app ('not_authorized')
-        // 3. Not logged into Facebook and can't tell if they are logged into
-        //    your app or not.
-        console.log(response.status);
-    });
-
 	FB.Event.subscribe('auth.login', function() {
 	    FB.getLoginStatus(function(response) {
-            FBmemberSignin(response);
+            statusChangeCallback(response);
         });
 	});
 };
