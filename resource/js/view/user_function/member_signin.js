@@ -8,7 +8,6 @@ function statusChangeCallback(response) {
 
 function fbApiRequest() {
     FB.api('/me', {fields: ['email', 'name']}, function(response) {
-        console.log(response.name, response.email);
         // Signin current FB user to Trisoap server to provide advanced service
         FBmemberSignin(response);
     });
