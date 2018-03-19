@@ -73,7 +73,7 @@ if(isset($_GET['in']) || isset($_POST['in'])) {
 			$phone = curl_post(array('module' => 'cue', 'target' => 'member_phone', 'account' => $_COOKIE['account']), 'cue');
 			$taxid = curl_post(array('module' => 'cue', 'target' => 'member_taxid', 'account' => $_COOKIE['account']), 'cue');
 			$notice = curl_post(array('module' => 'cue', 'target' => 'member_notice', 'account' => $_COOKIE['account']), 'cue');
-			$content = str_replace('[member_email]', $_COOKIE['account'], $content);
+			$content = str_replace('[member_email]', substr($_COOKIE['account'], 3), $content);
 			$content = str_replace('[member_name]', $name, $content);
 			$content = str_replace('[member_address]', $address, $content);
 			$content = str_replace('[member_phone]', $phone, $content);
