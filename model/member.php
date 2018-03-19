@@ -443,7 +443,7 @@ function edit($account, $token, $name, $address, $skintype, $phone, $taxid=null,
 	elseif (!preg_match('/^[0][9][0-9]{8}$/', $phone)) {
 		return 'Wrong phone format';
 	}
-	elseif (!check_taxid($taxid)) {
+	elseif (!empty($taxid) && !check_taxid($taxid)) {
 		return 'Wrong taxid format';
 	}
 	else {
