@@ -73,7 +73,14 @@ if(isset($_GET['in']) || isset($_POST['in'])) {
 			$phone = curl_post(array('module' => 'cue', 'target' => 'member_phone', 'account' => $_COOKIE['account']), 'cue');
 			$taxid = curl_post(array('module' => 'cue', 'target' => 'member_taxid', 'account' => $_COOKIE['account']), 'cue');
 			$notice = curl_post(array('module' => 'cue', 'target' => 'member_notice', 'account' => $_COOKIE['account']), 'cue');
-			$content = str_replace('[member_email]', substr($_COOKIE['account'], 3), $content);
+
+			// Remove FB prefix when email is shown in view
+			$account_email = $_COOKIE['account'];
+			if(substr($account_email, 0, 3) === 'FB_') {
+				$account_email = substr($_COOKIE['account'], 3);
+			}
+			$content = str_replace('[member_email]', $account_email, $content);
+
 			$content = str_replace('[member_name]', $name, $content);
 			$content = str_replace('[member_address]', $address, $content);
 			$content = str_replace('[member_phone]', $phone, $content);
