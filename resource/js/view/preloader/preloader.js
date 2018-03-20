@@ -1,9 +1,15 @@
 /* ===================================================
- * Preloader
+ * Universal variables
  * ===================================================
  */
 
-const $preloader = $('#preloader');
+const $preloader = $('#preloader'),
+	  _dir = 'resource/img/misc/logo.svg';
+
+/* ===================================================
+ * Show & Hide preloader
+ * ===================================================
+ */
 
 function fadePreloader() {
 	return new Promise((resolve, reject) => {
@@ -25,3 +31,16 @@ function hidePreloader() {
 $(document).ready(() => {
 	fadePreloader().then(hidePreloader);
 });
+
+/* ===================================================
+ * Draw / Render preloader content
+ * ===================================================
+ */
+
+const $content = $('<img/>', {
+	id: 'preloader-content',
+	src: _dir,
+	alt: '您的瀏覽器不支援 SVG'
+});
+
+$content.appendTo($preloader);

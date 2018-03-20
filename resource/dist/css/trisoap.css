@@ -632,10 +632,9 @@ a.no-href {
   transition: opacity 1.5s ease;
   z-index: 10; }
 
-#preloader-canvas {
+#preloader-content {
   width: 250px;
-  height: 250px;
-  background-color: #000; }
+  height: 250px; }
 
 /* =========================================================================
  * Main Navigation Bar
