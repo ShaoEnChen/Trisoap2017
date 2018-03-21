@@ -16,7 +16,7 @@ function check_dependency_css_flexslider($route) {
 	$flexslider_css_dir = "resource/flexslider/flexslider.min.css";
 
 	if(file_exists(get_view_js_path('flexslider', $route))){
-		echo '		<link rel="stylesheet" href="' . $flexslider_css_dir . '" defer>';
+		echo '		<link rel="stylesheet" href="' . $flexslider_css_dir . '" async defer>';
 	}
 }
 
@@ -24,7 +24,7 @@ function check_dependency_css_jquery_ui($route) {
 	$jquery_ui_css_dir = "resource/dist/js/jquery-ui-accordion/jquery-ui.min.css";
 
 	if(file_exists(get_view_js_path('jquery_ui', $route))){
-		echo '		<link rel="stylesheet" href="' . $jquery_ui_css_dir . '" defer>';
+		echo '		<link rel="stylesheet" href="' . $jquery_ui_css_dir . '" async defer>';
 	}
 }
 
