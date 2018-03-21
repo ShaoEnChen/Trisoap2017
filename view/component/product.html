@@ -1,7 +1,10 @@
 					<div class="product">
 						<div class="product-cover">
 							<a class="product-link" href="index.php?route=single_product&itemno={item_no}">
-								<img class="product-cover-img" src="{cover_photo}" alt="{name}">
+								<picture>
+									<source srcset="{cover_photo}.webp" type="image/webp">
+									<img class="product-cover-img" src="{cover_photo}.jpg" alt="{name}">
+								</picture>
 							</a>
 						</div>
 						<h4 class="product-name">
