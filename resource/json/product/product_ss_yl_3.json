@@ -2,10 +2,10 @@
 	"item_no": "product_ss_yl_3",
 	"name": "米糠馬賽旅用皂絲",
 	"intro": "取自宜蘭地區特色音樂米米糠，配上天然馬賽配方，滋潤與舒適的洗感在旅行的時候仍陪伴在你左右。",
-	"cover_photo": "resource/img/product/string/yl/string_rice_bran01.jpg",
+	"cover_photo": "resource/img/product/string/yl/string_rice_bran01",
 	"gallery": [
-		"resource/img/product/string/yl/string_rice_bran01.jpg",
-		"resource/img/product/string/yl/string_rice_bran02.jpg"
+		"resource/img/product/string/yl/string_rice_bran01",
+		"resource/img/product/string/yl/string_rice_bran02"
 	],
 	"ingredients": "主要成分 / 橄欖油、棕梠油、米糠油、椰子油、水、在地小農米糠",
 	"skin_type": "適用膚質 / 中性、乾性膚質",

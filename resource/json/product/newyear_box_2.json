@@ -2,11 +2,11 @@
 	"item_no": "newyear_box_2",
 	"name": "臺東新春嘉年禮",
 	"intro": "三三吾鄉台東新春嘉年禮，選用來自台東五位優秀小農的產品特殊研發與製作，配上一致好評的三三吾鄉經典款配方，以田靜山巒禾風皂為主打，創造出台東小農特色。<br>更在亮眼但又舒適的粉紅底下排入台東的象徵 —— 熱氣球，除了希望新的一年能向煙火般絢爛之外，更希望能和熱氣球同般登空，往更好的一年飛去。",
-	"cover_photo": "resource/img/product/newyear/newyear_gift_taitung01.jpg",
+	"cover_photo": "resource/img/product/newyear/newyear_gift_taitung01",
 	"gallery": [
-		"resource/img/product/newyear/newyear_gift_taitung01.jpg",
-		"resource/img/product/newyear/newyear_gift_taitung02.jpg",
-		"resource/img/product/newyear/newyear_gift_taitung03.jpg"
+		"resource/img/product/newyear/newyear_gift_taitung01",
+		"resource/img/product/newyear/newyear_gift_taitung02",
+		"resource/img/product/newyear/newyear_gift_taitung03"
 	],
 	"ingredients": "禮盒內含 / <br>臺東金絲森林渲染皂一百克 x1<br>臺東田靜山巒禾風皂一百克 x1<br>臺東釋迦手感果力皂一百克 x1<br>臺東萱草米黃旅用皂絲包 x2<br>臺東洛神紅麴旅用皂絲包 x2<br>臺東薑黃暖暖旅用皂絲包 x2",
 	"skin_type": "",

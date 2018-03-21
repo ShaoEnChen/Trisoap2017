@@ -2,11 +2,11 @@
 	"item_no": "product_sp_yl_3",
 	"name": "金柑苦茶洗髮皂",
 	"intro": "翠綠襯托出宜蘭珍寶金柑的甜蜜與亮橙，天然苦茶油的特色調製不僅呵護你的頭皮，更透過金柑植萃提供你未體驗過的洗感。",
-	"cover_photo": "resource/img/product/soap/yl/kumquat01.jpg",
+	"cover_photo": "resource/img/product/soap/yl/kumquat01",
 	"gallery": [
-		"resource/img/product/soap/yl/kumquat01.jpg",
-		"resource/img/product/soap/yl/kumquat02.jpg",
-		"resource/img/product/soap/yl/kumquat03.jpg"
+		"resource/img/product/soap/yl/kumquat01",
+		"resource/img/product/soap/yl/kumquat02",
+		"resource/img/product/soap/yl/kumquat03"
 	],
 	"ingredients": "主要成分 / 苦茶油、椰子油、棕櫚油、橄欖油",
 	"skin_type": "適用膚質 / 適用於清潔頭皮，洗感清爽，因本產品不添加矽靈以及界面活性劑因此洗後乾澀為正常狀況，係為皮膚毛孔正常呼吸運作狀況",

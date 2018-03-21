@@ -2,11 +2,11 @@
 	"item_no": "product_ss_tt_2",
 	"name": "暖暖薑黃旅用皂絲",
 	"intro": "豔黃中帶點純樸的橘棕，<br>經過薑黃伯特殊而又綿密的加工研磨，<br>入皂而成的溫暖色澤讓你有個暖暖的冬天。",
-	"cover_photo": "resource/img/product/string/tt/string_turmeric.jpg",
+	"cover_photo": "resource/img/product/string/tt/string_turmeric",
 	"gallery": [
-		"resource/img/product/string/tt/string_turmeric00.jpg",
-		"resource/img/product/string/tt/string_turmeric01.jpg",
-		"resource/img/product/string/tt/string_turmeric02.jpg"
+		"resource/img/product/string/tt/string_turmeric00",
+		"resource/img/product/string/tt/string_turmeric01",
+		"resource/img/product/string/tt/string_turmeric02"
 	],
 	"ingredients": "主要成分 / 椰子油、棕櫚油、橄欖油、葡萄籽油、台東薑黃伯薑黃粉",
 	"skin_type": "適用膚質 / 中性、乾性肌膚適用",

@@ -2,10 +2,10 @@
 	"item_no": "product_sp_yl_2",
 	"name": "紅瓜天然家事皂",
 	"intro": "一層皂白之上抹上地瓜純黃，微微顫抖的平線是手工製作的認證標章。<br>紅心地瓜添加在地風味，樂意成為不傷手但又清潔十足的家事幫手。",
-	"cover_photo": "resource/img/product/soap/yl/sweet_potato01.jpg",
+	"cover_photo": "resource/img/product/soap/yl/sweet_potato01",
 	"gallery": [
-		"resource/img/product/soap/yl/sweet_potato01.jpg",
-		"resource/img/product/soap/yl/sweet_potato02.jpg"
+		"resource/img/product/soap/yl/sweet_potato01",
+		"resource/img/product/soap/yl/sweet_potato02"
 	],
 	"ingredients": "主要成分 / 椰子油、芥花油、米糠油",
 	"skin_type": "適用情況 / 家事清潔使用，原料皆為純天然不添加化學物質，不傷玉手",

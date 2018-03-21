@@ -2,10 +2,10 @@
 	"item_no": "product_ss_yl_1",
 	"name": "蜂蜜甜心旅用皂絲",
 	"intro": "取自宜蘭在地封面小農蜂蜜，美麗的橙黃皂絲和三三吾鄉的溫暖意象相呼應，更增加皂的滋潤程度，來包蜂蜜甜心吧！",
-	"cover_photo": "resource/img/product/string/yl/string_honey01.jpg",
+	"cover_photo": "resource/img/product/string/yl/string_honey01",
 	"gallery": [
-		"resource/img/product/string/yl/string_honey01.jpg",
-		"resource/img/product/string/yl/string_honey02.jpg"
+		"resource/img/product/string/yl/string_honey01",
+		"resource/img/product/string/yl/string_honey02"
 	],
 	"ingredients": "主要成分 / 蜜蠟、紅棕櫚油、榛果油、椰子油、橄欖油、乳油木果脂、水、在地小農蜂蜜",
 	"skin_type": "適用膚質 / 油性中性膚質適用，亦適合作洗髮皂使用",

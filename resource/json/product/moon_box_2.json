@@ -2,10 +2,10 @@
 	"item_no": "moon_box_2",
 	"name": "中秋禮皂系列 - 熱氣球登月",
 	"intro": "什麼！？<br>臺東熱氣球在中秋節時候登陸月球？<br>在三三吾鄉的想像力世界中，<br>台東專屬特色的熱氣球，<br>不只帶你賞月更帶你搭熱氣球征服月亮！",
-	"cover_photo": "resource/img/product/moonfest/moonfest_hot_air_balloon.jpg",
+	"cover_photo": "resource/img/product/moonfest/moonfest_hot_air_balloon",
 	"gallery": [
-		"resource/img/product/moonfest/moonfest_hot_air_balloon.jpg",
-		"resource/img/product/moonfest/moonfest_gift_content.jpg"
+		"resource/img/product/moonfest/moonfest_hot_air_balloon",
+		"resource/img/product/moonfest/moonfest_gift_content"
 	],
 	"ingredients": "禮盒內含 / <br>釋迦手感果力皂 50克 x 2<br>金絲森林渲染皂 50克 x 2<br>田靜山巒禾風皂 50克 x 2<br>薑黃暖暖皂絲旅用組 x 2<br>紅麴洛神皂絲旅用組 x 2<br>萱草米黃皂絲旅用組 x 2<br><br>主要成分 / 椰子油、橄欖油、乳油木果脂、棕梠油、米糠油、葡萄籽油、蓖麻油、苦茶油、小羊釋迦天然果泥果砂、小農食在無硫金針、自然主義天然洛神、薑黃伯薑黃粉、池上米糠、紅麴粉、蕁麻葉粉、紅棕梠油等",
 	"skin_type": "中性、乾性膚質適用",
