@@ -1,22 +1,22 @@
 {
 	"item_no": "product_ss_yl_2",
-	"name": "黑豆清爽旅用皂絲",
-	"intro": "三三吾鄉首推清爽配方，經過多次試驗以及修正的清爽配方，<br>搭配在地小農黑豆萃取特色入皂，洗完不黏膩的清爽感受，一洗就印象深刻。",
-	"cover_photo": "resource/img/product/string/yl/string_black_bean01",
+	"name": "米糠馬賽旅用皂絲",
+	"intro": "取自宜蘭地區特色音樂米米糠，配上天然馬賽配方，滋潤與舒適的洗感在旅行的時候仍陪伴在你左右。",
+	"cover_photo": "resource/img/product/string/yl/string_rice_bran01",
 	"gallery": [
-		"resource/img/product/string/yl/string_black_bean01",
-		"resource/img/product/string/yl/string_black_bean02"
+		"resource/img/product/string/yl/string_rice_bran01",
+		"resource/img/product/string/yl/string_rice_bran02"
 	],
-	"ingredients": "主要成分 / 蓖麻油、米糠油、甜杏仁油、椰子油、棕櫚油、芥花油、水、在地小農黑豆",
-	"skin_type": "適用膚質 / 中性、油性膚質",
-	"feature": "蓖麻油 – 含有緩和及潤滑皮膚的功能，特有的蓖麻酸醇軟作用，能製造清爽、泡沫多的肥皂。",
+	"ingredients": "主要成分 / 橄欖油、棕梠油、米糠油、椰子油、水、在地小農米糠",
+	"skin_type": "適用膚質 / 中性、乾性膚質",
+	"feature": "馬賽皂 – 法國馬賽地區在1370年蓋了第一座肥皂工廠，更在路易法皇欽定之下推出純橄欖油製作的皂，因橄欖油做出的皂雖起泡少但親膚性極佳因此而聞名。<br>三三吾鄉嘗試米糠馬賽配方，搭配72%純橄欖油以及其他米糠油等植物油調配，打造出親膚力極高的三三馬賽皂品。",
 	"peasant_farmer": [
 		{
-			"name": "宜蘭月見農園 - 不屈不撓的月見黑豆",
-			"intro": "「月見」又名長春花或日日春，生命力旺盛不屈不撓，就像是月見這個品牌一樣，充滿著活力懷抱著理想，致力於打擊不良食安問題而產出了安全健康的生命黑豆，讓三三吾鄉的旅用黑豆多了一些活力清爽的生命力。",
+			"name": "宜蘭音樂米 - 一起打拼一起旅行的音樂米",
+			"intro": "「礁溪，除了溫泉之外還有什麼？」這是音樂米創辦人提出來的疑問。人們愛礁溪溫泉，但除了溫泉礁溪仍保有許多農村的生命力和觀光資源。音樂米透過青年人返鄉打造全新的創意產銷模式，希望能協助農村改造以及農村活化，讓音樂再度響起在礁溪這個十大觀光小鎮。",
 			"link": {
-				"link_text": "宜蘭月見農園：https://www.facebook.com/pg/OVANH/about/?ref=page_internal",
-				"link_href": "https://www.facebook.com/pg/OVANH/about/?ref=page_internal"
+				"link_text": "宜蘭音樂米：https://www.facebook.com/pg/MusicRice/about/",
+				"link_href": "https://www.facebook.com/pg/MusicRice/about/"
 			}
 		}
 	],

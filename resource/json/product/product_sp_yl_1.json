@@ -1,25 +1,25 @@
 {
 	"item_no": "product_sp_yl_1",
-	"name": "石花淨白洗面皂",
-	"intro": "石花凝水是一場最單純的植萃試驗，為純白的榛果點上些許在地的味道。<br>純天然而精緻的配方，帶給臉部淨白而又溫和的泡沫嘉年華。",
-	"cover_photo": "resource/img/product/soap/yl/seaweed01",
+	"name": "紅瓜天然家事皂",
+	"intro": "一層皂白之上抹上地瓜純黃，微微顫抖的平線是手工製作的認證標章。<br>紅心地瓜添加在地風味，樂意成為不傷手但又清潔十足的家事幫手。",
+	"cover_photo": "resource/img/product/soap/yl/sweet_potato01",
 	"gallery": [
-		"resource/img/product/soap/yl/seaweed01",
-		"resource/img/product/soap/yl/seaweed02"
+		"resource/img/product/soap/yl/sweet_potato01",
+		"resource/img/product/soap/yl/sweet_potato02"
 	],
-	"ingredients": "主要成分 / 酪梨油、乳油木果脂、榛果油、椰子油、棕梠油、橄欖油、石花菜萃取液",
-	"skin_type": "適用膚質 / 中性、乾性臉部肌膚，特別適合冬天潔面",
-	"feature": "酪梨油 - 酪梨本身是全世界最具有營養價值的水果。而酪梨油是製作手工皂的高級素材，雖然泡沫不多，但酪梨油皂提供的滋潤程度卻是極為舒適，非常適合冬天或洗面選用。",
+	"ingredients": "主要成分 / 椰子油、芥花油、米糠油",
+	"skin_type": "適用情況 / 家事清潔使用，原料皆為純天然不添加化學物質，不傷玉手",
+	"feature": "芥花油 - 芥花油取自於芥菜籽，又稱芥菜籽油，含60%單元不飽和脂肪酸，飽和脂肪酸含量在植物油中最低，安定性高，能增加手工皂起泡速度。",
 	"peasant_farmer": [
 		{
-			"name": "宜蘭思高本事 - 活化使用海洋元素的文創品牌",
-			"intro": "「如果海洋距離人們太遠，那就把海洋帶過來！」受到海洋感動的文創品牌，致力於發展海洋元素為主題的文創商品，其販售廣布台灣與中國地區，本次與三三吾鄉進行石花菜的研發合作，提供三三吾鄉來自頭城的天然石花元素。",
+			"name": "宜蘭安健農產 - 堅持無毒工作的地瓜品牌",
+			"intro": "致力於從事無毒農產生產的安健農產品牌，多次榮獲百大青農、農品認證等多項獎項，提供三三吾鄉紅心地瓜作為宜蘭紅瓜天然家事皂的良好素材，天然的澱粉物質萃取入皂，帶給消費者高清潔力但又不傷玉手的好夥伴。",
 			"link": {
-				"link_text": "思高本事：https://chccp.e-land.gov.tw/unit/思高本事/",
-				"link_href": "https://chccp.e-land.gov.tw/unit/思高本事/"
+				"link_text": "宜蘭安健農產：https://www.facebook.com/anjian/",
+				"link_href": "https://www.facebook.com/anjian/"
 			}
 		}
 	],
 	"supporting_organization": "宜蘭自閉症福利協進會 - 本產品為座落在宜蘭壯圍鄉的自閉症福利協進會製作，是三三吾鄉合作的第三站也是三三吾鄉從頭到尾陪伴與培訓成長的第二站。<br>協會秉持互助奉獻、關懷創造、尊嚴成長的理念，服務自閉症學員有多年的經驗，更成立星樂園工作坊協助身障朋友就業，在宜蘭地區開創出不一樣的身障文創特色。<br><a class='product-link' href='http://starbb.ilc.org.tw/modules/tinyd0/' target='_blank' rel='noopener'>暸解更多：http://starbb.ilc.org.tw/modules/tinyd0/</a>",
-	"price": "350"
+	"price": "250"
 }

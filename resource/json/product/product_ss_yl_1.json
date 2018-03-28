@@ -1,22 +1,22 @@
 {
 	"item_no": "product_ss_yl_1",
-	"name": "蜂蜜甜心旅用皂絲",
-	"intro": "取自宜蘭在地封面小農蜂蜜，美麗的橙黃皂絲和三三吾鄉的溫暖意象相呼應，更增加皂的滋潤程度，來包蜂蜜甜心吧！",
-	"cover_photo": "resource/img/product/string/yl/string_honey01",
+	"name": "黑豆清爽旅用皂絲",
+	"intro": "三三吾鄉首推清爽配方，經過多次試驗以及修正的清爽配方，<br>搭配在地小農黑豆萃取特色入皂，洗完不黏膩的清爽感受，一洗就印象深刻。",
+	"cover_photo": "resource/img/product/string/yl/string_black_bean01",
 	"gallery": [
-		"resource/img/product/string/yl/string_honey01",
-		"resource/img/product/string/yl/string_honey02"
+		"resource/img/product/string/yl/string_black_bean01",
+		"resource/img/product/string/yl/string_black_bean02"
 	],
-	"ingredients": "主要成分 / 蜜蠟、紅棕櫚油、榛果油、椰子油、橄欖油、乳油木果脂、水、在地小農蜂蜜",
-	"skin_type": "適用膚質 / 油性中性膚質適用，亦適合作洗髮皂使用",
-	"feature": "蜜蠟 - 天然蜜蠟是將蜂巢加溫後而取得之黃色蠟。天然蜜蠟以脂類為主是手工皂常見的素材之一。除了可以增加皮膚的柔軟度與彈性，更有天然殺菌效果增加皂的穩定性。",
+	"ingredients": "主要成分 / 蓖麻油、米糠油、甜杏仁油、椰子油、棕櫚油、芥花油、水、在地小農黑豆",
+	"skin_type": "適用膚質 / 中性、油性膚質",
+	"feature": "蓖麻油 – 含有緩和及潤滑皮膚的功能，特有的蓖麻酸醇軟作用，能製造清爽、泡沫多的肥皂。",
 	"peasant_farmer": [
 		{
-			"name": "哈尼蜂蜜 - 通過國家認證的蜂蜜品牌",
-			"intro": "",
+			"name": "宜蘭月見農園 - 不屈不撓的月見黑豆",
+			"intro": "「月見」又名長春花或日日春，生命力旺盛不屈不撓，就像是月見這個品牌一樣，充滿著活力懷抱著理想，致力於打擊不良食安問題而產出了安全健康的生命黑豆，讓三三吾鄉的旅用黑豆多了一些活力清爽的生命力。",
 			"link": {
-				"link_text": "",
-				"link_href": ""
+				"link_text": "宜蘭月見農園：https://www.facebook.com/pg/OVANH/about/?ref=page_internal",
+				"link_href": "https://www.facebook.com/pg/OVANH/about/?ref=page_internal"
 			}
 		}
 	],
