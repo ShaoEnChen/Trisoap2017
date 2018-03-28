@@ -1,4 +1,5 @@
 # file types
+*.cnf
 *.sql
 *.sh
 
