@@ -26,7 +26,7 @@ if (isset($_GET['ordno']) && isset($_GET['account']) && isset($_GET['payType']))
 	    $obj->MerchantID = '1385617';			// MerchantID
 
 	    // Basic Order Parameter
-	    $obj->Send['ReturnURL'] = "https://trisoap.com/controller/cashing_feedback.php";// 付款完成通知回傳的網址
+	    $obj->Send['ReturnURL'] = "https://trisoap.com.tw/controller/cashing_feedback.php";// 付款完成通知回傳的網址
 	    $TradeNo = "Test".time();														// Produce TradeNo
 	    $obj->Send['MerchantTradeNo']   = $TradeNo;										// Order_id
 	    $obj->Send['MerchantTradeDate'] = date("Y/m/d H:i:s");							// Order_time
@@ -41,7 +41,7 @@ if (isset($_GET['ordno']) && isset($_GET['account']) && isset($_GET['payType']))
 	    else{
 	        $obj->Send['ChoosePayment'] = PaymentMethod::Credit;
 	    }
-	    $obj->Send['ClientBackURL']     = "http://trisoap.com";
+	    $obj->Send['ClientBackURL']     = "https://trisoap.com.tw";
 
 	    $sql2 = "UPDATE ORDMAS SET MerchantTradeNo='$TradeNo' WHERE ORDNO='$ordno' AND EMAIL='$account'";
 	    mysql_query($sql2);
