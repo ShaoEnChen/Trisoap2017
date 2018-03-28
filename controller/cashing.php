@@ -27,7 +27,7 @@ if (isset($_GET['ordno']) && isset($_GET['account']) && isset($_GET['payType']))
 
 	    // Basic Order Parameter
 	    $obj->Send['ReturnURL'] = "https://trisoap.com.tw/controller/cashing_feedback.php";// 付款完成通知回傳的網址
-	    $TradeNo = "Test".time();														// Produce TradeNo
+	    $TradeNo = time();														// Produce TradeNo
 	    $obj->Send['MerchantTradeNo']   = $TradeNo;										// Order_id
 	    $obj->Send['MerchantTradeDate'] = date("Y/m/d H:i:s");							// Order_time
 	    $obj->Send['TotalAmount']       = $total;										// Order_amount
