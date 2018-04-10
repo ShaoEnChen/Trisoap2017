@@ -1,3 +1,14 @@
+/* =========================================================================
+ * CSS Normalization
+ * =========================================================================
+ */
+
+@import 'normalize';
+
+h1, h2, h3, h4, h5, h6, p, span, div, a, label {
+	font-family: sans-serif;
+}
+
 // font for Trisoap signature
 @import url('https://fonts.googleapis.com/css?family=Great+Vibes');
 

@@ -3,11 +3,7 @@
  * =========================================================================
  */
 
-@import 'normalize';
-
-h1, h2, h3, h4, h5, h6, p, span, div, a, label {
-	font-family: sans-serif;
-}
+@import 'general';
 
 /* z-index Scale: -1 - 10
  * -1: .img-jumbotron::before
@@ -23,13 +19,6 @@ h1, h2, h3, h4, h5, h6, p, span, div, a, label {
  *  9: .nav-dropdown-menu, .nav-dropdown-submenu
  *  10: #preloader
  */
-
-/* -------------------------------------------------------------------------
- * Shared Properties
- * -------------------------------------------------------------------------
- */
-
-@import 'general';
 
 /* =========================================================================
  * Preloader
