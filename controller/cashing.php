@@ -4,10 +4,22 @@ include_once('router.php');
 include_once("library/AllPay.Payment.Integration.php");
 include_once("resource/database.php");
 
-if (isset($_GET['ordno']) && isset($_GET['account']) && isset($_GET['payType'])) {
+if (isset($_GET['ordno']) && isset($_GET['account'])) {
+	$address = $_GET['address'];
+	$notice = $_GET['notice'];
+	if (empty($address)) {
+		echo '<script>alert("請填寫寄送地址");</script>';
+		echo '<script>location.assign("index.php?route=pay&order='.$_GET['ordno'].'")</script>';
+		return;
+	}
 	$ordno = ($_GET['ordno'] == 'cart') ? '0' : $_GET['ordno'];
+	if (!empty($notice)) {
+		if (strlen($notice) <= 100) {
+			mysql_query("UPDATE ORDMAS SET ORDINST='$notice' WHERE ORDNO='$ordno' AND EMAIL='$account'");
+		}
+	}
+	$payType = isset($_GET['payType']) ? $_GET['payType'] : 'A';
 	$account = $_GET['account'];
-	$payType = $_GET['payType'];
 	$sql1 = mysql_query("SELECT * FROM ORDMAS WHERE ORDNO='$ordno' AND EMAIL='$account'");
 	$fetch1 = mysql_fetch_array($sql1);
 	$shipfee = curl_post(array('module' => 'cue', 'target' => 'order_shipfee', 'order' => $ordno, 'account' => $_COOKIE['account']), 'cue');

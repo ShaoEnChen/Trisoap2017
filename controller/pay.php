@@ -27,7 +27,7 @@ if (isset($_GET['order']) || isset($_POST['order'])) {
 			$total = curl_post(array('module' => 'cue', 'target' => 'order_total', 'order' => $order, 'account' => $_COOKIE['account']), 'cue');
 			$address = curl_post(array('module' => 'cue', 'target' => 'order_address', 'order' => $order, 'account' => $_COOKIE['account']), 'cue');
 			$notice = curl_post(array('module' => 'cue', 'target' => 'order_notice', 'order' => $order, 'account' => $_COOKIE['account']), 'cue');
-			$cashing = 'index.php?route=cashing&ordno='.$order.'&account='.$_COOKIE['account'].'&payType=';
+			$cashing = 'index.php?route=cashing&ordno='.$order.'&account='.$_COOKIE['account'];
 			$content = str_replace('[order_shipfee]', $shipfee, $content);
 			$content = str_replace('[order_message]', $message, $content);
 			$content = str_replace('[order_discount]', $discountPrice.' '.$discountName, $content);

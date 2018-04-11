@@ -290,8 +290,10 @@ function discountApply() {
 }
 
 function makePayment(route) {
+	var address = document.getElementById('address').value;
+	var notice = document.getElementById('notice').value;
     var payType = document.getElementById('paytype').value;
-    location.assign(route + payType);
+    location.assign(route + "&address=" + address + "&notice=" + notice + "&paytype" + payType);
 }
 
 // ??
