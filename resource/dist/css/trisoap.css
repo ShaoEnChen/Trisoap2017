@@ -15,6 +15,7 @@
  * 2. Prevent adjustments of font size after orientation changes in
  *    IE on Windows Phone and in iOS.
  */
+@import url(http://fonts.googleapis.com/earlyaccess/notosanstc.css);
 @import url("https://fonts.googleapis.com/css?family=Great+Vibes");
 html {
   line-height: 1.15;
@@ -403,8 +404,14 @@ template {
 [hidden] {
   display: none; }
 
-h1, h2, h3, h4, h5, h6, p, span, div, a, label {
-  font-family: sans-serif; }
+h1, h2, h3, h4, h5, h6,
+p,
+span,
+a,
+label,
+th, td,
+.form-field {
+  font-family: 'Noto Sans TC', sans-serif; }
 
 .no-scroll {
   overflow: hidden; }
