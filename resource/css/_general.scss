@@ -97,7 +97,7 @@ a.no-href {
 	text-align: center;
 	background-color: $background-color;
 	color: $font-color;
-	font-weight: 200;
+	font-weight: 300;
 	transition-property: border-color, background-color, color;
 	transition-duration: .3s;
 	&:hover {
@@ -115,6 +115,7 @@ a.no-href {
 
 .primary-btn {
 	@include btn(#fff, transparent, #fff, $translucent-white, $translucent-white, #666);
+	font-weight: 200;
 }
 
 .text-btn {

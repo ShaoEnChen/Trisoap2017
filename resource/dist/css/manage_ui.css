@@ -462,9 +462,10 @@ a.no-href {
   text-align: center;
   background-color: transparent;
   color: #fff;
-  font-weight: 200;
+  font-weight: 300;
   transition-property: border-color, background-color, color;
-  transition-duration: .3s; }
+  transition-duration: .3s;
+  font-weight: 200; }
   .primary-btn:hover {
     border-color: rgba(255, 255, 255, 0.7);
     background-color: rgba(255, 255, 255, 0.7);
@@ -478,7 +479,7 @@ a.no-href {
   text-align: center;
   background-color: transparent;
   color: #000;
-  font-weight: 200;
+  font-weight: 300;
   transition-property: border-color, background-color, color;
   transition-duration: .3s; }
   .text-btn:hover {
@@ -494,7 +495,7 @@ a.no-href {
   text-align: center;
   background-color: #000;
   color: #fff;
-  font-weight: 200;
+  font-weight: 300;
   transition-property: border-color, background-color, color;
   transition-duration: .3s;
   padding: 10px 35px; }
@@ -510,7 +511,7 @@ a.no-href {
   text-align: center;
   background-color: #ff9c3f;
   color: #000;
-  font-weight: 200;
+  font-weight: 300;
   transition-property: border-color, background-color, color;
   transition-duration: .3s; }
   .promise-btn:hover {
@@ -525,7 +526,7 @@ a.no-href {
   text-align: center;
   background-color: #ccc;
   color: #000;
-  font-weight: 200;
+  font-weight: 300;
   transition-property: border-color, background-color, color;
   transition-duration: .3s; }
   .neural-btn:hover {
