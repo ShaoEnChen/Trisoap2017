@@ -5,12 +5,21 @@
 
 @import 'normalize';
 
-h1, h2, h3, h4, h5, h6, p, span, div, a, label {
-	font-family: sans-serif;
-}
+// universal main font - Noto Sans TC
+@import url(http://fonts.googleapis.com/earlyaccess/notosanstc.css);
 
 // font for Trisoap signature
 @import url('https://fonts.googleapis.com/css?family=Great+Vibes');
+
+h1, h2, h3, h4, h5, h6,
+p,
+span,
+a,
+label,
+th, td,
+.form-field {
+	font-family: 'Noto Sans TC', sans-serif;
+}
 
 $media-breakpoint-mobile: 979px;
 $wrap-lr-margin: 8%;
