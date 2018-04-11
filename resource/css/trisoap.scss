@@ -96,7 +96,7 @@ header {
 
 /* 1.2. Jumbotron - Img */
 
-$jumbotron-list: "about", "brand_intro", "contact", "faq", "media", "moonfest", "newyear", "partner", "shopping_guide", "single_product", "soap", "soapstring", "trial";
+$jumbotron-list: "about", "brand_intro", "contact", "faq", "media", "moonfest", "newyear", "partner", "products", "shopping_guide", "single_product", "soap", "soapstring", "trial";
 
 @each $item in $jumbotron-list {
 	#jumbotron-#{$item} {

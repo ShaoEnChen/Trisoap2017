@@ -158,7 +158,7 @@ function include_view_jumbotron($route) {
 }
 
 function include_view_image_jumbotron($route) {
-	$has_jumbotron = ['about', 'brand_intro', 'contact', 'faq', 'index', 'media', 'moonfest', 'newyear', 'partner', 'shopping_guide', 'single_product', 'soap', 'soapstring', 'trial'];
+	$has_jumbotron = ['about', 'brand_intro', 'contact', 'faq', 'index', 'media', 'moonfest', 'newyear', 'partner', 'products', 'shopping_guide', 'single_product', 'soap', 'soapstring', 'trial'];
 	if(!in_array($route, $has_jumbotron)) {
 		return;
 	}
@@ -210,10 +210,11 @@ function include_view_content($route) {
 		case 'contact':
 			$content = replace_company_info($content);
 			break;
-		case 'soap':
-		case 'soapstring':
 		case 'moonfest':
 		case 'newyear':
+		case 'products':
+		case 'soap':
+		case 'soapstring':
 			$content = fetch_products($route, $content);
 			break;
 		case 'single_product':
@@ -229,6 +230,15 @@ function include_view_content($route) {
 function fetch_products($route, $page) {
 	// Check route & set json prefix in resource/json/product/
 	switch ($route) {
+		case 'moonfest':
+			$item_type_prefix = 'moon_';
+			break;
+		case 'newyear':
+			$item_type_prefix = 'newyear_';
+			break;
+		case 'products':
+			$item_type_prefix = '';
+			break;
 		case 'soap':
 			$item_type_prefix = 'product_sp_';
 			if(isset($_GET['cat'])) {
@@ -241,20 +251,14 @@ function fetch_products($route, $page) {
 				$item_type_prefix .= $_GET['cat'];
 			}
 			break;
-		case 'moonfest':
-			$item_type_prefix = 'moon_';
-			break;
-		case 'newyear':
-			$item_type_prefix = 'newyear_';
-			break;
 		default:
 			return;
 	}
 	$product_template_dir = 'view/component/product.html';
 	$product_template = file_get_contents($product_template_dir);
 	$products = '';
-	$products_dir = 'resource/json/product/';
-	foreach (glob($products_dir . $item_type_prefix . '*.json') as $json_dir) {
+	$products_json_dir = 'resource/json/product/';
+	foreach (glob($products_json_dir . $item_type_prefix . '*.json') as $json_dir) {
 		$placeholder = ['{item_no}', '{name}', '{intro}', '{cover_photo}'];
 		$product_info = fetch_json($placeholder, $json_dir);
 		$product = $product_template;
