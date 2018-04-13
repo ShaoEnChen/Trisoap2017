@@ -158,7 +158,7 @@ function include_view_jumbotron($route) {
 }
 
 function include_view_image_jumbotron($route) {
-	$has_jumbotron = ['about', 'brand_intro', 'contact', 'faq', 'index', 'media', 'moonfest', 'newyear', 'partner', 'products', 'shopping_guide', 'single_product', 'soap', 'soapstring', 'trial'];
+	$has_jumbotron = ['about', 'brand_intro', 'contact', 'faq', 'gift_box', 'index', 'media', 'moonfest', 'newyear', 'partner', 'products', 'shopping_guide', 'single_product', 'soap', 'soapstring', 'trial'];
 	if(!in_array($route, $has_jumbotron)) {
 		return;
 	}
@@ -210,6 +210,7 @@ function include_view_content($route) {
 		case 'contact':
 			$content = replace_company_info($content);
 			break;
+		case 'gift_box':
 		case 'moonfest':
 		case 'newyear':
 		case 'products':
@@ -227,43 +228,66 @@ function include_view_content($route) {
 	echo $content;
 }
 
-function fetch_products($route, $page) {
-	// Check route & set json prefix in resource/json/product/
+function get_product_type_prefix($route) {
+	// Check route & set json file name prefix in resource/json/product/
 	switch ($route) {
+		case 'gift_box':
+			$product_type_prefix = '*_box_';
+			break;
 		case 'moonfest':
-			$item_type_prefix = 'moon_';
+			$product_type_prefix = 'moon_';
 			break;
 		case 'newyear':
-			$item_type_prefix = 'newyear_';
+			$product_type_prefix = 'newyear_';
 			break;
 		case 'products':
-			$item_type_prefix = '';
+			$product_type_prefix = '';
 			break;
 		case 'soap':
-			$item_type_prefix = 'product_sp_';
+			$product_type_prefix = 'product_sp_';
 			if(isset($_GET['cat'])) {
-				$item_type_prefix .= $_GET['cat'];
+				$product_type_prefix .= $_GET['cat'];
 			}
 			break;
 		case 'soapstring':
-			$item_type_prefix = 'product_ss_';
+			$product_type_prefix = 'product_ss_';
 			if(isset($_GET['cat'])) {
-				$item_type_prefix .= $_GET['cat'];
+				$product_type_prefix .= $_GET['cat'];
 			}
 			break;
 		default:
 			return;
 	}
+	return $product_type_prefix;
+}
+
+function get_products_content($route) {
+	// Check route & set json file name prefix in resource/json/product/
+	$product_type_prefix = get_product_type_prefix($route);
+
 	$product_template_dir = 'view/component/product.html';
 	$product_template = file_get_contents($product_template_dir);
+
 	$products = '';
 	$products_json_dir = 'resource/json/product/';
-	foreach (glob($products_json_dir . $item_type_prefix . '*.json') as $json_dir) {
+	foreach (glob($products_json_dir . $product_type_prefix . '*.json') as $json_dir) {
 		$placeholder = ['{item_no}', '{name}', '{intro}', '{cover_photo}'];
 		$product_info = fetch_json($placeholder, $json_dir);
 		$product = $product_template;
 		$product = str_replace($placeholder, $product_info, $product);
 		$products .= $product;
+	}
+	return $products;
+}
+
+function fetch_products($route, $page) {
+	$products = '';
+	if($route === 'products') {
+		$products .= get_products_content('soap');
+		$products .= get_products_content('soapstring');
+	}
+	else {
+		$products = get_products_content($route);
 	}
 
 	require_once('resource/simple_html_dom.php');
