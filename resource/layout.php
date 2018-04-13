@@ -228,54 +228,61 @@ function include_view_content($route) {
 	echo $content;
 }
 
-function get_product_type_prefix($route) {
-	// Check route & set json file name prefix in resource/json/product/
+function get_product_type_keyword($route) {
+	// Check route & set json file name keyword in resource/json/product/
 	switch ($route) {
 		case 'gift_box':
-			$product_type_prefix = '*_box_';
+			$product_type_keyword = 'product_.+_box_[0-9]+';
 			break;
 		case 'moonfest':
-			$product_type_prefix = 'moon_';
+			$product_type_keyword = 'moon_box_[0-9]+';
 			break;
 		case 'newyear':
-			$product_type_prefix = 'newyear_';
-			break;
-		case 'products':
-			$product_type_prefix = '';
+			$product_type_keyword = 'newyear_box_[0-9]+';
 			break;
 		case 'soap':
-			$product_type_prefix = 'product_sp_';
+			$product_type_keyword = 'product_sp_';
 			if(isset($_GET['cat'])) {
-				$product_type_prefix .= $_GET['cat'];
+				$product_type_keyword .= ($_GET['cat'] . '_[0-9]+');
+			}
+			else {
+				$product_type_keyword .= '(tt|yl)_[0-9]+';
 			}
 			break;
 		case 'soapstring':
-			$product_type_prefix = 'product_ss_';
+			$product_type_keyword = 'product_ss_';
 			if(isset($_GET['cat'])) {
-				$product_type_prefix .= $_GET['cat'];
+				$product_type_keyword .= ($_GET['cat'] . '_[0-9]+');
+			}
+			else {
+				$product_type_keyword .= '(tt|yl)_[0-9]+';
 			}
 			break;
 		default:
 			return;
 	}
-	return $product_type_prefix;
+	return $product_type_keyword;
 }
 
 function get_products_content($route) {
-	// Check route & set json file name prefix in resource/json/product/
-	$product_type_prefix = get_product_type_prefix($route);
+	// Check route & set json file name keyword in resource/json/product/
+	$product_type_keyword = get_product_type_keyword($route);
 
 	$product_template_dir = 'view/component/product.html';
 	$product_template = file_get_contents($product_template_dir);
 
 	$products = '';
-	$products_json_dir = 'resource/json/product/';
-	foreach (glob($products_json_dir . $product_type_prefix . '*.json') as $json_dir) {
-		$placeholder = ['{item_no}', '{name}', '{intro}', '{cover_photo}'];
-		$product_info = fetch_json($placeholder, $json_dir);
-		$product = $product_template;
-		$product = str_replace($placeholder, $product_info, $product);
-		$products .= $product;
+	$product_json = 'resource/json/product/*.json';
+	$product_regex_pattern = '/^resource\/json\/product\/' . $product_type_keyword . '\.json$/';
+
+	foreach (glob($product_json) as $json_dir) {
+		if(preg_match($product_regex_pattern, $json_dir)) {
+			$placeholder = ['{item_no}', '{name}', '{intro}', '{cover_photo}'];
+			$product_info = fetch_json($placeholder, $json_dir);
+			$product = $product_template;
+			$product = str_replace($placeholder, $product_info, $product);
+			$products .= $product;
+		}
 	}
 	return $products;
 }
@@ -285,6 +292,7 @@ function fetch_products($route, $page) {
 	if($route === 'products') {
 		$products .= get_products_content('soap');
 		$products .= get_products_content('soapstring');
+		$products .= get_products_content('gift_box');
 	}
 	else {
 		$products = get_products_content($route);
