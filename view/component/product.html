@@ -1,18 +1,23 @@
 					<div class="product">
 						<div class="product-cover">
-							<a class="product-link" href="index.php?route=single_product&itemno={item_no}">
+							<a href="index.php?route=single_product&itemno={item_no}">
 								<picture>
 									<source srcset="{cover_photo}.webp" type="image/webp">
 									<img class="product-cover-img" src="{cover_photo}.jpg" alt="{name}">
 								</picture>
 							</a>
+							<div class="product-add-to-cart">
+								<a href="javascript:void(0)" onclick="orderitemCreate('{item_no}')">
+									加入購物車
+								</a>
+							</div>
 						</div>
-						<h4 class="product-name">
+						<div class="product-info">
 							<a class="product-link" href="index.php?route=single_product&itemno={item_no}">
 								{name}
 							</a>
-						</h4>
-						<p class="product-intro">
-							{intro}
-						</p>
+							<span class="product-price">
+								NT${price}
+							</span>
+						</div>
 					</div>
