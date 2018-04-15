@@ -22,7 +22,14 @@ function FBmemberSignin(content) {
 function orderitemCreate(index) {
 	var request = new XMLHttpRequest();
 	request.open("POST", "index.php");
-	var amount = document.getElementById("purchase-amount").value;
+	var inputAmount = document.getElementById("purchase-amount"),
+		amount;
+	if (inputAmount !== null) {
+		amount = inputAmount.value;
+	}
+	else {	// no input field, default
+		amount = 1;
+	}
 	var data = "module=orderitem&event=create&index=" + index + "&amount=" + amount;
 	request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 	request.send(data);
