@@ -68,7 +68,7 @@ function check_dependency_script_map_api($route) {
 
 function check_dependency_script_user_function($route) {
 	$user_function_js_dir = "resource/dist/js/view/user_function.js";
-	$need_user_function = ['single_product'];
+	$need_user_function = ['gift_box', 'moonfest', 'newyear', 'products', 'single_product', 'soap', 'soapstring'];
 
 	if(in_array($route, $need_user_function)) {
 		echo '		<script src="' . $user_function_js_dir . '" defer></script>';
@@ -232,30 +232,30 @@ function get_product_type_keyword($route) {
 	// Check route & set json file name keyword in resource/json/product/
 	switch ($route) {
 		case 'gift_box':
-			$product_type_keyword = 'product_.+_box_[0-9]+';
+			$product_type_keyword = 'product_.+_box_\d+';
 			break;
 		case 'moonfest':
-			$product_type_keyword = 'moon_box_[0-9]+';
+			$product_type_keyword = 'moon_box_\d+';
 			break;
 		case 'newyear':
-			$product_type_keyword = 'newyear_box_[0-9]+';
+			$product_type_keyword = 'newyear_box_\d+';
 			break;
 		case 'soap':
 			$product_type_keyword = 'product_sp_';
 			if(isset($_GET['cat'])) {
-				$product_type_keyword .= ($_GET['cat'] . '_[0-9]+');
+				$product_type_keyword .= ($_GET['cat'] . '_\d+');
 			}
 			else {
-				$product_type_keyword .= '(tt|yl)_[0-9]+';
+				$product_type_keyword .= '(tt|yl)_\d+';
 			}
 			break;
 		case 'soapstring':
 			$product_type_keyword = 'product_ss_';
 			if(isset($_GET['cat'])) {
-				$product_type_keyword .= ($_GET['cat'] . '_[0-9]+');
+				$product_type_keyword .= ($_GET['cat'] . '_\d+');
 			}
 			else {
-				$product_type_keyword .= '(tt|yl)_[0-9]+';
+				$product_type_keyword .= '(tt|yl)_\d+';
 			}
 			break;
 		default:
@@ -277,7 +277,7 @@ function get_products_content($route) {
 
 	foreach (glob($product_json) as $json_dir) {
 		if(preg_match($product_regex_pattern, $json_dir)) {
-			$placeholder = ['{item_no}', '{name}', '{intro}', '{cover_photo}'];
+			$placeholder = ['{item_no}', '{name}', '{price}', '{cover_photo}'];
 			$product_info = fetch_json($placeholder, $json_dir);
 			$product = $product_template;
 			$product = str_replace($placeholder, $product_info, $product);
