@@ -268,10 +268,22 @@ function get_products_content($route) {
 	// Check route & set json file name keyword in resource/json/product/
 	$product_type_keyword = get_product_type_keyword($route);
 
-	$product_template_dir = 'view/component/product.html';
+	$product_template_dir = 'view/component/products/product.html';
 	$product_template = file_get_contents($product_template_dir);
 
 	$products = '';
+
+	// add product category title
+	$product_category_title_template_dir = 'view/component/products/product_category_title.html';
+	$product_category_title_template = file_get_contents($product_category_title_template_dir);
+
+	$product_category_title_json = 'resource/json/page_info/' . $route . '.json';
+	$placeholder = ['{title}'];
+	$product_category_title = fetch_json($placeholder, $product_category_title_json);
+
+	$product_category_title_template = str_replace($placeholder, $product_category_title, $product_category_title_template);
+	$products .= $product_category_title_template;
+
 	$product_json = 'resource/json/product/*.json';
 	$product_regex_pattern = '/^resource\/json\/product\/' . $product_type_keyword . '\.json$/';
 
