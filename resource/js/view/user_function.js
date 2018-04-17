@@ -169,7 +169,6 @@ function memberSignup() {
 	inputs.required.name = document.getElementById("name");
 	inputs.required.password1 = document.getElementById("password1");
 	inputs.required.password2 = document.getElementById("password2");
-	inputs.optional.phone = document.getElementById("phone");
 
 	for(let fieldType in inputs) {
 		for(let field in inputs[fieldType]) {
