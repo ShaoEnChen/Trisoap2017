@@ -294,15 +294,14 @@ function FBsignin($account, $name) {
 	}
 	else {
 		if ($sql1 == false || mysql_num_rows($sql1) == 0) {
-			$verify = get_verify();
 			date_default_timezone_set('Asia/Taipei');
 			$date = date("Y-m-d H:i:s");
-
 			$token = get_token();
 			$encrypted_token = md5($account.$token);
 
-			$sql2 = "INSERT INTO CUSMAS (EMAIL, CUSPW, CUSNM, CUSBIRTH, TEL, CUSTYPE, KNOWTYPE, TOKEN, VERIFY, CREATEDATE, UPDATEDATE, ACTCODE) VALUES ('$account', 'facebook', '$name', '1999-03-03', '0987654321', 'A', 'A', '$encrypted_token', '$verify', '$date', '$date', '1')";
+			$sql2 = "INSERT INTO CUSMAS (EMAIL, CUSPW, CUSNM, TOKEN, CREATEDATE, UPDATEDATE, ACTCODE) VALUES ('$account', 'facebook', '$name', '$encrypted_token', '$date', '$date', '1')";
 			if (mysql_query($sql2)) {
+				mysql_query("INSERT INTO ORDMAS (ORDNO, EMAIL, SHIPFEE, CREATEDATE, UPDATEDATE) VALUES ('0', '$account', '70', '$date', '$date')");
 				return array('message' => 'Success', 'token' => $token, 'identity' => 'B');
 			}
 			else {
@@ -385,15 +384,13 @@ function signup($content) {
 	else {
 		date_default_timezone_set('Asia/Taipei');
 		$date = date("Y-m-d H:i:s");
-		// $verify = get_verify();
 		$password = encrypt($password1);
 		$token = get_token();
 		$encrypted_token = md5($account.$token);
 		// message_verify($phone, $verify);
 		$sql2 = "INSERT INTO CUSMAS (EMAIL, CUSPW, CUSNM, TOKEN, CREATEDATE, UPDATEDATE, ACTCODE) VALUES ('$account', '$password', '$name', '$encrypted_token', '$date', '$date', '1')";
-		// $sql2 = "INSERT INTO CUSMAS (EMAIL, CUSPW, CUSNM, TEL, TOKEN, CREATEDATE, UPDATEDATE, ACTCODE) VALUES ('$account', '$password', '$name', '$phone', '$encrypted_token', '$date', '$date', '2')";
 		if (mysql_query($sql2)) {
-			mysql_query("INSERT INTO ORDMAS (ORDNO, EMAIL, CREATEDATE, UPDATEDATE) VALUES ('0', '$account', '$date', '$date')");
+			mysql_query("INSERT INTO ORDMAS (ORDNO, EMAIL, SHIPFEE, CREATEDATE, UPDATEDATE) VALUES ('0', '$account', '70', '$date', '$date')");
 			return array('message' => 'Success', 'token' => $token, 'identity' => 'B');
 		}
 		else {
