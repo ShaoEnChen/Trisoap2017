@@ -61,11 +61,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 			$account = $_GET['account'];
 			$sql = mysql_query("SELECT * FROM CUSMAS WHERE EMAIL='$account'");
 			$fetch = mysql_fetch_array($sql);
-			if (!empty($fetch['CUSBIRTH']) && !empty($fetch['CUSTYPE']) && !empty($fetch['KNOWTYPE']) && !empty($fetch['CUSSEX'])) {
-				echo 1;
+			if (in_array($fetch['CUSTYPE'], array('A', 'B', 'C', 'D')) && in_array($fetch['KNOWTYPE'], array('A', 'B', 'C', 'D', 'E')) && in_array($fetch['CUSSEX'], array('M', 'F'))) {
+				echo 'valid';
 			}
 			else {
-				echo 0;
+				echo 'invalid';
 			}
 			return;
 		}

@@ -150,7 +150,7 @@ function orderRecalculate($account, $ordno) {
 	$sql1 = mysql_query("SELECT * FROM ORDITEMMAS WHERE ORDNO='$ordno' AND EMAIL='$account'");
 	$total = 0;
 	while ($fetch1 = mysql_fetch_array($sql1)) {
-		$total += query_price($fetch1['ITEMNO']) * $fetch1['ORDAMT'];
+		$total = $total + query_price($fetch1['ITEMNO']) * $fetch1['ORDAMT'];
 	}
 	$shipfee = ($total >= 777) ? 0 : 70;
 	date_default_timezone_set('Asia/Taipei');
