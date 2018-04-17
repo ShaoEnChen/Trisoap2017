@@ -112,7 +112,6 @@ if (isset($_GET['in']) || isset($_POST['in'])) {
 		if (isset($_COOKIE['account'])) {
 			$adddata = curl_post(array('module' => 'cue', 'target' => 'member_adddata', 'account' => $_COOKIE['account']), 'cue');
 			if ($adddata) {
-				// 這邊開始要確認
 				$page = 'member_adddata';
 				include_u_view_head($page);
 
