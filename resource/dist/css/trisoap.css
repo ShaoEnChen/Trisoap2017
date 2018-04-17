@@ -536,7 +536,7 @@ a.no-href {
 
 .form-field {
   box-sizing: border-box;
-  padding: 10px 24px;
+  padding: 8px 24px;
   border: solid 1px #ddd;
   color: #555;
   font-weight: 200;
@@ -1390,6 +1390,10 @@ header {
 #contact-subject {
   margin: 60px 8% 0; }
 
+#contact-form .form-field {
+  padding-top: 10px;
+  padding-bottom: 10px; }
+
 #contact-form-name,
 #contact-form-email,
 #contact-form-phone,
@@ -1455,7 +1459,7 @@ header {
 
 .guide-subtitle {
   margin-bottom: 20px;
-  font-weight: 200;
+  font-weight: 300;
   letter-spacing: 0.18em; }
 
 .guide-icon {
@@ -1577,7 +1581,10 @@ header {
     box-sizing: border-box;
     border-radius: 18px;
     padding: 6px;
-    background-color: rgba(255, 255, 255, 0.6); } }
+    background-color: rgba(255, 255, 255, 0.6); }
+    .product-add-to-cart-mobile .cart-icon {
+      width: 24px;
+      height: auto; } }
 
 /* 10.2. 單項商品頁｜Single Product */
 @media screen and (min-width: 980px) {
@@ -1613,26 +1620,33 @@ header {
 .ui-accordion .ui-accordion-content {
   padding-top: 0; }
 
-#single-product-price,
-#purchase-amount,
-#single-product-purchase > .submit-btn {
+#single-product-desc .main-content-title,
+#single-product-desc #single-product-price {
   display: inline-block;
-  vertical-align: middle;
-  margin: 10px 0; }
+  margin: 0 0 13px; }
 
 #single-product-price {
-  margin: 0 20px;
   color: #555;
   font-weight: 200;
   line-height: 1.5;
   letter-spacing: 0.18em; }
 
-label[for="purchase-amount"] {
-  color: #555; }
+#purchase-amount,
+#single-product-purchase > .add-to-cart-link {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 13px 6px; }
 
 #purchase-amount {
   min-width: 66px;
   max-width: 120px; }
+
+#single-product-purchase > .add-to-cart-link .cart-icon {
+  width: 30px;
+  height: auto; }
+
+label[for="purchase-amount"] {
+  color: #555; }
 
 /* -------------------------------------------------------------------------
  * 11. 客製化專區｜Customize
