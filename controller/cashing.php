@@ -66,7 +66,7 @@ if (isset($_GET['ordno']) && isset($_GET['account'])) {
 	    array_push($obj->Send['Items'], array('Name' => "運費", 'Price' => $shipfee, 'Currency' => "元", 'Quantity' => (int) "1", 'URL' => "xxx"));
 
 	    if ($message > 0) {
-	    	array_push($obj->Send['Items'], array('Name' => "留心語折扣", 'Price' => -$message, 'Currency' => "元", 'Quantity' => (int) "1", 'URL' => "xxx"));
+	    	array_push($obj->Send['Items'], array('Name' => "帳號內折扣", 'Price' => -$message, 'Currency' => "元", 'Quantity' => (int) "1", 'URL' => "xxx"));
 	    }
 
 	    if ($discountPrice > 0) {
