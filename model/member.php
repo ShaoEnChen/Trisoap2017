@@ -354,7 +354,6 @@ function signup($content) {
 	$name = isset($content['name']) ? $content['name'] : '';
 	$password1 = isset($content['password1']) ? $content['password1'] : '';
 	$password2 = isset($content['password2']) ? $content['password2'] : '';
-	$phone = isset($content['phone']) ? $content['phone'] : '';
 	$sql1 = mysql_query("SELECT * FROM CUSMAS WHERE EMAIL='$account'");
 	if (empty($account)) {
 		return 'Empty account';
@@ -367,9 +366,6 @@ function signup($content) {
 	}
 	elseif (empty($password2)) {
 		return 'Empty verify password';
-	}
-	elseif (empty($phone)) {
-		return 'Empty phone number';
 	}
 	elseif (mysql_num_rows($sql1) > 0) {
 		return 'Registered account';
@@ -386,9 +382,6 @@ function signup($content) {
 	elseif (!ctype_alnum($password1) || !ctype_alnum($password2)) {
 		return 'Wrong password format';
 	}
-	elseif (!preg_match('/^[0][9][0-9]{8}$/', $phone)) {
-		return 'Wrong phone format';
-	}
 	else {
 		date_default_timezone_set('Asia/Taipei');
 		$date = date("Y-m-d H:i:s");
@@ -397,7 +390,7 @@ function signup($content) {
 		$token = get_token();
 		$encrypted_token = md5($account.$token);
 		// message_verify($phone, $verify);
-		$sql2 = "INSERT INTO CUSMAS (EMAIL, CUSPW, CUSNM, TEL, TOKEN, CREATEDATE, UPDATEDATE, ACTCODE) VALUES ('$account', '$password', '$name', '$phone', '$encrypted_token', '$date', '$date', '1')";
+		$sql2 = "INSERT INTO CUSMAS (EMAIL, CUSPW, CUSNM, TOKEN, CREATEDATE, UPDATEDATE, ACTCODE) VALUES ('$account', '$password', '$name', '$encrypted_token', '$date', '$date', '1')";
 		// $sql2 = "INSERT INTO CUSMAS (EMAIL, CUSPW, CUSNM, TEL, TOKEN, CREATEDATE, UPDATEDATE, ACTCODE) VALUES ('$account', '$password', '$name', '$phone', '$encrypted_token', '$date', '$date', '2')";
 		if (mysql_query($sql2)) {
 			mysql_query("INSERT INTO ORDMAS (ORDNO, EMAIL, CREATEDATE, UPDATEDATE) VALUES ('0', '$account', '$date', '$date')");
