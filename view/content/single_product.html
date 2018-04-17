@@ -6,19 +6,31 @@
 					</div>
 				</div>
 				<div id="single-product-desc">
-					<h3 class="main-content-title">{name}</h3>
+					<h2 class="main-content-title">
+						{name}
+					</h2>
+					<h2 id="single-product-price">
+						NT${price}
+					</h2>
+					<div id="single-product-purchase">
+						<label for="purchase-amount">
+							數量：
+						</label>
+						<input type="number" id="purchase-amount" class="form-field" name="ORDAMT" value="1" min="1">
+						<a class="add-to-cart-link" href="javascript:void(0)" onclick="orderitemCreate('{item_no}')">
+							<!-- cart by praveen patchu from the Noun Project -->
+							<picture>
+								<source srcset="resource/img/product/add_to_cart.webp" type="image/webp">
+								<img class="cart-icon" src="resource/img/product/add_to_cart.png" alt="加入購物車">
+							</picture>
+						</a>
+					</div>
 					<p class="main-content-text">{intro}</p>
 					<hr class="text-sep-sm">
 					<p class="main-content-text">{ingredients}</p>
 					<p class="main-content-text">{skin_type}</p>
 					<div id="single-product-accordion"></div>
 					<hr class="text-sep-sm">
-					<div id="single-product-purchase">
-						<h2 id="single-product-price">{price}</h2>
-						<label for="purchase-amount">數量：</label>
-						<input type="number" id="purchase-amount" class="form-field" name="ORDAMT" value="1" min="1">
-						<a class="submit-btn" href="javascript:void(0)" onclick="orderitemCreate('{item_no}')">加入購物車</a>
-					</div>
 				</div>
 			</div>
 		</main>
