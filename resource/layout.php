@@ -268,11 +268,14 @@ function get_product_category_title($route) {
 	$product_category_title_template_dir = 'view/component/products/product_category_title.html';
 	$product_category_title_template = file_get_contents($product_category_title_template_dir);
 
-	$product_category_title_json = 'resource/json/page_info/' . $route . '.json';
 	$placeholder = ['{title}'];
+	$product_category_title_json = 'resource/json/page_info/' . $route . '.json';
 	$product_category_title = fetch_json($placeholder, $product_category_title_json);
-
 	$product_category_title_template = str_replace($placeholder, $product_category_title, $product_category_title_template);
+
+	$placeholder = '{route}';
+	$product_category_title_template = str_replace($placeholder, $route, $product_category_title_template);
+
 	return $product_category_title_template;
 }
 

@@ -950,18 +950,23 @@ $buy-now-btn-width: 44%;
 	}
 }
 
+#category-guide,
+#products .main-content-title,
+#products .product {
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+#category-guide {
+	margin: 1em 0;
+}
+
 #products {
 	display: flex;
 	flex-flow: row wrap;
 
 	.main-content-title {
 		width: 100%;
-	}
-
-	.main-content-title,
-	.product {
-		padding-left: 20px;
-		padding-right: 20px;
 	}
 }
 
@@ -983,18 +988,27 @@ $buy-now-btn-width: 44%;
 }
 
 .product-info {
-	margin: 1em 0;
+	margin: 1.5em 0 1em;
 }
 
 .product-link {
 	text-decoration: none;
 	color: $main-font-color;
 	transition: color .3s;
-	font-size: 16px;
 	font-weight: normal;
 	&:hover {
-		color: #666;
+		color: #222;
 	}
+}
+
+.main-content-title .product-link {
+	font-weight: inherit;
+}
+
+.product .product-link,
+.product-price {
+	font-size: 18px;
+	font-weight: 300;
 }
 
 .product-price {

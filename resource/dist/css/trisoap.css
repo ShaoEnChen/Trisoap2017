@@ -1484,15 +1484,20 @@ header {
   color: #555;
   line-height: 1.7; }
 
+#category-guide,
+#products .main-content-title,
+#products .product {
+  padding-left: 20px;
+  padding-right: 20px; }
+
+#category-guide {
+  margin: 1em 0; }
+
 #products {
   display: flex;
   flex-flow: row wrap; }
   #products .main-content-title {
     width: 100%; }
-  #products .main-content-title,
-  #products .product {
-    padding-left: 20px;
-    padding-right: 20px; }
 
 .product {
   box-sizing: border-box;
@@ -1509,16 +1514,23 @@ header {
   height: auto; }
 
 .product-info {
-  margin: 1em 0; }
+  margin: 1.5em 0 1em; }
 
 .product-link {
   text-decoration: none;
   color: #555;
   transition: color .3s;
-  font-size: 16px;
   font-weight: normal; }
   .product-link:hover {
-    color: #666; }
+    color: #222; }
+
+.main-content-title .product-link {
+  font-weight: inherit; }
+
+.product .product-link,
+.product-price {
+  font-size: 18px;
+  font-weight: 300; }
 
 .product-price {
   color: #555; }
