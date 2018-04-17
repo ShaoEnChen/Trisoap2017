@@ -221,6 +221,9 @@ elseif ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			$account = $_POST['account'];
 			$sql = mysql_query("SELECT * FROM CUSMAS WHERE EMAIL='$account'");
 			$fetch = mysql_fetch_array($sql);
+			echo $fetch['CUSTYPE'];
+			echo $fetch['KNOWTYPE'];
+			echo $fetch['CUSSEX'];
 			if (in_array($fetch['CUSTYPE'], array('A', 'B', 'C', 'D')) || in_array($fetch['KNOWTYPE'], array('A', 'B', 'C', 'D', 'E')) || in_array($fetch['CUSSEX'], array('M', 'F'))) {
 				echo 'invalid';
 			}
