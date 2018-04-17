@@ -230,9 +230,10 @@ elseif ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		elseif ($_POST['target'] == 'order_shipfee') {
 			$order = ($_POST['order'] == 'cart') ? '0' : $_POST['order'];
 			$account = $_POST['account'];
+			echo 'shipfee';
 			$sql = mysql_query("SELECT * FROM ORDMAS WHERE ORDNO='$order' AND EMAIL='$account' AND ACTCODE='1'");
 			$fetch = mysql_fetch_array($sql);
-			echo $fetch['SHIPFEE'];
+			//echo $fetch['SHIPFEE'];
 			return;
 		}
 		elseif ($_POST['target'] == 'order_message') {
