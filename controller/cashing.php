@@ -1,10 +1,11 @@
 <?php
 include_once('router.php');
-
 include_once("library/AllPay.Payment.Integration.php");
 include_once("resource/database.php");
 
 if (isset($_GET['ordno']) && isset($_GET['account'])) {
+	$payType = isset($_GET['payType']) ? $_GET['payType'] : 'A';
+	$account = $_GET['account'];
 	$address = $_GET['address'];
 	$notice = $_GET['notice'];
 	if (empty($address)) {
@@ -13,20 +14,16 @@ if (isset($_GET['ordno']) && isset($_GET['account'])) {
 		return;
 	}
 	$ordno = ($_GET['ordno'] == 'cart') ? '0' : $_GET['ordno'];
-	if (!empty($notice)) {
-		if (strlen($notice) <= 100) {
-			mysql_query("UPDATE ORDMAS SET ORDINST='$notice' WHERE ORDNO='$ordno' AND EMAIL='$account'");
-		}
+	if (!empty($notice) && strlen($notice) <= 100) {
+		mysql_query("UPDATE ORDMAS SET ORDINST='$notice' WHERE ORDNO='$ordno' AND EMAIL='$account'");
 	}
-	$payType = isset($_GET['payType']) ? $_GET['payType'] : 'A';
-	$account = $_GET['account'];
 	$sql1 = mysql_query("SELECT * FROM ORDMAS WHERE ORDNO='$ordno' AND EMAIL='$account'");
 	$fetch1 = mysql_fetch_array($sql1);
-	$shipfee = curl_post(array('module' => 'cue', 'target' => 'order_shipfee', 'order' => $ordno, 'account' => $_COOKIE['account']), 'cue');
-	$message = curl_post(array('module' => 'cue', 'target' => 'order_message', 'account' => $_COOKIE['account']), 'cue');
-	$discountPrice = curl_post(array('module' => 'cue', 'target' => 'order_discountPrice', 'order' => $ordno, 'account' => $_COOKIE['account']), 'cue');
-	$discountName = curl_post(array('module' => 'cue', 'target' => 'order_discountName', 'order' => $ordno, 'account' => $_COOKIE['account']), 'cue');
-	$total = curl_post(array('module' => 'cue', 'target' => 'order_total', 'order' => $ordno, 'account' => $_COOKIE['account']), 'cue');
+	$shipfee = curl_post(array('module' => 'cue', 'target' => 'order_shipfee', 'order' => $ordno, 'account' => $account), 'cue');
+	$message = curl_post(array('module' => 'cue', 'target' => 'order_message', 'account' => $account), 'cue');
+	$discountPrice = curl_post(array('module' => 'cue', 'target' => 'order_discountPrice', 'order' => $ordno, 'account' => $account), 'cue');
+	$discountName = curl_post(array('module' => 'cue', 'target' => 'order_discountName', 'order' => $ordno, 'account' => $account), 'cue');
+	$total = curl_post(array('module' => 'cue', 'target' => 'order_total', 'order' => $ordno, 'account' => $account), 'cue');
 
 	try {
 	    $obj = new AllInOne();
@@ -66,7 +63,7 @@ if (isset($_GET['ordno']) && isset($_GET['account'])) {
 	    array_push($obj->Send['Items'], array('Name' => "運費", 'Price' => $shipfee, 'Currency' => "元", 'Quantity' => (int) "1", 'URL' => "xxx"));
 
 	    if ($message > 0) {
-	    	array_push($obj->Send['Items'], array('Name' => "留心語折扣", 'Price' => -$message, 'Currency' => "元", 'Quantity' => (int) "1", 'URL' => "xxx"));
+	    	array_push($obj->Send['Items'], array('Name' => "帳號內折扣", 'Price' => -$message, 'Currency' => "元", 'Quantity' => (int) "1", 'URL' => "xxx"));
 	    }
 
 	    if ($discountPrice > 0) {

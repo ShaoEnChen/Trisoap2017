@@ -61,18 +61,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 			$account = $_GET['account'];
 			$sql = mysql_query("SELECT * FROM CUSMAS WHERE EMAIL='$account'");
 			$fetch = mysql_fetch_array($sql);
-			if (in_array($fetch['CUSTYPE'], array('A', 'B', 'C', 'D')) && in_array($fetch['KNOWTYPE'], array('A', 'B', 'C', 'D', 'E')) && in_array($fetch['CUSSEX'], array('M', 'F'))) {
-				echo 'valid';
+			if (in_array($fetch['CUSTYPE'], array('A', 'B', 'C', 'D')) || in_array($fetch['KNOWTYPE'], array('A', 'B', 'C', 'D', 'E')) || in_array($fetch['CUSSEX'], array('M', 'F'))) {
+				echo 'invalid';
 			}
 			else {
-				echo 'invalid';
+				echo 'valid';
 			}
 			return;
 		}
 		elseif ($_GET['target'] == 'order_shipfee') {
-			$order = $_GET['order'];
+			$order = ($_GET['order'] == 'cart') ? '0' : $_GET['order'];
 			$account = $_GET['account'];
-			$sql = ($order == 'cart') ? mysql_query("SELECT * FROM ORDMAS WHERE ORDNO='0' AND EMAIL='$account' AND ACTCODE='1'") : mysql_query("SELECT * FROM ORDMAS WHERE ORDNO='$order' AND ACTCODE='1'");
+			$sql = mysql_query("SELECT * FROM ORDMAS WHERE ORDNO='$order' AND EMAIL='$account' AND ACTCODE='1'");
 			$fetch = mysql_fetch_array($sql);
 			echo $fetch['SHIPFEE'];
 			return;
@@ -85,9 +85,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 			return;
 		}
 		elseif ($_GET['target'] == 'order_discountPrice') {
-			$order = $_GET['order'];
+			$order = ($_GET['order'] == 'cart') ? '0' : $_GET['order'];
 			$account = $_GET['account'];
-			$sql = ($order == 'cart') ? mysql_query("SELECT * FROM ORDMAS WHERE ORDNO='0' AND EMAIL='$account' AND ACTCODE='1'") : mysql_query("SELECT * FROM ORDMAS WHERE ORDNO='$order' AND ACTCODE='1'");
+			$sql = mysql_query("SELECT * FROM ORDMAS WHERE ORDNO='$order' AND EMAIL='$account' AND ACTCODE='1'");
 			$fetch = mysql_fetch_array($sql);
 			if (empty($fetch['DCTID'])) {
 				echo '0';
@@ -98,9 +98,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 			}
 		}
 		elseif ($_GET['target'] == 'order_discountName') {
-			$order = $_GET['order'];
+			$order = ($_GET['order'] == 'cart') ? '0' : $_GET['order'];
 			$account = $_GET['account'];
-			$sql = ($order == 'cart') ? mysql_query("SELECT * FROM ORDMAS WHERE ORDNO='0' AND EMAIL='$account' AND ACTCODE='1'") : mysql_query("SELECT * FROM ORDMAS WHERE ORDNO='$order' AND ACTCODE='1'");
+			$sql = mysql_query("SELECT * FROM ORDMAS WHERE ORDNO='$order' AND EMAIL='$account' AND ACTCODE='1'");
 			$fetch = mysql_fetch_array($sql);
 			if (empty($fetch['DCTID'])) {
 				echo '';
@@ -111,19 +111,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 			}
 		}
 		elseif ($_GET['target'] == 'order_total') {
-			$order = $_GET['order'];
+			$order = ($_GET['order'] == 'cart') ? '0' : $_GET['order'];
 			$account = $_GET['account'];
-			$total = 0;
-			$sql1 = ($order == 'cart') ? mysql_query("SELECT * FROM ORDMAS WHERE ORDNO='0' AND EMAIL='$account' AND ACTCODE='1'") : mysql_query("SELECT * FROM ORDMAS WHERE ORDNO='$order' AND ACTCODE='1'");
+			$sql1 = mysql_query("SELECT * FROM ORDMAS WHERE ORDNO='$order' AND EMAIL='$account' AND ACTCODE='1'");
 			$fetch1 = mysql_fetch_array($sql1);
-			$total += $fetch1['TOTALPRICE'];
-			$total -= $fetch1['SHIPFEE'];
+			$total = $fetch1['TOTALPRICE'] - $fetch1['SHIPFEE'];
 			$sql2 = mysql_query("SELECT * FROM CUSMAS WHERE EMAIL='$account'");
 			$fetch2 = mysql_fetch_array($sql2);
-			$total -= $fetch2['DISCOUNT'];
-			$sql3 = ($order == 'cart') ? mysql_query("SELECT * FROM ORDMAS WHERE ORDNO='0' AND EMAIL='$account' AND ACTCODE='1'") : mysql_query("SELECT * FROM ORDMAS WHERE ORDNO='$order' AND ACTCODE='1'");
+			$total = $total - $fetch2['DISCOUNT'];
+			$sql3 = mysql_query("SELECT * FROM ORDMAS WHERE ORDNO='$order' AND EMAIL='$account' AND ACTCODE='1'");
 			$fetch3 = mysql_fetch_array($sql3);
-			$total -= query_discountPrice($fetch3['DCTID']);
+			$total = $total - query_discountPrice($fetch3['DCTID']);
 			echo $total;
 			return;
 		}
@@ -144,9 +142,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 			}
 		}
 		elseif ($_GET['target'] == 'order_notice') {
-			$order = $_GET['order'];
+			$order = ($_GET['order'] == 'cart') ? '0' : $_GET['order'];
 			$account = $_GET['account'];
-			$sql = ($order == 'cart') ? mysql_query("SELECT * FROM ORDMAS WHERE ORDNO='0' AND EMAIL='$account' AND ACTCODE='1'") : mysql_query("SELECT * FROM ORDMAS WHERE ORDNO='$order' AND ACTCODE='1'");
+			$sql = mysql_query("SELECT * FROM ORDMAS WHERE ORDNO='$order' AND EMAIL='$account' AND ACTCODE='1'");
 			$fetch = mysql_fetch_array($sql);
 			echo $fetch['ORDINST'];
 			return;
@@ -221,20 +219,21 @@ elseif ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			$account = $_POST['account'];
 			$sql = mysql_query("SELECT * FROM CUSMAS WHERE EMAIL='$account'");
 			$fetch = mysql_fetch_array($sql);
-			if (!empty($fetch['CUSBIRTH']) && !empty($fetch['CUSTYPE']) && !empty($fetch['KNOWTYPE']) && !empty($fetch['CUSSEX'])) {
-				echo 1;
+			if (in_array($fetch['CUSTYPE'], array('A', 'B', 'C', 'D')) || in_array($fetch['KNOWTYPE'], array('A', 'B', 'C', 'D', 'E')) || in_array($fetch['CUSSEX'], array('M', 'F'))) {
+				echo 'invalid';
 			}
 			else {
-				echo 0;
+				echo 'valid';
 			}
 			return;
 		}
 		elseif ($_POST['target'] == 'order_shipfee') {
-			$order = $_POST['order'];
+			$order = ($_POST['order'] == 'cart') ? '0' : $_POST['order'];
 			$account = $_POST['account'];
-			$sql = ($order == 'cart') ? mysql_query("SELECT * FROM ORDMAS WHERE ORDNO='0' AND EMAIL='$account' AND ACTCODE='1'") : mysql_query("SELECT * FROM ORDMAS WHERE ORDNO='$order' AND ACTCODE='1'");
+			echo $order.' '.$account;
+			$sql = mysql_query("SELECT * FROM ORDMAS WHERE ORDNO='$order' AND EMAIL='$account' AND ACTCODE='1'");
 			$fetch = mysql_fetch_array($sql);
-			echo $fetch['SHIPFEE'];
+			echo var_dump($fetch);
 			return;
 		}
 		elseif ($_POST['target'] == 'order_message') {
@@ -245,9 +244,9 @@ elseif ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			return;
 		}
 		elseif ($_POST['target'] == 'order_discountPrice') {
-			$order = $_POST['order'];
+			$order = ($_POST['order'] == 'cart') ? '0' : $_POST['order'];
 			$account = $_POST['account'];
-			$sql = ($order == 'cart') ? mysql_query("SELECT * FROM ORDMAS WHERE ORDNO='0' AND EMAIL='$account' AND ACTCODE='1'") : mysql_query("SELECT * FROM ORDMAS WHERE ORDNO='$order' AND ACTCODE='1'");
+			$sql = mysql_query("SELECT * FROM ORDMAS WHERE ORDNO='$order' AND EMAIL='$account' AND ACTCODE='1'");
 			$fetch = mysql_fetch_array($sql);
 			if (empty($fetch['DCTID'])) {
 				echo '0';
@@ -258,9 +257,9 @@ elseif ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			}
 		}
 		elseif ($_POST['target'] == 'order_discountName') {
-			$order = $_POST['order'];
+			$order = ($_POST['order'] == 'cart') ? '0' : $_POST['order'];
 			$account = $_POST['account'];
-			$sql = ($order == 'cart') ? mysql_query("SELECT * FROM ORDMAS WHERE ORDNO='0' AND EMAIL='$account' AND ACTCODE='1'") : mysql_query("SELECT * FROM ORDMAS WHERE ORDNO='$order' AND ACTCODE='1'");
+			$sql = mysql_query("SELECT * FROM ORDMAS WHERE ORDNO='$order' AND EMAIL='$account' AND ACTCODE='1'");
 			$fetch = mysql_fetch_array($sql);
 			if (empty($fetch['DCTID'])) {
 				echo '';
@@ -271,19 +270,17 @@ elseif ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			}
 		}
 		elseif ($_POST['target'] == 'order_total') {
-			$order = $_POST['order'];
+			$order = ($_POST['order'] == 'cart') ? '0' : $_POST['order'];
 			$account = $_POST['account'];
-			$total = 0;
-			$sql1 = ($order == 'cart') ? mysql_query("SELECT * FROM ORDMAS WHERE ORDNO='0' AND EMAIL='$account' AND ACTCODE='1'") : mysql_query("SELECT * FROM ORDMAS WHERE ORDNO='$order' AND ACTCODE='1'");
+			$sql1 = mysql_query("SELECT * FROM ORDMAS WHERE ORDNO='$order' AND EMAIL='$account' AND ACTCODE='1'");
 			$fetch1 = mysql_fetch_array($sql1);
-			$total += $fetch1['TOTALPRICE'];
-			$total += $fetch1['SHIPFEE'];
+			$total = $fetch1['TOTALPRICE'] - $fetch1['SHIPFEE'];
 			$sql2 = mysql_query("SELECT * FROM CUSMAS WHERE EMAIL='$account'");
 			$fetch2 = mysql_fetch_array($sql2);
-			$total -= $fetch2['DISCOUNT'];
-			$sql3 = ($order == 'cart') ? mysql_query("SELECT * FROM ORDMAS WHERE ORDNO='0' AND EMAIL='$account' AND ACTCODE='1'") : mysql_query("SELECT * FROM ORDMAS WHERE ORDNO='$order' AND ACTCODE='1'");
+			$total = $total - $fetch2['DISCOUNT'];
+			$sql3 = mysql_query("SELECT * FROM ORDMAS WHERE ORDNO='$order' AND EMAIL='$account' AND ACTCODE='1'");
 			$fetch3 = mysql_fetch_array($sql3);
-			$total -= query_discountPrice($fetch3['DCTID']);
+			$total = $total - query_discountPrice($fetch3['DCTID']);
 			echo $total;
 			return;
 		}
@@ -304,9 +301,9 @@ elseif ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			}
 		}
 		elseif ($_POST['target'] == 'order_notice') {
-			$order = $_POST['order'];
+			$order = ($_POST['order'] == 'cart') ? '0' : $_POST['order'];
 			$account = $_POST['account'];
-			$sql = ($order == 'cart') ? mysql_query("SELECT * FROM ORDMAS WHERE ORDNO='0' AND EMAIL='$account' AND ACTCODE='1'") : mysql_query("SELECT * FROM ORDMAS WHERE ORDNO='$order' AND ACTCODE='1'");
+			$sql = mysql_query("SELECT * FROM ORDMAS WHERE ORDNO='$order' AND EMAIL='$account' AND ACTCODE='1'");
 			$fetch = mysql_fetch_array($sql);
 			echo $fetch['ORDINST'];
 			return;
