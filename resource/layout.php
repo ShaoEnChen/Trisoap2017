@@ -338,7 +338,7 @@ function fetch_single_product($route, $page) {
 	$json_dir = 'resource/json/product/' . $itemno . '.json';
 
 	// Set info directly
-	$placeholder = ['{item_no}', '{name}', '{intro}', '{ingredients}', '{skin_type}', '{feature}', '{price}'];
+	$placeholder = ['{item_no}', '{name}', '{intro}', '{ingredients}', '{skin_type}', '{price}'];
 	$product_info = fetch_json($placeholder, $json_dir);
 	$page = str_replace($placeholder, $product_info, $page);
 
@@ -353,36 +353,6 @@ function fetch_single_product($route, $page) {
 		$images .= $image_template;
 	}
 	$page = str_replace($placeholder, $images, $page);
-
-	// Set #single-product-desc accordion
-	$placeholder = ['{feature}', '{peasant_farmer}', '{supporting_organization}'];
-	$templates_dir = ['view/component/single_product/feature.html', 'view/component/single_product/peasant_farmer.html', 'view/component/single_product/supporting_organization.html'];
-	$product_info = fetch_json($placeholder, $json_dir);
-	$accordion = '';
-	foreach ($product_info as $key => $value) {
-		if(!empty($value)) {
-			$template = file_get_contents($templates_dir[$key]);
-
-			// Handle different type of $value
-			if(is_array($value)) {	// has organization properties
-				$org_template_dir = 'view/component/single_product/each_org.html';
-				$orgs = '';
-				foreach ($value as $org) {
-					$org_template = file_get_contents($org_template_dir);
-					$org_placeholder = ['{name}', '{intro}', '{link_href}', '{link_text}'];
-					$org_info = [$org['name'], $org['intro'], $org['link']['link_href'], $org['link']['link_text']];
-					$org_template = str_replace($org_placeholder, $org_info, $org_template);
-					$orgs .= $org_template;
-				}
-				$template = str_replace($placeholder[$key], $orgs, $template);
-			}
-			else {
-				$template = str_replace($placeholder[$key], $value, $template);
-			}
-
-			$accordion .= $template;
-		}
-	}
 
 	require_once('resource/simple_html_dom.php');
 	$page_html = str_get_html($page);
