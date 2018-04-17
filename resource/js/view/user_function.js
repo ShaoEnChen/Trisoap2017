@@ -169,6 +169,13 @@ function memberSignup() {
 	inputs.required.name = document.getElementById("name");
 	inputs.required.password1 = document.getElementById("password1");
 	inputs.required.password2 = document.getElementById("password2");
+	inputs.optional.phone = document.getElementById("phone");
+	inputs.optional.skintype = document.getElementById("skintype");
+	inputs.optional.birth = document.getElementById("birth");
+	inputs.optional.add = document.getElementById("address");
+	inputs.optional.taxid = document.getElementById("taxid");
+	inputs.optional.knowtype = document.getElementById("knowtype");
+	inputs.optional.notice = document.getElementById("notice");
 
 	for(let fieldType in inputs) {
 		for(let field in inputs[fieldType]) {
