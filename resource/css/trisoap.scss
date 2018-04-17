@@ -369,10 +369,26 @@ $buy-now-btn-width: 44%;
 
 .act-video-wrap {
 	text-align: center;
+}
+
+.act-video {
+	display: inline-block;
+	width: 46%;
+	margin: 0 1%;
+}
+
+.act-video-iframe {
+	position: relative;
+	height: 0;
+	padding-bottom: 100% * 9 / 16;
 
 	iframe {
-		width: 46%;
-		height: auto;
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		left: 0;
+		right: 0;
+		bottom: 0;
 	}
 }
 
