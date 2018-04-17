@@ -35,8 +35,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 		}
 		elseif ($_GET['event'] == 'signup') {
 			$message = signup($_GET);
-			echo json_encode(array('message' => $message));
-			return;
+			if (is_array($message)) {
+				echo json_encode($message);
+				return;
+			}
+			else {
+				echo json_encode(array('message' => $message));
+				return;
+			}
 		}
 		elseif ($_GET['event'] == 'verify') {
 			$message = verify($_GET['account'], $_GET['verify']);
@@ -150,8 +156,14 @@ elseif ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		}
 		elseif ($_POST['event'] == 'signup') {
 			$message = signup($_POST);
-			echo json_encode(array('message' => $message));
-			return;
+			if (is_array($message)) {
+				echo json_encode($message);
+				return;
+			}
+			else {
+				echo json_encode(array('message' => $message));
+				return;
+			}
 		}
 		elseif ($_POST['event'] == 'verify') {
 			$message = verify($_POST['account'], $_POST['verify']);
