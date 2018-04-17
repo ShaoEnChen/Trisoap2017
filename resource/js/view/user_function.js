@@ -248,6 +248,30 @@ function memberEdit() {
 	}
 }
 
+function memberAdddata() {
+	var request = new XMLHttpRequest();
+	request.open("POST", "index.php");
+	var sex = document.getElementById("sex").value;
+	var birth = document.getElementById("birth").value;
+	var skintype = document.getElementById("skintype").value;
+	var knowtype = document.getElementById("knowtype").value;
+	var data = "module=member&event=adddata&sex=" + sex + "&birth=" + birth + "&skintype=" + skintype + "&knowtype=" + knowtype;
+	request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+	request.send(data);
+	request.onreadystatechange = function() {
+		if (request.readyState === 4 && request.status === 200) {
+			var data = JSON.parse(request.responseText);
+			if (data.message == 'Success') {
+				alert("感謝您參加本次活動，您的折扣碼為" + data.discount);
+				location.assign("index.php");
+			}
+			else {
+				alert(data.message);
+			}
+		}
+	}
+}
+
 function memberChangePassword() {
 	var request = new XMLHttpRequest();
 	request.open("POST", "index.php");

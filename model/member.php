@@ -99,8 +99,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 		}
 		elseif ($_GET['event'] == 'adddata') {
 			$message = adddata($_GET);
-			echo json_encode(array('message' => $message));
-			return;
+			if (is_array($message)) {
+				echo json_encode($message);
+				return;
+			}
+			else {
+				echo json_encode(array('message' => $message));
+				return;
+			}
 		}
 		else {
 			echo json_encode(array('message' => 'Invalid event called'));
@@ -208,8 +214,14 @@ elseif ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		}
 		elseif ($_POST['event'] == 'adddata') {
 			$message = adddata($_POST);
-			echo json_encode(array('message' => $message));
-			return;
+			if (is_array($message)) {
+				echo json_encode($message);
+				return;
+			}
+			else {
+				echo json_encode(array('message' => $message));
+				return;
+			}
 		}
 		else {
 			echo json_encode(array('message' => 'Invalid event called'));
@@ -675,40 +687,20 @@ function adddata($content) {
 	$discount = 0;
 	$sql1 = mysql_query("SELECT * FROM CUSMAS WHERE EMAIL='$account'");
 	$fetch1 = mysql_fetch_array($sql1);
-	if (!empty($sex)) {
-		if (in_array($sex, array('M', 'F'))) {
-			$discount = $discount + 5;
-		}
-		else {
-			return 'Wrong sex format';
-		}
+	$explode = explode('-', $birth);
+	if (!checkdate($explode[1], $explode[2], $explode[0])) {
+		return 'Wrong birth format';
 	}
-	if (!empty($skintype)) {
-		if (in_array($skintype, array('A', 'B', 'C', 'D'))) {
-			$discount = $discount + 5;
-		}
-		else {
-			return 'Wrong skin type format';
-		}
+	elseif (!in_array($sex, array('M', 'F'))) {
+		return 'Wrong sex format';
 	}
-	if (!empty($knowtype)) {
-		if (in_array($knowtype, array('A', 'B', 'C', 'D', 'E'))) {
-			$discount = $discount + 5;
-		}
-		else {
-			return 'Wrong know type format';
-		}
+	elseif (!in_array($skintype, array('A', 'B', 'C', 'D'))) {
+		return 'Wrong skin type format';
 	}
-	if (!empty($birth)) {
-		$explode = explode('-', $birth);
-		if (checkdate($explode[1], $explode[2], $explode[0])) {
-			$discount = $discount + 5;
-		}
-		else {
-			return 'Wrong birth format';
-		}
+	elseif (!in_array($knowtype, array('A', 'B', 'C', 'D', 'E'))) {
+		return 'Wrong know type format';
 	}
-	if (empty($account)) {
+	elseif (empty($account)) {
 		return 'Empty account';
 	}
 	elseif (mysql_num_rows($sql1) == 0) {
@@ -723,9 +715,16 @@ function adddata($content) {
 	else {
 		date_default_timezone_set('Asia/Taipei');
 		$date = date("Y-m-d H:i:s");
-		$sql2 = "UPDATE CUSMAS SET CUSBIRTH='$birth', CUSSEX='$sex', CUSTYPE='$skintype', KNOWTYPE='$knowtype', UPDATEDATE='$date' WHERE EMAIL='$account'";
+		$sql2 = "UPDATE CUSMAS SET CUSBIRTH='$birth', CUSSEX='$sex', CUSTYPE='$skintype', KNOWTYPE='$knowtype', DISCOUNT=DISCOUNT+20, UPDATEDATE='$date' WHERE EMAIL='$account'";
 		if (mysql_query($sql2)) {
-			return 'Success';
+			do {
+				$code = get_code();
+				$sql3 = mysql_query("SELECT * FROM DCTMAS WHERE DCTID='$code'");
+			} while (mysql_fetch_array($sql3) > 0);
+			date_default_timezone_set('Asia/Taipei');
+			$date = date("Y-m-d H:i:s");
+			mysql_query("INSERT INTO DCTMAS (DCTID, DCTPRICE, DCTSTAT, DCTNM, CREATEPERSON, CREATEDATE) VALUES ('$code', '20', '1', '$name', 'trisoap2015@gmail.com', '$date')");
+			return array('message' => 'Success', 'discount' => $code);
 		}
 		else {
 			return 'Database operation error';

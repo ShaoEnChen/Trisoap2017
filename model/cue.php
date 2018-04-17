@@ -57,6 +57,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 			echo $fetch['SPEINS'];
 			return;
 		}
+		elseif ($_GET['target'] == 'member_adddata') {
+			$account = $_GET['account'];
+			$sql = mysql_query("SELECT * FROM CUSMAS WHERE EMAIL='$account'");
+			$fetch = mysql_fetch_array($sql);
+			if (!empty($fetch['CUSBIRTH']) && !empty($fetch['CUSTYPE']) && !empty($fetch['KNOWTYPE']) && !empty($fetch['CUSSEX'])) {
+				echo 1;
+			}
+			else {
+				echo 0;
+			}
+			return;
+		}
 		elseif ($_GET['target'] == 'order_shipfee') {
 			$order = $_GET['order'];
 			$account = $_GET['account'];
@@ -203,6 +215,18 @@ elseif ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			$sql = mysql_query("SELECT SPEINS FROM CUSMAS WHERE EMAIL='$account'");
 			$fetch = mysql_fetch_array($sql);
 			echo $fetch['SPEINS'];
+			return;
+		}
+		elseif ($_POST['target'] == 'member_adddata') {
+			$account = $_POST['account'];
+			$sql = mysql_query("SELECT * FROM CUSMAS WHERE EMAIL='$account'");
+			$fetch = mysql_fetch_array($sql);
+			if (!empty($fetch['CUSBIRTH']) && !empty($fetch['CUSTYPE']) && !empty($fetch['KNOWTYPE']) && !empty($fetch['CUSSEX'])) {
+				echo 1;
+			}
+			else {
+				echo 0;
+			}
 			return;
 		}
 		elseif ($_POST['target'] == 'order_shipfee') {
