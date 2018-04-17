@@ -21,7 +21,7 @@ if (isset($_GET['order']) || isset($_POST['order'])) {
 			$content = str_replace('[payContent]', $innerContent, $content);
 			$content = str_replace('[payOperate]', $operate, $content);
 			$shipfee = curl_post(array('module' => 'cue', 'target' => 'order_shipfee', 'order' => $order, 'account' => $_COOKIE['account']), 'cue');
-			$shipfee = var_dump($shipfee);
+			$shipfee = $_COOKIE['account'];
 			$message = curl_post(array('module' => 'cue', 'target' => 'order_message', 'account' => $_COOKIE['account']), 'cue');
 			$message = var_dump($message);
 			$discountPrice = curl_post(array('module' => 'cue', 'target' => 'order_discountPrice', 'order' => $order, 'account' => $_COOKIE['account']), 'cue');
