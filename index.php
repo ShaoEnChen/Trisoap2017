@@ -66,11 +66,13 @@ elseif (isset($_POST['module']) && isset($_POST['event'])) {
 			$return = json_decode(curl_post($_POST, $_POST['module']), true);
 			if($return['message'] == 'Success') {
 				setcookie('account', $_POST['account']);
+				setcookie('token', $return['token']);
+				setcookie('identity', $return['identity']);
 			}
 			echo json_encode(array('message' => $return['message']));
 			break;
 
-		case 'verify':
+		/*case 'verify':
 			$id = array('account' => $_COOKIE['account']);
 			$post = array_merge($id, $_POST);
 			$return = json_decode(curl_post($post, $_POST['module']), true);
@@ -79,7 +81,7 @@ elseif (isset($_POST['module']) && isset($_POST['event'])) {
 				setcookie('identity', $return['identity']);
 			}
 			echo json_encode(array('message' => $return['message']));
-			break;
+			break;*/
 
 		case 'reset_password':
 			echo curl_post($_POST, $_POST['module']);
