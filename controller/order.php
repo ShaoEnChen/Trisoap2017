@@ -131,7 +131,16 @@ if (isset($_GET['in']) || isset($_POST['in'])) {
 			$content = file_get_contents($content_dir);
 
 			$operate = curl_post(array('module' => 'order', 'event' => 'cusOperate', 'account' => $_COOKIE['account'], 'token' => $_COOKIE['token']), 'order');
-			$content = str_replace('[cusOrderOperate]', $operate, $content);
+
+			if (empty($operate)) {
+				$innerContent = file_get_contents('view/user_function/cart_empty.html');
+				$content = str_replace('[orderContent]', $innerContent, $content);
+			}
+			else {
+				$innerContent = file_get_contents('view/user_function/cart_content.html');
+				$content = str_replace('[orderContent]', $innerContent, $content);
+				$content = str_replace('[cusOrderOperate]', $operate, $content);
+			}
 
 			$name = curl_post(array('module' => 'cue', 'target' => 'member_name', 'account' => $_COOKIE['account']), 'cue');
 			$content = str_replace('[member_name]', $name, $content);
