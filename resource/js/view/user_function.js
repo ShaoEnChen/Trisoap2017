@@ -158,32 +158,39 @@ function memberLogout() {
 function memberSignup() {
 	var request = new XMLHttpRequest();
 	request.open("POST", "index.php");
-	var account = document.getElementById("account").value;
-	var name = document.getElementById("name").value;
-	var password1 = document.getElementById("password1").value;
-	var password2 = document.getElementById("password2").value;
-	var skintype = document.getElementById("skintype").value;
-	var birth = document.getElementById("birth").value;
-	var phone = document.getElementById("phone").value;
-	var add = document.getElementById("address").value;
-	var taxid = document.getElementById("taxid").value;
-	var knowtype = document.getElementById("knowtype").value;
-	var notice = document.getElementById("notice").value;
-	var data = "module=member&event=signup&account=" + account + "&name=" + name + "&password1=" + password1 + "&password2=" + password2 + "&skintype=" + skintype + "&birth=" + birth + "&phone=" + phone + "&add=" + add + "&taxid=" + taxid + "&knowtype=" + knowtype + "&notice=" + notice;
-	request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-	request.send(data);
-	request.onreadystatechange = function() {
-		if (request.readyState === 4 && request.status === 200) {
-			var data = JSON.parse(request.responseText);
-			if (data.message == 'Success') {
-				alert("請查看簡訊驗證碼進行驗證。");
-				location.assign("index.php?route=member&in=verify");
+
+	let inputs = {
+			required: {},
+			optional: {}
+		},
+		data = "module=member&event=signup";
+
+	inputs.required.account = document.getElementById("account");
+	inputs.required.name = document.getElementById("name");
+	inputs.required.password1 = document.getElementById("password1");
+	inputs.required.password2 = document.getElementById("password2");
+	inputs.optional.phone = document.getElementById("phone");
+	inputs.optional.skintype = document.getElementById("skintype");
+	inputs.optional.birth = document.getElementById("birth");
+	inputs.optional.add = document.getElementById("address");
+	inputs.optional.taxid = document.getElementById("taxid");
+	inputs.optional.knowtype = document.getElementById("knowtype");
+	inputs.optional.notice = document.getElementById("notice");
+
+	for(let fieldType in inputs) {
+		for(let field in inputs[fieldType]) {
+			if (inputs[fieldType][field] === null) {
+				inputs[fieldType][field] = {};
+				inputs[fieldType][field].value = '';
 			}
-			else {
-				alert(data.message);
-			}
+			data += "&";
+			data += field;
+			data += "=";
+			data += inputs[fieldType][field].value;
 		}
 	}
+	console.log(data);
+
 }
 
 function memberVerify() {
