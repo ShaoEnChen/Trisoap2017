@@ -189,8 +189,18 @@ function memberSignup() {
 			data += inputs[fieldType][field].value;
 		}
 	}
-	console.log(data);
 
+	request.onreadystatechange = function() {
+		if (request.readyState === 4 && request.status === 200) {
+			var data = JSON.parse(request.responseText);
+			if (data.message == 'Success') {
+				location.assign("index.php");
+			}
+			else {
+				alert(data.message);
+			}
+		}
+	}
 }
 
 function memberVerify() {
