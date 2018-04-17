@@ -1,10 +1,11 @@
 <?php
 include_once('router.php');
-
 include_once("library/AllPay.Payment.Integration.php");
 include_once("resource/database.php");
 
 if (isset($_GET['ordno']) && isset($_GET['account'])) {
+	$payType = isset($_GET['payType']) ? $_GET['payType'] : 'A';
+	$account = $_GET['account'];
 	$address = $_GET['address'];
 	$notice = $_GET['notice'];
 	if (empty($address)) {
@@ -16,8 +17,6 @@ if (isset($_GET['ordno']) && isset($_GET['account'])) {
 	if (!empty($notice) && strlen($notice) <= 100) {
 		mysql_query("UPDATE ORDMAS SET ORDINST='$notice' WHERE ORDNO='$ordno' AND EMAIL='$account'");
 	}
-	$payType = isset($_GET['payType']) ? $_GET['payType'] : 'A';
-	$account = $_GET['account'];
 	$sql1 = mysql_query("SELECT * FROM ORDMAS WHERE ORDNO='$ordno' AND EMAIL='$account'");
 	$fetch1 = mysql_fetch_array($sql1);
 	$shipfee = curl_post(array('module' => 'cue', 'target' => 'order_shipfee', 'order' => $ordno, 'account' => $account), 'cue');

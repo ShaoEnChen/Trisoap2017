@@ -23,8 +23,11 @@ if (isset($_GET['order']) || isset($_POST['order'])) {
 			$shipfee = curl_post(array('module' => 'cue', 'target' => 'order_shipfee', 'order' => $order, 'account' => $_COOKIE['account']), 'cue');
 			$shipfee = var_dump($shipfee);
 			$message = curl_post(array('module' => 'cue', 'target' => 'order_message', 'account' => $_COOKIE['account']), 'cue');
+			$message = var_dump($message);
 			$discountPrice = curl_post(array('module' => 'cue', 'target' => 'order_discountPrice', 'order' => $order, 'account' => $_COOKIE['account']), 'cue');
+			$discountPrice = var_dump($discountPrice);
 			$discountName = curl_post(array('module' => 'cue', 'target' => 'order_discountName', 'order' => $order, 'account' => $_COOKIE['account']), 'cue');
+			$discountName = var_dump($discountName);
 			$total = curl_post(array('module' => 'cue', 'target' => 'order_total', 'order' => $order, 'account' => $_COOKIE['account']), 'cue');
 			$address = curl_post(array('module' => 'cue', 'target' => 'order_address', 'order' => $order, 'account' => $_COOKIE['account']), 'cue');
 			$notice = curl_post(array('module' => 'cue', 'target' => 'order_notice', 'order' => $order, 'account' => $_COOKIE['account']), 'cue');
