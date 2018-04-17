@@ -123,7 +123,7 @@ function create($account, $token, $index, $amount) {
 	$sql1 = mysql_query("SELECT * FROM CUSMAS WHERE EMAIL='$account'");
 	$fetch1 = mysql_fetch_array($sql1);
 	$sql2 = mysql_query("SELECT * FROM ORDITEMMAS WHERE EMAIL='$account' AND ITEMNO='$index' AND ORDNO='0'");
-	$sql3 = mysql_query("SELECT * FROM ITEMMAS WHERE ITEMNO='$index'");
+	$sql3 = mysql_query("SELECT * FROM ITEMMAS WHERE ITEMNO='$index' AND ACTCODE='1'");
 	if (empty($account)) {
 		return 'Empty account';
 	}
