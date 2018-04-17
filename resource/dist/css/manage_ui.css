@@ -718,14 +718,14 @@ a.no-href {
   .nav-dropdown-submenu {
     position: absolute;
     padding: 0;
-    min-width: 210px;
+    min-width: 160px;
     z-index: 9; }
   .nav-dropdown-menu {
     top: 60px;
     margin-left: -13px; }
   .nav-dropdown-submenu {
     top: 0;
-    left: 210px;
+    left: 160px;
     margin-left: 0; } }
 
 @media screen and (max-width: 979px) {
