@@ -228,52 +228,43 @@ function include_view_content($route) {
 	echo $content;
 }
 
-function get_product_type_keyword($route) {
+function get_product_keyword($route) {
 	// Check route & set json file name keyword in resource/json/product/
 	switch ($route) {
 		case 'gift_box':
-			$product_type_keyword = 'product_.+_box_\d+';
+			$product_keyword = 'product_.+_box_\d+';
 			break;
 		case 'moonfest':
-			$product_type_keyword = 'moon_box_\d+';
+			$product_keyword = 'moon_box_\d+';
 			break;
 		case 'newyear':
-			$product_type_keyword = 'newyear_box_\d+';
+			$product_keyword = 'newyear_box_\d+';
 			break;
 		case 'soap':
-			$product_type_keyword = 'product_sp_';
+			$product_keyword = 'product_sp_';
 			if(isset($_GET['cat'])) {
-				$product_type_keyword .= ($_GET['cat'] . '_\d+');
+				$product_keyword .= ($_GET['cat'] . '_\d+');
 			}
 			else {
-				$product_type_keyword .= '(tt|yl)_\d+';
+				$product_keyword .= '(tt|yl)_\d+';
 			}
 			break;
 		case 'soapstring':
-			$product_type_keyword = 'product_ss_';
+			$product_keyword = 'product_ss_';
 			if(isset($_GET['cat'])) {
-				$product_type_keyword .= ($_GET['cat'] . '_\d+');
+				$product_keyword .= ($_GET['cat'] . '_\d+');
 			}
 			else {
-				$product_type_keyword .= '(tt|yl)_\d+';
+				$product_keyword .= '(tt|yl)_\d+';
 			}
 			break;
 		default:
 			return;
 	}
-	return $product_type_keyword;
+	return $product_keyword;
 }
 
-function get_products_content($route) {
-	// Check route & set json file name keyword in resource/json/product/
-	$product_type_keyword = get_product_type_keyword($route);
-
-	$product_template_dir = 'view/component/products/product.html';
-	$product_template = file_get_contents($product_template_dir);
-
-	$products = '';
-
-	// add product category title
+function get_product_category_title($route) {
 	$product_category_title_template_dir = 'view/component/products/product_category_title.html';
 	$product_category_title_template = file_get_contents($product_category_title_template_dir);
 
@@ -282,10 +273,18 @@ function get_products_content($route) {
 	$product_category_title = fetch_json($placeholder, $product_category_title_json);
 
 	$product_category_title_template = str_replace($placeholder, $product_category_title, $product_category_title_template);
+	return $product_category_title_template;
+}
+
+function get_products_content($route, $product_keyword) {
+	$product_template_dir = 'view/component/products/product.html';
+	$product_template = file_get_contents($product_template_dir);
+
+	$products = '';
 	$products .= $product_category_title_template;
 
 	$product_json = 'resource/json/product/*.json';
-	$product_regex_pattern = '/^resource\/json\/product\/' . $product_type_keyword . '\.json$/';
+	$product_regex_pattern = '/^resource\/json\/product\/' . $product_keyword . '\.json$/';
 
 	foreach (glob($product_json) as $json_dir) {
 		if(preg_match($product_regex_pattern, $json_dir)) {
@@ -301,13 +300,24 @@ function get_products_content($route) {
 
 function fetch_products($route, $page) {
 	$products = '';
+
 	if($route === 'products') {
-		$products .= get_products_content('soap');
-		$products .= get_products_content('soapstring');
-		$products .= get_products_content('gift_box');
+		$keyword = get_product_keyword('soap');
+		$products .= get_product_category_title('soap');
+		$products .= get_products_content('soap', $keyword);
+
+		$keyword = get_product_keyword('soapstring');
+		$products .= get_product_category_title('soapstring');
+		$products .= get_products_content('soapstring', $keyword);
+
+		$keyword = get_product_keyword('gift_box');
+		$products .= get_product_category_title('gift_box');
+		$products .= get_products_content('gift_box', $keyword);
 	}
 	else {
-		$products = get_products_content($route);
+		$keyword = get_product_keyword($route);
+		$products .= get_product_category_title($route);
+		$products .= get_products_content($route, $keyword);
 	}
 
 	require_once('resource/simple_html_dom.php');
