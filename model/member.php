@@ -50,7 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 			}
 		}
 		elseif ($_GET['event'] == 'edit') {
-			$message = edit($_GET['account'], $_GET['token'], $_GET['name'], $_GET['address'], $_GET['skintype'], $_GET['phone'], $_GET['taxid'], $_GET['notice']);
+			$message = edit($_GET);
 			echo json_encode(array('message' => $message));
 			return;
 		}
@@ -96,6 +96,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 				echo $message;
 				return;
 			}
+		}
+		elseif ($_GET['event'] == 'adddata') {
+			$message = adddata($_GET);
+			echo json_encode(array('message' => $message));
+			return;
 		}
 		else {
 			echo json_encode(array('message' => 'Invalid event called'));
@@ -154,7 +159,7 @@ elseif ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			}
 		}
 		elseif ($_POST['event'] == 'edit') {
-			$message = edit($_POST['account'], $_POST['token'], $_POST['name'], $_POST['address'], $_POST['skintype'], $_POST['phone'], $_POST['taxid'], $_POST['notice']);
+			$message = edit($_POST);
 			echo json_encode(array('message' => $message));
 			return;
 		}
@@ -200,6 +205,11 @@ elseif ($_SERVER['REQUEST_METHOD'] == 'POST') {
 				echo $message;
 				return;
 			}
+		}
+		elseif ($_POST['event'] == 'adddata') {
+			$message = adddata($_POST);
+			echo json_encode(array('message' => $message));
+			return;
 		}
 		else {
 			echo json_encode(array('message' => 'Invalid event called'));
@@ -320,34 +330,8 @@ function signup($content) {
 	$name = isset($content['name']) ? $content['name'] : '';
 	$password1 = isset($content['password1']) ? $content['password1'] : '';
 	$password2 = isset($content['password2']) ? $content['password2'] : '';
-	$add = isset($content['add']) ? $content['add'] : '';
-	$skintype = isset($content['skintype']) ? $content['skintype'] : '';
-	$knowtype = isset($content['knowtype']) ? $content['knowtype'] : '';
 	$phone = isset($content['phone']) ? $content['phone'] : '';
-	$taxid = isset($content['taxid']) ? $content['taxid'] : '';
-	$birth = isset($content['birth']) ? $content['birth'] : '';
-	$sex = isset($content['sex']) ? $content['sex'] : '';
-	$notice = isset($content['notice']) ? $content['notice'] : '';
-	$discount = 0;
 	$sql1 = mysql_query("SELECT * FROM CUSMAS WHERE EMAIL='$account'");
-	if (!empty($birth)) {
-		$explode = explode('-', $birth);
-		if (!checkdate($explode[1], $explode[2], $explode[0])) {
-			return 'Wrong birth format';
-		}
-		else {
-			$discount = $discount + 5;
-		}
-	}
-	if (!empty($skintype)) {
-		$discount = $discount + 5;
-	}
-	if (!empty($knowtype)) {
-		$discount = $discount + 5;
-	}
-	if (!empty($sex)) {
-		$discount = $discount + 5;
-	}
 	if (empty($account)) {
 		return 'Empty account';
 	}
@@ -381,21 +365,18 @@ function signup($content) {
 	elseif (!preg_match('/^[0][9][0-9]{8}$/', $phone)) {
 		return 'Wrong phone format';
 	}
-	elseif (!empty($taxid) && !check_taxid($taxid)) {
-		return 'Wrong taxid format';
-	}
 	else {
 		date_default_timezone_set('Asia/Taipei');
 		$date = date("Y-m-d H:i:s");
-		$verify = get_verify();
+		// $verify = get_verify();
 		$password = encrypt($password1);
 		$token = get_token();
 		$encrypted_token = md5($account.$token);
 		// message_verify($phone, $verify);
-		$sql2 = "INSERT INTO CUSMAS (EMAIL, CUSPW, CUSNM, CUSADD, CUSBIRTH, TEL, CUSTYPE, KNOWTYPE, TAXID, DISCOUNT, SPEINS, TOKEN, VERIFY, CREATEDATE, UPDATEDATE, ACTCODE) VALUES ('$account', '$password', '$name', '$add', '$birth', '$phone', '$skintype', '$knowtype', '$taxid', '$discount', '$notice', '$encrypted_token', '$verify', '$date', '$date', '1')";
-		// $sql2 = "INSERT INTO CUSMAS (EMAIL, CUSPW, CUSNM, CUSADD, CUSBIRTH, TEL, CUSTYPE, KNOWTYPE, TAXID, DISCOUNT, SPEINS, VERIFY, CREATEDATE, UPDATEDATE, ACTCODE) VALUES ('$account', '$password', '$name', '$add', '$birth', '$phone', '$skintype', '$knowtype', '$taxid', '$discount', '$notice', '$verify', '$date', '$date', '2')";		
+		$sql2 = "INSERT INTO CUSMAS (EMAIL, CUSPW, CUSNM, TEL, TOKEN, CREATEDATE, UPDATEDATE, ACTCODE) VALUES ('$account', '$password', '$name', '$phone', '$encrypted_token', '$date', '$date', '1')";
+		// $sql2 = "INSERT INTO CUSMAS (EMAIL, CUSPW, CUSNM, TEL, TOKEN, CREATEDATE, UPDATEDATE, ACTCODE) VALUES ('$account', '$password', '$name', '$phone', '$encrypted_token', '$date', '$date', '2')";
 		if (mysql_query($sql2)) {
-			mysql_query("INSERT INTO ORDMAS (ORDNO, EMAIL, ORDADD, CREATEDATE, UPDATEDATE) VALUES ('0', '$account', '$add', '$date', '$date')");
+			mysql_query("INSERT INTO ORDMAS (ORDNO, EMAIL, CREATEDATE, UPDATEDATE) VALUES ('0', '$account', '$date', '$date')");
 			return array('message' => 'Success', 'token' => $token, 'identity' => 'B');
 		}
 		else {
@@ -438,7 +419,14 @@ function verify($account, $verify) {
 	}
 }
 
-function edit($account, $token, $name, $address, $skintype=null, $phone, $taxid=null, $notice=null) {
+function edit($content) {
+	$account = isset($content['account']) ? $content['account'] : '';
+	$token = isset($content['token']) ? $content['token'] : '';
+	$name = isset($content['name']) ? $content['name'] : '';
+	$phone = isset($content['phone']) ? $content['phone'] : '';
+	$taxid = isset($content['taxid']) ? $content['taxid'] : '';
+	$address = isset($content['address']) ? $content['address'] : '';
+	$notice = isset($content['notice']) ? $content['notice'] : '';
 	$sql1 = mysql_query("SELECT * FROM CUSMAS WHERE EMAIL='$account'");
 	$fetch1 = mysql_fetch_array($sql1);
 	if (empty($account)) {
@@ -465,10 +453,13 @@ function edit($account, $token, $name, $address, $skintype=null, $phone, $taxid=
 	elseif (!empty($taxid) && !check_taxid($taxid)) {
 		return 'Wrong taxid format';
 	}
+	elseif (strlen($notice) > 100) {
+		return 'Notice exceed length limit';
+	}
 	else {
 		date_default_timezone_set('Asia/Taipei');
 		$date = date("Y-m-d H:i:s");
-		$sql2 = "UPDATE CUSMAS SET CUSNM='$name', CUSADD='$address', CUSTYPE='$skintype', TEL='$phone', TAXID='$taxid', SPEINS='$notice', UPDATEDATE='$date' WHERE EMAIL='$account'";
+		$sql2 = "UPDATE CUSMAS SET CUSNM='$name', CUSADD='$address', TEL='$phone', TAXID='$taxid', SPEINS='$notice', UPDATEDATE='$date' WHERE EMAIL='$account'";
 		if (mysql_query($sql2)) {
 			return 'Success';
 		}
@@ -616,23 +607,14 @@ function detail($account, $token, $index) {
 	}
 	else {
 		$fetch2 = mysql_fetch_array($sql2);
-
 		$content .= '<p>顧客權限 ' . show_CUSIDT($fetch2['CUSIDT']) . '</p>';
-
 		$content .= '<p>顧客膚質 ' . show_CUSTYPE($fetch2['CUSTYPE']) . '</p>';
-
 		$content .= '<p>統一編號 ' . $fetch2['TAXID'] . '</p>';
-
 		$content .= '<p>月消費額 ' . $fetch2['SALEAMTMTD'] . '</p>';
-
 		$content .= '<p>季消費額 ' . $fetch2['SALEAMTSTD'] . '</p>';
-
 		$content .= '<p>年消費額 ' . $fetch2['SALEAMTYTD'] . '</p>';
-
 		$content .= '<p>總消費額 ' . $fetch2['SALEAMT'] . '</p>';
-
 		$content .= '<p>備註 ' . $fetch2['SPEINS'] . '</p>';
-
 		return array('message' => 'Success', 'content' => $content);
 	}
 }
@@ -680,5 +662,73 @@ function show($account, $token) {
 			$content .= '</tr>';
 		}
 		return array('message' => 'Success', 'content' => $content);
+	}
+}
+
+function adddata($content) {
+	$account = $content['account'];
+	$token = $content['token'];
+	$sex = isset($content['sex']) ? $content['sex'] : '';
+	$skintype = isset($content['skintype']) ? $content['skintype'] : '';
+	$knowtype = isset($content['knowtype']) ? $content['knowtype'] : '';
+	$birth = isset($content['birth']) ? $content['birth'] : '';
+	$discount = 0;
+	$sql1 = mysql_query("SELECT * FROM CUSMAS WHERE EMAIL='$account'");
+	$fetch1 = mysql_fetch_array($sql1);
+	if (!empty($sex)) {
+		if (in_array($sex, array('M', 'F'))) {
+			$discount = $discount + 5;
+		}
+		else {
+			return 'Wrong sex format';
+		}
+	}
+	if (!empty($skintype)) {
+		if (in_array($skintype, array('A', 'B', 'C', 'D'))) {
+			$discount = $discount + 5;
+		}
+		else {
+			return 'Wrong skin type format';
+		}
+	}
+	if (!empty($knowtype)) {
+		if (in_array($knowtype, array('A', 'B', 'C', 'D', 'E'))) {
+			$discount = $discount + 5;
+		}
+		else {
+			return 'Wrong know type format';
+		}
+	}
+	if (!empty($birth)) {
+		$explode = explode('-', $birth);
+		if (checkdate($explode[1], $explode[2], $explode[0])) {
+			$discount = $discount + 5;
+		}
+		else {
+			return 'Wrong birth format';
+		}
+	}
+	if (empty($account)) {
+		return 'Empty account';
+	}
+	elseif (mysql_num_rows($sql1) == 0) {
+		return 'Unregistered account';
+	}
+	elseif (empty($token)) {
+		return 'Not logged in';
+	}
+	elseif ($fetch1['TOKEN'] != md5($account.$token)) {
+		return 'Wrong token';
+	}
+	else {
+		date_default_timezone_set('Asia/Taipei');
+		$date = date("Y-m-d H:i:s");
+		$sql2 = "UPDATE CUSMAS SET CUSBIRTH='$birth', CUSSEX='$sex', CUSTYPE='$skintype', KNOWTYPE='$knowtype', UPDATEDATE='$date' WHERE EMAIL='$account'";
+		if (mysql_query($sql2)) {
+			return 'Success';
+		}
+		else {
+			return 'Database operation error';
+		}
 	}
 }

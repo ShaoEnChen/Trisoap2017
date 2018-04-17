@@ -218,11 +218,10 @@ function memberEdit() {
 	request.open("POST", "index.php");
 	var name = document.getElementById("name").value;
 	var address = document.getElementById("address").value;
-	var skintype = document.getElementById("skintype").value;
 	var phone = document.getElementById("phone").value;
 	var taxid = document.getElementById("taxid").value;
 	var notice = document.getElementById("notice").value;
-	var data = "module=member&event=edit&name=" + name + "&address=" + address + "&skintype=" + skintype + "&phone=" + phone + "&taxid=" + taxid + "&notice=" + notice;
+	var data = "module=member&event=edit&name=" + name + "&address=" + address + "&phone=" + phone + "&taxid=" + taxid + "&notice=" + notice;
 	request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 	request.send(data);
 	request.onreadystatechange = function() {
