@@ -190,6 +190,8 @@ function memberSignup() {
 		}
 	}
 
+	request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+	request.send(data);
 	request.onreadystatechange = function() {
 		if (request.readyState === 4 && request.status === 200) {
 			var data = JSON.parse(request.responseText);
