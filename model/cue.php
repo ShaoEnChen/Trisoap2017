@@ -113,17 +113,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 		elseif ($_GET['target'] == 'order_total') {
 			$order = $_GET['order'];
 			$account = $_GET['account'];
-			$total = 0;
 			$sql1 = ($order == 'cart') ? mysql_query("SELECT * FROM ORDMAS WHERE ORDNO='0' AND EMAIL='$account' AND ACTCODE='1'") : mysql_query("SELECT * FROM ORDMAS WHERE ORDNO='$order' AND ACTCODE='1'");
 			$fetch1 = mysql_fetch_array($sql1);
-			$total += $fetch1['TOTALPRICE'];
-			$total -= $fetch1['SHIPFEE'];
+			$total = $fetch1['TOTALPRICE'] - $fetch1['SHIPFEE'];
 			$sql2 = mysql_query("SELECT * FROM CUSMAS WHERE EMAIL='$account'");
 			$fetch2 = mysql_fetch_array($sql2);
-			$total -= $fetch2['DISCOUNT'];
+			$total = $total - $fetch2['DISCOUNT'];
 			$sql3 = ($order == 'cart') ? mysql_query("SELECT * FROM ORDMAS WHERE ORDNO='0' AND EMAIL='$account' AND ACTCODE='1'") : mysql_query("SELECT * FROM ORDMAS WHERE ORDNO='$order' AND ACTCODE='1'");
 			$fetch3 = mysql_fetch_array($sql3);
-			$total -= query_discountPrice($fetch3['DCTID']);
+			$total = $total - query_discountPrice($fetch3['DCTID']);
 			echo $total;
 			return;
 		}
@@ -221,9 +219,6 @@ elseif ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			$account = $_POST['account'];
 			$sql = mysql_query("SELECT * FROM CUSMAS WHERE EMAIL='$account'");
 			$fetch = mysql_fetch_array($sql);
-			echo $fetch['CUSTYPE'];
-			echo $fetch['KNOWTYPE'];
-			echo $fetch['CUSSEX'];
 			if (in_array($fetch['CUSTYPE'], array('A', 'B', 'C', 'D')) || in_array($fetch['KNOWTYPE'], array('A', 'B', 'C', 'D', 'E')) || in_array($fetch['CUSSEX'], array('M', 'F'))) {
 				echo 'invalid';
 			}
