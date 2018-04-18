@@ -1155,10 +1155,15 @@ $buy-now-btn-width: 44%;
 	letter-spacing: 0.18em;
 }
 
+label[for="purchase-amount"],
+#purchase-amount,
+#single-product-purchase > .add-to-cart-link {
+	vertical-align: middle;
+}
+
 #purchase-amount,
 #single-product-purchase > .add-to-cart-link {
 	display: inline-block;
-	vertical-align: middle;
 	margin: 13px 6px;
 }
 
@@ -1168,14 +1173,13 @@ $buy-now-btn-width: 44%;
 }
 
 #single-product-purchase > .add-to-cart-link .cart-icon {
-	width: 30px;
+	width: 40px;
 	height: auto;
 }
 
 label[for="purchase-amount"] {
 	color: $main-font-color;
 }
-
 
 /* -------------------------------------------------------------------------
  * 11. 客製化專區｜Customize
