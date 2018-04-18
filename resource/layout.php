@@ -97,8 +97,12 @@ function fetch_json($criteria, $json_dir) {
 	$info = [];
 	foreach ($criteria as $key) {
 		$key = str_replace(['{', '}'], '', $key);
-		$value = $json[$key];
-		array_push($info, $value);
+		if(array_key_exists($key, $json)) {
+			array_push($info, $json[$key]);
+		}
+		else {
+			array_push($info, '');
+		}
 	}
 	return $info;
 }
@@ -185,26 +189,27 @@ function include_view_image_jumbotron($route) {
 	$criteria = ['title', 'subtitle', 'btn'];
 	list($title, $subtitle, $btn) = fetch_json($criteria, $json_dir);
 
-	if(!is_null($title)) {
+	if(!empty($title)) {
 		// Get jumbotron title
 		$title_dir = 'view/component/jumbotron/title.html';
 		$title_content = file_get_contents($title_dir);
 		$title_content = str_replace('{route_title}', $title, $title_content);
-	}
-	if(is_null($subtitle) && is_null($btn)) {
-		// change class name
-		$title_content = str_replace('jumbotron-title', 'jumbotron-only-title', $title_content);
-	}
-	echo $title_content;
 
-	if(!is_null($subtitle)) {
+		if(empty($subtitle) && empty($btn)) {
+			// change class name
+			$title_content = str_replace('jumbotron-title', 'jumbotron-only-title', $title_content);
+		}
+		echo $title_content;
+	}
+
+	if(!empty($subtitle)) {
 		// Get jumbotron subtitle if $route has subtitle
 		$subtitle_dir = 'view/component/jumbotron/subtitle.html';
 		$subtitle_content = file_get_contents($subtitle_dir);
 		$subtitle_content = str_replace('{route_subtitle}', $subtitle, $subtitle_content);
 		echo $subtitle_content;
 	}
-	if(!is_null($btn)) {
+	if(!empty($btn)) {
 		// Get jumbotron btn text & link if $route has btn
 		$btn_dir = 'view/component/jumbotron/btn.html';
 		$btn_content = file_get_contents($btn_dir);
