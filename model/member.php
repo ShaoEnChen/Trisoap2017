@@ -114,6 +114,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 				return;
 			}
 		}
+		elseif ($_GET['event'] == 'contact') {
+			$message = contact($_GET);
+			echo json_encode(array('message' => $message));
+			return;
+		}
 		else {
 			echo json_encode(array('message' => 'Invalid event called'));
     		return;
@@ -234,6 +239,11 @@ elseif ($_SERVER['REQUEST_METHOD'] == 'POST') {
 				echo json_encode(array('message' => $message));
 				return;
 			}
+		}
+		elseif ($_POST['event'] == 'contact') {
+			$message = contact($_POST);
+			echo json_encode(array('message' => $message));
+			return;
 		}
 		else {
 			echo json_encode(array('message' => 'Invalid event called'));
@@ -390,6 +400,7 @@ function signup($content) {
 		// message_verify($phone, $verify);
 		$sql2 = "INSERT INTO CUSMAS (EMAIL, CUSPW, CUSNM, TOKEN, CREATEDATE, UPDATEDATE, ACTCODE) VALUES ('$account', '$password', '$name', '$encrypted_token', '$date', '$date', '1')";
 		if (mysql_query($sql2)) {
+			mail_receive_member_notice($name);
 			mysql_query("INSERT INTO ORDMAS (ORDNO, EMAIL, SHIPFEE, CREATEDATE, UPDATEDATE) VALUES ('0', '$account', '70', '$date', '$date')");
 			return array('message' => 'Success', 'token' => $token, 'identity' => 'B');
 		}
@@ -399,7 +410,7 @@ function signup($content) {
 	}
 }
 
-function verify($account, $verify) {
+/*function verify($account, $verify) {
 	$sql1 = mysql_query("SELECT * FROM CUSMAS WHERE EMAIL='$account'");
 	$fetch1 = mysql_fetch_array($sql1);
 	if (empty($account)) {
@@ -431,7 +442,7 @@ function verify($account, $verify) {
 			return 'Database operation error';
 		}
 	}
-}
+}*/
 
 function edit($content) {
 	$account = isset($content['account']) ? $content['account'] : '';
@@ -755,5 +766,28 @@ function adddata($content) {
 		else {
 			return 'Database operation error';
 		}
+	}
+}
+
+function contact($content) {
+	$name = isset($content['name']) ? $content['name'] : '';
+	$email = isset($content['email']) ? $content['email'] : '';
+	$phone = isset($content['phone']) ? $content['phone'] : '';
+	$message = isset($content['message']) ? $content['message'] : '';
+	if (empty($email)) {
+		return 'Empty email';
+	}
+	elseif (!preg_match("/^[\w-]+(\.[\w-]+)*@[\w-]+(\.[\w-]+)+$/", $email)) {
+		return 'Wrong email format';
+	}
+	elseif (!empty($phone) && !preg_match('/^[0][9][0-9]{8}$/', $phone)) {
+		return 'Wrong phone format';
+	}
+	elseif (empty($name)) {
+		return 'Empty name';
+	}
+	else {
+		$result = mail_receive_message_notice($email, $name, $phone, $message);
+		return $result;
 	}
 }

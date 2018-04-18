@@ -2,7 +2,7 @@
 include_once(dirname(__FILE__)."/mail/PHPMailerAutoload.php"); //匯入PHPMailer類別
 include_once(dirname(__FILE__)."/../resource/database.php");
 
-function mail_receive_order($id, $ORDNO, $PAYTYPE, $NAME){
+function mail_receive_order($id, $ORDNO, $PAYTYPE, $NAME) {
 	$sql = mysql_query("SELECT * FROM OWNMAS WHERE COMNM='Trisoap'");
       $fetch = mysql_fetch_array($sql);
       $COMADD = $fetch['COMADD'];
@@ -61,11 +61,12 @@ function mail_receive_order($id, $ORDNO, $PAYTYPE, $NAME){
       email : ".$COMEMAIL."<br>
       網址 : ".$COMWEB."<br>"; //設定郵件內容
       $mail->AddAddress($id); //設定收件者郵件及名稱
-      if(!$mail->Send()) {
+      if (!$mail->Send()) {
           echo "Mail not sent!";
       }
 }
-function mail_pass_order($id, $ORDNO){
+
+function mail_pass_order($id, $ORDNO) {
 	$sql = mysql_query("SELECT * FROM OWNMAS WHERE COMNM='Trisoap'");
       $fetch = mysql_fetch_array($sql);
       $COMADD = $fetch['COMADD'];
@@ -102,11 +103,12 @@ function mail_pass_order($id, $ORDNO){
       email : ".$COMEMAIL."<br>
       網址 : ".$COMWEB."<br>"; //設定郵件內容
       $mail->AddAddress($id); //設定收件者郵件及名稱
-      if(!$mail->Send()) {
+      if (!$mail->Send()) {
             echo "Mail not sent!";
       }
 }
-function mail_reset_password($id, $code){
+
+function mail_reset_password($id, $code) {
 	$sql = mysql_query("SELECT * FROM OWNMAS WHERE COMNM='Trisoap'");
       $fetch = mysql_fetch_array($sql);
       $COMADD = $fetch['COMADD'];
@@ -145,11 +147,12 @@ function mail_reset_password($id, $code){
       email : ".$COMEMAIL."<br>
       網址 : ".$COMWEB."<br>"; //設定郵件內容
       $mail->AddAddress($id); //設定收件者郵件及名稱
-      if(!$mail->Send()) {
+      if (!$mail->Send()) {
             echo "Mail not sent!";
       }
 }
-function mail_receive_member_notice($NAME){
+
+function mail_receive_member_notice($NAME) {
       $sql = mysql_query("SELECT * FROM OWNMAS WHERE COMNM='Trisoap'");
       $fetch = mysql_fetch_array($sql);
       $COMEMAIL = $fetch['COMEMAIL'];
@@ -170,11 +173,12 @@ function mail_receive_member_notice($NAME){
       $mail->Subject = "[系統訊息] 新會員通知信"; //設定郵件標題
       $mail->Body = "[系統訊息] ".$NAME." 已經註冊成為三三吾鄉會員";
       $mail->AddAddress($COMEMAIL); //設定收件者郵件及名稱
-      if(!$mail->Send()) {
+      if (!$mail->Send()) {
           echo "Mail not sent!";
       }
 }
-function mail_receive_order_notice(){
+
+function mail_receive_order_notice() {
       $sql = mysql_query("SELECT * FROM OWNMAS WHERE COMNM='Trisoap'");
       $fetch = mysql_fetch_array($sql);
       $COMEMAIL = $fetch['COMEMAIL'];
@@ -190,13 +194,38 @@ function mail_receive_order_notice(){
       $mail->Password = "2015n0n0"; //設定驗證密碼
       $mail->From = "trisoap2015@gmail.com"; //設定寄件者信箱
       $mail->FromName = "三三吾鄉社會企業"; //設定寄件者姓名
-      date_default_timezone_set('Asia/Taipei');
-      $MAILDATE = date("Y-m-d");
       $mail->Subject = "[系統訊息] 新訂單通知信"; //設定郵件標題
       $mail->Body = "[系統訊息] 有會員透過官方網站下了訂單";
       $mail->AddAddress($COMEMAIL); //設定收件者郵件及名稱
-      if(!$mail->Send()) {
+      if (!$mail->Send()) {
           echo "Mail not sent!";
       }
 }
-?>
+
+function mail_receive_message_notice($email, $name, $phone, $message) {
+      $phone = empty($phone) ? "未填寫" : $phone;
+      $sql = mysql_query("SELECT * FROM OWNMAS WHERE COMNM='Trisoap'");
+      $fetch = mysql_fetch_array($sql);
+      $COMEMAIL = $fetch['COMEMAIL'];
+      $mail= new PHPMailer(); //建立新物件
+      $mail->IsSMTP(); //設定使用SMTP方式寄信
+      $mail->SMTPAuth = true; //設定SMTP需要驗證
+      $mail->SMTPSecure = 'ssl'; // Gmail的SMTP主機需要使用SSL連線
+      $mail->Host = "smtp.gmail.com"; //Gmail的SMTP主機
+      $mail->Port = 465;  //Gmail的SMTP主機的SMTP埠位為465埠。
+      $mail->IsHTML(true); //設定郵件內容為HTML
+      $mail->CharSet = "utf-8"; //設定郵件編碼
+      $mail->Username = "trisoap2015@gmail.com"; //設定驗證帳號
+      $mail->Password = "2015n0n0"; //設定驗證密碼
+      $mail->From = "trisoap2015@gmail.com"; //設定寄件者信箱
+      $mail->FromName = "三三吾鄉社會企業"; //設定寄件者姓名
+      $mail->Subject = "[系統訊息] 聯絡我們來信"; //設定郵件標題
+      $mail->Body = "來信者姓名：".$name."<br>來信者信箱：".$email."<br>來信內容：".$message;
+      $mail->AddAddress($COMEMAIL); //設定收件者郵件及名稱
+      if ($mail->Send()) {
+            return "Success";
+      }
+      else {
+            return "Unable to send mail";
+      }
+}
