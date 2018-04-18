@@ -455,6 +455,7 @@ a.no-href {
   letter-spacing: 3.24px; }
 
 .primary-btn {
+  display: inline-block;
   box-sizing: border-box;
   border: solid 1px #fff;
   padding: 8px 25px;
@@ -472,6 +473,7 @@ a.no-href {
     color: #666; }
 
 .text-btn {
+  display: inline-block;
   box-sizing: border-box;
   border: solid 1px #000;
   padding: 8px 25px;
@@ -488,6 +490,7 @@ a.no-href {
     color: #777; }
 
 .submit-btn {
+  display: inline-block;
   box-sizing: border-box;
   border: solid 1px #000;
   padding: 8px 25px;
@@ -504,6 +507,7 @@ a.no-href {
     background-color: #777; }
 
 .promise-btn {
+  display: inline-block;
   box-sizing: border-box;
   border: solid 1px #ff9c3f;
   padding: 8px 25px;
@@ -519,6 +523,7 @@ a.no-href {
     background-color: #ffb672; }
 
 .neural-btn {
+  display: inline-block;
   box-sizing: border-box;
   border: solid 1px #ccc;
   padding: 8px 25px;

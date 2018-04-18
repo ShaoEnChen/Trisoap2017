@@ -456,6 +456,7 @@ a.no-href {
   letter-spacing: 3.24px; }
 
 .primary-btn {
+  display: inline-block;
   box-sizing: border-box;
   border: solid 1px #fff;
   padding: 8px 25px;
@@ -473,6 +474,7 @@ a.no-href {
     color: #666; }
 
 .text-btn {
+  display: inline-block;
   box-sizing: border-box;
   border: solid 1px #000;
   padding: 8px 25px;
@@ -489,6 +491,7 @@ a.no-href {
     color: #777; }
 
 .submit-btn {
+  display: inline-block;
   box-sizing: border-box;
   border: solid 1px #000;
   padding: 8px 25px;
@@ -505,6 +508,7 @@ a.no-href {
     background-color: #777; }
 
 .promise-btn {
+  display: inline-block;
   box-sizing: border-box;
   border: solid 1px #ff9c3f;
   padding: 8px 25px;
@@ -520,6 +524,7 @@ a.no-href {
     background-color: #ffb672; }
 
 .neural-btn {
+  display: inline-block;
   box-sizing: border-box;
   border: solid 1px #ccc;
   padding: 8px 25px;
@@ -912,8 +917,7 @@ header {
 .jumbotron-only-title {
   line-height: 33.75vw; }
 
-.jumbotron-subtitle,
-.jumbotron-btn {
+.jumbotron-subtitle {
   line-height: 6vw; }
 
 .jumbotron-btn > .primary-btn {
@@ -1675,10 +1679,23 @@ label[for="purchase-amount"] {
  * 12. 登陸頁面元件｜Landing Pages
  * -------------------------------------------------------------------------
  */
-.lp-section {
-  width: 100%; }
+.lp-bg-orange {
+  background-color: #f18c41; }
 
-.lp-btn {
+.lp-section {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 3%; }
+
+.lp-classic-border {
+  border: 3px #fff solid;
+  box-sizing: border-box;
+  padding: 16px;
+  color: #fff;
+  text-align: center; }
+
+.lp-orange-btn {
+  display: inline-block;
   box-sizing: border-box;
   border: solid 1px #f18c41;
   padding: 8px 25px;
@@ -1689,6 +1706,21 @@ label[for="purchase-amount"] {
   font-weight: 300;
   transition-property: border-color, background-color, color;
   transition-duration: .3s; }
-  .lp-btn:hover {
+  .lp-orange-btn:hover {
     border-color: #f5a971;
     background-color: #f5a971; }
+
+.lp-white-btn {
+  display: inline-block;
+  box-sizing: border-box;
+  border: solid 1px #fff;
+  padding: 8px 25px;
+  text-decoration: none;
+  text-align: center;
+  background-color: #fff;
+  color: #f18c41;
+  font-weight: 300;
+  transition-property: border-color, background-color, color;
+  transition-duration: .3s; }
+  .lp-white-btn:hover {
+    color: #f5a971; }

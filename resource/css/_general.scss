@@ -89,6 +89,7 @@ a.no-href {
 
 // Buttons, usually <a> or <button> tag
 @mixin btn($border-color, $background-color, $font-color, $border-color-hover: false, $background-color-hover: false, $font-color-hover: false) {
+	display: inline-block;
 	box-sizing: border-box;
 	border: solid 1px $border-color;
 	padding: 8px 25px;

@@ -144,8 +144,7 @@ $jumbotron-list: "about", "brand_intro", "contact", "faq", "gift_box", "media", 
 	line-height: 33.75vw;
 }
 
-.jumbotron-subtitle,
-.jumbotron-btn {
+.jumbotron-subtitle {
 	line-height: 6vw;
 }
 
@@ -1213,13 +1212,31 @@ label[for="purchase-amount"] {
 $lp-orange: #f18c41;
 $lp-yellow: #f6a326;
 
+.lp-bg-orange {
+	background-color: $bg-orange;
+}
+
 .lp-section {
 	width: 100%;
+	box-sizing: border-box;
+	padding: 3%;
 	// font settings
 }
 
-.lp-btn {
+.lp-classic-border {
+	border: 3px #fff solid;
+	box-sizing: border-box;
+	padding: 16px;
+	color: #fff;
+	text-align: center;
+}
+
+.lp-orange-btn {
 	@include btn($lp-orange, $lp-orange, #fff, lighten($lp-orange, 10%), lighten($lp-orange, 10%));
 	// padding: ;
 }
 
+.lp-white-btn {
+	@include btn(#fff, #fff, $lp-orange, false, false, lighten($lp-orange, 10%));
+	// padding: ;
+}
