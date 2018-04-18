@@ -436,7 +436,6 @@ function verify($account, $verify) {
 function edit($content) {
 	$account = isset($content['account']) ? $content['account'] : '';
 	$token = isset($content['token']) ? $content['token'] : '';
-	$name = isset($content['name']) ? $content['name'] : '';
 	$phone = isset($content['phone']) ? $content['phone'] : '';
 	$taxid = isset($content['taxid']) ? $content['taxid'] : '';
 	$address = isset($content['address']) ? $content['address'] : '';
@@ -455,14 +454,8 @@ function edit($content) {
 	elseif ($fetch1['TOKEN'] != md5($account.$token)) {
 		return 'Wrong token';
 	}
-	elseif (empty($name)) {
-		return 'Empty name';
-	}
-	elseif (empty($phone)) {
-		return 'Empty phone number';
-	}
-	elseif (!preg_match('/^[0][9][0-9]{8}$/', $phone)) {
-		return 'Wrong phone format';
+	elseif (!empty($phone) && !preg_match('/^[0][9][0-9]{8}$/', $phone)) {
+		return 'Wrong phone number';
 	}
 	elseif (!empty($taxid) && !check_taxid($taxid)) {
 		return 'Wrong taxid format';
@@ -473,7 +466,7 @@ function edit($content) {
 	else {
 		date_default_timezone_set('Asia/Taipei');
 		$date = date("Y-m-d H:i:s");
-		$sql2 = "UPDATE CUSMAS SET CUSNM='$name', CUSADD='$address', TEL='$phone', TAXID='$taxid', SPEINS='$notice', UPDATEDATE='$date' WHERE EMAIL='$account'";
+		$sql2 = "UPDATE CUSMAS SET CUSADD='$address', TEL='$phone', TAXID='$taxid', SPEINS='$notice', UPDATEDATE='$date' WHERE EMAIL='$account'";
 		if (mysql_query($sql2)) {
 			return 'Success';
 		}
