@@ -69,8 +69,8 @@ if (isset($_GET['in']) || isset($_POST['in'])) {
 			$content = file_get_contents($content_dir);
 
 			$name = curl_post(array('module' => 'cue', 'target' => 'member_name', 'account' => $_COOKIE['account']), 'cue');
-			$address = curl_post(array('module' => 'cue', 'target' => 'member_address', 'account' => $_COOKIE['account']), 'cue');
 			$phone = curl_post(array('module' => 'cue', 'target' => 'member_phone', 'account' => $_COOKIE['account']), 'cue');
+			$address = curl_post(array('module' => 'cue', 'target' => 'member_address', 'account' => $_COOKIE['account']), 'cue');
 			$taxid = curl_post(array('module' => 'cue', 'target' => 'member_taxid', 'account' => $_COOKIE['account']), 'cue');
 			$notice = curl_post(array('module' => 'cue', 'target' => 'member_notice', 'account' => $_COOKIE['account']), 'cue');
 
@@ -119,6 +119,7 @@ if (isset($_GET['in']) || isset($_POST['in'])) {
 				$content = file_get_contents($content_dir);
 
 				$name = curl_post(array('module' => 'cue', 'target' => 'member_name', 'account' => $_COOKIE['account']), 'cue');
+				$phone = curl_post(array('module' => 'cue', 'target' => 'member_phone', 'account' => $_COOKIE['account']), 'cue');
 
 				// Remove FB prefix when email is shown in view
 				$account_email = $_COOKIE['account'];
@@ -128,6 +129,7 @@ if (isset($_GET['in']) || isset($_POST['in'])) {
 				$content = str_replace('[member_email]', $account_email, $content);
 
 				$content = str_replace('[member_name]', $name, $content);
+				$content = str_replace('[member_phone]', $phone, $content);
 				echo $content;
 
 				include_u_view_footer($page);

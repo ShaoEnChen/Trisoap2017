@@ -39,7 +39,7 @@ if (isset($_GET['ordno']) && isset($_GET['account'])) {
 	    $TradeNo = time();														// Produce TradeNo
 	    $obj->Send['MerchantTradeNo']   = $TradeNo;										// Order_id
 	    $obj->Send['MerchantTradeDate'] = date("Y/m/d H:i:s");							// Order_time
-	    $obj->Send['TotalAmount']       = $total+$shipfee-$message-$discountPrice;										// Order_amount
+	    $obj->Send['TotalAmount']       = $total;										// Order_amount
 	    $obj->Send['TradeDesc']         = "trisoap";									// Order_Description
 	    if ($payType == 'B') {
 	        $obj->Send['ChoosePayment'] = PaymentMethod::ATM;

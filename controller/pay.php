@@ -31,7 +31,7 @@ if (isset($_GET['order']) || isset($_POST['order'])) {
 			$content = str_replace('[order_shipfee]', $shipfee, $content);
 			$content = str_replace('[order_message]', $message, $content);
 			$content = str_replace('[order_discount]', $discountPrice.' '.$discountName, $content);
-			$content = str_replace('[order_total]', $total+$shipfee-$message-$discountPrice, $content);
+			$content = str_replace('[order_total]', $total, $content);
 			$content = str_replace('[order_address]', $address, $content);
 			$content = str_replace('[order_notice]', $notice, $content);
 			$content = str_replace('[cashing_detail]', $cashing, $content);

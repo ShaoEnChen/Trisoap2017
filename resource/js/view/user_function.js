@@ -196,6 +196,7 @@ function memberSignup() {
 		if (request.readyState === 4 && request.status === 200) {
 			var data = JSON.parse(request.responseText);
 			if (data.message == 'Success') {
+				alert("註冊成功");
 				location.assign("index.php");
 			}
 			else {
@@ -255,9 +256,10 @@ function memberAdddata() {
 	request.open("POST", "index.php");
 	var sex = document.getElementById("sex").value;
 	var birth = document.getElementById("birth").value;
+	var phone = document.getElementById("phone").value;
 	var skintype = document.getElementById("skintype").value;
 	var knowtype = document.getElementById("knowtype").value;
-	var data = "module=member&event=adddata&sex=" + sex + "&birth=" + birth + "&skintype=" + skintype + "&knowtype=" + knowtype;
+	var data = "module=member&event=adddata&sex=" + sex + "&birth=" + birth + "&phone=" + phone + "&skintype=" + skintype + "&knowtype=" + knowtype;
 	request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 	request.send(data);
 	request.onreadystatechange = function() {

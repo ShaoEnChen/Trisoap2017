@@ -436,12 +436,19 @@ function verify($account, $verify) {
 function edit($content) {
 	$account = isset($content['account']) ? $content['account'] : '';
 	$token = isset($content['token']) ? $content['token'] : '';
+	$name = isset($content['name']) ? $content['name'] : '';
 	$phone = isset($content['phone']) ? $content['phone'] : '';
 	$taxid = isset($content['taxid']) ? $content['taxid'] : '';
 	$address = isset($content['address']) ? $content['address'] : '';
 	$notice = isset($content['notice']) ? $content['notice'] : '';
 	$sql1 = mysql_query("SELECT * FROM CUSMAS WHERE EMAIL='$account'");
 	$fetch1 = mysql_fetch_array($sql1);
+	if (empty($phone) && !empty($fetch1['TEL'])) {
+		return 'Empty phone';
+	}
+	elseif (!empty($phone) && !preg_match('/^[0][9][0-9]{8}$/', $phone)) {
+		return 'Wrong phone number';
+	}
 	if (empty($account)) {
 		return 'Empty account';
 	}
@@ -454,8 +461,11 @@ function edit($content) {
 	elseif ($fetch1['TOKEN'] != md5($account.$token)) {
 		return 'Wrong token';
 	}
-	elseif (!empty($phone) && !preg_match('/^[0][9][0-9]{8}$/', $phone)) {
-		return 'Wrong phone number';
+	elseif (empty($name)) {
+		return 'Empty name';
+	}
+	elseif (strlen($name) > 30) {
+		return 'Name exceed length limit';
 	}
 	elseif (!empty($taxid) && !check_taxid($taxid)) {
 		return 'Wrong taxid format';
@@ -466,7 +476,7 @@ function edit($content) {
 	else {
 		date_default_timezone_set('Asia/Taipei');
 		$date = date("Y-m-d H:i:s");
-		$sql2 = "UPDATE CUSMAS SET CUSADD='$address', TEL='$phone', TAXID='$taxid', SPEINS='$notice', UPDATEDATE='$date' WHERE EMAIL='$account'";
+		$sql2 = "UPDATE CUSMAS SET CUSNM='$name', CUSADD='$address', TEL='$phone', TAXID='$taxid', SPEINS='$notice', UPDATEDATE='$date' WHERE EMAIL='$account'";
 		if (mysql_query($sql2)) {
 			return 'Success';
 		}
@@ -679,21 +689,42 @@ function adddata($content) {
 	$skintype = isset($content['skintype']) ? $content['skintype'] : '';
 	$knowtype = isset($content['knowtype']) ? $content['knowtype'] : '';
 	$birth = isset($content['birth']) ? $content['birth'] : '';
+	$phone = isset($content['phone']) ? $content['phone'] : '';
 	$discount = 0;
 	$sql1 = mysql_query("SELECT * FROM CUSMAS WHERE EMAIL='$account'");
 	$fetch1 = mysql_fetch_array($sql1);
-	$explode = explode('-', $birth);
-	if (!checkdate($explode[1], $explode[2], $explode[0])) {
-		return 'Wrong birth format';
+	if (empty($birth)) {
+		return 'Empty birth';
+	}
+	elseif (!empty($birth)) {
+		$explode = explode('-', $birth);
+		if (!checkdate($explode[1], $explode[2], $explode[0])) {
+			return 'Wrong birth format';
+		}
+	}
+	elseif (empty($sex)) {
+		return 'Empty sex';
 	}
 	elseif (!in_array($sex, array('M', 'F'))) {
 		return 'Wrong sex format';
 	}
+	elseif (empty($skintype)) {
+		return 'Empty skin type';
+	}
 	elseif (!in_array($skintype, array('A', 'B', 'C', 'D'))) {
 		return 'Wrong skin type format';
 	}
+	elseif (empty($knowtype)) {
+		return 'Empty know type';
+	}
 	elseif (!in_array($knowtype, array('A', 'B', 'C', 'D', 'E'))) {
 		return 'Wrong know type format';
+	}
+	elseif (empty($phone)) {
+		return 'Empty phone';
+	}
+	elseif (!preg_match('/^[0][9][0-9]{8}$/', $phone)) {
+		return 'Wrong phone number';
 	}
 	elseif (empty($account)) {
 		return 'Empty account';
@@ -710,7 +741,7 @@ function adddata($content) {
 	else {
 		date_default_timezone_set('Asia/Taipei');
 		$date = date("Y-m-d H:i:s");
-		$sql2 = "UPDATE CUSMAS SET CUSBIRTH='$birth', CUSSEX='$sex', CUSTYPE='$skintype', KNOWTYPE='$knowtype', DISCOUNT=DISCOUNT+20, UPDATEDATE='$date' WHERE EMAIL='$account'";
+		$sql2 = "UPDATE CUSMAS SET TEL='$phone', CUSBIRTH='$birth', CUSSEX='$sex', CUSTYPE='$skintype', KNOWTYPE='$knowtype', DISCOUNT=DISCOUNT+20, UPDATEDATE='$date' WHERE EMAIL='$account'";
 		if (mysql_query($sql2)) {
 			do {
 				$code = get_code();

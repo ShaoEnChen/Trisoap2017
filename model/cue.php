@@ -61,7 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 			$account = $_GET['account'];
 			$sql = mysql_query("SELECT * FROM CUSMAS WHERE EMAIL='$account'");
 			$fetch = mysql_fetch_array($sql);
-			if (in_array($fetch['CUSTYPE'], array('A', 'B', 'C', 'D')) || in_array($fetch['KNOWTYPE'], array('A', 'B', 'C', 'D', 'E')) || in_array($fetch['CUSSEX'], array('M', 'F'))) {
+			if (in_array($fetch['CUSTYPE'], array('A', 'B', 'C', 'D')) && in_array($fetch['KNOWTYPE'], array('A', 'B', 'C', 'D', 'E')) && in_array($fetch['CUSSEX'], array('M', 'F'))) {
 				echo 'invalid';
 			}
 			else {
@@ -115,7 +115,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 			$account = $_GET['account'];
 			$sql1 = mysql_query("SELECT * FROM ORDMAS WHERE ORDNO='$order' AND EMAIL='$account' AND ACTCODE='1'");
 			$fetch1 = mysql_fetch_array($sql1);
-			$total = $fetch1['TOTALPRICE'] - $fetch1['SHIPFEE'];
+			$total = $fetch1['TOTALPRICE'] + $fetch1['SHIPFEE'];
 			$sql2 = mysql_query("SELECT * FROM CUSMAS WHERE EMAIL='$account'");
 			$fetch2 = mysql_fetch_array($sql2);
 			$total = $total - $fetch2['DISCOUNT'];
@@ -219,7 +219,7 @@ elseif ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			$account = $_POST['account'];
 			$sql = mysql_query("SELECT * FROM CUSMAS WHERE EMAIL='$account'");
 			$fetch = mysql_fetch_array($sql);
-			if (in_array($fetch['CUSTYPE'], array('A', 'B', 'C', 'D')) || in_array($fetch['KNOWTYPE'], array('A', 'B', 'C', 'D', 'E')) || in_array($fetch['CUSSEX'], array('M', 'F'))) {
+			if (in_array($fetch['CUSTYPE'], array('A', 'B', 'C', 'D')) && in_array($fetch['KNOWTYPE'], array('A', 'B', 'C', 'D', 'E')) && in_array($fetch['CUSSEX'], array('M', 'F'))) {
 				echo 'invalid';
 			}
 			else {
