@@ -232,7 +232,7 @@ elseif ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			$account = $_POST['account'];
 			$sql = mysql_query("SELECT * FROM ORDMAS WHERE ORDNO='$order' AND EMAIL='$account' AND ACTCODE='1'");
 			$fetch = mysql_fetch_array($sql);
-			echo var_dump($fetch);
+			echo $fetch['SHIPFEE'];
 			return;
 		}
 		elseif ($_POST['target'] == 'order_message') {

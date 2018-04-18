@@ -35,8 +35,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 		}
 		elseif ($_GET['event'] == 'signup') {
 			$message = signup($_GET);
-			echo json_encode(array('message' => $message));
-			return;
+			if (is_array($message)) {
+				echo json_encode($message);
+				return;
+			}
+			else {
+				echo json_encode(array('message' => $message));
+				return;
+			}
 		}
 		elseif ($_GET['event'] == 'verify') {
 			$message = verify($_GET['account'], $_GET['verify']);
@@ -150,8 +156,14 @@ elseif ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		}
 		elseif ($_POST['event'] == 'signup') {
 			$message = signup($_POST);
-			echo json_encode(array('message' => $message));
-			return;
+			if (is_array($message)) {
+				echo json_encode($message);
+				return;
+			}
+			else {
+				echo json_encode(array('message' => $message));
+				return;
+			}
 		}
 		elseif ($_POST['event'] == 'verify') {
 			$message = verify($_POST['account'], $_POST['verify']);
@@ -282,15 +294,14 @@ function FBsignin($account, $name) {
 	}
 	else {
 		if ($sql1 == false || mysql_num_rows($sql1) == 0) {
-			$verify = get_verify();
 			date_default_timezone_set('Asia/Taipei');
 			$date = date("Y-m-d H:i:s");
-
 			$token = get_token();
 			$encrypted_token = md5($account.$token);
 
-			$sql2 = "INSERT INTO CUSMAS (EMAIL, CUSPW, CUSNM, CUSBIRTH, TEL, CUSTYPE, KNOWTYPE, TOKEN, VERIFY, CREATEDATE, UPDATEDATE, ACTCODE) VALUES ('$account', 'facebook', '$name', '1999-03-03', '0987654321', 'A', 'A', '$encrypted_token', '$verify', '$date', '$date', '1')";
+			$sql2 = "INSERT INTO CUSMAS (EMAIL, CUSPW, CUSNM, TOKEN, CREATEDATE, UPDATEDATE, ACTCODE) VALUES ('$account', 'facebook', '$name', '$encrypted_token', '$date', '$date', '1')";
 			if (mysql_query($sql2)) {
+				mysql_query("INSERT INTO ORDMAS (ORDNO, EMAIL, SHIPFEE, CREATEDATE, UPDATEDATE) VALUES ('0', '$account', '70', '$date', '$date')");
 				return array('message' => 'Success', 'token' => $token, 'identity' => 'B');
 			}
 			else {
@@ -373,15 +384,13 @@ function signup($content) {
 	else {
 		date_default_timezone_set('Asia/Taipei');
 		$date = date("Y-m-d H:i:s");
-		// $verify = get_verify();
 		$password = encrypt($password1);
 		$token = get_token();
 		$encrypted_token = md5($account.$token);
 		// message_verify($phone, $verify);
 		$sql2 = "INSERT INTO CUSMAS (EMAIL, CUSPW, CUSNM, TOKEN, CREATEDATE, UPDATEDATE, ACTCODE) VALUES ('$account', '$password', '$name', '$encrypted_token', '$date', '$date', '1')";
-		// $sql2 = "INSERT INTO CUSMAS (EMAIL, CUSPW, CUSNM, TEL, TOKEN, CREATEDATE, UPDATEDATE, ACTCODE) VALUES ('$account', '$password', '$name', '$phone', '$encrypted_token', '$date', '$date', '2')";
 		if (mysql_query($sql2)) {
-			mysql_query("INSERT INTO ORDMAS (ORDNO, EMAIL, CREATEDATE, UPDATEDATE) VALUES ('0', '$account', '$date', '$date')");
+			mysql_query("INSERT INTO ORDMAS (ORDNO, EMAIL, SHIPFEE, CREATEDATE, UPDATEDATE) VALUES ('0', '$account', '70', '$date', '$date')");
 			return array('message' => 'Success', 'token' => $token, 'identity' => 'B');
 		}
 		else {
@@ -427,7 +436,6 @@ function verify($account, $verify) {
 function edit($content) {
 	$account = isset($content['account']) ? $content['account'] : '';
 	$token = isset($content['token']) ? $content['token'] : '';
-	$name = isset($content['name']) ? $content['name'] : '';
 	$phone = isset($content['phone']) ? $content['phone'] : '';
 	$taxid = isset($content['taxid']) ? $content['taxid'] : '';
 	$address = isset($content['address']) ? $content['address'] : '';
@@ -446,14 +454,8 @@ function edit($content) {
 	elseif ($fetch1['TOKEN'] != md5($account.$token)) {
 		return 'Wrong token';
 	}
-	elseif (empty($name)) {
-		return 'Empty name';
-	}
-	elseif (empty($phone)) {
-		return 'Empty phone number';
-	}
-	elseif (!preg_match('/^[0][9][0-9]{8}$/', $phone)) {
-		return 'Wrong phone format';
+	elseif (!empty($phone) && !preg_match('/^[0][9][0-9]{8}$/', $phone)) {
+		return 'Wrong phone number';
 	}
 	elseif (!empty($taxid) && !check_taxid($taxid)) {
 		return 'Wrong taxid format';
@@ -464,7 +466,7 @@ function edit($content) {
 	else {
 		date_default_timezone_set('Asia/Taipei');
 		$date = date("Y-m-d H:i:s");
-		$sql2 = "UPDATE CUSMAS SET CUSNM='$name', CUSADD='$address', TEL='$phone', TAXID='$taxid', SPEINS='$notice', UPDATEDATE='$date' WHERE EMAIL='$account'";
+		$sql2 = "UPDATE CUSMAS SET CUSADD='$address', TEL='$phone', TAXID='$taxid', SPEINS='$notice', UPDATEDATE='$date' WHERE EMAIL='$account'";
 		if (mysql_query($sql2)) {
 			return 'Success';
 		}
