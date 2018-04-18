@@ -287,6 +287,7 @@ $footer-line-height: 1.7;
  * 9. 購物須知｜Shopping Guide
  * 10. 單品 / 旅用皂絲｜Soap / Soapstring
  * 11. 客製化專區｜Customize
+ * 12. 登陸頁面元件｜Landing Pages
  * =========================================================================
  */
 
@@ -955,11 +956,27 @@ $buy-now-btn-width: 44%;
 	}
 }
 
-#category-guide,
 #products .main-content-title,
+#category-guide,
 #products .product {
 	padding-left: 20px;
 	padding-right: 20px;
+}
+
+
+.product-link {
+	text-decoration: none;
+	color: $main-font-color;
+	transition: color .3s;
+	font-weight: normal;
+	&:hover {
+		color: #222;
+	}
+}
+
+// product category title
+.main-content-title .product-link {
+	font-weight: inherit;
 }
 
 #category-guide {
@@ -992,32 +1009,28 @@ $buy-now-btn-width: 44%;
 	height: auto;
 }
 
+.product-add-to-cart {
+	position: absolute;
+	bottom: 0;
+	background-color: rgba(255, 255, 255, 0.6);
+}
+
 .product-info {
 	margin: 1.5em 0 1em;
 }
 
-.product-link {
-	text-decoration: none;
-	color: $main-font-color;
-	transition: color .3s;
-	font-weight: normal;
-	&:hover {
-		color: #222;
-	}
-}
-
-.main-content-title .product-link {
-	font-weight: inherit;
-}
-
 .product .product-link,
 .product-price {
-	font-size: 18px;
 	font-weight: 300;
 }
 
+.product .product-link {
+	font-size: 18px;
+}
+
 .product-price {
 	color: $main-font-color;
+	font-size: 23px;
 }
 
 // Laptop
@@ -1029,21 +1042,18 @@ $buy-now-btn-width: 44%;
 	}
 
 	.product-add-to-cart {
-		position: absolute;
-		bottom: 0;
 		width: 100%;
 		margin-bottom: -4em;
-		padding: 1em 0;
-		background-color: rgba(0, 0, 0, 0.6);
+		padding: 0.4em 0;
 		transition: margin 0.3s;
 		a {
 			text-decoration: none;
 			color: #fff;
 		}
-	}
-
-	.product-add-to-cart-mobile {
-		display: none;
+		.cart-icon {
+			width: 30px;
+			height: auto;
+		}
 	}
 
 	.product-cover:hover {
@@ -1069,23 +1079,16 @@ $buy-now-btn-width: 44%;
 		padding-bottom: 10px;
 	}
 
-	.product-add-to-cart {
-		display: none;
-	}
-
 	$product-add-to-cart-mobile-radius: 18px;
 
-	.product-add-to-cart-mobile {
-		position: absolute;
+	.product-add-to-cart {
 		right: 0;
-		bottom: 0;
 		width: 2 * $product-add-to-cart-mobile-radius;
 		height: 2 * $product-add-to-cart-mobile-radius;
 		margin: 6px;
 		box-sizing: border-box;
 		border-radius: $product-add-to-cart-mobile-radius;
 		padding: 6px;
-		background-color: rgba(255, 255, 255, 0.6);
 
 		.cart-icon {
 			width: 24px;
@@ -1175,6 +1178,11 @@ label[for="purchase-amount"],
 #single-product-purchase > .add-to-cart-link .cart-icon {
 	width: 40px;
 	height: auto;
+	transition: opacity 0.3s;
+}
+
+#single-product-purchase > .add-to-cart-link:hover .cart-icon {
+	opacity: 0.7;
 }
 
 label[for="purchase-amount"] {
@@ -1196,3 +1204,22 @@ label[for="purchase-amount"] {
 	width: 100%;
 	height: auto;
 }
+
+/* -------------------------------------------------------------------------
+ * 12. 登陸頁面元件｜Landing Pages
+ * -------------------------------------------------------------------------
+ */
+
+$lp-orange: #f18c41;
+$lp-yellow: #f6a326;
+
+.lp-section {
+	width: 100%;
+	// font settings
+}
+
+.lp-btn {
+	@include btn($lp-orange, $lp-orange, #fff, lighten($lp-orange, 10%), lighten($lp-orange, 10%));
+	// padding: ;
+}
+

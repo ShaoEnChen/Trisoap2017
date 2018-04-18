@@ -444,7 +444,7 @@ a.no-href {
   width: 100%;
   box-sizing: border-box;
   padding: 60px 8%;
-  background-color: #F18C41;
+  background-color: #f18c41;
   color: #fff; }
 
 .slogan, .slogan-title {
@@ -825,7 +825,7 @@ header {
     #index-header .flex-control-nav li a:hover {
       background-color: #fff; }
     #index-header .flex-control-nav li a.flex-active {
-      background-color: #F18C41;
+      background-color: #f18c41;
       cursor: pointer; }
 
 .flex-control-paging li a {
@@ -947,7 +947,7 @@ header {
   width: 100%;
   box-sizing: border-box;
   padding: 40px 0 20px;
-  background-color: #F18C41;
+  background-color: #f18c41;
   color: #fff;
   font-weight: 100;
   line-height: 1.7; }
@@ -1018,6 +1018,7 @@ header {
  * 9. 購物須知｜Shopping Guide
  * 10. 單品 / 旅用皂絲｜Soap / Soapstring
  * 11. 客製化專區｜Customize
+ * 12. 登陸頁面元件｜Landing Pages
  * =========================================================================
  */
 /* -------------------------------------------------------------------------
@@ -1488,11 +1489,22 @@ header {
   color: #555;
   line-height: 1.7; }
 
-#category-guide,
 #products .main-content-title,
+#category-guide,
 #products .product {
   padding-left: 20px;
   padding-right: 20px; }
+
+.product-link {
+  text-decoration: none;
+  color: #555;
+  transition: color .3s;
+  font-weight: normal; }
+  .product-link:hover {
+    color: #222; }
+
+.main-content-title .product-link {
+  font-weight: inherit; }
 
 #category-guide {
   margin: 1em 0; }
@@ -1517,27 +1529,24 @@ header {
   width: 100%;
   height: auto; }
 
+.product-add-to-cart {
+  position: absolute;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.6); }
+
 .product-info {
   margin: 1.5em 0 1em; }
 
-.product-link {
-  text-decoration: none;
-  color: #555;
-  transition: color .3s;
-  font-weight: normal; }
-  .product-link:hover {
-    color: #222; }
-
-.main-content-title .product-link {
-  font-weight: inherit; }
-
 .product .product-link,
 .product-price {
-  font-size: 18px;
   font-weight: 300; }
 
+.product .product-link {
+  font-size: 18px; }
+
 .product-price {
-  color: #555; }
+  color: #555;
+  font-size: 23px; }
 
 @media screen and (min-width: 980px) {
   .product {
@@ -1545,18 +1554,16 @@ header {
     padding-top: 40px;
     padding-bottom: 40px; }
   .product-add-to-cart {
-    position: absolute;
-    bottom: 0;
     width: 100%;
     margin-bottom: -4em;
-    padding: 1em 0;
-    background-color: rgba(0, 0, 0, 0.6);
+    padding: 0.4em 0;
     transition: margin 0.3s; }
     .product-add-to-cart a {
       text-decoration: none;
       color: #fff; }
-  .product-add-to-cart-mobile {
-    display: none; }
+    .product-add-to-cart .cart-icon {
+      width: 30px;
+      height: auto; }
   .product-cover:hover .product-cover-img {
     transform: scale(1.1); }
   .product-cover:hover .product-add-to-cart {
@@ -1570,19 +1577,14 @@ header {
     padding-top: 10px;
     padding-bottom: 10px; }
   .product-add-to-cart {
-    display: none; }
-  .product-add-to-cart-mobile {
-    position: absolute;
     right: 0;
-    bottom: 0;
     width: 36px;
     height: 36px;
     margin: 6px;
     box-sizing: border-box;
     border-radius: 18px;
-    padding: 6px;
-    background-color: rgba(255, 255, 255, 0.6); }
-    .product-add-to-cart-mobile .cart-icon {
+    padding: 6px; }
+    .product-add-to-cart .cart-icon {
       width: 24px;
       height: auto; } }
 
@@ -1647,7 +1649,11 @@ label[for="purchase-amount"],
 
 #single-product-purchase > .add-to-cart-link .cart-icon {
   width: 40px;
-  height: auto; }
+  height: auto;
+  transition: opacity 0.3s; }
+
+#single-product-purchase > .add-to-cart-link:hover .cart-icon {
+  opacity: 0.7; }
 
 label[for="purchase-amount"] {
   color: #555; }
@@ -1664,3 +1670,25 @@ label[for="purchase-amount"] {
   display: block;
   width: 100%;
   height: auto; }
+
+/* -------------------------------------------------------------------------
+ * 12. 登陸頁面元件｜Landing Pages
+ * -------------------------------------------------------------------------
+ */
+.lp-section {
+  width: 100%; }
+
+.lp-btn {
+  box-sizing: border-box;
+  border: solid 1px #f18c41;
+  padding: 8px 25px;
+  text-decoration: none;
+  text-align: center;
+  background-color: #f18c41;
+  color: #fff;
+  font-weight: 300;
+  transition-property: border-color, background-color, color;
+  transition-duration: .3s; }
+  .lp-btn:hover {
+    border-color: #f5a971;
+    background-color: #f5a971; }

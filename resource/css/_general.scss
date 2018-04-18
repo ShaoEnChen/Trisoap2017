@@ -25,11 +25,10 @@ $media-breakpoint-mobile: 979px;
 $wrap-lr-margin: 8%;
 $letter-spacing-18-18: 3.24px;
 
-$bg-orange: #F18C41;
+$bg-orange: #f18c41;
 $main-font-color: #555;
 $text-orange: #ff9c3f;
-$text-orange-hover: lighten($text-orange, 10%);
-$translucent-white: rgba(255, 255, 255, 0.7);
+$white-opacity-dot7: rgba(255, 255, 255, 0.7);
 
 .no-scroll {
 	overflow: hidden;
@@ -114,7 +113,7 @@ a.no-href {
 }
 
 .primary-btn {
-	@include btn(#fff, transparent, #fff, $translucent-white, $translucent-white, #666);
+	@include btn(#fff, transparent, #fff, $white-opacity-dot7, $white-opacity-dot7, #666);
 	font-weight: 200;
 }
 
@@ -128,7 +127,7 @@ a.no-href {
 }
 
 .promise-btn {
-	@include btn($text-orange, $text-orange, #000, $text-orange-hover, $text-orange-hover);
+	@include btn($text-orange, $text-orange, #000, lighten($text-orange, 10%), lighten($text-orange, 10%));
 }
 
 .neural-btn {
