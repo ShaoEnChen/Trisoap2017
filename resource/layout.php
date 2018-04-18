@@ -1,10 +1,11 @@
 <?php
 
-$GLOBALS['view_dir'] = "resource/dist/js/view/";
-
-function get_view_js_path($api, $route) {
-	global $view_dir;
-	return $view_dir . $api . '/' . $route . '.js';
+function get_view_js_path($api, $filename) {
+	$view_dir = 'resource/dist/js/view/';
+	if(!empty($api)) {
+		return $view_dir . $api . '/' . $filename . '.js';
+	}
+	return $view_dir . $filename . '.js';
 }
 
 function check_dependency_head($route) {
@@ -89,6 +90,8 @@ function replace_company_info($content) {
 }
 
 function fetch_json($criteria, $json_dir) {
+	if(!file_exists($json_dir)) return;
+
 	$json_str = file_get_contents($json_dir);
 	$json = json_decode($json_str, true);
 	$info = [];
@@ -98,6 +101,15 @@ function fetch_json($criteria, $json_dir) {
 		array_push($info, $value);
 	}
 	return $info;
+}
+
+function simple_html_dom_insert_html($content, $place_to_insert, $page) {
+	require_once('resource/simple_html_dom.php');
+	$page_html = str_get_html($page);
+	$container = $page_html -> find($place_to_insert, 0);
+	$container -> innertext = $content;
+	$page = $page_html -> save();	// return string type
+	return $page;
 }
 
 function include_view_head($route) {
@@ -225,7 +237,12 @@ function include_view_content($route) {
 			break;
 	}
 
-	echo $content;
+	if(empty($content)) {
+		echo '<script src="' . get_view_js_path('', 'content_does_not_exist') . '"></script>';
+	}
+	else {
+		echo $content;
+	}
 }
 
 function get_product_keyword($route) {
@@ -323,12 +340,20 @@ function fetch_products($route, $page) {
 		$products .= get_products_content($route, $keyword);
 	}
 
-	require_once('resource/simple_html_dom.php');
-	$page_html = str_get_html($page);
-	$container = $page_html -> find('#products', 0);
-	$container -> innertext = $products;
-	$page = $page_html -> save();	// return string type
-	return $page;
+	return simple_html_dom_insert_html($products, '#products', $page);
+}
+
+function get_landing_page($itemno) {
+	if(preg_match('/^product_sp/', $itemno)) {
+		$landing_page_dir = 'view/component/landing_page/landing_page_sp.html';
+	}
+	else if(preg_match('/^product_ss/', $itemno)) {
+		$landing_page_dir = 'view/component/landing_page/landing_page_ss.html';
+	}
+	else {
+		$landing_page_dir = '';
+	}
+	return file_get_contents($landing_page_dir);
 }
 
 function fetch_single_product($route, $page) {
@@ -337,16 +362,21 @@ function fetch_single_product($route, $page) {
 	$itemno = $_GET['itemno'];
 	$json_dir = 'resource/json/product/' . $itemno . '.json';
 
-	// Set info directly
+	// get product info
 	$placeholder = ['{item_no}', '{name}', '{intro}', '{ingredients}', '{skin_type}', '{price}'];
 	$product_info = fetch_json($placeholder, $json_dir);
-	$page = str_replace($placeholder, $product_info, $page);
+	if(!$product_info) {
+		return;
+	}
+	else {
+		$page = str_replace($placeholder, $product_info, $page);
+	}
 
-	// Set #single-product-carousel
+	// get carousel images
 	$placeholder = ['{gallery}'];
 	$gallery_dirs = fetch_json($placeholder, $json_dir)[0];
-	$image_template_dir = 'view/component/single_product/gallery_image.html';
 	$images = '';
+	$image_template_dir = 'view/component/single_product/gallery_image.html';
 	foreach ($gallery_dirs as $value) {
 		$image_template = file_get_contents($image_template_dir);
 		$image_template = str_replace('{src}', $value, $image_template);
@@ -354,11 +384,11 @@ function fetch_single_product($route, $page) {
 	}
 	$page = str_replace($placeholder, $images, $page);
 
-	require_once('resource/simple_html_dom.php');
-	$page_html = str_get_html($page);
-	$container = $page_html -> find('#single-product-accordion', 0);
-	$container -> innertext = $accordion;
-	$page = $page_html -> save();	// return string type
+	// get landing page content
+	$placeholder = ['{landing_page}'];
+	$landing_page = get_landing_page($itemno);
+	$page = str_replace($placeholder, $landing_page, $page);
+
 	return $page;
 }
 
