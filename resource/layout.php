@@ -69,7 +69,7 @@ function check_dependency_script_map_api($route) {
 
 function check_dependency_script_user_function($route) {
 	$user_function_js_dir = "resource/dist/js/view/user_function.js";
-	$need_user_function = ['gift_box', 'moonfest', 'newyear', 'products', 'single_product', 'soap', 'soapstring'];
+	$need_user_function = ['contact', 'gift_box', 'moonfest', 'newyear', 'products', 'single_product', 'soap', 'soapstring'];
 
 	if(in_array($route, $need_user_function)) {
 		echo '		<script src="' . $user_function_js_dir . '" defer></script>';
