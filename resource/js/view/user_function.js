@@ -1,10 +1,10 @@
 function contactMe() {
 	var request = new XMLHttpRequest();
 	request.open("POST", "index.php");
-	var name = document.getElementById("contact_name").value;
-	var email = document.getElementById("contact_email").value;
-	var phone = document.getElementById("contact_phone").value;
-	var message = document.getElementById("contact_message").value;
+	var name = document.getElementById("contact-form-name").value;
+	var email = document.getElementById("contact-form-email").value;
+	var phone = document.getElementById("contact-form-phone").value;
+	var message = document.getElementById("contact-form-message").value;
 	var data = "module=member&event=contact&name=" + name + "&email=" + email + "&phone=" + phone + "&message=" + message;
 	request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 	request.send(data);
