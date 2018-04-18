@@ -273,7 +273,7 @@ elseif ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			$account = $_POST['account'];
 			$sql1 = mysql_query("SELECT * FROM ORDMAS WHERE ORDNO='$order' AND EMAIL='$account' AND ACTCODE='1'");
 			$fetch1 = mysql_fetch_array($sql1);
-			$total = $fetch1['TOTALPRICE'] - $fetch1['SHIPFEE'];
+			$total = $fetch1['TOTALPRICE'] + $fetch1['SHIPFEE'];
 			$sql2 = mysql_query("SELECT * FROM CUSMAS WHERE EMAIL='$account'");
 			$fetch2 = mysql_fetch_array($sql2);
 			$total = $total - $fetch2['DISCOUNT'];
