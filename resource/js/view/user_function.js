@@ -1,3 +1,27 @@
+function contactMe() {
+	var request = new XMLHttpRequest();
+	request.open("POST", "index.php");
+	var name = document.getElementById("contact_name").value;
+	var email = document.getElementById("contact_email").value;
+	var phone = document.getElementById("contact_phone").value;
+	var message = document.getElementById("contact_message").value;
+	var data = "module=member&event=contact&name=" + name + "&email=" + email + "&phone=" + phone + "&message=" + message;
+	request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+	request.send(data);
+	request.onreadystatechange = function() {
+		if (request.readyState === 4 && request.status === 200) {
+			var data = JSON.parse(request.responseText);
+			if (data.message == 'Success') {
+				alert("我們已經收到您的來信，感謝您的回饋。");
+				location.assign("index.php");
+			}
+			else {
+				alert(data.message);
+			}
+		}
+	}
+}
+
 function FBmemberSignin(content) {
 	var request = new XMLHttpRequest();
 	request.open("POST", "index.php");

@@ -34,6 +34,11 @@ elseif (isset($_POST['module']) && isset($_POST['event'])) {
 			event_post_action();
 			break;
 
+		case 'contact':
+			echo curl_post($_POST, $_POST['module']);
+			return;
+			break;
+
 		case 'signin':
 			$return = json_decode(curl_post($_POST, $_POST['module']), true);
 			if($return['message'] == 'Success') {
