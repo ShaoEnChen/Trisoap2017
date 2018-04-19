@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 		if ($_GET['event'] == 'signin') {
 			$message = signin($_GET);
 			if (is_array($message)) {
-				echo json_encode(array('message' => $message['message'], 'token' => $message['token'], 'identity' => $message['identity']));
+				echo json_encode($message);
 				return;
 			}
 			else {
@@ -135,7 +135,7 @@ elseif ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		if ($_POST['event'] == 'signin') {
 			$message = signin($_POST);
 			if (is_array($message)) {
-				echo json_encode(array('message' => $message['message'], 'token' => $message['token'], 'identity' => $message['identity']));
+				echo json_encode($message);
 				return;
 			}
 			else {
