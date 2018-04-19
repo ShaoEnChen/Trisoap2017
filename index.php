@@ -55,7 +55,12 @@ elseif (isset($_POST['module']) && isset($_POST['event'])) {
 				message_verify($phone, $verify);
 				mysql_query("UPDATE CUSMAS SET VERIFY='$verify' WHERE EMAIL='$account'");
 			}*/
-			echo json_encode(array('message' => $return['message']));
+			if (isset($return['origin'])) {
+				echo json_encode(array('message' => $return['message'], 'origin' => $return['origin']));
+			}
+			else {
+				echo json_encode(array('message' => $return['message']));
+			}
 			break;
 
 		case 'FBsignin':

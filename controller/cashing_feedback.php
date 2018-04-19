@@ -1,7 +1,8 @@
 <?php
-include_once("library/AllPay.Payment.Integration.php");
-include_once("resource/database.php");
-include_once("library/mail.php");
+include_once("../library/mail.php");
+include_once("../library/AllPay.Payment.Integration.php");
+include_once("../resource/database.php");
+include_once("../resource/custom.php");
 
 try
 {
@@ -36,12 +37,16 @@ try
  		}
 
  		if ($szRtnCode == 1) {
- 			$paytype = transfer_PaymentType($szPaymentType);
- 			$sql = "UPDATE ORDMAS SET PAYTYPE='$paytype', PAYSTAT='1', REALPRICE='$szPayAmt' WHERE MerchantTradeNo = '$szMerchantTradeNo'";
-		    mysql_query($sql);
-		    $queryORDMAS = mysql_query("SELECT * FROM ORDMAS WHERE MerchantTradeNo='$szMerchantTradeNo'");
+ 			$queryORDMAS = mysql_query("SELECT * FROM ORDMAS WHERE MerchantTradeNo='$szMerchantTradeNo'");
 		    $fetchORDMAS = mysql_fetch_array($queryORDMAS);
 		    $email = $fetchORDMAS['EMAIL'];
+ 			$ordno = get_ordno();
+ 			$paytype = transfer_PaymentType($szPaymentType);
+ 			$sql = "UPDATE ORDMAS SET ORDNO='$ordno', PAYTYPE='$paytype', PAYSTAT='1', REALPRICE='$szPayAmt' WHERE MerchantTradeNo='$szMerchantTradeNo'";
+		    if (mysql_query($sql)) {
+		    	mysql_query("UPDATE ORDITEMMAS SET ORDNO='$ordno' WHERE ORDNO='0' AND EMAIL='$email'");
+		    	update_ordno();
+		    }
 		    mysql_query("UPDATE CUSMAS SET DISCOUNT='0' WHERE EMAIL='$email'");
 		    $discount = $fetchORDMAS['DCTID'];
 		    $queryDCTMAS = mysql_query("SELECT * FROM DCTMAS WHERE DCTID='$discount'");
