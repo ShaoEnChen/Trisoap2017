@@ -64,7 +64,8 @@ function orderitemCreate(index) {
 				location.assign("index.php?route=purchase_finish");
 			}
 			else if (data.message == '請先註冊或登入') {
-				location.assign("index.php?route=member&in=signin&origin=" + location.pathname);
+				alert('請先註冊或登入');
+				location.assign("index.php?route=member&in=signin&origin=" + location.href);
 			}
 			else {
 				alert(data.message);
