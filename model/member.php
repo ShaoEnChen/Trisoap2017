@@ -291,7 +291,7 @@ function signin($content) {
 				return array('message' => 'Success', 'token' => $token, 'identity' => $fetch1['CUSIDT']);
 			}
 			else {
-				return array('message' => 'Success', 'token' => $token, 'origin' => $origin, 'identity' => $fetch1['CUSIDT']);
+				return array('message' => 'Success', 'token' => $token, 'identity' => $fetch1['CUSIDT'], 'origin' => $origin);
 			}
 		}
 		else {

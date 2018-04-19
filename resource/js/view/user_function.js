@@ -147,10 +147,10 @@ function memberSignin() {
 	request.onreadystatechange = function() {
 		if (request.readyState === 4 && request.status === 200) {
 			var data = JSON.parse(request.responseText);
-			if (data.message == 'Success' && data.origin) {
+			if (data.message == 'Success' && typeof(data.origin) != 'undefined') {
 				location.assign(data.origin);
 			}
-			else if (data.message == 'Success' && !data.origin) {
+			else if (data.message == 'Success') {
 				location.assign("index.php");
 			}
 			/*else if (data.message == 'Unverified account') {
