@@ -1,8 +1,8 @@
 <?php
-include_once("library/AllPay.Payment.Integration.php");
-include_once("resource/database.php");
-include_once("resource/custom.php");
-include_once("library/mail.php");
+include_once("../library/mail.php");
+include_once("../library/AllPay.Payment.Integration.php");
+include_once("../resource/database.php");
+include_once("../resource/custom.php");
 
 try
 {
