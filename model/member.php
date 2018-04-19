@@ -287,6 +287,7 @@ function signin($content) {
 		$encrypted_token = md5($account.$token);
 		$sql2 = "UPDATE CUSMAS SET TOKEN='$encrypted_token' WHERE EMAIL='$account'";
 		if (mysql_query($sql2)) {
+			return $origin;
 			if (empty($origin)) {
 				return array('message' => 'Success', 'token' => $token, 'identity' => $fetch1['CUSIDT']);
 			}
