@@ -264,7 +264,7 @@ else {
 function signin($content) {
 	$account = $content['account'];
 	$password = $content['password'];
-	$origin = $content['origin'];
+	$origin = str_replace("@@", "&", $content['origin']);
 	$sql1 = mysql_query("SELECT * FROM CUSMAS WHERE EMAIL='$account'");
 	$fetch1 = mysql_fetch_array($sql1);
 	if (empty($account)) {
