@@ -799,7 +799,7 @@ function show($account, $token) {
 		$sql2 = mysql_query("SELECT * FROM ORDMAS WHERE ORDNO>0 ORDER BY UPDATEDATE DESC");
 		while ($fetch2 = mysql_fetch_array($sql2)) {
 			$content .= '<tr>';
-			$content .= '<td data-title="訂單編號	">' . $fetch2['ORDNO'] . '</td>';
+			$content .= '<td data-title="訂單編號">' . $fetch2['ORDNO'] . '</td>';
 			$content .= '<td data-title="發票編號">' . $fetch2['INVOICENO'] . '</td>';
 			$content .= '<td data-title="缺貨狀態">' . $fetch2['BACKSTAT'] . '</td>';
 			$content .= '<td data-title="訂單狀態">' . $fetch2['ORDSTAT'] . '</td>';
@@ -834,7 +834,7 @@ function cusOperate($account, $token) {
 		$sql2 = mysql_query("SELECT * FROM ORDMAS WHERE EMAIL='$account' AND ORDNO>0 AND ACTCODE='1' ORDER BY CREATEDATE DESC");
 		while ($fetch2 = mysql_fetch_array($sql2)) {
 			$content .= '<tr>';
-			$content .= '<td data-title="訂單編號	">' . $fetch2['ORDNO'] . '</td>';
+			$content .= '<td data-title="訂單編號">' . $fetch2['ORDNO'] . '</td>';
 			$content .= '<td data-title="發票編號">' . $fetch2['INVOICENO'] . '</td>';
 			$content .= '<td data-title="缺貨狀態">' . $fetch2['BACKSTAT'] . '</td>';
 			$content .= '<td data-title="訂單狀態">' . $fetch2['ORDSTAT'] . '</td>';

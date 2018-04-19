@@ -44,7 +44,7 @@ try
  			$paytype = transfer_PaymentType($szPaymentType);
  			$sql = "UPDATE ORDMAS SET ORDNO='$ordno', PAYTYPE='$paytype', PAYSTAT='1', REALPRICE='$szPayAmt' WHERE MerchantTradeNo='$szMerchantTradeNo'";
 		    if (mysql_query($sql)) {
-		    	mysql_query("UPDATE ORDITEMMAS SET ORDNO='$ordno' WHERE ORDNO='0' AND EMAIL='$email'";
+		    	mysql_query("UPDATE ORDITEMMAS SET ORDNO='$ordno' WHERE ORDNO='0' AND EMAIL='$email'");
 		    	update_ordno();
 		    }
 		    mysql_query("UPDATE CUSMAS SET DISCOUNT='0' WHERE EMAIL='$email'");
