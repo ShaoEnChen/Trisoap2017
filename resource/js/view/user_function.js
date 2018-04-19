@@ -64,8 +64,7 @@ function orderitemCreate(index) {
 				location.assign("index.php?route=purchase_finish");
 			}
 			else if (data.message == '請先註冊或登入') {
-				alert(data.message);
-				location.assign("index.php?route=member&in=signin");
+				location.assign("index.php?route=member&in=signin&origin=" + location.pathname);
 			}
 			else {
 				alert(data.message);
@@ -140,19 +139,23 @@ function memberSignin() {
 	request.open("POST", "index.php");
 	var account = document.getElementById("account").value;
 	var password = document.getElementById("password").value;
-	var data = "module=member&event=signin&account=" + account + "&password=" + password;
+	var origin = document.getElementById("origin").value;
+	var data = "module=member&event=signin&account=" + account + "&password=" + password + "&origin=" + origin;
 	request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 	request.send(data);
 	request.onreadystatechange = function() {
 		if (request.readyState === 4 && request.status === 200) {
 			var data = JSON.parse(request.responseText);
-			if (data.message == 'Success') {
+			if (data.message == 'Success' && data.origin) {
+				location.assign(data.origin);
+			}
+			else if (data.message == 'Success' && !data.origin) {
 				location.assign("index.php");
 			}
-			else if (data.message == 'Unverified account') {
+			/*else if (data.message == 'Unverified account') {
 				alert("您的帳號尚未驗證，請查看簡訊驗證碼進行驗證。");
 				location.assign("index.php?route=member&in=verify");
-			}
+			}*/
 			else {
 				alert(data.message);
 			}

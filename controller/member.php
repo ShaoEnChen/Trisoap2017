@@ -13,7 +13,11 @@ if (isset($_GET['in']) || isset($_POST['in'])) {
 			include_u_view_head($page);
 
 			$content_dir = 'view/user_function/' . $page . '.html';
-			include_once($content_dir);
+
+			$content = file_get_contents($content_dir);
+			$origin = isset($_GET['origin']) ? $_GET['origin'] : '';
+			$content = str_replace('[origin]', $origin, $content);
+			echo $content;
 
 			include_u_view_footer($page);
 		}

@@ -7,7 +7,7 @@ include_once("../library/mail.php");
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 	if ($_GET['module'] == 'member') {
 		if ($_GET['event'] == 'signin') {
-			$message = signin($_GET['account'], $_GET['password']);
+			$message = signin($_GET);
 			if (is_array($message)) {
 				echo json_encode(array('message' => $message['message'], 'token' => $message['token'], 'identity' => $message['identity']));
 				return;
@@ -133,7 +133,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 elseif ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	if ($_POST['module'] == 'member') {
 		if ($_POST['event'] == 'signin') {
-			$message = signin($_POST['account'], $_POST['password']);
+			$message = signin($_POST);
 			if (is_array($message)) {
 				echo json_encode(array('message' => $message['message'], 'token' => $message['token'], 'identity' => $message['identity']));
 				return;
@@ -261,7 +261,10 @@ else {
 	return;
 }
 
-function signin($account, $password) {
+function signin($content) {
+	$account = $content['account'];
+	$password = $content['password'];
+	$origin = $content['origin'];
 	$sql1 = mysql_query("SELECT * FROM CUSMAS WHERE EMAIL='$account'");
 	$fetch1 = mysql_fetch_array($sql1);
 	if (empty($account)) {
@@ -284,7 +287,12 @@ function signin($account, $password) {
 		$encrypted_token = md5($account.$token);
 		$sql2 = "UPDATE CUSMAS SET TOKEN='$encrypted_token' WHERE EMAIL='$account'";
 		if (mysql_query($sql2)) {
-			return array('message' => 'Success', 'token' => $token, 'identity' => $fetch1['CUSIDT']);
+			if (empty($origin)) {
+				return array('message' => 'Success', 'token' => $token, 'identity' => $fetch1['CUSIDT']);
+			}
+			else {
+				return array('message' => 'Success', 'token' => $token, 'origin' => $origin, 'identity' => $fetch1['CUSIDT']);
+			}
 		}
 		else {
 			return 'Database operation error';

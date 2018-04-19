@@ -41,19 +41,20 @@ elseif (isset($_POST['module']) && isset($_POST['event'])) {
 
 		case 'signin':
 			$return = json_decode(curl_post($_POST, $_POST['module']), true);
-			if($return['message'] == 'Success') {
+			if ($return['message'] == 'Success') {
 				setcookie('account', $_POST['account']);
 				setcookie('token', $return['token']);
 				setcookie('identity', $return['identity']);
 			}
-			elseif($return['message'] == 'Unverified account') {
+			/*
+			elseif ($return['message'] == 'Unverified account') {
 				setcookie('account', $_POST['account']);
 				$account = $_POST['account'];
 				$verify = get_verify();
 				$phone = curl_post(array('module' => 'cue', 'target' => 'member_phone', 'account' => $account), 'cue');
 				message_verify($phone, $verify);
 				mysql_query("UPDATE CUSMAS SET VERIFY='$verify' WHERE EMAIL='$account'");
-			}
+			}*/
 			echo json_encode(array('message' => $return['message']));
 			break;
 
@@ -160,14 +161,17 @@ elseif (isset($_POST['module']) && isset($_POST['event'])) {
 	case 'orderitem':
 		switch ($event) {
 		case 'create':
-		case 'cartDelete':
-			if(isset($_COOKIE['account']) && isset($_COOKIE['token'])) {
+			if (isset($_COOKIE['account']) && isset($_COOKIE['token'])) {
 				event_post_action();
 			}
 			else {
 				echo json_encode(array('message' => '請先註冊或登入'));
 				return;
 			}
+			break;
+
+		case 'cartDelete':
+			event_post_action();
 			break;
 
 		default:
