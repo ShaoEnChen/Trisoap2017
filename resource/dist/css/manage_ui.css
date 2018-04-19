@@ -538,6 +538,14 @@ a.no-href {
     border-color: #aaa;
     background-color: #aaa; }
 
+.add-to-cart-link .cart-icon {
+  width: 40px;
+  height: auto;
+  transition: opacity 0.3s; }
+
+.add-to-cart-link:hover .cart-icon {
+  opacity: 0.6; }
+
 .form-field {
   box-sizing: border-box;
   padding: 8px 24px;

@@ -135,6 +135,16 @@ a.no-href {
 	@include btn(#ccc, #ccc, #000, #aaa, #aaa);
 }
 
+.add-to-cart-link .cart-icon {
+	width: 40px;
+	height: auto;
+	transition: opacity 0.3s;
+}
+
+.add-to-cart-link:hover .cart-icon {
+	opacity: 0.6;
+}
+
 // input[type='text, email, phone, textarea, ...']
 .form-field {
 	box-sizing: border-box;
@@ -225,7 +235,6 @@ a.no-href {
 		}
 	}
 }
-
 
 // JQuery UI Accordion
 .ui-accordion-header {
