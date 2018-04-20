@@ -550,7 +550,7 @@ function close($account, $token, $index) {
 }
 
 function detail($account, $token, $index) {
-	$sql1 = mysql_query("SELECT * FROM CUSMAS WHERE EMAIL='$account'");
+	$sql1 = mysql_query("SELECT * FROM CUSMAS WHERE EMAIL='$account' AND ACTCODE='1'");
 	$fetch1 = mysql_fetch_array($sql1);
 	$sql2 = mysql_query("SELECT * FROM ORDMAS WHERE ORDNO='$index' AND ACTCODE='1'");
 	$sql3 = mysql_query("SELECT * FROM ORDITEMMAS WHERE ORDNO='$index' AND ACTCODE='1'");
@@ -575,7 +575,15 @@ function detail($account, $token, $index) {
 
 		$content .= '<tr>';
 		$content .= '<th colspan="2">顧客信箱</th>';
+		$content .= '<th>訂單編號</th>';
+		$content .= '</tr>';
+		$content .= '<tr>';
+		$content .= '<th colspan="3">收貨地址</th>';
+		$content .= '</tr>';
+		$content .= '<tr>';
 		$content .= '<th>付款方式</th>';
+		$content .= '<th>缺貨狀態</th>';
+		$content .= '<th>訂單狀態</th>';
 		$content .= '</tr>';
 
 		$content .= '</thead>';
@@ -583,7 +591,15 @@ function detail($account, $token, $index) {
 
 		$content .= '<tr>';
 		$content .= '<td colspan="2" data-title="顧客信箱">' . $fetch2['EMAIL'] . '</td>';
+		$content .= '<td data-title="訂單編號">' . $fetch2['ORDNO'] . '</td>';
+		$content .= '</tr>';
+		$content .= '<tr>';
+		$content .= '<td colspan="3" data-title="收貨地址">' . $fetch2['ORDADD'] . '</td>';
+		$content .= '</tr>';
+		$content .= '<tr>';
 		$content .= '<td data-title="付款方式">' . $fetch2['PAYTYPE'] . '</td>';
+		$content .= '<td data-title="缺貨狀態">' . $fetch2['BACKSTAT'] . '</td>';
+		$content .= '<td data-title="訂單狀態">' . $fetch2['ORDSTAT'] . '</td>';
 		$content .= '</tr>';
 
 		$content .= '</tbody>';
@@ -609,6 +625,7 @@ function detail($account, $token, $index) {
 		}
 
 		$content .= '</tbody>';
+
 		$content .= '</table>';
 
 		return array('message' => 'Success', 'content' => $content);
@@ -800,12 +817,8 @@ function show($account, $token) {
 		while ($fetch2 = mysql_fetch_array($sql2)) {
 			$content .= '<tr>';
 			$content .= '<td data-title="訂單編號">' . $fetch2['ORDNO'] . '</td>';
-			$content .= '<td data-title="發票編號">' . $fetch2['INVOICENO'] . '</td>';
 			$content .= '<td data-title="缺貨狀態">' . $fetch2['BACKSTAT'] . '</td>';
 			$content .= '<td data-title="訂單狀態">' . $fetch2['ORDSTAT'] . '</td>';
-			$content .= '<td data-title="付款狀態">' . $fetch2['PAYSTAT'] . '</td>';
-			$content .= '<td data-title="訂單總額">' . $fetch2['TOTALPRICE'] . '</td>';
-			$content .= '<td data-title="運費">' . $fetch2['SHIPFEE'] . '</td>';
 			$content .= '<td data-title="實收金額">' . $fetch2['REALPRICE'] . '</td>';
 			$content .= '<td data-title="建立日期">' . $fetch2['CREATEDATE'] . '</td>';
 			$content .= '</tr>';
@@ -835,17 +848,12 @@ function cusOperate($account, $token) {
 		while ($fetch2 = mysql_fetch_array($sql2)) {
 			$content .= '<tr>';
 			$content .= '<td data-title="訂單編號">' . $fetch2['ORDNO'] . '</td>';
-			$content .= '<td data-title="發票編號">' . $fetch2['INVOICENO'] . '</td>';
 			$content .= '<td data-title="缺貨狀態">' . $fetch2['BACKSTAT'] . '</td>';
 			$content .= '<td data-title="訂單狀態">' . $fetch2['ORDSTAT'] . '</td>';
-			$content .= '<td data-title="付款狀態">' . $fetch2['PAYSTAT'] . '</td>';
-			$content .= '<td data-title="訂單總額">' . $fetch2['TOTALPRICE'] . '</td>';
-			$content .= '<td data-title="運費">' . $fetch2['SHIPFEE'] . '</td>';
 			$content .= '<td data-title="實收金額">' . $fetch2['REALPRICE'] . '</td>';
 			$content .= '<td data-title="建立日期">' . $fetch2['CREATEDATE'] . '</td>';
 			$content .= '<td>';
 			$content .= '<button class="neural-btn" onclick="orderDetail(\''.$fetch2['ORDNO'].'\')">查看</button>';
-			$content .= '<button class="neural-btn" onclick="orderDelete(\''.$fetch2['ORDNO'].'\')">取消</button>';
 			$content .= '</td>';
 			$content .= '</tr>';
 		}

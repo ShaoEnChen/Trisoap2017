@@ -376,6 +376,25 @@ function makePayment(route) {
     location.assign(route + "&address=" + address + "&notice=" + notice + "&paytype" + payType);
 }
 
+function orderDetail(ordno) {
+	var request = new XMLHttpRequest();
+	request.open("POST", "index.php");
+	var data = "module=order&event=detail&ordno=" + ordno;
+	request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+	request.send(data);
+	request.onreadystatechange = function() {
+		if (request.readyState === 4 && request.status === 200) {
+			var data = JSON.parse(request.responseText);
+			if (data.message == 'Success') {
+				// 原頁面跳出一個視窗，顯示data.content
+			}
+			else {
+				alert(data.message);
+			}
+		}
+	}
+}
+
 // ??
 function cashing(account, ordno) {
 	var request = new XMLHttpRequest();
