@@ -9,8 +9,8 @@ $main-text-letter-spacing: 0.03em;
 $main-text-line-height: 1.7;
 
 /* z-index Scale: -1 - 10
- * -1: .img-jumbotron::before
- *  0: .img-jumbotron
+ * -1: .img-jumbotron::before, .lp-image-background::before
+ *  0: .img-jumbotron, .lp-image-background
  *  1:
  *  2:
  *  3:
@@ -1226,7 +1226,7 @@ $lp-yellow: #f6a326;
 
 .lp-text {
 	margin: 2em 0;
-	font-size: 26px;
+	font-size: 22px;
 }
 
 .lp-orange-btn {
@@ -1247,7 +1247,6 @@ $lp-yellow: #f6a326;
 .lp-round {
 	display: flex;
 	flex-direction: column;
-	justify-content:center;
 	align-items:center;
 	border-radius: 50%;
 	text-align: center;
@@ -1310,14 +1309,62 @@ $lp-yellow: #f6a326;
 // img backgrounds settings
 
 .lp-image-background {
+	position: relative;
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
-	background-color: #000;
+	background-color: #fff;
+	z-index: 0;
+	&::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0, 0, 0, 0.5);
+		z-index: -1;
+	}
+
+	&:not(#lp-three-elements) [class^=lp-text-cover] {
+		border-radius: 8px;
+		padding: 1em 4em;
+
+		// Laptop
+		@media screen and (min-width: $media-breakpoint-mobile + 1px) {
+			max-width: 40%;
+		}
+	}
 }
 
-#lp-three-elements {
-	// background-image: url();
+.lp-image-background#lp-three-elements {
+	background-image: url(/resource/img/landingpage/three-elements.jpg);
+}
+
+.lp-image-background#lp-sicial-welfare {
+	background-image: url(/resource/img/landingpage/social-welfare.jpg);
+}
+
+.lp-image-background#lp-peasant-farmer {
+	background-image: url(/resource/img/landingpage/peasant-farmer.jpg);
+}
+
+.lp-image-background#lp-cold-handmade {
+	background-image: url(/resource/img/landingpage/cold-handmade.jpg);
+}
+
+.lp-image-background#lp-no-chemical {
+	background-image: url(/resource/img/landingpage/no-chemical.jpg);
+}
+
+.lp-image-background#lp-long-time-develop {
+	background-image: url(/resource/img/landingpage/long-time-develop.jpg);
+}
+
+.lp-image-background#lp-cold-pro {
+	background-image: url(/resource/img/landingpage/cold-pro.jpg);
 }
 
 .lp-content-left,
@@ -1390,19 +1437,84 @@ $lp-yellow: #f6a326;
 	background-color: $lp-yellow;
 	color: #fff;
 
+	.trisoap-logo {
+		width: 100%;
+		height: auto;
+	}
+
 	.lp-round {
 		width: 16em;
 		height: 16em;
-		padding: 1em;
+		text-align: left;
 		color: $lp-yellow;
 
 		.lp-title {
-			margin: 0.4em 0;
-			border-bottom: 1px solid $lp-yellow;
+			position: relative;
+			margin: 0.4em 2em 0.4em 0;
+
+			&::after {
+				content: '';
+				position: absolute;
+				width: 370%;
+				left: 0;
+				bottom: 0;
+				border-bottom: 1px solid $lp-yellow;
+
+			}
 		}
 
 		.lp-text {
 			margin: 0;
+		}
+	}
+
+	// Laptop
+	@media screen and (min-width: $media-breakpoint-mobile + 1px) {
+		display: flex;
+		justify-content: space-around;
+	}
+
+	// Mobile
+	@media screen and (max-width: $media-breakpoint-mobile) {
+		.trisoap-logo {
+			display: none;
+		}
+	}
+}
+
+.lp-certificate-content {
+	// Laptop
+	@media screen and (min-width: $media-breakpoint-mobile + 1px) {
+		display: grid;
+		grid-template-columns: auto 16em;
+		grid-template-rows: auto auto;
+		align-items: center;
+		width: 80%;
+
+		& > .lp-title {
+			grid-column: 1 / 3;
+			grid-row: 1 / 2;
+			margin: 0;
+		}
+
+		& > .lp-text {
+			grid-column: 1 / 2;
+			grid-row: 2 / 3;
+			margin: 1em 1em 1em 0;
+		}
+
+		.lp-round {
+			grid-column: 2 / 3;
+			grid-row: 2 / 3;
+		}
+	}
+
+	// Mobile
+	@media screen and (max-width: $media-breakpoint-mobile) {
+		text-align: center;
+
+		.lp-round {
+			margin: 0 auto;
 		}
 	}
 }
@@ -1438,6 +1550,8 @@ $lp-yellow: #f6a326;
 
 .lp-three-rounds {
 	.lp-round {
+		justify-content:center;
+
 		// Laptop
 		@media screen and (min-width: $media-breakpoint-mobile + 1px) {
 			.lp-title {
@@ -1499,4 +1613,9 @@ $lp-yellow: #f6a326;
 	.cart-icon {
 		width: 72px;
 	}
+}
+
+#lp-no-chemical .lp-text {
+	border-left: 1px solid #fff;
+	padding-left: 1em;
 }

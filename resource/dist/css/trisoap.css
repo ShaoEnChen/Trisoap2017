@@ -624,8 +624,8 @@ a.no-href {
   -webkit-transform: rotate(-4deg); }
 
 /* z-index Scale: -1 - 10
- * -1: .img-jumbotron::before
- *  0: .img-jumbotron
+ * -1: .img-jumbotron::before, .lp-image-background::before
+ *  0: .img-jumbotron, .lp-image-background
  *  1:
  *  2:
  *  3:
@@ -1696,7 +1696,7 @@ label[for="purchase-amount"] {
 
 .lp-text {
   margin: 2em 0;
-  font-size: 26px; }
+  font-size: 22px; }
 
 .lp-orange-btn {
   display: inline-block;
@@ -1738,7 +1738,6 @@ label[for="purchase-amount"] {
 .lp-round {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   border-radius: 50%;
   text-align: center;
@@ -1783,10 +1782,50 @@ label[for="purchase-amount"] {
   padding: 60px 8%; }
 
 .lp-image-background {
+  position: relative;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-color: #000; }
+  background-color: #fff;
+  z-index: 0; }
+  .lp-image-background::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: -1; }
+  .lp-image-background:not(#lp-three-elements) [class^=lp-text-cover] {
+    border-radius: 8px;
+    padding: 1em 4em; }
+    @media screen and (min-width: 980px) {
+      .lp-image-background:not(#lp-three-elements) [class^=lp-text-cover] {
+        max-width: 40%; } }
+
+.lp-image-background#lp-three-elements {
+  background-image: url(/resource/img/landingpage/three-elements.jpg); }
+
+.lp-image-background#lp-sicial-welfare {
+  background-image: url(/resource/img/landingpage/social-welfare.jpg); }
+
+.lp-image-background#lp-peasant-farmer {
+  background-image: url(/resource/img/landingpage/peasant-farmer.jpg); }
+
+.lp-image-background#lp-cold-handmade {
+  background-image: url(/resource/img/landingpage/cold-handmade.jpg); }
+
+.lp-image-background#lp-no-chemical {
+  background-image: url(/resource/img/landingpage/no-chemical.jpg); }
+
+.lp-image-background#lp-long-time-develop {
+  background-image: url(/resource/img/landingpage/long-time-develop.jpg); }
+
+.lp-image-background#lp-cold-pro {
+  background-image: url(/resource/img/landingpage/cold-pro.jpg); }
 
 .lp-content-left,
 .lp-content-right {
@@ -1835,16 +1874,58 @@ label[for="purchase-amount"] {
 .lp-certificate {
   background-color: #f6a326;
   color: #fff; }
+  .lp-certificate .trisoap-logo {
+    width: 100%;
+    height: auto; }
   .lp-certificate .lp-round {
     width: 16em;
     height: 16em;
-    padding: 1em;
+    text-align: left;
     color: #f6a326; }
     .lp-certificate .lp-round .lp-title {
-      margin: 0.4em 0;
-      border-bottom: 1px solid #f6a326; }
+      position: relative;
+      margin: 0.4em 2em 0.4em 0; }
+      .lp-certificate .lp-round .lp-title::after {
+        content: '';
+        position: absolute;
+        width: 370%;
+        left: 0;
+        bottom: 0;
+        border-bottom: 1px solid #f6a326; }
     .lp-certificate .lp-round .lp-text {
       margin: 0; }
+  @media screen and (min-width: 980px) {
+    .lp-certificate {
+      display: flex;
+      justify-content: space-around; } }
+  @media screen and (max-width: 979px) {
+    .lp-certificate .trisoap-logo {
+      display: none; } }
+
+@media screen and (min-width: 980px) {
+  .lp-certificate-content {
+    display: grid;
+    grid-template-columns: auto 16em;
+    grid-template-rows: auto auto;
+    align-items: center;
+    width: 80%; }
+    .lp-certificate-content > .lp-title {
+      grid-column: 1 / 3;
+      grid-row: 1 / 2;
+      margin: 0; }
+    .lp-certificate-content > .lp-text {
+      grid-column: 1 / 2;
+      grid-row: 2 / 3;
+      margin: 1em 1em 1em 0; }
+    .lp-certificate-content .lp-round {
+      grid-column: 2 / 3;
+      grid-row: 2 / 3; } }
+
+@media screen and (max-width: 979px) {
+  .lp-certificate-content {
+    text-align: center; }
+    .lp-certificate-content .lp-round {
+      margin: 0 auto; } }
 
 #lp-three-elements > .lp-title {
   color: #fff;
@@ -1865,23 +1946,23 @@ label[for="purchase-amount"] {
   color: #fff;
   text-align: center; }
 
-@media screen and (min-width: 980px) {
-  .lp-three-rounds .lp-round .lp-title {
-    font-size: 32px; }
-  .lp-three-rounds .lp-round .lp-text {
-    font-size: 18px; } }
-
-@media screen and (min-width: 768px) and (max-width: 979px) {
-  .lp-three-rounds .lp-round .lp-title {
-    font-size: 24px; }
-  .lp-three-rounds .lp-round .lp-text {
-    font-size: 14px; } }
-
-@media screen and (max-width: 533px) {
-  .lp-three-rounds .lp-round .lp-title {
-    font-size: 32px; }
-  .lp-three-rounds .lp-round .lp-text {
-    font-size: 18px; } }
+.lp-three-rounds .lp-round {
+  justify-content: center; }
+  @media screen and (min-width: 980px) {
+    .lp-three-rounds .lp-round .lp-title {
+      font-size: 32px; }
+    .lp-three-rounds .lp-round .lp-text {
+      font-size: 18px; } }
+  @media screen and (min-width: 768px) and (max-width: 979px) {
+    .lp-three-rounds .lp-round .lp-title {
+      font-size: 24px; }
+    .lp-three-rounds .lp-round .lp-text {
+      font-size: 14px; } }
+  @media screen and (max-width: 533px) {
+    .lp-three-rounds .lp-round .lp-title {
+      font-size: 32px; }
+    .lp-three-rounds .lp-round .lp-text {
+      font-size: 18px; } }
 
 @media screen and (min-width: 768px) {
   .lp-three-rounds {
@@ -1902,3 +1983,7 @@ label[for="purchase-amount"] {
   margin-top: 1em; }
   .lp-cta .add-to-cart-link .cart-icon {
     width: 72px; }
+
+#lp-no-chemical .lp-text {
+  border-left: 1px solid #fff;
+  padding-left: 1em; }
