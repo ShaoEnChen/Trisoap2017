@@ -174,7 +174,7 @@ function include_view_jumbotron($route) {
 }
 
 function include_view_image_jumbotron($route) {
-	$has_jumbotron = ['about', 'brand_intro', 'contact', 'faq', 'gift_box', 'index', 'media', 'moonfest', 'newyear', 'partner', 'products', 'shopping_guide', 'single_product', 'soap', 'soapstring', 'trial'];
+	$has_jumbotron = ['about', 'contact', 'faq', 'gift_box', 'index', 'media', 'moonfest', 'newyear', 'partner', 'products', 'shopping_guide', 'single_product', 'soap', 'soapstring', 'trial'];
 	if(!in_array($route, $has_jumbotron)) {
 		return;
 	}
