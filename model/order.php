@@ -578,29 +578,30 @@ function detail($account, $token, $index) {
 		$content .= '<th>訂單編號</th>';
 		$content .= '</tr>';
 		$content .= '<tr>';
+		$content .= '<td colspan="2" data-title="顧客信箱">' . $fetch2['EMAIL'] . '</td>';
+		$content .= '<td data-title="訂單編號">' . $fetch2['ORDNO'] . '</td>';
+		$content .= '</tr>';
+
+		$content .= '<tr>';
 		$content .= '<th colspan="3">收貨地址</th>';
 		$content .= '</tr>';
+		$content .= '<tr>';
+		$content .= '<td colspan="3" data-title="收貨地址">' . $fetch2['ORDADD'] . '</td>';
+		$content .= '</tr>';
+
 		$content .= '<tr>';
 		$content .= '<th>付款方式</th>';
 		$content .= '<th>缺貨狀態</th>';
 		$content .= '<th>訂單狀態</th>';
-		$content .= '</tr>';
-
-		$content .= '</thead>';
-		$content .= '<tbody>';
-
-		$content .= '<tr>';
-		$content .= '<td colspan="2" data-title="顧客信箱">' . $fetch2['EMAIL'] . '</td>';
-		$content .= '<td data-title="訂單編號">' . $fetch2['ORDNO'] . '</td>';
-		$content .= '</tr>';
-		$content .= '<tr>';
-		$content .= '<td colspan="3" data-title="收貨地址">' . $fetch2['ORDADD'] . '</td>';
 		$content .= '</tr>';
 		$content .= '<tr>';
 		$content .= '<td data-title="付款方式">' . $fetch2['PAYTYPE'] . '</td>';
 		$content .= '<td data-title="缺貨狀態">' . $fetch2['BACKSTAT'] . '</td>';
 		$content .= '<td data-title="訂單狀態">' . $fetch2['ORDSTAT'] . '</td>';
 		$content .= '</tr>';
+
+		$content .= '</thead>';
+		$content .= '<tbody>';
 
 		$content .= '</tbody>';
 
@@ -697,12 +698,12 @@ function search($account, $token, $key, $value) {
 		$sql2 = mysql_query("SELECT * FROM ORDMAS WHERE $key='$value' AND ACTCODE='1' ORDER BY UPDATEDATE DESC");
 		while ($fetch2 = mysql_fetch_array($sql2)) {
 			$content .= '<tr>';
-			$content .= '<td data-title="訂單編號	">' . $fetch2['ORDNO'] . '</td>';
-			$content .= '<td data-title="發票編號">' . $fetch2['INVOICENO'] . '</td>';
+			$content .= '<td data-title="訂單編號">' . $fetch2['ORDNO'] . '</td>';
+			$content .= '<td data-title="顧客信箱">' . $fetch2['EMAIL'] . '</td>';
 			$content .= '<td data-title="缺貨狀態">' . $fetch2['BACKSTAT'] . '</td>';
-			$content .= '<td data-title="訂單狀態">' . $fetch2['ORDSTAT'] . '</td>';
-			$content .= '<td data-title="付款狀態">' . $fetch2['PAYSTAT'] . '</td>';
-			$content .= '<td data-title="訂單總額">' . $fetch2['TOTALPRICE'] . '</td>';
+			$content .= '<td data-title="訂單狀態">' . $fetch2['PAYSTAT'] . '</td>';
+			$content .= '<td data-title="付款方式">' . $fetch2['PAYTYPE'] . '</td>';
+			$content .= '<td data-title="訂單金額">' . $fetch2['TOTALPRICE'] . '</td>';
 			$content .= '<td data-title="運費">' . $fetch2['SHIPFEE'] . '</td>';
 			$content .= '<td data-title="實收金額">' . $fetch2['REALPRICE'] . '</td>';
 			$content .= '<td data-title="建立日期">' . $fetch2['CREATEDATE'] . '</td>';
@@ -737,12 +738,12 @@ function operate($account, $token, $state='E') {
 			mysql_query("SELECT * FROM ORDMAS WHERE ORDNO>0 AND ORDSTAT='$state' AND BACKSTAT='0' AND ACTCODE='1' ORDER BY CREATEDATE ASC");
 		while ($fetch2 = mysql_fetch_array($sql2)) {
 			$content .= '<tr>';
-			$content .= '<td data-title="訂單編號	">' . $fetch2['ORDNO'] . '</td>';
-			$content .= '<td data-title="發票編號">' . $fetch2['INVOICENO'] . '</td>';
+			$content .= '<td data-title="訂單編號">' . $fetch2['ORDNO'] . '</td>';
+			$content .= '<td data-title="顧客信箱">' . $fetch2['EMAIL'] . '</td>';
 			$content .= '<td data-title="缺貨狀態">' . $fetch2['BACKSTAT'] . '</td>';
-			$content .= '<td data-title="訂單狀態">' . $fetch2['ORDSTAT'] . '</td>';
-			$content .= '<td data-title="付款狀態">' . $fetch2['PAYSTAT'] . '</td>';
-			$content .= '<td data-title="訂單總額">' . $fetch2['TOTALPRICE'] . '</td>';
+			$content .= '<td data-title="訂單狀態">' . $fetch2['PAYSTAT'] . '</td>';
+			$content .= '<td data-title="付款方式">' . $fetch2['PAYTYPE'] . '</td>';
+			$content .= '<td data-title="訂單金額">' . $fetch2['TOTALPRICE'] . '</td>';
 			$content .= '<td data-title="運費">' . $fetch2['SHIPFEE'] . '</td>';
 			$content .= '<td data-title="實收金額">' . $fetch2['REALPRICE'] . '</td>';
 			$content .= '<td data-title="建立日期">' . $fetch2['CREATEDATE'] . '</td>';
@@ -817,8 +818,12 @@ function show($account, $token) {
 		while ($fetch2 = mysql_fetch_array($sql2)) {
 			$content .= '<tr>';
 			$content .= '<td data-title="訂單編號">' . $fetch2['ORDNO'] . '</td>';
+			$content .= '<td data-title="顧客信箱">' . $fetch2['EMAIL'] . '</td>';
 			$content .= '<td data-title="缺貨狀態">' . $fetch2['BACKSTAT'] . '</td>';
 			$content .= '<td data-title="訂單狀態">' . $fetch2['ORDSTAT'] . '</td>';
+			$content .= '<td data-title="付款方式">' . $fetch2['PAYTYPE'] . '</td>';
+			$content .= '<td data-title="訂單金額">' . $fetch2['TOTALPRICE'] . '</td>';
+			$content .= '<td data-title="運費">' . $fetch2['SHIPFEE'] . '</td>';
 			$content .= '<td data-title="實收金額">' . $fetch2['REALPRICE'] . '</td>';
 			$content .= '<td data-title="建立日期">' . $fetch2['CREATEDATE'] . '</td>';
 			$content .= '</tr>';
@@ -848,8 +853,8 @@ function cusOperate($account, $token) {
 		while ($fetch2 = mysql_fetch_array($sql2)) {
 			$content .= '<tr>';
 			$content .= '<td data-title="訂單編號">' . $fetch2['ORDNO'] . '</td>';
-			$content .= '<td data-title="缺貨狀態">' . $fetch2['BACKSTAT'] . '</td>';
-			$content .= '<td data-title="訂單狀態">' . $fetch2['ORDSTAT'] . '</td>';
+			$content .= '<td data-title="缺貨狀態">' . show_BACKSTAT($fetch2['BACKSTAT']) . '</td>';
+			$content .= '<td data-title="訂單狀態">' . show_ORDSTAT($fetch2['ORDSTAT']) . '</td>';
 			$content .= '<td data-title="實收金額">' . $fetch2['REALPRICE'] . '</td>';
 			$content .= '<td data-title="建立日期">' . $fetch2['CREATEDATE'] . '</td>';
 			$content .= '<td>';
