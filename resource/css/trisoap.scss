@@ -99,7 +99,7 @@ header {
 
 /* 1.2. Jumbotron - Img */
 
-$jumbotron-list: "about", "brand_intro", "contact", "faq", "gift_box", "media", "moonfest", "newyear", "partner", "products", "shopping_guide", "single_product", "soap", "soapstring", "trial";
+$jumbotron-list: "about", "contact", "faq", "gift_box", "media", "moonfest", "newyear", "partner", "products", "shopping_guide", "single_product", "soap", "soapstring", "trial";
 
 @each $item in $jumbotron-list {
 	#jumbotron-#{$item} {
@@ -279,17 +279,16 @@ $footer-line-height: 1.7;
 /* =========================================================================
  * Contents
  * 1. 首頁｜Index Page
- * 2. 三三堅持｜Brand Intro
- * 3. 媒體報導｜Media
- * 4. 試用品申請｜Trial
- * 5. 顧客問答（常見問題）｜FAQ
- * 6. 合作夥伴｜Partner
- * 7. 三三團隊｜About
- * 8. 聯絡我們｜Contact
- * 9. 購物須知｜Shopping Guide
- * 10. 單品 / 旅用皂絲｜Soap / Soapstring
- * 11. 客製化專區｜Customize
- * 12. 登陸頁面元件｜Landing Pages
+ * 2. 媒體報導｜Media
+ * 3. 試用品申請｜Trial
+ * 4. 顧客問答（常見問題）｜FAQ
+ * 5. 合作夥伴｜Partner
+ * 6. 三三團隊｜About
+ * 7. 聯絡我們｜Contact
+ * 8. 購物須知｜Shopping Guide
+ * 9. 單品 / 旅用皂絲｜Soap / Soapstring
+ * 10. 客製化專區｜Customize
+ * 11. 登陸頁面元件｜Landing Pages
  * =========================================================================
  */
 
@@ -298,7 +297,7 @@ $footer-line-height: 1.7;
  * 1.1.0. 立即購買 - DEPRECATED
  * 1.1.1. 活動影片 Activity videos
  * 1.2. 三個故事 Slogan
- * 1.3. 三個故事
+ * 1.3. 首頁 Landing Page - See 11. 登陸頁面元件｜Landing Pages
  * -------------------------------------------------------------------------
  */
 
@@ -400,147 +399,10 @@ $buy-now-btn-width: 44%;
 
 /* 1.2. 三個故事 Slogan - Shared Slogan Properties */
 
-/* 1.3. 三個故事 */
-
-.story-wrap {
-	padding: 50px 0;
-}
-
-.story {
-	box-sizing: border-box;
-}
-
-.story-img {
-	width: 100%;
-	height: auto;
-}
-
-.story-text {
-	color: $main-font-color;
-	font-size: 16px;
-	font-weight: 200;
-	letter-spacing: $main-text-letter-spacing;
-	line-height: $main-text-line-height;
-}
-
-// Laptop
-@media screen and (min-width: $media-breakpoint-mobile + 1px) {
-	.story {
-		display: grid;
-		grid-template-columns: 8% 6fr 1fr 5fr 8%;	// 6 for img, 5 for text
-		grid-template-rows: 40px auto 40px;
-		align-items: center;
-	}
-
-	.story-img-wrap {
-		grid-column: 2 / 3;	// out of 6
-		grid-row: 2 / 3;	// out of 4
-	}
-
-	.story-text {
-		grid-column: 4 / 5;	// out of 6
-		grid-row: 2 / 3;	// out of 4
-	}
-}
-
-// Mobile
-@media screen and (max-width: $media-breakpoint-mobile) {
-	$story-lr-margin: 8%;
-
-	.story-img-wrap {
-		margin: 60px $story-lr-margin 30px;
-	}
-
-	.story-text {
-		margin: 30px $story-lr-margin 60px;
-		text-align: center;
-	}
-}
+/* 1.3. 首頁 Landing Page - See 11. 登陸頁面元件｜Landing Pages */
 
 /* -------------------------------------------------------------------------
- * 2. 三三堅持｜Brand Intro
- * -------------------------------------------------------------------------
- */
-
-
-.intro {
-	box-sizing: border-box;
-}
-
-.intro-img {
-	width: 100%;
-	height: auto;
-}
-
-.intro-text {
-	color: $main-font-color;
-	font-weight: 200;
-	letter-spacing: $main-text-letter-spacing;
-	line-height: $main-text-line-height;
-	h3 {
-		text-align: center;
-		font-weight: 200;
-		letter-spacing: $letter-spacing-18-18;
-	}
-}
-
-// Laptop
-@media screen and (min-width: $media-breakpoint-mobile + 1px) {
-	.intro {
-		display: grid;
-		grid-template-columns: 14% 5fr 1fr 5fr 14%;	// 5 for img or text
-		align-items: center;
-		&:nth-child(1) {
-			grid-template-rows: 40px auto 20px;
-			.intro-img-wrap {
-				grid-column: 2 / 3;	// out of 6
-			}
-			.intro-text {
-				grid-column: 4 / 5;	// out of 6
-			}
-		}
-		&:nth-child(2) {
-			grid-template-rows: 20px auto 40px;
-			.intro-text {
-				grid-column: 2 / 3;	// out of 6
-			}
-			.intro-img-wrap {
-				grid-column: 4 / 5;	// out of 6
-			}
-		}
-	}
-
-	.intro-img-wrap,
-	.intro-text {
-		grid-row: 2 / 3;	// out of 4
-	}
-
-	.intro-text a {
-		text-decoration: none;
-		color: #000;
-		transition: color .3s;
-		&:hover {
-			color: #777;
-		}
-	}
-}
-
-// Mobile
-@media screen and (max-width: $media-breakpoint-mobile) {
-	$intro-lr-margin: 8%;
-
-	.intro-img-wrap {
-		margin: 60px $intro-lr-margin 30px;
-	}
-
-	.intro-text {
-		margin: 30px $intro-lr-margin 60px;
-		text-align: center;
-	}
-}
-
-/* -------------------------------------------------------------------------
- * 3. 媒體報導｜Media
+ * 2. 媒體報導｜Media
  * -------------------------------------------------------------------------
  */
 
@@ -567,14 +429,14 @@ $buy-now-btn-width: 44%;
 }
 
 /* -------------------------------------------------------------------------
- * 4. 試用品申請｜Trial
- * 4.1. 一致好評 - Flexslider
- * 4.2. Slogan
- * 4.3. 3 Main Features
+ * 3. 試用品申請｜Trial
+ * 3.1. 一致好評 - Flexslider
+ * 3.2. Slogan
+ * 3.3. 3 Main Features
  * -------------------------------------------------------------------------
  */
 
-/* 4.1. 一致好評 - Flexslider */
+/* 3.1. 一致好評 - Flexslider */
 
 #trial-recommend {
 	padding: 40px 0;
@@ -603,9 +465,9 @@ $buy-now-btn-width: 44%;
 	}
 }
 
-/* 4.2. Shared Slogan Properties */
+/* 3.2. Shared Slogan Properties */
 
-/* 4.3. 3 Main Features */
+/* 3.3. 3 Main Features */
 
 .feature-wrap {
 	width: 100%;
@@ -659,7 +521,7 @@ $buy-now-btn-width: 44%;
 }
 
 /* -------------------------------------------------------------------------
- * 5. 顧客問答（常見問題）｜FAQ
+ * 4. 顧客問答（常見問題）｜FAQ
  * -------------------------------------------------------------------------
  */
 
@@ -669,7 +531,7 @@ $buy-now-btn-width: 44%;
 }
 
 /* -------------------------------------------------------------------------
- * 6. 合作夥伴｜Partner
+ * 5. 合作夥伴｜Partner
  * -------------------------------------------------------------------------
  */
 
@@ -693,13 +555,13 @@ $buy-now-btn-width: 44%;
 }
 
 /* -------------------------------------------------------------------------
- * 7. 三三團隊｜About
- * 7.1. 理念
- * 7.2. 團隊
+ * 6. 三三團隊｜About
+ * 6.1. 理念
+ * 6.2. 團隊
  * -------------------------------------------------------------------------
  */
 
-/* 7.1. 理念 */
+/* 6.1. 理念 */
 
 #about-concept-text {
 	color: $main-font-color;
@@ -716,7 +578,7 @@ $buy-now-btn-width: 44%;
 	height: auto;
 }
 
-/* 7.2. 團隊 */
+/* 6.2. 團隊 */
 
 #about-team {
 	color: $main-font-color;
@@ -741,7 +603,7 @@ $buy-now-btn-width: 44%;
 
 // Laptop
 @media screen and (min-width: $media-breakpoint-mobile + 1px) {
-	/* 7.1. 理念 */
+	/* 6.1. 理念 */
 	#about-concept {
 		display: grid;
 		grid-template-columns: 12% 6fr 6fr 8%;
@@ -759,7 +621,7 @@ $buy-now-btn-width: 44%;
 		grid-row: 2 / 3;	// out of 4
 	}
 
-	/* 7.2. 團隊 */
+	/* 6.2. 團隊 */
 
 	.about-team-member {
 		display: grid;
@@ -791,7 +653,7 @@ $buy-now-btn-width: 44%;
 		margin: 30px $about-concept-lr-margin;
 	}
 
-	/* 7.1. 理念 */
+	/* 6.1. 理念 */
 
 	#about-concept-text {
 		margin: 60px $about-concept-lr-margin 30px;
@@ -802,7 +664,7 @@ $buy-now-btn-width: 44%;
 		text-align: center;
 	}
 
-	/* 7.2. 團隊 */
+	/* 6.2. 團隊 */
 
 	#about-team {
 		& > .slogan {
@@ -816,7 +678,7 @@ $buy-now-btn-width: 44%;
 }
 
 /* -------------------------------------------------------------------------
- * 8. 聯絡我們｜Contact
+ * 7. 聯絡我們｜Contact
  * -------------------------------------------------------------------------
  */
 
@@ -844,10 +706,6 @@ $buy-now-btn-width: 44%;
 #contact-form-phone,
 #contact-form-message {
 	font-size: 18px;
-}
-
-#contact-form-message {
-	// resize: none;
 }
 
 #contact-info {
@@ -892,7 +750,7 @@ $buy-now-btn-width: 44%;
 }
 
 /* -------------------------------------------------------------------------
- * 9. 購物須知｜Shopping Guide
+ * 8. 購物須知｜Shopping Guide
  * -------------------------------------------------------------------------
  */
 
@@ -940,13 +798,13 @@ $buy-now-btn-width: 44%;
 }
 
 /* -------------------------------------------------------------------------
- * 10. 單品 / 旅用皂絲｜Soap / Soapstring
- * 10.1. 商品全覽頁｜Products
- * 10.2. 單項商品頁｜Single Product
+ * 9. 單品 / 旅用皂絲｜Soap / Soapstring
+ * 9.1. 商品全覽頁｜Products
+ * 9.2. 單項商品頁｜Single Product
  * -------------------------------------------------------------------------
  */
 
-/* 10.1. 商品全覽頁｜Products */
+/* 9.1. 商品全覽頁｜Products */
 
 .products-wrap {
 	& > .slogan-title {
@@ -1099,7 +957,7 @@ $buy-now-btn-width: 44%;
 	}
 }
 
-/* 10.2. 單項商品頁｜Single Product */
+/* 9.2. 單項商品頁｜Single Product */
 
 // Laptop
 @media screen and (min-width: $media-breakpoint-mobile + 1px) {
@@ -1182,7 +1040,7 @@ label[for="purchase-amount"] {
 }
 
 /* -------------------------------------------------------------------------
- * 11. 客製化專區｜Customize
+ * 10. 客製化專區｜Customize
  * -------------------------------------------------------------------------
  */
 
@@ -1198,15 +1056,17 @@ label[for="purchase-amount"] {
 }
 
 /* -------------------------------------------------------------------------
- * 12. 登陸頁面元件｜Landing Pages
+ * 11. 登陸頁面元件｜Landing Pages
  * -------------------------------------------------------------------------
  */
 
 $lp-orange: #f18c41;
 $lp-yellow: #f6a326;
+$lp-border-radius: 8px;
 
 .lp-bg-orange {
 	background-color: $bg-orange;
+	color: #fff;
 }
 
 .lp-title,
@@ -1229,6 +1089,12 @@ $lp-yellow: #f6a326;
 	font-size: 22px;
 }
 
+.lp-text-sep {
+	margin-top: 0.5em;
+	border-bottom: 2px #fff solid;
+	padding-bottom: 0.5em;
+}
+
 .lp-orange-btn {
 	@include btn($lp-orange, $lp-orange, #fff, lighten($lp-orange, 10%), lighten($lp-orange, 10%));
 }
@@ -1239,9 +1105,19 @@ $lp-yellow: #f6a326;
 
 .lp-orange-btn,
 .lp-white-btn {
-	border-radius: 8px;
+	border-radius: $lp-border-radius;
 	padding: 16px 30px;
 	font-size: 30px;
+}
+
+.lp-mark {
+	display: inline-block;
+	width: 2em;
+	height: 2.5em;
+	border: 2px solid #fff;
+	border-radius: $lp-border-radius;
+	padding: 0.5em;
+	font-size: 48px;
 }
 
 .lp-round {
@@ -1270,9 +1146,6 @@ $lp-yellow: #f6a326;
 	}
 
 	.lp-title {
-		margin-top: 0.5em;
-		border-bottom: 2px #fff solid;
-		padding-bottom: 0.5em;
 		text-align: center;
 	}
 
@@ -1296,7 +1169,7 @@ $lp-yellow: #f6a326;
 }
 
 .lp-text-cover-dark {
-	background-color: rgba(0, 0, 0, 0.6);
+	background-color: rgba(0, 0, 0, 0.2);
 }
 
 .lp-section {
@@ -1324,18 +1197,14 @@ $lp-yellow: #f6a326;
 		left: 0;
 		width: 100%;
 		height: 100%;
-		background-color: rgba(0, 0, 0, 0.5);
+		background-color: rgba(0, 0, 0, 0.3);
 		z-index: -1;
 	}
 
 	&:not(#lp-three-elements) [class^=lp-text-cover] {
-		border-radius: 8px;
+		display: inline-block;
+		border-radius: $lp-border-radius;
 		padding: 1em 4em;
-
-		// Laptop
-		@media screen and (min-width: $media-breakpoint-mobile + 1px) {
-			max-width: 40%;
-		}
 	}
 }
 
@@ -1343,57 +1212,117 @@ $lp-yellow: #f6a326;
 	background-image: url(/resource/img/landingpage/three-elements.jpg);
 }
 
-.lp-image-background#lp-sicial-welfare {
+.lp-image-background#lp-img-social-welfare {
 	background-image: url(/resource/img/landingpage/social-welfare.jpg);
 }
 
-.lp-image-background#lp-peasant-farmer {
+.lp-image-background#lp-img-peasant-farmer {
 	background-image: url(/resource/img/landingpage/peasant-farmer.jpg);
 }
 
-.lp-image-background#lp-cold-handmade {
+.lp-image-background#lp-img-cold-handmade {
 	background-image: url(/resource/img/landingpage/cold-handmade.jpg);
 }
 
-.lp-image-background#lp-no-chemical {
+.lp-image-background#lp-img-no-chemical {
 	background-image: url(/resource/img/landingpage/no-chemical.jpg);
 }
 
-.lp-image-background#lp-long-time-develop {
+.lp-image-background#lp-img-long-time-develop {
 	background-image: url(/resource/img/landingpage/long-time-develop.jpg);
 }
 
-.lp-image-background#lp-cold-pro {
+.lp-image-background#lp-img-for-travel {
+	background-image: url(/resource/img/landingpage/for-travel.jpg);
+}
+
+.lp-image-background#lp-img-foam-fest {
+	background-image: url(/resource/img/landingpage/foam-fest.jpg);
+}
+
+.lp-image-background#lp-img-natural-oil {
+	background-image: url(/resource/img/landingpage/natural-oil.jpg);
+}
+
+.lp-image-background#lp-img-easy-to-carry {
+	background-image: url(/resource/img/landingpage/easy-to-carry.jpg);
+}
+
+.lp-image-background#lp-img-essential-oil {
+	background-image: url(/resource/img/landingpage/essential-oil.jpg);
+}
+
+.lp-image-background#lp-img-welfare-produce-together {
+	background-image: url(/resource/img/landingpage/welfare-produce-together.jpg);
+}
+
+.lp-image-background#lp-img-multiple-uses {
+	background-image: url(/resource/img/landingpage/multiple-uses.jpg);
+}
+
+.lp-image-background#lp-img-teng-partner {
+	background-image: url(/resource/img/landingpage/teng-partner.jpg);
+}
+
+.lp-image-background#lp-img-cold-pro {
 	background-image: url(/resource/img/landingpage/cold-pro.jpg);
+}
+
+.lp-image-background#lp-img-listen-to-earth {
+	background-image: url(/resource/img/landingpage/listen-to-earth.jpg);
+}
+
+.lp-image-background#lp-img-retarded-produce-together {
+	background-image: url(/resource/img/landingpage/retarded-produce-together.jpg);
+}
+
+.lp-image-background#lp-img-media-report {
+	background-image: url(/resource/img/landingpage/media-report.jpg);
 }
 
 .lp-content-left,
 .lp-content-right {
 	color: #fff;
+	& > .lp-subtitle.lp-bg-orange {
+		display: inline-block;
+		margin: 0;
+		padding: 0.5em;
+		background-color: rgba(241, 140, 65, 0.5);
+	}
 }
 
 .lp-content-left {
 	text-align: left;
 
-	.lp-title,
-	.lp-subtitle,
-	.lp-text {
-		text-align: right;
+	&.lp-text-opposite-side {
+		.lp-title,
+		.lp-subtitle,
+		.lp-text {
+			text-align: right;
+		}
 	}
 }
 
 .lp-content-right {
 	text-align: right;
 
-	.lp-title,
-	.lp-subtitle,
-	.lp-text {
-		text-align: left;
+	&.lp-text-opposite-side {
+		.lp-title,
+		.lp-subtitle,
+		.lp-text {
+			text-align: left;
+		}
 	}
 }
 
 .lp-plain-text {
 	text-align: center;
+	&.lp-content-left {
+		text-align: left;
+	}
+	&.lp-content-right {
+		text-align: right;
+	}
 
 	.lp-title {
 		color: $lp-orange;
@@ -1402,6 +1331,26 @@ $lp-yellow: #f6a326;
 	.lp-subtitle,
 	.lp-text {
 		color: $main-font-color;
+	}
+
+	.lp-text.lp-bg-orange {
+		padding: 2em;
+		color: #fff;
+	}
+}
+
+.lp-text-list .lp-text {
+	margin-left: 10%;
+	text-align: left;
+	&::before {
+		content: '';
+		display: inline-block;
+		width: 1em;
+		height: 1em;
+		margin-right: 0.5em;
+		border: 2px solid $lp-orange;
+		border-radius: 1em;
+		background-color: transparent;
 	}
 }
 
@@ -1424,7 +1373,6 @@ $lp-yellow: #f6a326;
 	border: 3px #fff solid;
 	box-sizing: border-box;
 	padding: 32px;
-	color: #fff;
 	text-align: right;
 
 	.lp-title,
