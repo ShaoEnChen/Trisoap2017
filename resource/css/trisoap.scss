@@ -1,8 +1,3 @@
-/* =========================================================================
- * CSS Normalization
- * =========================================================================
- */
-
 @import 'general';
 
 $main-text-letter-spacing: 0.03em;
@@ -169,6 +164,21 @@ $jumbotron-list: "about", "contact", "faq", "gift_box", "media", "moonfest", "ne
 	.jumbotron-btn > .primary-btn {
 		padding: 16px 36px;
 		font-size: 18px;
+	}
+
+	#jumbotron-trial {
+		position: relative;
+
+		.jumbotron-title {
+			display: none;
+		}
+
+		.jumbotron-btn {
+			position: absolute;
+			top: 75%;
+			right: 20%;
+			transform: translate(50%, -50%);
+		}
 	}
 }
 
@@ -823,7 +833,6 @@ $buy-now-btn-width: 44%;
 	padding-right: 20px;
 }
 
-
 .product-link {
 	text-decoration: none;
 	color: $main-font-color;
@@ -1087,6 +1096,7 @@ $lp-border-radius: 8px;
 .lp-text {
 	margin: 2em 0;
 	font-size: 22px;
+	font-weight: 300;
 }
 
 .lp-text-sep {
@@ -1111,13 +1121,31 @@ $lp-border-radius: 8px;
 }
 
 .lp-mark {
-	display: inline-block;
-	width: 2em;
-	height: 2.5em;
-	border: 2px solid #fff;
-	border-radius: $lp-border-radius;
-	padding: 0.5em;
-	font-size: 48px;
+	// calc((3.5em + 0.0625em * 2 * 2 + 4em / 3 + 692.16px) / 84 * 100);
+	$lp-mark-show-width: 1113px;
+
+    display: inline-block;
+    width: 3em;
+    height: 3em;
+    border: 0.0625em solid #fff;
+    border-radius: 8px;
+    padding: 0.5em 0 0.5em 0.5em;
+    letter-spacing: 0.5em;
+    line-height: 1.5em;
+    font-size: 3em;
+    vertical-align: middle;
+    & + .lp-content-left {
+		display: inline-block;
+		vertical-align: middle;
+		// Laptop
+		@media screen and (min-width: $lp-mark-show-width + 1px) {
+			margin-left: 4em;
+		}
+    }
+
+	@media screen and (max-width: $lp-mark-show-width) {
+		display: none;
+	}
 }
 
 .lp-round {
@@ -1138,6 +1166,58 @@ $lp-border-radius: 8px;
 	}
 }
 
+.lp-customer-feedbacks {
+	$lp-cf-padding: 0.8em;
+
+	letter-spacing: $main-text-letter-spacing;
+	line-height: $main-text-line-height;
+
+	// Laptop
+	@media screen and (min-width: $media-breakpoint-mobile + 1px) {
+		display: flex;
+		justify-content: center;
+	}
+
+	.lp-cf {
+		// Laptop
+		@media screen and (min-width: $media-breakpoint-mobile + 1px) {
+			width: 25%;
+			margin: 0 3%;
+		}
+
+		// Mobile
+		@media screen and (max-width: $media-breakpoint-mobile) {
+			margin: 3em auto;
+		}
+	}
+
+	.lp-cf-head {
+		padding: $lp-cf-padding $lp-cf-padding 0;
+		font-size: 22px;
+	}
+
+	.lp-cf-title {
+		margin: 0;
+		border: 2px solid $lp-orange;
+		border-bottom: none;
+		padding: 0.5em;
+		color: $lp-orange;
+	}
+
+	.lp-cf-content {
+		padding: 0 $lp-cf-padding $lp-cf-padding;
+		font-size: 22px;
+	}
+
+	.lp-cf-text {
+		margin: 0;
+		border: 2px solid #fff;
+		border-top: none;
+		padding: 2 * $lp-cf-padding $lp-cf-padding;
+		text-align: justify;
+	}
+}
+
 [class^=lp-text-cover] {
 	.lp-title,
 	.lp-subtitle,
@@ -1147,6 +1227,14 @@ $lp-border-radius: 8px;
 
 	.lp-title {
 		text-align: center;
+	}
+
+	&.lp-content-left,
+	&.lp-content-right {
+		.lp-title,
+		.lp-text {
+			text-align: inherit;
+		}
 	}
 
 	.lp-text {
@@ -1176,7 +1264,6 @@ $lp-border-radius: 8px;
 	width: 100%;
 	box-sizing: border-box;
 	padding: 60px 8%;
-	// font settings
 }
 
 // img backgrounds settings
@@ -1293,7 +1380,6 @@ $lp-border-radius: 8px;
 
 .lp-content-left {
 	text-align: left;
-
 	&.lp-text-opposite-side {
 		.lp-title,
 		.lp-subtitle,
@@ -1305,7 +1391,6 @@ $lp-border-radius: 8px;
 
 .lp-content-right {
 	text-align: right;
-
 	&.lp-text-opposite-side {
 		.lp-title,
 		.lp-subtitle,
@@ -1395,6 +1480,11 @@ $lp-border-radius: 8px;
 		height: 16em;
 		text-align: left;
 		color: $lp-yellow;
+
+		@media screen and (max-width: 19.04em) {
+			// 16em / (100 - 8 * 2)% * 100% ~= 19.04em
+			display: none;
+		}
 
 		.lp-title {
 			position: relative;
@@ -1563,7 +1653,46 @@ $lp-border-radius: 8px;
 	}
 }
 
-#lp-no-chemical .lp-text {
+#lp-img-no-chemical .lp-text {
 	border-left: 1px solid #fff;
 	padding-left: 1em;
+}
+
+#lp-img-teng-partner {
+	position: relative;
+
+	// Laptop
+	@media screen and (min-width: $media-breakpoint-mobile + 1px) {
+		.lp-circle {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			width: 4em;
+			height: 4em;
+			border-radius: 50%;
+			border: 2px solid #fff;
+			text-align: center;
+		}
+
+		#lp-circle-chihshang-rice,
+		#lp-circle-lily {
+			position: absolute;
+			top: 4%;
+		}
+
+		#lp-circle-chihshang-rice {
+			right: 35%;
+		}
+
+		#lp-circle-lily {
+			right: 15%;
+		}
+	}
+
+	// Mobile
+	@media screen and (max-width: $media-breakpoint-mobile) {
+		.lp-circle {
+			display: none;
+		}
+	}
 }

@@ -3,10 +3,6 @@
  * CSS Normalization
  * =========================================================================
  */
-/* =========================================================================
- * CSS Normalization
- * =========================================================================
- */
 /*! normalize.css v7.0.0 | MIT License | github.com/necolas/normalize.css */
 /* Document
    ========================================================================== */
@@ -936,7 +932,16 @@ header {
     font-size: 24px; }
   .jumbotron-btn > .primary-btn {
     padding: 16px 36px;
-    font-size: 18px; } }
+    font-size: 18px; }
+  #jumbotron-trial {
+    position: relative; }
+    #jumbotron-trial .jumbotron-title {
+      display: none; }
+    #jumbotron-trial .jumbotron-btn {
+      position: absolute;
+      top: 75%;
+      right: 20%;
+      transform: translate(50%, -50%); } }
 
 @media screen and (max-width: 979px) {
   .jumbotron-title,
@@ -1601,7 +1606,8 @@ label[for="purchase-amount"] {
 
 .lp-text {
   margin: 2em 0;
-  font-size: 22px; }
+  font-size: 22px;
+  font-weight: 300; }
 
 .lp-text-sep {
   margin-top: 0.5em;
@@ -1647,12 +1653,24 @@ label[for="purchase-amount"] {
 
 .lp-mark {
   display: inline-block;
-  width: 2em;
-  height: 2.5em;
-  border: 2px solid #fff;
+  width: 3em;
+  height: 3em;
+  border: 0.0625em solid #fff;
   border-radius: 8px;
-  padding: 0.5em;
-  font-size: 48px; }
+  padding: 0.5em 0 0.5em 0.5em;
+  letter-spacing: 0.5em;
+  line-height: 1.5em;
+  font-size: 3em;
+  vertical-align: middle; }
+  .lp-mark + .lp-content-left {
+    display: inline-block;
+    vertical-align: middle; }
+    @media screen and (min-width: 1114px) {
+      .lp-mark + .lp-content-left {
+        margin-left: 4em; } }
+  @media screen and (max-width: 1113px) {
+    .lp-mark {
+      display: none; } }
 
 .lp-round {
   display: flex;
@@ -1667,6 +1685,39 @@ label[for="purchase-amount"] {
   .lp-round .lp-text {
     margin: 1em 0; }
 
+.lp-customer-feedbacks {
+  letter-spacing: 0.03em;
+  line-height: 1.7; }
+  @media screen and (min-width: 980px) {
+    .lp-customer-feedbacks {
+      display: flex;
+      justify-content: center; } }
+  @media screen and (min-width: 980px) {
+    .lp-customer-feedbacks .lp-cf {
+      width: 25%;
+      margin: 0 3%; } }
+  @media screen and (max-width: 979px) {
+    .lp-customer-feedbacks .lp-cf {
+      margin: 3em auto; } }
+  .lp-customer-feedbacks .lp-cf-head {
+    padding: 0.8em 0.8em 0;
+    font-size: 22px; }
+  .lp-customer-feedbacks .lp-cf-title {
+    margin: 0;
+    border: 2px solid #f18c41;
+    border-bottom: none;
+    padding: 0.5em;
+    color: #f18c41; }
+  .lp-customer-feedbacks .lp-cf-content {
+    padding: 0 0.8em 0.8em;
+    font-size: 22px; }
+  .lp-customer-feedbacks .lp-cf-text {
+    margin: 0;
+    border: 2px solid #fff;
+    border-top: none;
+    padding: 1.6em 0.8em;
+    text-align: justify; }
+
 [class^=lp-text-cover] .lp-title,
 [class^=lp-text-cover] .lp-subtitle,
 [class^=lp-text-cover] .lp-text {
@@ -1674,6 +1725,11 @@ label[for="purchase-amount"] {
 
 [class^=lp-text-cover] .lp-title {
   text-align: center; }
+
+[class^=lp-text-cover].lp-content-left .lp-title,
+[class^=lp-text-cover].lp-content-left .lp-text, [class^=lp-text-cover].lp-content-right .lp-title,
+[class^=lp-text-cover].lp-content-right .lp-text {
+  text-align: inherit; }
 
 [class^=lp-text-cover] .lp-text {
   text-align: left; }
@@ -1854,6 +1910,9 @@ label[for="purchase-amount"] {
     height: 16em;
     text-align: left;
     color: #f6a326; }
+    @media screen and (max-width: 19.04em) {
+      .lp-certificate .lp-round {
+        display: none; } }
     .lp-certificate .lp-round .lp-title {
       position: relative;
       margin: 0.4em 2em 0.4em 0; }
@@ -1956,6 +2015,30 @@ label[for="purchase-amount"] {
   .lp-cta .add-to-cart-link .cart-icon {
     width: 72px; }
 
-#lp-no-chemical .lp-text {
+#lp-img-no-chemical .lp-text {
   border-left: 1px solid #fff;
   padding-left: 1em; }
+
+#lp-img-teng-partner {
+  position: relative; }
+  @media screen and (min-width: 980px) {
+    #lp-img-teng-partner .lp-circle {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 4em;
+      height: 4em;
+      border-radius: 50%;
+      border: 2px solid #fff;
+      text-align: center; }
+    #lp-img-teng-partner #lp-circle-chihshang-rice,
+    #lp-img-teng-partner #lp-circle-lily {
+      position: absolute;
+      top: 4%; }
+    #lp-img-teng-partner #lp-circle-chihshang-rice {
+      right: 35%; }
+    #lp-img-teng-partner #lp-circle-lily {
+      right: 15%; } }
+  @media screen and (max-width: 979px) {
+    #lp-img-teng-partner .lp-circle {
+      display: none; } }
