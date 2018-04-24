@@ -1,5 +1,7 @@
 <?php
 
+$GLOBALS['possible_products'] = ['product_sp_tt_1', 'product_sp_tt_2', 'product_sp_tt_3', 'product_sp_tt_box_1', 'product_sp_yl_1', 'product_sp_yl_2', 'product_sp_yl_3', 'product_ss_tt_1', 'product_ss_tt_2', 'product_ss_tt_3', 'product_ss_tt_box_1', 'product_ss_yl_1', 'product_ss_yl_2', 'product_ss_yl_3'];
+
 function get_view_js_path($api, $filename) {
 	$view_dir = 'resource/dist/js/view/';
 	if(!empty($api)) {
@@ -233,7 +235,7 @@ function include_view_content($route) {
 		case 'products':
 		case 'soap':
 		case 'soapstring':
-			$content = fetch_products($route, $content);
+			$content = fetch_products($route, '.products', $content);
 			break;
 		case 'single_product':
 			$content = fetch_single_product($route, $content);
@@ -301,16 +303,16 @@ function get_product_category_title($route) {
 	return $product_category_title_template;
 }
 
-function get_products_content($route, $product_keyword) {
+function get_products_content($product_keyword) {
 	$product_template_dir = 'view/component/products/product.html';
 	$product_template = file_get_contents($product_template_dir);
 
 	$products = '';
-	$products .= $product_category_title_template;
 
 	$product_json = 'resource/json/product/*.json';
 	$product_regex_pattern = '/^resource\/json\/product\/' . $product_keyword . '\.json$/';
 
+	// awful... glob does not take regex
 	foreach (glob($product_json) as $json_dir) {
 		if(preg_match($product_regex_pattern, $json_dir)) {
 			$placeholder = ['{item_no}', '{name}', '{price}', '{cover_photo}'];
@@ -323,29 +325,51 @@ function get_products_content($route, $product_keyword) {
 	return $products;
 }
 
-function fetch_products($route, $page) {
+function fetch_products($route, $where, $page) {
 	$products = '';
 
 	if($route === 'products') {
 		$keyword = get_product_keyword('soap');
 		$products .= get_product_category_title('soap');
-		$products .= get_products_content('soap', $keyword);
+		$products .= get_products_content($keyword);
 
 		$keyword = get_product_keyword('soapstring');
 		$products .= get_product_category_title('soapstring');
-		$products .= get_products_content('soapstring', $keyword);
+		$products .= get_products_content($keyword);
 
 		$keyword = get_product_keyword('gift_box');
 		$products .= get_product_category_title('gift_box');
-		$products .= get_products_content('gift_box', $keyword);
+		$products .= get_products_content($keyword);
 	}
 	else {
 		$keyword = get_product_keyword($route);
 		$products .= get_product_category_title($route);
-		$products .= get_products_content($route, $keyword);
+		$products .= get_products_content($keyword);
 	}
 
-	return simple_html_dom_insert_html($products, '#products', $page);
+	return simple_html_dom_insert_html($products, $where, $page);
+}
+
+function get_item_type($itemno) {
+	if(strpos($itemno, 'product_sp') === 0) {
+		return 'product_sp';
+	}
+	else if(strpos($itemno, 'product_ss') === 0) {
+		return 'product_ss';
+	}
+	else {
+		return '';
+	}
+}
+
+function get_random_products_itemno($keyword, $num_to_show) {
+	global $possible_products;
+	$possible_products = array_filter($possible_products, function($itemno) use($keyword) {
+		return strpos($itemno, $keyword) === 0;
+	});
+	shuffle($possible_products);
+
+	return array_slice($possible_products, 0, $num_to_show);
 }
 
 function get_landing_page($itemno) {
@@ -383,16 +407,30 @@ function fetch_single_product($route, $page) {
 	$images = '';
 	$image_template_dir = 'view/component/single_product/gallery_image.html';
 	foreach ($gallery_dirs as $value) {
-		$image_template = file_get_contents($image_template_dir);
-		$image_template = str_replace('{src}', $value, $image_template);
-		$images .= $image_template;
+		if(file_exists($value . '.jpg')) {
+			$image_template = file_get_contents($image_template_dir);
+			$image_template = str_replace('{src}', $value, $image_template);
+			$images .= $image_template;
+		}
 	}
 	$page = str_replace($placeholder, $images, $page);
 
+	// get recommended products
+	$item_type = get_item_type($itemno);
+	$possible_products = get_random_products_itemno($item_type, 3);
+
+	$r_products = '';
+	foreach ($possible_products as $pp_itemno) {
+		$r_products .= get_products_content($pp_itemno);
+	}
+
+	$page = simple_html_dom_insert_html($r_products, '#recommended_products > .products', $page);
+
 	// get landing page content
-	$placeholder = ['{landing_page}'];
+	$placeholder = '{landing_page}';
 	$landing_page = get_landing_page($itemno);
 	$page = str_replace($placeholder, $landing_page, $page);
+	$page = str_replace('{item_no}', $itemno, $page);
 
 	return $page;
 }

@@ -1410,9 +1410,9 @@ header {
   color: #555;
   line-height: 1.7; }
 
-#products .main-content-title,
+.products .main-content-title,
 #category-guide,
-#products .product {
+.products .product {
   padding-left: 20px;
   padding-right: 20px; }
 
@@ -1430,10 +1430,10 @@ header {
 #category-guide {
   margin: 1em 0; }
 
-#products {
+.products {
   display: flex;
   flex-flow: row wrap; }
-  #products .main-content-title {
+  .products .main-content-title {
     width: 100%; }
 
 .product {
@@ -1648,8 +1648,15 @@ label[for="purchase-amount"] {
 .lp-orange-btn,
 .lp-white-btn {
   border-radius: 8px;
-  padding: 16px 30px;
   font-size: 30px; }
+  @media screen and (min-width: 980px) {
+    .lp-orange-btn,
+    .lp-white-btn {
+      padding: 16px 30px; } }
+  @media screen and (max-width: 979px) {
+    .lp-orange-btn,
+    .lp-white-btn {
+      padding: 6px 25px; } }
 
 .lp-mark {
   display: inline-block;
