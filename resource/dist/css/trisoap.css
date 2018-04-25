@@ -1442,8 +1442,8 @@ header {
 
 .product-cover {
   position: relative;
-  width: 100%;
-  overflow: hidden; }
+  overflow: hidden;
+  transform: translateZ(0); }
 
 .product-cover-img {
   display: block;
