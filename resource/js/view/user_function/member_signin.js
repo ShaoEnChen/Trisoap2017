@@ -21,11 +21,15 @@ window.fbAsyncInit = function() {
     });
     FB.AppEvents.logPageView();
 
-	// FB.Event.subscribe('auth.login', function() {
- //        FB.getLoginStatus(function(response) {
- //            statusChangeCallback(response);
- //        });
- //    });
+    FB.login = function() {
+        alert('login');
+    };
+
+	FB.Event.subscribe('auth.login', function() {
+        FB.getLoginStatus(function(response) {
+            statusChangeCallback(response);
+        });
+    });
 };
 
 // Load the SDK asynchronously
