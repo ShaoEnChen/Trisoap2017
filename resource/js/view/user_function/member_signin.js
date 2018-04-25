@@ -3,6 +3,7 @@ function statusChangeCallback(response) {
         fbApiRequest();
     } else {
         // The person is not logged into your app or we are unable to tell.
+        alert('nope, not connected');
     }
 }
 
