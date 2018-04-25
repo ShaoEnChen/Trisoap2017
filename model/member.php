@@ -320,7 +320,7 @@ function FBsignin($account, $name) {
 			$sql2 = "INSERT INTO CUSMAS (EMAIL, CUSPW, CUSNM, TOKEN, CREATEDATE, UPDATEDATE, ACTCODE) VALUES ('$account', 'facebook', '$name', '$encrypted_token', '$date', '$date', '1')";
 			if (mysql_query($sql2)) {
 				mysql_query("INSERT INTO ORDMAS (ORDNO, EMAIL, SHIPFEE, CREATEDATE, UPDATEDATE) VALUES ('0', '$account', '70', '$date', '$date')");
-				return array('message' => 'Success', 'token' => $token, 'identity' => 'B');
+				return array('message' => 'Success', 'token' => $encrypted_token, 'identity' => 'B');
 			}
 			else {
 				return 'Database operation error';
@@ -331,7 +331,7 @@ function FBsignin($account, $name) {
 			$encrypted_token = md5($account.$token);
 			$sql2 = "UPDATE CUSMAS SET TOKEN='$encrypted_token' WHERE EMAIL='$account'";
 			if (mysql_query($sql2)) {
-				return array('message' => 'Success', 'token' => $token, 'identity' => $fetch1['CUSIDT']);
+				return array('message' => 'Success', 'token' => $encrypted_token, 'identity' => $fetch1['CUSIDT']);
 			}
 			else {
 				return 'Database operation error';
