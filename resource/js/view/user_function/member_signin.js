@@ -1,3 +1,9 @@
+function checkLoginState() {
+    FB.getLoginStatus(function(response) {
+        statusChangeCallback(response);
+    });
+}
+
 function statusChangeCallback(response) {
     if (response.status === 'connected') {
         fbApiRequest();
@@ -20,16 +26,6 @@ window.fbAsyncInit = function() {
         version    : 'v2.12'
     });
     FB.AppEvents.logPageView();
-
-    FB.login = function() {
-        alert('login');
-    };
-
-	FB.Event.subscribe('auth.login', function() {
-        FB.getLoginStatus(function(response) {
-            statusChangeCallback(response);
-        });
-    });
 };
 
 // Load the SDK asynchronously
