@@ -31,12 +31,11 @@ window.fbAsyncInit = function() {
     FB.Event.subscribe('auth.statusChange', auth_status_change_callback);
 
     var auth_response_change_callback = function(response) {
-        console.log("auth_response_change_callback");
-        console.log(response);
+        alert("auth_response_change_callback" + response);
     }
 
     var auth_status_change_callback = function(response) {
-      console.log("auth_status_change_callback: " + response.status);
+        alert("auth_status_change_callback: " + response.status);
     }
 };
 
