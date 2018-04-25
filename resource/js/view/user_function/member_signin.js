@@ -1,5 +1,6 @@
 function statusChangeCallback(response) {
     if (response.status === 'connected') {
+        alert('connected');
         fbApiRequest();
     } else {
         // The person is not logged into your app or we are unable to tell.
@@ -23,6 +24,7 @@ window.fbAsyncInit = function() {
     FB.AppEvents.logPageView();
 
 	FB.Event.subscribe('auth.login', function() {
+        alert('subscribe auth.login');
 	    FB.getLoginStatus(function(response) {
             statusChangeCallback(response);
         });
