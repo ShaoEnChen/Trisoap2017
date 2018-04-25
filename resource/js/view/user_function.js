@@ -23,6 +23,7 @@ function contactMe() {
 }
 
 function FBmemberSignin(content) {
+	alert('FBmemberSignin');
 	var request = new XMLHttpRequest();
 	request.open("POST", "index.php");
 	var account = content.email;
