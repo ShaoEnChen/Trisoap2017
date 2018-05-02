@@ -421,18 +421,22 @@ a.no-href {
 .nowrap {
   white-space: nowrap; }
 
+.width-full-img, .lp-certificate .trisoap-logo, .product-cover-img, #customize-content-img {
+  width: 100%;
+  height: auto; }
+
 .main-wrap {
   margin: 60px 8%; }
 
 .main-content-title {
   margin-bottom: 35px;
   color: #555;
-  font-weight: 200;
+  font-weight: 300;
   letter-spacing: 4.32px; }
 
 .main-content-text, .main-content-subtitle {
   color: #555;
-  font-weight: 200;
+  font-weight: 300;
   line-height: 1.7;
   letter-spacing: 0.03em; }
 
@@ -445,7 +449,7 @@ a.no-href {
 
 .slogan, .slogan-title {
   text-align: center;
-  font-weight: 200;
+  font-weight: 300;
   line-height: 1.5; }
 
 .slogan-title {
@@ -548,7 +552,7 @@ a.no-href {
   padding: 8px 24px;
   border: solid 1px #ddd;
   color: #555;
-  font-weight: 200;
+  font-weight: 300;
   line-height: 1.4; }
 
 .text-sep-sm {
@@ -611,7 +615,7 @@ a.no-href {
   color: #000; }
 
 .ui-accordion-content {
-  font-weight: 200; }
+  font-weight: 300; }
 
 .trisoap-signature {
   font-family: "Great Vibes", sans-serif;
@@ -963,7 +967,7 @@ header {
   padding: 40px 0 20px;
   background-color: #f18c41;
   color: #fff;
-  font-weight: 100;
+  font-weight: 200;
   line-height: 1.7; }
   #footer .fa {
     color: rgba(255, 255, 255, 0.5);
@@ -1020,573 +1024,8 @@ header {
     text-align: center; } }
 
 /* =========================================================================
- * Contents
- * 1. 首頁｜Index Page
- * 2. 媒體報導｜Media
- * 3. 試用品申請｜Trial
- * 4. 顧客問答（常見問題）｜FAQ
- * 5. 合作夥伴｜Partner
- * 6. 三三團隊｜About
- * 7. 聯絡我們｜Contact
- * 8. 購物須知｜Shopping Guide
- * 9. 單品 / 旅用皂絲｜Soap / Soapstring
- * 10. 客製化專區｜Customize
- * 11. 登陸頁面元件｜Landing Pages
+ * 登陸頁面元件｜Landing Pages
  * =========================================================================
- */
-/* -------------------------------------------------------------------------
- * 1. 首頁｜Index Page
- * 1.1.0. 立即購買 - DEPRECATED
- * 1.1.1. 活動影片 Activity videos
- * 1.2. 三個故事 Slogan
- * 1.3. 首頁 Landing Page - See 11. 登陸頁面元件｜Landing Pages
- * -------------------------------------------------------------------------
- */
-/* 1.1.0. 立即購買 - DEPRECATED */
-.buy-now {
-  position: relative;
-  box-sizing: border-box; }
-  .buy-now:hover > .hover-cover {
-    opacity: 1; }
-  .buy-now .primary-btn {
-    display: block;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 44%;
-    margin: 0 28%;
-    padding: 7px 12px;
-    font-size: 22px; }
-
-.buy-now-img {
-  display: block;
-  width: 100%;
-  height: auto; }
-
-.hover-cover {
-  display: block;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  text-decoration: none;
-  background-color: rgba(0, 0, 0, 0.3);
-  opacity: 0;
-  transition: opacity 1s; }
-
-@media screen and (min-width: 980px) {
-  .buy-now-wrap {
-    display: grid;
-    grid-template-columns: 16% auto 16%;
-    grid-template-rows: 90px auto 90px;
-    align-items: center; }
-  .buy-now:first-child {
-    grid-column: 2 / 3;
-    grid-row: 2 / 3; } }
-
-@media screen and (max-width: 979px) {
-  .buy-now {
-    margin: 40px 15px; } }
-
-/* 1.1.1. 活動影片 Activity videos */
-.act-video-wrap {
-  text-align: center; }
-
-.act-video-iframe {
-  position: relative;
-  height: 0;
-  padding-bottom: 56.25%; }
-  .act-video-iframe iframe {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    left: 0;
-    right: 0;
-    bottom: 0; }
-
-@media screen and (min-width: 980px) {
-  .act-video {
-    display: inline-block;
-    width: 46%;
-    margin: 0 1%; } }
-
-/* 1.2. 三個故事 Slogan - Shared Slogan Properties */
-/* 1.3. 首頁 Landing Page - See 11. 登陸頁面元件｜Landing Pages */
-/* -------------------------------------------------------------------------
- * 2. 媒體報導｜Media
- * -------------------------------------------------------------------------
- */
-.media-link {
-  text-decoration: none; }
-
-@media screen and (min-width: 980px) {
-  .media-link {
-    display: inline-block;
-    margin: 30px 20px; } }
-
-@media screen and (max-width: 979px) {
-  .media-link {
-    display: block;
-    width: 100%;
-    margin: 20px auto;
-    text-align: center; } }
-
-/* -------------------------------------------------------------------------
- * 3. 試用品申請｜Trial
- * 3.1. 一致好評 - Flexslider
- * 3.2. Slogan
- * 3.3. 3 Main Features
- * -------------------------------------------------------------------------
- */
-/* 3.1. 一致好評 - Flexslider */
-#trial-recommend {
-  padding: 40px 0;
-  color: #555; }
-  #trial-recommend > .flexslider {
-    text-align: center; }
-
-@media screen and (min-width: 980px) {
-  #trial-recommend > .flexslider {
-    width: 60%;
-    margin: 0 auto; } }
-
-@media screen and (max-width: 979px) {
-  #trial-recommend {
-    width: 84%;
-    margin: 0 auto; }
-    #trial-recommend > .flexslider {
-      margin: 25px auto; } }
-
-/* 3.2. Shared Slogan Properties */
-/* 3.3. 3 Main Features */
-.feature-wrap {
-  width: 100%;
-  box-sizing: border-box;
-  padding: 12vh 16%;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  color: #fff;
-  overflow: auto; }
-
-#feature1 {
-  background-image: url(/resource/img/trial/feature1.jpg); }
-
-#feature2 {
-  background-image: url(/resource/img/trial/feature2.jpg); }
-
-#feature3 {
-  background-image: url(/resource/img/trial/feature3.jpg); }
-
-.feature-title {
-  margin: 0;
-  padding-bottom: 5vh;
-  text-align: center;
-  font-weight: 200;
-  letter-spacing: 4.32px;
-  line-height: 1.5; }
-
-.feature-text {
-  margin: 0;
-  text-align: center;
-  font-weight: 200;
-  line-height: 1.7; }
-
-@media screen and (max-width: 979px) {
-  .feature-title {
-    font-size: 16px; }
-  .feature-text {
-    font-size: 12px; } }
-
-/* -------------------------------------------------------------------------
- * 4. 顧客問答（常見問題）｜FAQ
- * -------------------------------------------------------------------------
- */
-#faq-accordion {
-  margin: 60px 8%;
-  /* Completed by shared properties - accordians */ }
-
-/* -------------------------------------------------------------------------
- * 5. 合作夥伴｜Partner
- * -------------------------------------------------------------------------
- */
-#partner-accordion {
-  margin: 60px 8%;
-  /* Completed by shared properties - accordians */ }
-  #partner-accordion > .accordion {
-    padding-left: 0;
-    padding-right: 0; }
-
-.partner-logo {
-  max-width: 150px;
-  height: auto; }
-
-.partner-text:first-child {
-  margin-top: 0; }
-
-/* -------------------------------------------------------------------------
- * 6. 三三團隊｜About
- * 6.1. 理念
- * 6.2. 團隊
- * -------------------------------------------------------------------------
- */
-/* 6.1. 理念 */
-#about-concept-text {
-  color: #555;
-  font-weight: 200;
-  letter-spacing: 0.03em;
-  line-height: 1.7; }
-  #about-concept-text > .trisoap-signature {
-    margin-top: 0; }
-
-#about-concept-img {
-  width: 100%;
-  height: auto; }
-
-/* 6.2. 團隊 */
-#about-team {
-  color: #555; }
-
-.about-team-member-img {
-  width: 100%;
-  height: auto; }
-
-.about-team-member-text {
-  text-align: center;
-  letter-spacing: 3.24px;
-  line-height: 1.7;
-  font-weight: 200; }
-
-.about-team-member-title,
-.about-team-member-subtitle {
-  font-weight: 200; }
-
-@media screen and (min-width: 980px) {
-  /* 6.1. 理念 */
-  #about-concept {
-    display: grid;
-    grid-template-columns: 12% 6fr 6fr 8%;
-    grid-template-rows: 40px auto 40px;
-    align-items: center; }
-  #about-concept-text {
-    grid-column: 2 / 3;
-    grid-row: 2 / 3; }
-  #about-concept-img-wrap {
-    grid-column: 3 / 4;
-    grid-row: 2 / 3; }
-  /* 6.2. 團隊 */
-  .about-team-member {
-    display: grid;
-    grid-template-columns: 12% 9fr 1fr 9fr 12%;
-    grid-template-rows: 40px auto 40px;
-    align-items: center; }
-    .about-team-member:last-child {
-      margin-bottom: 40px; }
-  .about-team-member-img-wrap {
-    grid-column: 2 / 3;
-    grid-row: 2 / 3; }
-  .about-team-member-text {
-    grid-column: 4 / 5;
-    grid-row: 2 / 3; } }
-
-@media screen and (max-width: 979px) {
-  #about-concept-img-wrap,
-  #about-team {
-    margin: 30px 8%; }
-  /* 6.1. 理念 */
-  #about-concept-text {
-    margin: 60px 8% 30px; }
-  #about-concept-title,
-  .trisoap-signature {
-    text-align: center; }
-  /* 6.2. 團隊 */
-  #about-team > .slogan, #about-team > .slogan-title {
-    text-align: start; }
-  .about-team-member {
-    margin: 30px auto; } }
-
-/* -------------------------------------------------------------------------
- * 7. 聯絡我們｜Contact
- * -------------------------------------------------------------------------
- */
-#contact-subject {
-  margin: 60px 8% 0; }
-
-#contact-form .form-field {
-  padding-top: 10px;
-  padding-bottom: 10px; }
-
-#contact-form-name,
-#contact-form-email,
-#contact-form-phone,
-#contact-form-message,
-#contact-form .submit-btn {
-  display: block;
-  width: 100%;
-  margin: 15px 0; }
-
-#contact-form-name,
-#contact-form-email,
-#contact-form-phone,
-#contact-form-message {
-  font-size: 18px; }
-
-#contact-info {
-  color: #555;
-  font-weight: 200;
-  letter-spacing: 0.03em;
-  line-height: 1.7; }
-
-@media screen and (min-width: 980px) {
-  #contact {
-    display: grid;
-    grid-template-columns: 8% 3fr 4% 2fr 8%;
-    grid-template-rows: 60px auto 60px;
-    align-items: center; }
-  #contact-map {
-    height: 400px;
-    grid-column: 2 / 3;
-    grid-row: 2 / 3; }
-  #contact-form {
-    grid-column: 4 / 5;
-    grid-row: 2 / 3; } }
-
-@media screen and (max-width: 979px) {
-  #contact {
-    margin: 40px 8%; }
-  #contact-map {
-    height: 220px; } }
-
-/* -------------------------------------------------------------------------
- * 8. 購物須知｜Shopping Guide
- * -------------------------------------------------------------------------
- */
-#guide-wrap {
-  color: #555; }
-
-.guide-anchor,
-.guide-link {
-  text-decoration: none;
-  color: #EA8B3B;
-  font-weight: 200; }
-
-#guide-content {
-  padding: 0 8%; }
-
-.guide-title {
-  margin-bottom: 35px;
-  color: #000;
-  font-weight: normal;
-  letter-spacing: 0.18em; }
-
-.guide-subtitle {
-  margin-bottom: 20px;
-  font-weight: 300;
-  letter-spacing: 0.18em; }
-
-.guide-icon {
-  width: 25px;
-  height: auto; }
-
-.guide-text {
-  margin-bottom: 35px;
-  letter-spacing: 0.03em;
-  line-height: 1.7; }
-
-#shop-guide {
-  margin-top: 40px; }
-
-/* -------------------------------------------------------------------------
- * 9. 單品 / 旅用皂絲｜Soap / Soapstring
- * 9.1. 商品全覽頁｜Products
- * 9.2. 單項商品頁｜Single Product
- * -------------------------------------------------------------------------
- */
-/* 9.1. 商品全覽頁｜Products */
-.products-wrap > .slogan-title {
-  margin: 35px auto; }
-
-.products-wrap > .slogan, .products-wrap > .slogan-title {
-  color: #555;
-  line-height: 1.7; }
-
-.products .main-content-title,
-#category-guide,
-.products .product {
-  padding-left: 20px;
-  padding-right: 20px; }
-
-.product-link {
-  text-decoration: none;
-  color: #555;
-  transition: color .3s;
-  font-weight: normal; }
-  .product-link:hover {
-    color: #222; }
-
-.main-content-title .product-link {
-  font-weight: inherit; }
-
-#category-guide {
-  margin: 1em 0; }
-
-.products {
-  display: flex;
-  flex-flow: row wrap; }
-  .products .main-content-title {
-    width: 100%; }
-
-.product {
-  box-sizing: border-box;
-  text-align: center; }
-
-.product-cover {
-  position: relative;
-  overflow: hidden;
-  transform: translateZ(0); }
-
-.product-cover-img {
-  display: block;
-  width: 100%;
-  height: auto; }
-
-.product-add-to-cart {
-  position: absolute;
-  bottom: 0;
-  background-color: rgba(255, 255, 255, 0.6); }
-
-.product-info {
-  margin: 1.5em 0 1em; }
-
-.product .product-link,
-.product-price {
-  font-weight: 300; }
-
-.product .product-link {
-  font-size: 18px; }
-
-.product-price {
-  color: #555;
-  font-size: 23px; }
-
-@media screen and (min-width: 980px) {
-  .product {
-    width: 33%;
-    padding-top: 40px;
-    padding-bottom: 40px; }
-  .product-add-to-cart {
-    width: 100%;
-    margin-bottom: -4em;
-    padding: 0.4em 0;
-    transition: margin 0.3s; }
-    .product-add-to-cart a {
-      text-decoration: none;
-      color: #fff; }
-    .product-add-to-cart .cart-icon {
-      width: 30px;
-      height: auto; }
-  .product-cover:hover .product-cover-img {
-    transform: scale(1.1); }
-  .product-cover:hover .product-add-to-cart {
-    margin-bottom: 0; }
-  .product-cover-img {
-    transition: transform 0.3s; } }
-
-@media screen and (max-width: 979px) {
-  .product {
-    width: 100%;
-    padding-top: 10px;
-    padding-bottom: 10px; }
-  .product-add-to-cart {
-    right: 0;
-    width: 36px;
-    height: 36px;
-    margin: 6px;
-    box-sizing: border-box;
-    border-radius: 18px;
-    padding: 6px; }
-    .product-add-to-cart .cart-icon {
-      width: 24px;
-      height: auto; } }
-
-/* 9.2. 單項商品頁｜Single Product */
-@media screen and (min-width: 980px) {
-  #single-product-wrap {
-    display: flex;
-    flex-flow: row wrap; }
-  #single-product-carousel,
-  #single-product-desc {
-    width: 50%;
-    box-sizing: border-box;
-    padding: 0 25px; } }
-
-@media screen and (max-width: 979px) {
-  #single-product-carousel,
-  #single-product-desc {
-    width: 100%; }
-  #single-product-carousel {
-    margin-bottom: 35px; } }
-
-#single-product-accordion > .ui-accordion-header {
-  margin-bottom: 1em;
-  padding: 10px 15px;
-  border-bottom: 1px solid #ddd;
-  background-color: #f5f5f5;
-  color: #000;
-  transition: color .3s;
-  font-weight: normal;
-  line-height: 1.5;
-  letter-spacing: 0.18em; }
-  #single-product-accordion > .ui-accordion-header.ui-state-hover {
-    color: #666; }
-
-.ui-accordion .ui-accordion-content {
-  padding-top: 0; }
-
-#single-product-desc .main-content-title,
-#single-product-desc #single-product-price {
-  display: inline-block;
-  margin: 0 0 13px; }
-
-#single-product-price {
-  color: #555;
-  font-weight: 200;
-  line-height: 1.5;
-  letter-spacing: 0.18em; }
-
-label[for="purchase-amount"],
-#purchase-amount,
-#single-product-purchase > .add-to-cart-link {
-  vertical-align: middle; }
-
-#purchase-amount,
-#single-product-purchase > .add-to-cart-link {
-  display: inline-block;
-  margin: 13px 6px; }
-
-#purchase-amount {
-  min-width: 66px;
-  max-width: 120px; }
-
-label[for="purchase-amount"] {
-  color: #555; }
-
-/* -------------------------------------------------------------------------
- * 10. 客製化專區｜Customize
- * -------------------------------------------------------------------------
- */
-#customize-wrap {
-  width: 100%;
-  margin-top: 60px; }
-
-#customize-content-img {
-  display: block;
-  width: 100%;
-  height: auto; }
-
-/* -------------------------------------------------------------------------
- * 11. 登陸頁面元件｜Landing Pages
- * -------------------------------------------------------------------------
  */
 .lp-bg-orange {
   background-color: #f18c41;
@@ -1603,6 +1042,11 @@ label[for="purchase-amount"] {
 
 .lp-subtitle {
   font-size: 30px; }
+  .lp-subtitle.lp-bg-orange {
+    display: inline-block;
+    margin: 0;
+    padding: 0.5em;
+    background-color: rgba(241, 140, 65, 0.5); }
 
 .lp-text {
   margin: 2em 0;
@@ -1766,8 +1210,9 @@ label[for="purchase-amount"] {
   background-position: center;
   background-repeat: no-repeat;
   background-color: #fff;
+  color: #fff;
   z-index: 0; }
-  .lp-image-background::before {
+  .lp-image-background.lp-ib-cover::before {
     content: '';
     position: absolute;
     top: 0;
@@ -1837,16 +1282,6 @@ label[for="purchase-amount"] {
 .lp-image-background#lp-img-media-report {
   background-image: url(/resource/img/landingpage/media-report.jpg); }
 
-.lp-content-left,
-.lp-content-right {
-  color: #fff; }
-  .lp-content-left > .lp-subtitle.lp-bg-orange,
-  .lp-content-right > .lp-subtitle.lp-bg-orange {
-    display: inline-block;
-    margin: 0;
-    padding: 0.5em;
-    background-color: rgba(241, 140, 65, 0.5); }
-
 .lp-content-left {
   text-align: left; }
   .lp-content-left.lp-text-opposite-side .lp-title,
@@ -1909,9 +1344,6 @@ label[for="purchase-amount"] {
 .lp-certificate {
   background-color: #f6a326;
   color: #fff; }
-  .lp-certificate .trisoap-logo {
-    width: 100%;
-    height: auto; }
   .lp-certificate .lp-round {
     width: 16em;
     height: 16em;
@@ -2049,3 +1481,380 @@ label[for="purchase-amount"] {
   @media screen and (max-width: 979px) {
     #lp-img-teng-partner .lp-circle {
       display: none; } }
+
+/* =========================================================================
+ * Contents
+ * 1. 首頁｜Index Page
+ * 2. 媒體報導｜Media
+ * 3. 試用品申請｜Trial
+ * 4. 顧客問答（常見問題）｜FAQ
+ * 5. 合作夥伴｜Partner
+ * 6. 三三團隊｜About
+ * 7. 聯絡我們｜Contact
+ * 8. 購物須知｜Shopping Guide
+ * 9. 單品 / 旅用皂絲｜Soap / Soapstring
+ * 10. 客製化專區｜Customize
+ * =========================================================================
+ */
+/* -------------------------------------------------------------------------
+ * 1. 首頁｜Index Page
+ * 1.1.1. 活動影片 Activity videos
+ * 1.2. 三個故事 Slogan
+ * 1.3. 首頁 Landing Page - See 11. 登陸頁面元件｜Landing Pages
+ * -------------------------------------------------------------------------
+ */
+/* 1.1.1. 活動影片 Activity videos */
+.act-video-wrap {
+  text-align: center; }
+
+.act-video-iframe {
+  position: relative;
+  height: 0;
+  padding-bottom: 56.25%; }
+  .act-video-iframe iframe {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    right: 0;
+    bottom: 0; }
+
+@media screen and (min-width: 980px) {
+  .act-video {
+    display: inline-block;
+    width: 46%;
+    margin: 0 1%; } }
+
+/* 1.2. 三個故事 Slogan - Shared Slogan Properties */
+/* 1.3. 首頁 Landing Page - See 11. 登陸頁面元件｜Landing Pages */
+/* -------------------------------------------------------------------------
+ * 2. 媒體報導｜Media
+ * -------------------------------------------------------------------------
+ */
+.media-link {
+  text-decoration: none; }
+
+@media screen and (min-width: 980px) {
+  .media-link {
+    display: inline-block;
+    margin: 30px 20px; } }
+
+@media screen and (max-width: 979px) {
+  .media-link {
+    display: block;
+    width: 100%;
+    margin: 20px auto;
+    text-align: center; } }
+
+/* -------------------------------------------------------------------------
+ * 3. 試用品申請｜Trial
+ * -------------------------------------------------------------------------
+ */
+/* Landing Page */
+/* -------------------------------------------------------------------------
+ * 4. 顧客問答（常見問題）｜FAQ
+ * -------------------------------------------------------------------------
+ */
+#faq-accordion {
+  margin: 60px 8%;
+  /* Completed by shared properties - accordians */ }
+
+/* -------------------------------------------------------------------------
+ * 5. 合作夥伴｜Partner
+ * -------------------------------------------------------------------------
+ */
+#partner-accordion {
+  margin: 60px 8%;
+  /* Completed by shared properties - accordians */ }
+  #partner-accordion > .accordion {
+    padding-left: 0;
+    padding-right: 0; }
+
+.partner-logo {
+  max-width: 150px;
+  height: auto; }
+
+.partner-text:first-child {
+  margin-top: 0; }
+
+/* -------------------------------------------------------------------------
+ * 6. 三三團隊｜About
+ * -------------------------------------------------------------------------
+ */
+.lp-image-background#lp-img-three-stories {
+  background-image: url(/resource/img/about/three-stories.jpg); }
+
+/* -------------------------------------------------------------------------
+ * 7. 聯絡我們｜Contact
+ * -------------------------------------------------------------------------
+ */
+#contact-subject {
+  margin: 60px 8% 0; }
+
+#contact-form .form-field {
+  padding-top: 10px;
+  padding-bottom: 10px; }
+
+#contact-form-name,
+#contact-form-email,
+#contact-form-phone,
+#contact-form-message,
+#contact-form .submit-btn {
+  display: block;
+  width: 100%;
+  margin: 15px 0; }
+
+#contact-form-name,
+#contact-form-email,
+#contact-form-phone,
+#contact-form-message {
+  font-size: 18px; }
+
+#contact-info {
+  color: #555;
+  font-weight: 300;
+  letter-spacing: 0.03em;
+  line-height: 1.7; }
+
+@media screen and (min-width: 980px) {
+  #contact {
+    display: grid;
+    grid-template-columns: 8% 3fr 4% 2fr 8%;
+    grid-template-rows: 60px auto 60px;
+    align-items: center; }
+  #contact-map {
+    height: 400px;
+    grid-column: 2 / 3;
+    grid-row: 2 / 3; }
+  #contact-form {
+    grid-column: 4 / 5;
+    grid-row: 2 / 3; } }
+
+@media screen and (max-width: 979px) {
+  #contact {
+    margin: 40px 8%; }
+  #contact-map {
+    height: 220px; } }
+
+/* -------------------------------------------------------------------------
+ * 8. 購物須知｜Shopping Guide
+ * -------------------------------------------------------------------------
+ */
+#guide-wrap {
+  color: #555; }
+
+.guide-anchor,
+.guide-link {
+  text-decoration: none;
+  color: #EA8B3B;
+  font-weight: 300; }
+
+#guide-content {
+  padding: 0 8%; }
+
+.guide-title {
+  margin-bottom: 35px;
+  color: #000;
+  font-weight: normal;
+  letter-spacing: 0.18em; }
+
+.guide-subtitle {
+  margin-bottom: 20px;
+  font-weight: 300;
+  letter-spacing: 0.18em; }
+
+.guide-icon {
+  width: 25px;
+  height: auto; }
+
+.guide-text {
+  margin-bottom: 35px;
+  letter-spacing: 0.03em;
+  line-height: 1.7; }
+
+#shop-guide {
+  margin-top: 40px; }
+
+/* -------------------------------------------------------------------------
+ * 9. 單品 / 旅用皂絲｜Soap / Soapstring
+ * 9.1. 商品全覽頁｜Products
+ * 9.2. 單項商品頁｜Single Product
+ * -------------------------------------------------------------------------
+ */
+/* 9.1. 商品全覽頁｜Products */
+.products-wrap > .slogan-title {
+  margin: 35px auto; }
+
+.products-wrap > .slogan, .products-wrap > .slogan-title {
+  color: #555;
+  line-height: 1.7; }
+
+.products .main-content-title,
+#category-guide,
+.products .product {
+  padding-left: 20px;
+  padding-right: 20px; }
+
+.product-link {
+  text-decoration: none;
+  color: #555;
+  transition: color .3s;
+  font-weight: normal; }
+  .product-link:hover {
+    color: #222; }
+
+.main-content-title .product-link {
+  font-weight: inherit; }
+
+#category-guide {
+  margin: 1em 0; }
+
+.products {
+  display: flex;
+  flex-flow: row wrap; }
+  .products .main-content-title {
+    width: 100%; }
+
+.product {
+  box-sizing: border-box;
+  text-align: center; }
+
+.product-cover {
+  position: relative;
+  overflow: hidden;
+  transform: translateZ(0); }
+
+.product-cover-img {
+  display: block; }
+
+.product-add-to-cart {
+  position: absolute;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.6); }
+
+.product-info {
+  margin: 1.5em 0 1em; }
+
+.product .product-link,
+.product-price {
+  font-weight: 300; }
+
+.product .product-link {
+  font-size: 18px; }
+
+.product-price {
+  color: #555;
+  font-size: 23px; }
+
+@media screen and (min-width: 980px) {
+  .product {
+    width: 33%;
+    padding-top: 40px;
+    padding-bottom: 40px; }
+  .product-add-to-cart {
+    width: 100%;
+    margin-bottom: -4em;
+    padding: 0.4em 0;
+    transition: margin 0.3s; }
+    .product-add-to-cart a {
+      text-decoration: none;
+      color: #fff; }
+    .product-add-to-cart .cart-icon {
+      width: 30px;
+      height: auto; }
+  .product-cover:hover .product-cover-img {
+    transform: scale(1.1); }
+  .product-cover:hover .product-add-to-cart {
+    margin-bottom: 0; }
+  .product-cover-img {
+    transition: transform 0.3s; } }
+
+@media screen and (max-width: 979px) {
+  .product {
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px; }
+  .product-add-to-cart {
+    right: 0;
+    width: 36px;
+    height: 36px;
+    margin: 6px;
+    box-sizing: border-box;
+    border-radius: 18px;
+    padding: 6px; }
+    .product-add-to-cart .cart-icon {
+      width: 24px;
+      height: auto; } }
+
+/* 9.2. 單項商品頁｜Single Product */
+@media screen and (min-width: 980px) {
+  #single-product-wrap {
+    display: flex;
+    flex-flow: row wrap; }
+  #single-product-carousel,
+  #single-product-desc {
+    width: 50%;
+    box-sizing: border-box;
+    padding: 0 25px; } }
+
+@media screen and (max-width: 979px) {
+  #single-product-carousel,
+  #single-product-desc {
+    width: 100%; }
+  #single-product-carousel {
+    margin-bottom: 35px; } }
+
+#single-product-accordion > .ui-accordion-header {
+  margin-bottom: 1em;
+  padding: 10px 15px;
+  border-bottom: 1px solid #ddd;
+  background-color: #f5f5f5;
+  color: #000;
+  transition: color .3s;
+  font-weight: normal;
+  line-height: 1.5;
+  letter-spacing: 0.18em; }
+  #single-product-accordion > .ui-accordion-header.ui-state-hover {
+    color: #666; }
+
+.ui-accordion .ui-accordion-content {
+  padding-top: 0; }
+
+#single-product-desc .main-content-title,
+#single-product-desc #single-product-price {
+  display: inline-block;
+  margin: 0 0 13px; }
+
+#single-product-price {
+  color: #555;
+  font-weight: 200;
+  line-height: 1.5;
+  letter-spacing: 0.18em; }
+
+label[for="purchase-amount"],
+#purchase-amount,
+#single-product-purchase > .add-to-cart-link {
+  vertical-align: middle; }
+
+#purchase-amount,
+#single-product-purchase > .add-to-cart-link {
+  display: inline-block;
+  margin: 13px 6px; }
+
+#purchase-amount {
+  min-width: 66px;
+  max-width: 120px; }
+
+label[for="purchase-amount"] {
+  color: #555; }
+
+/* -------------------------------------------------------------------------
+ * 10. 客製化專區｜Customize
+ * -------------------------------------------------------------------------
+ */
+#customize-wrap {
+  width: 100%;
+  margin-top: 60px; }
+
+#customize-content-img {
+  display: block; }

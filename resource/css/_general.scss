@@ -46,6 +46,11 @@ a.no-href {
 	white-space: nowrap;
 }
 
+.width-full-img {
+	width: 100%;
+	height: auto;
+}
+
 .main-wrap {
 	margin: 60px $wrap-lr-margin;
 }
@@ -53,7 +58,7 @@ a.no-href {
 .main-content-title {
 	margin-bottom: 35px;
 	color: $main-font-color;
-	font-weight: 200;
+	font-weight: 300;
 	letter-spacing: 4.32px;
 }
 
@@ -63,7 +68,7 @@ a.no-href {
 
 .main-content-text {
 	color: $main-font-color;
-	font-weight: 200;
+	font-weight: 300;
 	line-height: 1.7;
 	letter-spacing: 0.03em;
 }
@@ -78,7 +83,7 @@ a.no-href {
 
 .slogan {
 	text-align: center;
-	font-weight: 200;
+	font-weight: 300;
 	line-height: 1.5;
 }
 
@@ -151,7 +156,7 @@ a.no-href {
 	padding: 8px 24px;
 	border: solid 1px #ddd;
 	color: $main-font-color;
-	font-weight: 200;
+	font-weight: 300;
 	line-height: 1.4;
 }
 
@@ -250,7 +255,7 @@ a.no-href {
 }
 
 .ui-accordion-content {
-	font-weight: 200;
+	font-weight: 300;
 }
 
 .trisoap-signature {

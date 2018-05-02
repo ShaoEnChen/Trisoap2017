@@ -1,0 +1,65 @@
+
+/* 1.1.0. 立即購買 - DEPRECATED */
+
+$buy-now-btn-width: 44%;
+
+.buy-now {
+	position: relative;
+	box-sizing: border-box;
+	&:hover > .hover-cover {
+		opacity: 1;
+	}
+	.primary-btn {
+		display: block;
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		width: $buy-now-btn-width;
+		margin: 0 (100% - $buy-now-btn-width) / 2;
+		padding: 7px 12px;
+		font-size: 22px;
+	}
+}
+
+.buy-now-img {
+	display: block;
+	@extend .main-img;
+}
+
+.hover-cover {
+	display: block;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	text-decoration: none;
+	background-color: rgba(0, 0, 0, 0.3);
+	opacity: 0;
+	transition: opacity 1s;
+}
+
+// Laptop
+@media screen and (min-width: $media-breakpoint-mobile + 1px) {
+	.buy-now-wrap {
+		display: grid;
+		grid-template-columns: 16% auto 16%;
+		grid-template-rows: 90px auto 90px;
+		align-items: center;
+	}
+
+	.buy-now:first-child {
+		grid-column: 2 / 3;
+		grid-row: 2 / 3;
+	}
+
+	// .buy-now:last-child {
+	// 	grid-column: 4 / 5;
+	// 	grid-row: 2 / 3;
+	// }
+}
+
+// Mobile
+@media screen and (max-width: $media-breakpoint-mobile) {
+	.buy-now {
+		margin: 40px 15px;
+	}
+}
