@@ -699,7 +699,7 @@ $lp-border-radius: 8px;
 	color: #fff;
 
 	.trisoap-logo {
-		@extend .width-full-img;
+		@extend .full-width-img;
 	}
 
 	.lp-round {
@@ -1055,11 +1055,75 @@ $lp-border-radius: 8px;
  */
 
 .lp-image-background#lp-img-three-stories {
-	background-image: url(/resource/img/about/three-stories.jpg);
+	background-image: url(/resource/img/landingpage/three-stories.jpg);
 }
 
 #lp-img-three-stories {
+	min-height: 56vw;	// background-image: 1440px * 808px, 808 / 1440 ~= 0.561
+}
 
+.about-member-img {
+	border-radius: 50%;
+}
+
+#about-other-members > .about-member > .about-member-intro {
+	& > .lp-subtitle,
+	& > .lp-text {
+		display: inline-block;
+		vertical-align: middle;
+	}
+}
+
+// Laptop
+@media screen and (min-width: $media-breakpoint-mobile + 1px) {
+	.about-member-img {
+		width: 100%;
+		height: auto;
+	}
+
+	#about-member-master {
+		.about-member-img-wrap,
+		.about-member-intro {
+			display: inline-block;
+			vertical-align: middle;
+		}
+
+		.about-member-img-wrap {
+			width: 30%;
+		}
+
+		.about-member-intro {
+			width: 60%;
+			box-sizing: border-box;
+			padding: 0 0 0 9%;
+		}
+	}
+
+	#about-other-members {
+		display: flex;
+		justify-content: space-around;
+
+		.about-member {
+			width: 30%;
+		}
+	}
+}
+
+// Mobile
+@media screen and (max-width: $media-breakpoint-mobile) {
+	#lp-img-three-stories > .lp-subtitle.lp-bg-orange {
+		color: #fff;
+	}
+
+	.about-member-img {
+		width: 70%;
+		height: auto;
+	}
+
+	#about-member-master {
+		margin-bottom: -44px;	// -2em for content's .lp-text margin
+		padding-bottom: 0;
+	}
 }
 
 /* -------------------------------------------------------------------------
@@ -1249,7 +1313,7 @@ $lp-border-radius: 8px;
 
 .product-cover-img {
 	display: block;
-	@extend .width-full-img;
+	@extend .full-width-img;
 }
 
 .product-add-to-cart {
@@ -1434,5 +1498,5 @@ label[for="purchase-amount"] {
 
 #customize-content-img {
 	display: block;
-	@extend .width-full-img;
+	@extend .full-width-img;
 }

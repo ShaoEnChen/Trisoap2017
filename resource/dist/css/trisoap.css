@@ -421,7 +421,7 @@ a.no-href {
 .nowrap {
   white-space: nowrap; }
 
-.width-full-img, .lp-certificate .trisoap-logo, .product-cover-img, #customize-content-img {
+.full-width-img, .lp-certificate .trisoap-logo, .product-cover-img, #customize-content-img {
   width: 100%;
   height: auto; }
 
@@ -1582,7 +1582,48 @@ header {
  * -------------------------------------------------------------------------
  */
 .lp-image-background#lp-img-three-stories {
-  background-image: url(/resource/img/about/three-stories.jpg); }
+  background-image: url(/resource/img/landingpage/three-stories.jpg); }
+
+#lp-img-three-stories {
+  min-height: 56vw; }
+
+.about-member-img {
+  border-radius: 50%; }
+
+#about-other-members > .about-member > .about-member-intro > .lp-subtitle,
+#about-other-members > .about-member > .about-member-intro > .lp-text {
+  display: inline-block;
+  vertical-align: middle; }
+
+@media screen and (min-width: 980px) {
+  .about-member-img {
+    width: 100%;
+    height: auto; }
+  #about-member-master .about-member-img-wrap,
+  #about-member-master .about-member-intro {
+    display: inline-block;
+    vertical-align: middle; }
+  #about-member-master .about-member-img-wrap {
+    width: 30%; }
+  #about-member-master .about-member-intro {
+    width: 60%;
+    box-sizing: border-box;
+    padding: 0 0 0 9%; }
+  #about-other-members {
+    display: flex;
+    justify-content: space-around; }
+    #about-other-members .about-member {
+      width: 30%; } }
+
+@media screen and (max-width: 979px) {
+  #lp-img-three-stories > .lp-subtitle.lp-bg-orange {
+    color: #fff; }
+  .about-member-img {
+    width: 70%;
+    height: auto; }
+  #about-member-master {
+    margin-bottom: -44px;
+    padding-bottom: 0; } }
 
 /* -------------------------------------------------------------------------
  * 7. 聯絡我們｜Contact
