@@ -1522,7 +1522,7 @@ header {
 @media screen and (min-width: 980px) {
   .act-video {
     display: inline-block;
-    width: 46%;
+    width: 30%;
     margin: 0 1%; } }
 
 /* 1.2. 三個故事 Slogan - Shared Slogan Properties */
