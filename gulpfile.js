@@ -1,10 +1,14 @@
 const gulp = require('gulp');
+
+// css, sass
 const sass = require('gulp-sass');
 const autoprefixer = require('gulp-autoprefixer');
-const cleanCSS = require('gulp-clean-css');
+
+// js
 const babel = require('gulp-babel');
 const uglify = require('gulp-uglify');
 
+// _dirs
 const js_src = 'resource/js';
 const js_dest = 'resource/dist/js';
 const sass_src = 'resource/css';
@@ -17,7 +21,6 @@ gulp.task('css', ['sass'], () => {
 		.pipe(autoprefixer({
             browsers: ['last 2 versions']
         }))
-		// .pipe(cleanCSS({compatibility: 'ie8'}))
 		.pipe(gulp.dest('./'));
 });
 
