@@ -11,7 +11,7 @@
  * 2. Prevent adjustments of font size after orientation changes in
  *    IE on Windows Phone and in iOS.
  */
-@import url(http://fonts.googleapis.com/earlyaccess/notosanstc.css);
+@import url(https://fonts.googleapis.com/earlyaccess/notosanstc.css);
 @import url("https://fonts.googleapis.com/css?family=Great+Vibes");
 html {
   line-height: 1.15;
