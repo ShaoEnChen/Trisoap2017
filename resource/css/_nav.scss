@@ -6,7 +6,7 @@ $nav-toggle-span-height: 2px;
 
 %nav-main-text {
 	font: 11px sans-serif;
-	font-weight: 200;
+	font-weight: 100;
 	letter-spacing: 2px;
 }
 
@@ -51,6 +51,7 @@ $nav-toggle-span-height: 2px;
 	padding: 0;
 	list-style: none;
 	background-color: $main-nav-background-color;
+	-webkit-font-smoothing: subpixel-antialiased;
 }
 
 .nav-dropdown-menu,

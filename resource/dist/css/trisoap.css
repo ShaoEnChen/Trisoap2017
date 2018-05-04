@@ -663,7 +663,7 @@ a.no-href {
  */
 .nav-main-link, .nav-dropdown-header {
   font: 11px sans-serif;
-  font-weight: 200;
+  font-weight: 100;
   letter-spacing: 2px; }
 
 #main-navbar {
@@ -701,7 +701,8 @@ a.no-href {
   margin: 0;
   padding: 0;
   list-style: none;
-  background-color: #18191B; }
+  background-color: #18191B;
+  -webkit-font-smoothing: subpixel-antialiased; }
 
 .nav-dropdown-menu,
 .nav-dropdown-submenu {
