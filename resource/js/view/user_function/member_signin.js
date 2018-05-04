@@ -1,5 +1,11 @@
-async function checkLoginState() {
-    var response = await FB.getLoginStatus();
+function checkLoginState() {
+    FB.getLoginStatus(function(response) {
+        statusChangeCallback(response);
+    });
+}
+
+function statusChangeCallback(response) {
+    console.log(response);
     if (response.status === 'connected') {
         fbApiRequest();
     } else {
