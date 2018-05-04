@@ -1,1 +1,33 @@
-"use strict";var checkLoginState=function(){var e=_asyncToGenerator(regeneratorRuntime.mark(function e(){return regeneratorRuntime.wrap(function(e){for(;;)switch(e.prev=e.next){case 0:return e.next=2,FB.getLoginStatus();case 2:"connected"===e.sent.status&&fbApiRequest();case 4:case"end":return e.stop()}},e,this)}));return function(){return e.apply(this,arguments)}}();function _asyncToGenerator(e){return function(){var a=e.apply(this,arguments);return new Promise(function(o,c){return function n(e,t){try{var r=a[e](t),i=r.value}catch(e){return void c(e)}if(!r.done)return Promise.resolve(i).then(function(e){n("next",e)},function(e){n("throw",e)});o(i)}("next")})}}function fbApiRequest(){FB.api("/me",{fields:["email","name"]},function(e){FBmemberSignin(e)})}window.fbAsyncInit=function(){FB.init({appId:"403462720092445",xfbml:!0,version:"v2.12"}),FB.AppEvents.logPageView()},function(e,n,t){var r,i=e.getElementsByTagName(n)[0];e.getElementById(t)||((r=e.createElement(n)).id=t,r.src="https://connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v2.12&appId=403462720092445",i.parentNode.insertBefore(r,i))}(document,"script","facebook-jssdk");
+async function checkLoginState() {
+    var response = await FB.getLoginStatus();
+    if (response.status === 'connected') {
+        fbApiRequest();
+    } else {
+        // The person is not logged into your app or we are unable to tell.
+    }
+}
+
+function fbApiRequest() {
+    FB.api('/me', {fields: ['email', 'name']}, function(response) {
+        // Signin current FB user to Trisoap server to provide advanced service
+        FBmemberSignin(response);
+    });
+}
+
+window.fbAsyncInit = function() {
+    FB.init({
+        appId      : '403462720092445',
+        xfbml      : true,
+        version    : 'v2.12'
+    });
+    FB.AppEvents.logPageView();
+};
+
+// Load the SDK asynchronously
+(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = 'https://connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v2.12&appId=403462720092445';
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
