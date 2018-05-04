@@ -23,14 +23,13 @@ if (isset($_GET['order']) || isset($_POST['order'])) {
 			$shipfee = curl_post(array('module' => 'cue', 'target' => 'order_shipfee', 'order' => $order, 'account' => $_COOKIE['account']), 'cue');
 			$message = curl_post(array('module' => 'cue', 'target' => 'order_message', 'account' => $_COOKIE['account']), 'cue');
 			$discountPrice = curl_post(array('module' => 'cue', 'target' => 'order_discountPrice', 'order' => $order, 'account' => $_COOKIE['account']), 'cue');
-			$discountName = curl_post(array('module' => 'cue', 'target' => 'order_discountName', 'order' => $order, 'account' => $_COOKIE['account']), 'cue');
 			$total = curl_post(array('module' => 'cue', 'target' => 'order_total', 'order' => $order, 'account' => $_COOKIE['account']), 'cue');
 			$address = curl_post(array('module' => 'cue', 'target' => 'order_address', 'order' => $order, 'account' => $_COOKIE['account']), 'cue');
 			$notice = curl_post(array('module' => 'cue', 'target' => 'order_notice', 'order' => $order, 'account' => $_COOKIE['account']), 'cue');
 			$cashing = 'index.php?route=cashing&ordno='.$order.'&account='.$_COOKIE['account'];
 			$content = str_replace('[order_shipfee]', $shipfee, $content);
 			$content = str_replace('[order_message]', $message, $content);
-			$content = str_replace('[order_discount]', $discountPrice.' '.$discountName, $content);
+			$content = str_replace('[order_discount]', $discountPrice, $content);
 			$content = str_replace('[order_total]', $total, $content);
 			$content = str_replace('[order_address]', $address, $content);
 			$content = str_replace('[order_notice]', $notice, $content);
