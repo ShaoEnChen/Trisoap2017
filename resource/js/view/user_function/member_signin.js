@@ -1,15 +1,19 @@
 function checkLoginState() {
-    console.log("login");
+    console.log("checkLoginState");
     FB.getLoginStatus(function(response) {
+        console.log("FBgetLoginStatus");
         statusChangeCallback(response);
     });
 }
 
 function statusChangeCallback(response) {
+    console.log("statusChangeCallback");
     if (response.status === 'connected') {
+        console.log("connected");
         fbApiRequest();
     } else {
         // The person is not logged into your app or we are unable to tell.
+        console.log("NOT connected");
     }
 }
 
