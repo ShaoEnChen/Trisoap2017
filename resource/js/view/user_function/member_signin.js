@@ -1,4 +1,5 @@
 function checkLoginState() {
+    console.log(login);
     FB.getLoginStatus(function(response) {
         statusChangeCallback(response);
     });
@@ -30,9 +31,9 @@ window.fbAsyncInit = function() {
 
 // Load the SDK asynchronously
 (function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = 'https://connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v2.12&appId=403462720092445';
-  fjs.parentNode.insertBefore(js, fjs);
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = 'https://connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v2.12&appId=403462720092445';
+    fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));
