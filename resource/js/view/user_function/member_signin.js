@@ -1,5 +1,5 @@
 function checkLoginState() {
-    console.log(login);
+    console.log("login");
     FB.getLoginStatus(function(response) {
         statusChangeCallback(response);
     });
