@@ -37,13 +37,16 @@ try
  		}
 
  		if ($szRtnCode == 1) {
+ 			date_default_timezone_set('Asia/Taipei');
+			$date = date("Y-m-d H:i:s");
  			$queryORDMAS = mysql_query("SELECT * FROM ORDMAS WHERE MerchantTradeNo='$szMerchantTradeNo'");
 		    $fetchORDMAS = mysql_fetch_array($queryORDMAS);
 		    $email = $fetchORDMAS['EMAIL'];
  			$ordno = get_ordno();
  			$paytype = transfer_PaymentType($szPaymentType);
- 			$sql = "UPDATE ORDMAS SET ORDNO='$ordno', PAYTYPE='$paytype', PAYSTAT='1', REALPRICE='$szPayAmt' WHERE MerchantTradeNo='$szMerchantTradeNo'";
-		    if (mysql_query($sql)) {
+ 			$sql2 = "UPDATE ORDMAS SET ORDNO='$ordno', PAYTYPE='$paytype', PAYSTAT='1', REALPRICE='$szPayAmt' WHERE MerchantTradeNo='$szMerchantTradeNo'";
+		    if (mysql_query($sql2)) {
+		    	mysql_query("INSERT INTO ORDMAS (ORDNO, EMAIL, SHIPFEE, CREATEDATE, UPDATEDATE) VALUES ('0', '$email', '70', '$date', '$date')");
 		    	mysql_query("UPDATE ORDITEMMAS SET ORDNO='$ordno' WHERE ORDNO='0' AND EMAIL='$email'");
 		    	update_ordno();
 		    }
