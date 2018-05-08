@@ -22,27 +22,6 @@ function contactMe() {
 	}
 }
 
-function FBmemberSignin(content) {
-	var request = new XMLHttpRequest();
-	request.open("POST", "index.php");
-	var account = content.email;
-	var name = content.name;
-	var data = "module=member&event=FBsignin&account=" + account + "&name=" + name;
-	request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-	request.send(data);
-	request.onreadystatechange = function() {
-		if (request.readyState === 4 && request.status === 200) {
-			var data = JSON.parse(request.responseText);
-			if (data.message == 'Success') {
-				location.assign("index.php");
-			}
-			else {
-				alert(data.message);
-			}
-		}
-	}
-}
-
 function orderitemCreate(index) {
 	var request = new XMLHttpRequest();
 	request.open("POST", "index.php");
@@ -66,9 +45,25 @@ function orderitemCreate(index) {
 			else if (data.message == '請先註冊或登入') {
 				alert('請先註冊或登入');
 				var site = location.href;
-				location.assign("index.php?route=member&in=signin&origin=" + site.replace("&", "@@"));
+				location.assign("index.php?route=member&in=signin&index=" + index + "&amount=" + amount + "&origin=" + site.replace("&", "@@"));
 			}
 			else {
+				alert(data.message);
+			}
+		}
+	}
+}
+
+function orderitemCreateDirect(index, amount) {
+	var request = new XMLHttpRequest();
+	request.open("POST", "index.php");
+	var data = "module=orderitem&event=create&index=" + index + "&amount=" + amount;
+	request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+	request.send(data);
+	request.onreadystatechange = function() {
+		if (request.readyState === 4 && request.status === 200) {
+			var data = JSON.parse(request.responseText);
+			if (data.message != 'Success') {
 				alert(data.message);
 			}
 		}
@@ -95,39 +90,27 @@ function cartDelete(index) {
 	}
 }
 
-// ??
-function orderitemDelete(ordno, index) {
+function FBmemberSignin(content) {
 	var request = new XMLHttpRequest();
 	request.open("POST", "index.php");
-	var data = "module=orderitem&event=delete&ordno=" + ordno + "&index=" + index;
+	var account = content.email;
+	var name = content.name;
+	var origin = document.getElementById("origin").value;
+	var index = document.getElementById("index").value;
+	var amount = document.getElementById("amount").value;
+	var data = "module=member&event=FBsignin&account=" + account + "&name=" + name + "&origin=" + origin + "&index=" + index + "&amount=" + amount;
 	request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 	request.send(data);
 	request.onreadystatechange = function() {
 		if (request.readyState === 4 && request.status === 200) {
 			var data = JSON.parse(request.responseText);
-			if (data.message == 'Success') {
-				alert("成功移除");
-				location.reload();
+			if (data.message == 'Success' && typeof(data.origin) != 'undefined') {
+				alert("成功登入，商品已加入購物車");
+				orderitemCreateDirect(data.index, data.amount);
+				location.assign(data.origin);
 			}
-			else {
-				alert(data.message);
-			}
-		}
-	}
-}
-
-// ??
-function orderitemSearch() {
-	var request = new XMLHttpRequest();
-	request.open("POST", "index.php");
-	var data = "module=orderitem&event=search";
-	request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-	request.send(data);
-	request.onreadystatechange = function() {
-		if (request.readyState === 4 && request.status === 200) {
-			var data = JSON.parse(request.responseText);
-			if (data.message == 'Success') {
-
+			else if (data.message == 'Success') {
+				location.assign("index.php");
 			}
 			else {
 				alert(data.message);
@@ -142,13 +125,17 @@ function memberSignin() {
 	var account = document.getElementById("account").value;
 	var password = document.getElementById("password").value;
 	var origin = document.getElementById("origin").value;
-	var data = "module=member&event=signin&account=" + account + "&password=" + password + "&origin=" + origin;
+	var index = document.getElementById("index").value;
+	var amount = document.getElementById("amount").value;
+	var data = "module=member&event=signin&account=" + account + "&password=" + password + "&origin=" + origin + "&index=" + index + "&amount=" + amount;
 	request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 	request.send(data);
 	request.onreadystatechange = function() {
 		if (request.readyState === 4 && request.status === 200) {
 			var data = JSON.parse(request.responseText);
 			if (data.message == 'Success' && typeof(data.origin) != 'undefined') {
+				alert("成功登入，商品已加入購物車");
+				orderitemCreateDirect(data.index, data.amount);
 				location.assign(data.origin);
 			}
 			else if (data.message == 'Success') {
@@ -387,27 +374,6 @@ function orderDetail(ordno) {
 			var data = JSON.parse(request.responseText);
 			if (data.message == 'Success') {
 				// 原頁面跳出一個視窗，顯示data.content
-			}
-			else {
-				alert(data.message);
-			}
-		}
-	}
-}
-
-// ??
-function cashing(account, ordno) {
-	var request = new XMLHttpRequest();
-	request.open("POST", "resource/cashing.php");
-	var payType = document.getElementById("paytype").value;
-	var data = "account=" + account + "&ordno=" + ordno + "&payType=" + payType;
-	request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-	request.send(data);
-	request.onreadystatechange = function() {
-		if (request.readyState === 4 && request.status === 200) {
-			var data = JSON.parse(request.responseText);
-			if (data.message == 'Success') {
-
 			}
 			else {
 				alert(data.message);

@@ -56,7 +56,7 @@ elseif (isset($_POST['module']) && isset($_POST['event'])) {
 				mysql_query("UPDATE CUSMAS SET VERIFY='$verify' WHERE EMAIL='$account'");
 			}*/
 			if (isset($return['origin'])) {
-				echo json_encode(array('message' => $return['message'], 'origin' => $return['origin']));
+				echo json_encode(array('message' => $return['message'], 'origin' => $return['origin'], 'index' => $return['index'], 'amount' => $return['amount']));
 			}
 			else {
 				echo json_encode(array('message' => $return['message']));
@@ -65,12 +65,17 @@ elseif (isset($_POST['module']) && isset($_POST['event'])) {
 
 		case 'FBsignin':
 			$return = json_decode(curl_post($_POST, $_POST['module']), true);
-			if($return['message'] == 'Success') {
+			if ($return['message'] == 'Success') {
 				setcookie('account', 'FB_'.$_POST['account']);
 				setcookie('token', $return['token']);
 				setcookie('identity', $return['identity']);
 			}
-			echo json_encode(array('message' => $return['message']));
+			if (isset($return['origin'])) {
+				echo json_encode(array('message' => $return['message'], 'origin' => $return['origin'], 'index' => $return['index'], 'amount' => $return['amount']));
+			}
+			else {
+				echo json_encode(array('message' => $return['message']));
+			}
 			break;
 
 		case 'signup':
