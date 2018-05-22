@@ -640,10 +640,13 @@ ul.lp-text {
 		}
 	}
 
-	[class^=lp-content] .lp-text,
-	.lp-content-right .lp-text,
-	.lp-content-left.lp-text-opposite-side .lp-text {
-		text-align: left;
+	.lp-content-right,
+	.lp-content-left.lp-text-opposite-side {
+		.lp-title,
+		.lp-subtitle,
+		.lp-text {
+			text-align: left;
+		}
 	}
 }
 

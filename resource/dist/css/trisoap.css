@@ -1304,8 +1304,11 @@ ul.lp-text {
   .lp-section > .lp-text > br,
   [class^=lp-text-cover] > .lp-text > br {
     display: none; }
-  [class^=lp-content] .lp-text,
+  .lp-content-right .lp-title,
+  .lp-content-right .lp-subtitle,
   .lp-content-right .lp-text,
+  .lp-content-left.lp-text-opposite-side .lp-title,
+  .lp-content-left.lp-text-opposite-side .lp-subtitle,
   .lp-content-left.lp-text-opposite-side .lp-text {
     text-align: left; } }
 
