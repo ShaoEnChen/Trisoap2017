@@ -16,7 +16,10 @@ if (isset($_GET['in']) || isset($_POST['in'])) {
 
 			$content = file_get_contents($content_dir);
 			$origin = isset($_GET['origin']) ? $_GET['origin'] : '';
+			$amount = isset($_GET['amount']) ? $_GET['amount'] : '';
 			$content = str_replace('[origin]', $origin, $content);
+			$content = str_replace('[index]', $index, $content);
+			$content = str_replace('[amount]', $amount, $content);
 			echo $content;
 
 			include_u_view_footer($page);

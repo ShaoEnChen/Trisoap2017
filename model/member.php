@@ -265,6 +265,8 @@ function signin($content) {
 	$account = $content['account'];
 	$password = $content['password'];
 	$origin = str_replace("@@", "&", $content['origin']);
+	$index = $content['index'];
+	$amount = $content['amount'];
 	$sql1 = mysql_query("SELECT * FROM CUSMAS WHERE EMAIL='$account'");
 	$fetch1 = mysql_fetch_array($sql1);
 	if (empty($account)) {
@@ -291,7 +293,7 @@ function signin($content) {
 				return array('message' => 'Success', 'token' => $token, 'identity' => $fetch1['CUSIDT']);
 			}
 			else {
-				return array('message' => 'Success', 'token' => $token, 'identity' => $fetch1['CUSIDT'], 'origin' => $origin);
+				return array('message' => 'Success', 'token' => $token, 'identity' => $fetch1['CUSIDT'], 'origin' => $origin, 'index' => $index, 'amount' => $amount);
 			}
 		}
 		else {
@@ -302,6 +304,9 @@ function signin($content) {
 
 function FBsignin($account, $name) {
 	$account = 'FB_'.$account;
+	$origin = str_replace("@@", "&", $content['origin']);
+	$index = $content['index'];
+	$amount = $content['amount'];
 	$sql1 = mysql_query("SELECT * FROM CUSMAS WHERE EMAIL='$account'");
 	$fetch1 = mysql_fetch_array($sql1);
 	if (empty($account)) {
@@ -320,7 +325,12 @@ function FBsignin($account, $name) {
 			$sql2 = "INSERT INTO CUSMAS (EMAIL, CUSPW, CUSNM, TOKEN, CREATEDATE, UPDATEDATE, ACTCODE) VALUES ('$account', 'facebook', '$name', '$encrypted_token', '$date', '$date', '1')";
 			if (mysql_query($sql2)) {
 				mysql_query("INSERT INTO ORDMAS (ORDNO, EMAIL, SHIPFEE, CREATEDATE, UPDATEDATE) VALUES ('0', '$account', '70', '$date', '$date')");
-				return array('message' => 'Success', 'token' => $token, 'identity' => 'B');
+				if (empty($origin)) {
+					return array('message' => 'Success', 'token' => $token, 'identity' => 'B');
+				}
+				else {
+					return array('message' => 'Success', 'token' => $token, 'identity' => 'B', 'origin' => $origin, 'index' => $index, 'amount' => $amount);
+				}
 			}
 			else {
 				return 'Database operation error';
@@ -331,7 +341,12 @@ function FBsignin($account, $name) {
 			$encrypted_token = md5($account.$token);
 			$sql2 = "UPDATE CUSMAS SET TOKEN='$encrypted_token' WHERE EMAIL='$account'";
 			if (mysql_query($sql2)) {
-				return array('message' => 'Success', 'token' => $token, 'identity' => $fetch1['CUSIDT']);
+				if (empty($origin)) {
+					return array('message' => 'Success', 'token' => $token, 'identity' => 'B');
+				}
+				else {
+					return array('message' => 'Success', 'token' => $token, 'identity' => 'B', 'origin' => $origin, 'index' => $index, 'amount' => $amount);
+				}
 			}
 			else {
 				return 'Database operation error';
