@@ -328,6 +328,10 @@ $lp-border-radius: 8px;
 	font-weight: 300;
 }
 
+ul.lp-text {
+	list-style: none;
+}
+
 .lp-text-sep {
 	margin-top: 0.5em;
 	border-bottom: 2px #fff solid;
@@ -625,6 +629,21 @@ $lp-border-radius: 8px;
 		.lp-text {
 			text-align: left;
 		}
+	}
+}
+
+@media screen and (max-width: $media-breakpoint-mobile) {
+	.lp-section,
+	[class^=lp-text-cover] {
+		& > .lp-text > br {
+			display: none;
+		}
+	}
+
+	[class^=lp-content] .lp-text,
+	.lp-content-right .lp-text,
+	.lp-content-left.lp-text-opposite-side .lp-text {
+		text-align: left;
 	}
 }
 
