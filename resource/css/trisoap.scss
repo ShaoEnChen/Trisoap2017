@@ -831,6 +831,7 @@ ul.lp-text {
 }
 
 #lp-three-insistence > .lp-title {
+	margin-top: 0.5em;
 	color: #fff;
 	text-align: center;
 }
@@ -958,6 +959,7 @@ ul.lp-text {
  * 8. 購物須知｜Shopping Guide
  * 9. 單品 / 旅用皂絲｜Soap / Soapstring
  * 10. 客製化專區｜Customize
+ * 11. 婚禮小物｜Wedding
  * =========================================================================
  */
 
@@ -1521,4 +1523,112 @@ label[for="purchase-amount"] {
 #customize-content-img {
 	display: block;
 	@extend .full-width-img;
+}
+
+/* -------------------------------------------------------------------------
+ * 11. 婚禮小物｜Wedding
+ * -------------------------------------------------------------------------
+ */
+
+$wedding-main-color: #ff8674;
+$mockup-width: 1920px;
+
+@function mockupPercentage($px, $base: $mockup-width) {
+	@return percentage($px / $base);
+}
+
+@function mockupVW($px, $base: $mockup-width) {
+	@return $px / $mockup-width * 100vw;
+}
+
+.wd-title,
+.wd-subtitle,
+.wd-text {
+	line-height: normal;
+	letter-spacing: normal;
+}
+
+.wd-title {
+	color: $wedding-main-color;
+}
+
+.wd-subtitle {
+	color: #4d4d4d;
+}
+
+.wd-text {
+	color: #4d4d4d;
+}
+
+// laptop
+@media screen and (min-width: $media-breakpoint-mobile + 1px) {
+	.wd-title {
+		font-size: mockupVW(34px);
+		&.super-title {
+			font-size: mockupVW(48px);
+		}
+	}
+
+	.wd-subtitle {
+		font-size: mockupVW(26px);
+	}
+
+	.wd-text {
+		font-size: mockupVW(22px);
+	}
+}
+
+// mobile
+@media screen and (max-width: $media-breakpoint-mobile) {
+	.wd-title {
+
+	}
+
+	.wd-subtitle {
+
+	}
+
+	.wd-text {
+
+	}
+}
+
+.wd-text-cover {
+	box-sizing: border-box;
+	background-color: rgba($wedding-main-color, 0.85);
+	.wd-title,
+	.wd-subtitle,
+	.wd-text {
+		color: #fff;
+	}
+
+	.wd-title {
+		margin: 0;
+	}
+}
+
+#wedding-advice {
+	margin-top: $main-nav-height;	// this page has no header
+
+	// laptop
+	@media screen and (min-width: $media-breakpoint-mobile + 1px) {
+		padding: mockupPercentage(130px) mockupPercentage(130px) mockupPercentage(100px);
+
+		.wd-main-img {
+			width: mockupPercentage(1230px);
+			height: 0;
+			padding-bottom: mockupPercentage(820px);
+			background-color: rgba($wedding-main-color, 0.7);
+		}
+
+		.wd-text-cover {
+			width: mockupPercentage(578px);
+			margin: mockupPercentage(-698px) 0 0 mockupPercentage(1082px);
+			padding: mockupPercentage(51px) mockupPercentage(74px) mockupPercentage(54px) mockupPercentage(72px);
+		}
+
+		.wd-content {
+			background-color: rgba($wedding-main-color, 0.15);
+		}
+	}
 }

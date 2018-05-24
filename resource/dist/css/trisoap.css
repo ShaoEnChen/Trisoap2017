@@ -1429,6 +1429,7 @@ ul.lp-text {
     margin: 2em 0; } }
 
 #lp-three-insistence > .lp-title {
+  margin-top: 0.5em;
   color: #fff;
   text-align: center; }
 
@@ -1510,6 +1511,7 @@ ul.lp-text {
  * 8. 購物須知｜Shopping Guide
  * 9. 單品 / 旅用皂絲｜Soap / Soapstring
  * 10. 客製化專區｜Customize
+ * 11. 婚禮小物｜Wedding
  * =========================================================================
  */
 /* -------------------------------------------------------------------------
@@ -1915,3 +1917,59 @@ label[for="purchase-amount"] {
 
 #customize-content-img {
   display: block; }
+
+/* -------------------------------------------------------------------------
+ * 11. 婚禮小物｜Wedding
+ * -------------------------------------------------------------------------
+ */
+.wd-title,
+.wd-subtitle,
+.wd-text {
+  line-height: normal;
+  letter-spacing: normal; }
+
+.wd-title {
+  color: #ff8674; }
+
+.wd-subtitle {
+  color: #4d4d4d; }
+
+.wd-text {
+  color: #4d4d4d; }
+
+@media screen and (min-width: 980px) {
+  .wd-title {
+    font-size: 1.77083vw; }
+    .wd-title.super-title {
+      font-size: 2.5vw; }
+  .wd-subtitle {
+    font-size: 1.35417vw; }
+  .wd-text {
+    font-size: 1.14583vw; } }
+
+.wd-text-cover {
+  box-sizing: border-box;
+  background-color: rgba(255, 134, 116, 0.85); }
+  .wd-text-cover .wd-title,
+  .wd-text-cover .wd-subtitle,
+  .wd-text-cover .wd-text {
+    color: #fff; }
+  .wd-text-cover .wd-title {
+    margin: 0; }
+
+#wedding-advice {
+  margin-top: 60px; }
+  @media screen and (min-width: 980px) {
+    #wedding-advice {
+      padding: 6.77083% 6.77083% 5.20833%; }
+      #wedding-advice .wd-main-img {
+        width: 64.0625%;
+        height: 0;
+        padding-bottom: 42.70833%;
+        background-color: rgba(255, 134, 116, 0.7); }
+      #wedding-advice .wd-text-cover {
+        width: 30.10417%;
+        margin: -36.35417% 0 0 56.35417%;
+        padding: 2.65625% 3.85417% 2.8125% 3.75%; }
+      #wedding-advice .wd-content {
+        background-color: rgba(255, 134, 116, 0.15); } }
