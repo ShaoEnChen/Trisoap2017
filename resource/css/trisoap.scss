@@ -1644,7 +1644,7 @@ $mockup-width: 1920px;
 		justify-content: space-between;
 		align-items: center;
 		padding: mockupToVW(100px) mockupToVW(250px);
-		& > .wd-content {
+		& > .wd-intro-content {
 			width: mockupToVW(425px);
 			& > .wd-title {
 				margin-bottom: mockupToVW(30px);
@@ -1714,6 +1714,19 @@ $mockup-width: 1920px;
 	}
 }
 
+.wd-section {
+	padding: mockupToVW(50px) mockupToVW(250px);
+	.wd-super-title,
+	.wd-title,
+	.wd-subtitle,
+	.wd-text {
+		color: #4d4d4d;
+	}
+	& > .wd-title {
+		text-align: center;
+	}
+}
+
 #wedding-advice {
 	margin-top: $main-nav-height;	// first div, this page has no header
 
@@ -1736,7 +1749,7 @@ $mockup-width: 1920px;
 				line-height: calc(4/3);
 			}
 		}
-		& > .wd-content {
+		& > .wd-intro-content {
 			width: mockupToVW(339px);
 			margin: mockupToVW(64px) mockupToVW(146px) mockupToVW(178px) auto;
 			& > .wd-subtitle {
@@ -1828,7 +1841,7 @@ $mockup-width: 1920px;
 		}
 		& > .wd-text-cover {
 			width: mockupToVW(1080px);
-			margin: mockupToVW(-130px) auto 0;
+			margin: mockupToVW(-130px) auto mockupToVW(66px);
 			padding: mockupToVW(60px) mockupToVW(128px);
 			& > .wd-super-title {
 				margin-bottom: mockupToVW(35px);
