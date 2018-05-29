@@ -28,7 +28,6 @@ $letter-spacing-18-18: 3.24px;
 $bg-orange: #f18c41;
 $main-font-color: #555;
 $text-orange: #ff9c3f;
-$white-opacity-dot7: rgba(255, 255, 255, 0.7);
 
 .no-scroll {
 	overflow: hidden;
@@ -93,7 +92,12 @@ a.no-href {
 }
 
 // Buttons, usually <a> or <button> tag
-@mixin btn($border-color, $background-color, $font-color, $border-color-hover: false, $background-color-hover: false, $font-color-hover: false) {
+@mixin btn($border-color,
+		   $background-color,
+		   $font-color,
+		   $border-color-hover: lighten($border-color, 10%),
+		   $background-color-hover: lighten($background-color, 10%),
+		   $font-color-hover: false) {
 	display: inline-block;
 	box-sizing: border-box;
 	border: solid 1px $border-color;
@@ -119,25 +123,43 @@ a.no-href {
 }
 
 .primary-btn {
-	@include btn(#fff, transparent, #fff, $white-opacity-dot7, $white-opacity-dot7, #666);
+	@include btn($border-color: #fff,
+				 $background-color: transparent,
+				 $font-color: #fff,
+				 $border-color-hover: rgba(#fff, 0.7),
+				 $background-color-hover: rgba(#fff, 0.7),
+				 $font-color-hover: #666);
 	font-weight: 200;
 }
 
 .text-btn {
-	@include btn(#000, transparent, #000, #777, transparent, #777);
+	@include btn($border-color: #000,
+				 $background-color: transparent,
+				 $font-color: #000,
+				 $border-color-hover: #666,
+				 $background-color-hover: false,
+				 $font-color-hover: #666);
 }
 
 .submit-btn {
-	@include btn(#000, #000, #fff, #777, #777);
+	@include btn($border-color: #000,
+				 $background-color: #000,
+				 $font-color: #fff,
+				 $border-color-hover: #777,
+				 $background-color-hover: #777);
 	padding: 10px 35px;
 }
 
 .promise-btn {
-	@include btn($text-orange, $text-orange, #000, lighten($text-orange, 10%), lighten($text-orange, 10%));
+	@include btn($border-color: $text-orange,
+			 	 $background-color: $text-orange,
+			 	 $font-color: #000);
 }
 
 .neural-btn {
-	@include btn(#ccc, #ccc, #000, #aaa, #aaa);
+	@include btn($border-color: #ccc,
+				 $background-color: #ccc,
+				 $font-color: #000);
 }
 
 .add-to-cart-link .cart-icon {

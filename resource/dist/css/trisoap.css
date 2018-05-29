@@ -486,9 +486,8 @@ a.no-href {
   transition-property: border-color, background-color, color;
   transition-duration: .3s; }
   .text-btn:hover {
-    border-color: #777;
-    background-color: transparent;
-    color: #777; }
+    border-color: #666;
+    color: #666; }
 
 .submit-btn {
   display: inline-block;
@@ -536,8 +535,8 @@ a.no-href {
   transition-property: border-color, background-color, color;
   transition-duration: .3s; }
   .neural-btn:hover {
-    border-color: #aaa;
-    background-color: #aaa; }
+    border-color: #e6e6e6;
+    background-color: #e6e6e6; }
 
 .add-to-cart-link .cart-icon {
   width: 40px;
@@ -892,9 +891,9 @@ header {
   position: relative;
   width: 100vw;
   height: 33.75vw;
-  text-align: center;
   background-size: contain;
   background-repeat: no-repeat;
+  text-align: center;
   z-index: 0; }
   .img-jumbotron::before {
     content: '';
@@ -1113,9 +1112,9 @@ ul.lp-text {
   border: 0.0625em solid #fff;
   border-radius: 8px;
   padding: 0.5em 0 0.5em 0.5em;
+  font-size: 3em;
   letter-spacing: 0.5em;
   line-height: 1.5em;
-  font-size: 3em;
   vertical-align: middle; }
   .lp-mark + .lp-content-left {
     display: inline-block;
@@ -1132,9 +1131,9 @@ ul.lp-text {
   flex-direction: column;
   align-items: center;
   border-radius: 50%;
-  text-align: center;
   background-color: #fff;
-  color: #555; }
+  color: #555;
+  text-align: center; }
   .lp-round .lp-title {
     margin-bottom: 0; }
   .lp-round .lp-text {
@@ -1231,60 +1230,44 @@ ul.lp-text {
     display: inline-block;
     border-radius: 8px;
     padding: 1em 4em; }
-
-.lp-image-background#lp-three-elements {
-  background-image: url(/resource/img/landingpage/three-elements.jpg); }
-
-.lp-image-background#lp-img-social-welfare {
-  background-image: url(/resource/img/landingpage/social-welfare.jpg); }
-
-.lp-image-background#lp-img-peasant-farmer {
-  background-image: url(/resource/img/landingpage/peasant-farmer.jpg); }
-
-.lp-image-background#lp-img-cold-handmade {
-  background-image: url(/resource/img/landingpage/cold-handmade.jpg); }
-
-.lp-image-background#lp-img-no-chemical {
-  background-image: url(/resource/img/landingpage/no-chemical.jpg); }
-
-.lp-image-background#lp-img-long-time-develop {
-  background-image: url(/resource/img/landingpage/long-time-develop.jpg); }
-
-.lp-image-background#lp-img-for-travel {
-  background-image: url(/resource/img/landingpage/for-travel.jpg); }
-
-.lp-image-background#lp-img-foam-fest {
-  background-image: url(/resource/img/landingpage/foam-fest.jpg); }
-
-.lp-image-background#lp-img-natural-oil {
-  background-image: url(/resource/img/landingpage/natural-oil.jpg); }
-
-.lp-image-background#lp-img-easy-to-carry {
-  background-image: url(/resource/img/landingpage/easy-to-carry.jpg); }
-
-.lp-image-background#lp-img-essential-oil {
-  background-image: url(/resource/img/landingpage/essential-oil.jpg); }
-
-.lp-image-background#lp-img-welfare-produce-together {
-  background-image: url(/resource/img/landingpage/welfare-produce-together.jpg); }
-
-.lp-image-background#lp-img-multiple-uses {
-  background-image: url(/resource/img/landingpage/multiple-uses.jpg); }
-
-.lp-image-background#lp-img-teng-partner {
-  background-image: url(/resource/img/landingpage/teng-partner.jpg); }
-
-.lp-image-background#lp-img-cold-pro {
-  background-image: url(/resource/img/landingpage/cold-pro.jpg); }
-
-.lp-image-background#lp-img-listen-to-earth {
-  background-image: url(/resource/img/landingpage/listen-to-earth.jpg); }
-
-.lp-image-background#lp-img-retarded-produce-together {
-  background-image: url(/resource/img/landingpage/retarded-produce-together.jpg); }
-
-.lp-image-background#lp-img-media-report {
-  background-image: url(/resource/img/landingpage/media-report.jpg); }
+  .lp-image-background#lp-three-elements {
+    background-image: url(/resource/img/landingpage/three-elements.jpg); }
+  .lp-image-background#lp-img-social-welfare {
+    background-image: url(/resource/img/landingpage/social-welfare.jpg); }
+  .lp-image-background#lp-img-peasant-farmer {
+    background-image: url(/resource/img/landingpage/peasant-farmer.jpg); }
+  .lp-image-background#lp-img-cold-handmade {
+    background-image: url(/resource/img/landingpage/cold-handmade.jpg); }
+  .lp-image-background#lp-img-no-chemical {
+    background-image: url(/resource/img/landingpage/no-chemical.jpg); }
+  .lp-image-background#lp-img-long-time-develop {
+    background-image: url(/resource/img/landingpage/long-time-develop.jpg); }
+  .lp-image-background#lp-img-for-travel {
+    background-image: url(/resource/img/landingpage/for-travel.jpg); }
+  .lp-image-background#lp-img-foam-fest {
+    background-image: url(/resource/img/landingpage/foam-fest.jpg); }
+  .lp-image-background#lp-img-natural-oil {
+    background-image: url(/resource/img/landingpage/natural-oil.jpg); }
+  .lp-image-background#lp-img-easy-to-carry {
+    background-image: url(/resource/img/landingpage/easy-to-carry.jpg); }
+  .lp-image-background#lp-img-essential-oil {
+    background-image: url(/resource/img/landingpage/essential-oil.jpg); }
+  .lp-image-background#lp-img-welfare-produce-together {
+    background-image: url(/resource/img/landingpage/welfare-produce-together.jpg); }
+  .lp-image-background#lp-img-multiple-uses {
+    background-image: url(/resource/img/landingpage/multiple-uses.jpg); }
+  .lp-image-background#lp-img-teng-partner {
+    background-image: url(/resource/img/landingpage/teng-partner.jpg); }
+  .lp-image-background#lp-img-cold-pro {
+    background-image: url(/resource/img/landingpage/cold-pro.jpg); }
+  .lp-image-background#lp-img-listen-to-earth {
+    background-image: url(/resource/img/landingpage/listen-to-earth.jpg); }
+  .lp-image-background#lp-img-retarded-produce-together {
+    background-image: url(/resource/img/landingpage/retarded-produce-together.jpg); }
+  .lp-image-background#lp-img-media-report {
+    background-image: url(/resource/img/landingpage/media-report.jpg); }
+  .lp-image-background#lp-img-three-stories {
+    background-image: url(/resource/img/landingpage/three-stories.jpg); }
 
 .lp-content-left {
   text-align: left; }
@@ -1363,8 +1346,8 @@ ul.lp-text {
   .lp-certificate .lp-round {
     width: 16em;
     height: 16em;
-    text-align: left;
-    color: #f6a326; }
+    color: #f6a326;
+    text-align: left; }
     @media screen and (max-width: 19.04em) {
       .lp-certificate .lp-round {
         display: none; } }
@@ -1599,9 +1582,6 @@ ul.lp-text {
  * 6. 三三團隊｜About
  * -------------------------------------------------------------------------
  */
-.lp-image-background#lp-img-three-stories {
-  background-image: url(/resource/img/landingpage/three-stories.jpg); }
-
 #lp-img-three-stories {
   min-height: 56vw; }
 
@@ -1922,12 +1902,14 @@ label[for="purchase-amount"] {
  * 11. 婚禮小物｜Wedding
  * -------------------------------------------------------------------------
  */
+.wd-super-title,
 .wd-title,
 .wd-subtitle,
 .wd-text {
-  line-height: normal;
-  letter-spacing: normal; }
+  margin: 0;
+  line-height: normal; }
 
+.wd-super-title,
 .wd-title {
   color: #ff8674; }
 
@@ -1938,38 +1920,230 @@ label[for="purchase-amount"] {
   color: #4d4d4d; }
 
 @media screen and (min-width: 980px) {
+  .wd-super-title {
+    font-size: 2.5vw; }
   .wd-title {
     font-size: 1.77083vw; }
-    .wd-title.super-title {
-      font-size: 2.5vw; }
   .wd-subtitle {
     font-size: 1.35417vw; }
   .wd-text {
     font-size: 1.14583vw; } }
 
+@media screen and (max-width: 979px) {
+  .wd-text br {
+    display: none; } }
+
 .wd-text-cover {
   box-sizing: border-box;
   background-color: rgba(255, 134, 116, 0.85); }
+  .wd-text-cover .wd-super-title,
   .wd-text-cover .wd-title,
   .wd-text-cover .wd-subtitle,
   .wd-text-cover .wd-text {
     color: #fff; }
-  .wd-text-cover .wd-title {
-    margin: 0; }
+  @media screen and (min-width: 980px) {
+    .wd-text-cover .wd-tc-ol {
+      list-style: none;
+      counter-reset: li; }
+      .wd-text-cover .wd-tc-ol li {
+        counter-increment: li; }
+        .wd-text-cover .wd-tc-ol li::before,
+        .wd-text-cover .wd-tc-ol li > .wd-text {
+          display: inline-block;
+          vertical-align: middle; }
+        .wd-text-cover .wd-tc-ol li::before {
+          content: counter(li);
+          border-radius: 50%;
+          background-color: #fff;
+          color: #ff8674;
+          text-align: center; } }
+
+.wedding-text-btn {
+  display: inline-block;
+  box-sizing: border-box;
+  border: solid 1px #ff8674;
+  padding: 8px 25px;
+  text-decoration: none;
+  text-align: center;
+  background-color: transparent;
+  color: #ff8674;
+  font-weight: 300;
+  transition-property: border-color, background-color, color;
+  transition-duration: .3s;
+  line-height: 1;
+  letter-spacing: normal; }
+  .wedding-text-btn:hover {
+    border-color: #ffb2a7;
+    background-color: rgba(26, 26, 26, 0); }
+  @media screen and (min-width: 980px) {
+    .wedding-text-btn {
+      border-width: 0.10417vw;
+      padding: 1.04167vw 1.14583vw 1.09375vw;
+      font-size: 1.77083vw; } }
+
+.wedding-submit-btn {
+  display: inline-block;
+  box-sizing: border-box;
+  border: solid 1px #ff8674;
+  padding: 8px 25px;
+  text-decoration: none;
+  text-align: center;
+  background-color: #ff8674;
+  color: #fff;
+  font-weight: 300;
+  transition-property: border-color, background-color, color;
+  transition-duration: .3s;
+  line-height: normal;
+  letter-spacing: normal; }
+  .wedding-submit-btn:hover {
+    border-color: #ffb2a7;
+    background-color: #ffb2a7; }
+
+.wd-intro > .wd-main-img {
+  background-color: #4d4d4d; }
+
+@media screen and (min-width: 980px) {
+  .wd-intro {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5.20833vw 13.02083vw; }
+    .wd-intro > .wd-content {
+      width: 22.13542vw; }
+      .wd-intro > .wd-content > .wd-title {
+        margin-bottom: 1.5625vw; }
+      .wd-intro > .wd-content > .wd-text {
+        line-height: 1.8181818181818181; }
+    .wd-intro > .wd-main-img {
+      width: 45.83333vw;
+      height: 0;
+      padding-bottom: 30.57292vw; } }
+
+.wd-intro-sep {
+  margin: 1.04167vw 13.02083vw;
+  border-width: 0.05208vw;
+  border-color: #979797;
+  border-style: solid none; }
+
+.wd-image-background {
+  position: relative;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #4d4d4d; }
+  .wd-image-background#wd-img-samples {
+    height: 0;
+    margin: 5.20833vw 0;
+    padding-bottom: 52.08333vw; }
+  .wd-image-background#wd-img-confidence {
+    height: 0;
+    margin: 5.20833vw 0;
+    padding-bottom: 62.29167vw; }
+
+.wd-slogan {
+  background-size: contain;
+  background-color: #fff;
+  background-position: center;
+  background-repeat: no-repeat;
+  text-align: center; }
+  @media screen and (min-width: 980px) {
+    .wd-slogan > .wd-title {
+      margin: 0 auto 1.5625vw; }
+    .wd-slogan#wd-img-031 {
+      background-image: url(/resource/img/wedding/031.png); }
+      .wd-slogan#wd-img-031 > .wd-text {
+        max-width: 28.95833vw;
+        margin: 0 auto;
+        padding-bottom: 1.04167vw; }
+    .wd-slogan#wd-img-142 {
+      background-image: url(/resource/img/wedding/031.png); } }
 
 #wedding-advice {
   margin-top: 60px; }
   @media screen and (min-width: 980px) {
     #wedding-advice {
-      padding: 6.77083% 6.77083% 5.20833%; }
-      #wedding-advice .wd-main-img {
-        width: 64.0625%;
+      padding: 6.77083vw 0 5.20833vw; }
+      #wedding-advice > .wd-main-img {
+        width: 64.0625vw;
         height: 0;
-        padding-bottom: 42.70833%;
-        background-color: rgba(255, 134, 116, 0.7); }
-      #wedding-advice .wd-text-cover {
-        width: 30.10417%;
-        margin: -36.35417% 0 0 56.35417%;
-        padding: 2.65625% 3.85417% 2.8125% 3.75%; }
-      #wedding-advice .wd-content {
-        background-color: rgba(255, 134, 116, 0.15); } }
+        padding-bottom: 42.70833vw;
+        margin-left: 6.77083vw;
+        background-color: #4d4d4d; }
+      #wedding-advice > .wd-text-cover {
+        width: 30.10417vw;
+        margin: -36.35417vw 6.77083vw 0 auto;
+        padding: 2.65625vw 3.85417vw 2.8125vw 3.75vw; }
+        #wedding-advice > .wd-text-cover > .wd-title {
+          line-height: calc(4/3); }
+      #wedding-advice > .wd-content {
+        width: 17.65625vw;
+        margin: 3.33333vw 7.60417vw 9.27083vw auto; }
+        #wedding-advice > .wd-content > .wd-subtitle {
+          height: 4.375vw;
+          line-height: calc(63 / 39); }
+        #wedding-advice > .wd-content > .wedding-text-btn {
+          margin: 3.125vw 0 0 8.07292vw; } }
+
+@media screen and (min-width: 980px) {
+  #wedding-simple-procedure {
+    padding: 5.20833vw 0; }
+    #wedding-simple-procedure > .wd-main-img {
+      width: 66.77083vw;
+      height: 0;
+      padding-bottom: 42.70833vw;
+      margin-left: 7.8125vw;
+      background-color: #4d4d4d; }
+    #wedding-simple-procedure > .wd-text-cover {
+      width: 31.14583vw;
+      margin: -34.84375vw 7.8125vw 11.40625vw auto;
+      padding: 3.38542vw 3.17708vw 1.5625vw; }
+      #wedding-simple-procedure > .wd-text-cover > .wd-title {
+        line-height: 1; } }
+    @media screen and (min-width: 980px) and (min-width: 980px) {
+      #wedding-simple-procedure > .wd-text-cover .wd-tc-ol {
+        margin: 2.76042vw 0 0;
+        padding-left: 2.70833vw; }
+        #wedding-simple-procedure > .wd-text-cover .wd-tc-ol li {
+          margin: 1.5625vw 0; }
+          #wedding-simple-procedure > .wd-text-cover .wd-tc-ol li:nth-child(2) {
+            margin-bottom: 1.66667vw; }
+          #wedding-simple-procedure > .wd-text-cover .wd-tc-ol li::before {
+            width: 2.86458vw;
+            height: 2.86458vw;
+            margin-right: 1.5625vw;
+            line-height: 2.86458vw;
+            font-size: 1.77083vw; }
+          #wedding-simple-procedure > .wd-text-cover .wd-tc-ol li > .wd-text {
+            font-size: 1.25vw;
+            line-height: 1.77083vw; } }
+
+#wd-img-confidence {
+  position: relative; }
+  @media screen and (min-width: 980px) {
+    #wd-img-confidence > .wd-text-cover {
+      position: absolute;
+      width: 24.16667vw;
+      margin: 18.64583vw auto auto 7.8125vw;
+      padding: 3.07292vw 3.125vw 2.8125vw; }
+      #wd-img-confidence > .wd-text-cover > .wd-title {
+        margin-bottom: 1.30208vw; }
+      #wd-img-confidence > .wd-text-cover > .wd-text {
+        line-height: calc(157/88); } }
+
+@media screen and (min-width: 980px) {
+  #wd-img-future > .wd-main-img {
+    width: 100%;
+    height: 0;
+    padding-bottom: 50vw;
+    background-color: #4d4d4d; }
+  #wd-img-future > .wd-text-cover {
+    width: 56.25vw;
+    margin: -6.77083vw auto 0;
+    padding: 3.125vw 6.66667vw; }
+    #wd-img-future > .wd-text-cover > .wd-super-title {
+      margin-bottom: 1.82292vw;
+      text-align: center;
+      line-height: 1; }
+    #wd-img-future > .wd-text-cover > .wd-text {
+      line-height: calc(114/66); } }

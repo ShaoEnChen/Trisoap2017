@@ -486,9 +486,8 @@ a.no-href {
   transition-property: border-color, background-color, color;
   transition-duration: .3s; }
   .text-btn:hover {
-    border-color: #777;
-    background-color: transparent;
-    color: #777; }
+    border-color: #666;
+    color: #666; }
 
 .submit-btn {
   display: inline-block;
@@ -536,8 +535,8 @@ a.no-href {
   transition-property: border-color, background-color, color;
   transition-duration: .3s; }
   .neural-btn:hover {
-    border-color: #aaa;
-    background-color: #aaa; }
+    border-color: #e6e6e6;
+    background-color: #e6e6e6; }
 
 .add-to-cart-link .cart-icon {
   width: 40px;
