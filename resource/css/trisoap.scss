@@ -1709,7 +1709,8 @@ $mockup-width: 1920px;
 			}
 		}
 		&#wd-img-142 {
-			background-image: url(/resource/img/wedding/031.png);
+			margin-top: mockupToVW(40px);
+			background-image: url(/resource/img/wedding/142.png);
 		}
 	}
 }
@@ -1723,17 +1724,31 @@ $mockup-width: 1920px;
 		color: #4d4d4d;
 	}
 	& > .wd-title {
-		text-align: center;
+		display: flex;
+		align-items: center;
+		line-height: calc(66 / 34);
+		&::before,
+		&::after {
+			content: '';
+			flex-grow: 1;
+			height: 2px;
+			background-color: #979797;
+		}
+		&::before {
+			margin-right: mockupToVW(25px);
+		}
+		&::after {
+			margin-left: mockupToVW(25px);
+		}
 	}
 }
 
-#wedding-advice {
+#wd-advice {
 	margin-top: $main-nav-height;	// first div, this page has no header
 
 	// laptop
 	@media screen and (min-width: $media-breakpoint-mobile + 1px) {
 		padding: mockupToVW(130px) 0 mockupToVW(100px);
-
 		& > .wd-main-img {
 			width: mockupToVW(1230px);
 			height: 0;
@@ -1746,7 +1761,7 @@ $mockup-width: 1920px;
 			margin: mockupToVW(-698px) mockupToVW(130px) 0 auto;
 			padding: mockupToVW(51px) mockupToVW(74px) mockupToVW(54px) mockupToVW(72px);
 			& > .wd-title {
-				line-height: calc(4/3);
+				line-height: calc(4 / 3);
 			}
 		}
 		& > .wd-intro-content {
@@ -1763,7 +1778,7 @@ $mockup-width: 1920px;
 	}
 }
 
-#wedding-simple-procedure {
+#wd-simple-procedure {
 	// laptop
 	@media screen and (min-width: $media-breakpoint-mobile + 1px) {
 		padding: mockupToVW(100px) 0;
@@ -1824,7 +1839,7 @@ $mockup-width: 1920px;
 				margin-bottom: mockupToVW(25px);
 			}
 			& > .wd-text {
-				line-height: calc(157/88);
+				line-height: calc(157 / 88);
 			}
 		}
 	}
@@ -1849,8 +1864,108 @@ $mockup-width: 1920px;
 				line-height: 1;
 			}
 			& > .wd-text {
-				line-height: calc(114/66);
+				line-height: calc(114 / 66);
 			}
+		}
+	}
+}
+
+#wd-media-reports {
+	// laptop
+	@media screen and (min-width: $media-breakpoint-mobile + 1px) {
+		display: flex;
+		justify-content: space-between;
+		flex-flow: row wrap;
+		margin-top: mockupToVW(23px);
+
+		.wd-media-report {
+			width: mockupToVW(400px);
+			padding-top: mockupToVW(60px);
+		}
+
+		.wd-mr-comment {
+			min-height: mockupToVW(114px);
+		}
+
+		.wd-mr-source {
+			width: mockupToVW(200px);
+			height: 0;
+			margin-left: mockupToVW(200px);
+			padding-bottom: mockupToVW(81px);
+			background-color: #4d4d4d;
+		}
+	}
+}
+
+#wd-customer-feedbacks {
+	// laptop
+	@media screen and (min-width: $media-breakpoint-mobile + 1px) {
+		display: flex;
+		justify-content: space-between;
+		flex-flow: row wrap;
+		margin-top: mockupToVW(62px);
+
+		.wd-customer-feedback {
+			width: mockupToVW(674px);
+			height: 0;
+			padding-bottom: mockupToVW(431px);
+			background-color: #4d4d4d;
+		}
+	}
+}
+
+#wd-opportunities {
+	// laptop
+	@media screen and (min-width: $media-breakpoint-mobile + 1px) {
+		display: flex;
+		justify-content: space-between;
+		padding: mockupToVW(100px) mockupToVW(150px);
+		& > .wd-main-img {
+			width: mockupToVW(1143px);
+			height: 0;
+			padding-bottom: mockupToVW(686px);
+			background-color: #4d4d4d;
+		}
+		& > .wd-text-cover {
+			width: mockupToVW(477px);
+			height: mockupToVW(686px);
+			padding: mockupToVW(120px) mockupToVW(60px) 0;
+			& > .wd-title {
+				line-height: calc(130 / 102);
+			}
+			& > .wd-text {
+				margin-top: mockupToVW(26px);
+				line-height: calc(274 / 154);
+			}
+		}
+	}
+}
+
+#wd-cta {
+	display: flex;
+	justify-content: space-between;
+	padding: mockupToVW(225px) mockupToVW(275px) mockupToVW(255px);
+	background-color: #f2f2f2;
+
+	// laptop
+	@media screen and (min-width: $media-breakpoint-mobile + 1px) {
+		& > .wd-intro-content {
+			width: mockupToVW(408px);
+			margin-top: mockupToVW(42px);
+			& > .wd-text {
+				margin-top: mockupToVW(30px);
+				line-height: calc(114 / 66);
+				& + .wd-title {
+					margin-top: mockupToVW(80px);
+				}
+			}
+		}
+		& > .wd-main-img {
+			width: mockupToVW(830px);
+			height: 0;
+			padding-bottom: mockupToVW(600px);
+			background-color: #4d4d4d;
+			box-shadow: 0 0 18px 3px rgba(153, 153, 153, 0.5);
 		}
 	}
 }
