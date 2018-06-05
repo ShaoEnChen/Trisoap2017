@@ -1613,7 +1613,10 @@ $mockup-width: 1920px;
 .wedding-text-btn {
 	@include btn($border-color: $wedding-main-color,
 				 $background-color: transparent,
-				 $font-color: $wedding-main-color);
+				 $font-color: $wedding-main-color,
+				 $border-color-hover: $wedding-main-color,
+				 $background-color-hover: $wedding-main-color,
+				 $font-color-hover: #fff);
 	line-height: 1;
 	letter-spacing: normal;
 
@@ -1628,7 +1631,9 @@ $mockup-width: 1920px;
 .wedding-submit-btn {
 	@include btn($border-color: $wedding-main-color,
 				 $background-color: $wedding-main-color,
-				 $font-color: #fff);
+				 $font-color: #fff,
+				 $border-color-hover: rgba($wedding-main-color, 0.7),
+				 $background-color-hover: rgba($wedding-main-color, 0.7));
 	line-height: normal;
 	letter-spacing: normal;
 }
@@ -1710,6 +1715,7 @@ $mockup-width: 1920px;
 		}
 		&#wd-img-142 {
 			margin-top: mockupToVW(40px);
+			margin-bottom: mockupToVW(5px);
 			background-image: url(/resource/img/wedding/142.png);
 		}
 	}
@@ -1936,6 +1942,118 @@ $mockup-width: 1920px;
 			& > .wd-text {
 				margin-top: mockupToVW(26px);
 				line-height: calc(274 / 154);
+			}
+		}
+	}
+}
+
+#wd-special-offers {
+	// laptop
+	@media screen and (min-width: $media-breakpoint-mobile + 1px) {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: mockupToVW(150px) mockupToVW(130px);
+		& > .wd-offer,
+		& > .wd-primary-offer {
+			width: mockupToVW(490px);
+			& > [class^=wd-offer-] {
+				display: flex;
+				flex-flow: column wrap;
+				justify-content: center;
+				align-items: center;
+			}
+			& > .wd-offer-name {
+				.wd-title + .wd-text,
+				.wd-super-title + .wd-text {
+					margin-top: mockupToVW(11px);
+				}
+			}
+			& > .wd-offer-price {
+				span + p.wd-text {
+					margin-top: mockupToVW(5px);
+				}
+			}
+			& > .wd-offer-bonus {
+				position: relative;
+				&::before {
+					content: '送';
+					display: block;
+					position: absolute;
+					width: mockupToVW(50px);
+					height: mockupToVW(50px);
+					top: mockupToVW(32px);
+					left: mockupToVW(90px);
+					font-size: mockupToVW(28px);
+					line-height: mockupToVW(50px);
+					text-align: center;
+				}
+			}
+
+			.wd-text {
+				line-height: calc(40 / 22);
+			}
+		}
+		& > .wd-offer {
+			& > .wd-offer-name {
+				height: mockupToVW(160px);
+				background-color: rgba($wedding-main-color, 0.15);
+			}
+			& > .wd-offer-price {
+				height: mockupToVW(135px);
+				background-color: rgba($wedding-main-color, 0.7 * 0.85 + 0.15);
+				.wd-super-title,
+				.wd-title,
+				.wd-subtitle,
+				.wd-text {
+					color: #fff;
+				}
+			}
+			& > .wd-offer-intro {
+				height: mockupToVW(200px);
+				background-color: rgba($wedding-main-color, 0.15);
+			}
+			& > .wd-offer-bonus {
+				height: mockupToVW(168px);
+				background-color: rgba($wedding-main-color, 0.1 * 0.85 + 0.15);
+				&::before {
+					background-color: $wedding-main-color;
+					color: #fff;
+				}
+			}
+			.wd-super-title,
+			.wd-title,
+			.wd-subtitle,
+			.wd-text {
+				color: $wedding-main-color;
+			}
+		}
+		& > .wd-primary-offer {
+			& > .wd-offer-name {
+				height: mockupToVW(180px);
+				background-color: rgba($wedding-main-color, 0.595);
+			}
+			& > .wd-offer-price {
+				height: mockupToVW(135px);
+				background-color: rgba($wedding-main-color, 1);
+			}
+			& > .wd-offer-intro {
+				height: mockupToVW(200px);
+				background-color: rgba($wedding-main-color, 0.595);
+			}
+			& > .wd-offer-bonus {
+				height: mockupToVW(188px);
+				background-color: rgba($wedding-main-color, 0.35 * 0.405 + 0.595);
+				&::before {
+					background-color: #fff;
+					color: $wedding-main-color;
+				}
+			}
+			.wd-super-title,
+			.wd-title,
+			.wd-subtitle,
+			.wd-text {
+				color: #fff;
 			}
 		}
 	}
