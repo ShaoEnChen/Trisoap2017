@@ -7,7 +7,7 @@ $main-text-line-height: 1.7;
  * -1: .img-jumbotron::before, .lp-image-background::before
  *  0: .img-jumbotron, .lp-image-background
  *  1:
- *  2:
+ *  2: .wd-text-cover
  *  3:
  *  4:
  *  5:
@@ -1576,8 +1576,10 @@ $mockup-width: 1920px;
 }
 
 .wd-text-cover {
+	position: relative;
 	box-sizing: border-box;
 	background-color: rgba($wedding-main-color, 0.85);
+	z-index: 2;
 
 	.wd-super-title,
 	.wd-title,
@@ -1639,10 +1641,6 @@ $mockup-width: 1920px;
 }
 
 .wd-intro {
-	& > .wd-main-img {
-		background-color: #4d4d4d;
-	}
-
 	// laptop
 	@media screen and (min-width: $media-breakpoint-mobile + 1px) {
 		display: flex;
@@ -1676,19 +1674,17 @@ $mockup-width: 1920px;
 .wd-image-background {
 	position: relative;
 	width: 100%;
+	margin: mockupToVW(100px) 0;
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
-	background-color: #4d4d4d;
 	&#wd-img-samples {
-		height: 0;
-		margin: mockupToVW(100px) 0;
-		padding-bottom: mockupToVW(1000px);
+		height: mockupToVW(1000px);
+		background-image: url(/resource/img/wedding/03.jpg);
 	}
 	&#wd-img-confidence {
-		height: 0;
-		margin: mockupToVW(100px) 0;
-		padding-bottom: mockupToVW(1196px);
+		height: mockupToVW(1196px);
+		background-image: url(/resource/img/wedding/05.jpg);
 	}
 }
 
@@ -1706,7 +1702,7 @@ $mockup-width: 1920px;
 		}
 
 		&#wd-img-031 {
-			background-image: url(/resource/img/wedding/031.png);
+			background-image: url(/resource/img/wedding/031.jpg);
 			& > .wd-text {
 				max-width: mockupToVW(556px);
 				margin: 0 auto;
@@ -1716,19 +1712,13 @@ $mockup-width: 1920px;
 		&#wd-img-142 {
 			margin-top: mockupToVW(40px);
 			margin-bottom: mockupToVW(5px);
-			background-image: url(/resource/img/wedding/142.png);
+			background-image: url(/resource/img/wedding/142.jpg);
 		}
 	}
 }
 
 .wd-section {
 	padding: mockupToVW(50px) mockupToVW(250px);
-	.wd-super-title,
-	.wd-title,
-	.wd-subtitle,
-	.wd-text {
-		color: #4d4d4d;
-	}
 	& > .wd-title {
 		display: flex;
 		align-items: center;
@@ -1747,6 +1737,11 @@ $mockup-width: 1920px;
 			margin-left: mockupToVW(25px);
 		}
 	}
+
+	.wd-title,
+	.wd-text {
+		color: #4d4d4d;
+	}
 }
 
 #wd-advice {
@@ -1757,10 +1752,8 @@ $mockup-width: 1920px;
 		padding: mockupToVW(130px) 0 mockupToVW(100px);
 		& > .wd-main-img {
 			width: mockupToVW(1230px);
-			height: 0;
-			padding-bottom: mockupToVW(820px);
+			height: mockupToVW(820px);
 			margin-left: mockupToVW(130px);
-			background-color: #4d4d4d;
 		}
 		& > .wd-text-cover {
 			width: mockupToVW(578px);
@@ -1791,10 +1784,8 @@ $mockup-width: 1920px;
 
 		& > .wd-main-img {
 			width: mockupToVW(1282px);
-			height: 0;
-			padding-bottom: mockupToVW(820px);
+			height: mockupToVW(820px);
 			margin-left: mockupToVW(150px);
-			background-color: #4d4d4d;
 		}
 		& > .wd-text-cover {
 			width: mockupToVW(598px);
@@ -1834,6 +1825,7 @@ $mockup-width: 1920px;
 
 #wd-img-confidence {
 	position: relative;
+
 	// laptop
 	@media screen and (min-width: $media-breakpoint-mobile + 1px) {
 		& > .wd-text-cover {
@@ -1856,9 +1848,7 @@ $mockup-width: 1920px;
 	@media screen and (min-width: $media-breakpoint-mobile + 1px) {
 		& > .wd-main-img {
 			width: 100%;
-			height: 0;
-			padding-bottom: mockupToVW(960px);
-			background-color: #4d4d4d;
+			height: mockupToVW(960px);
 		}
 		& > .wd-text-cover {
 			width: mockupToVW(1080px);
@@ -1895,10 +1885,8 @@ $mockup-width: 1920px;
 
 		.wd-mr-source {
 			width: mockupToVW(200px);
-			height: 0;
+			height: mockupToVW(81px);
 			margin-left: mockupToVW(200px);
-			padding-bottom: mockupToVW(81px);
-			background-color: #4d4d4d;
 		}
 	}
 }
@@ -1913,9 +1901,7 @@ $mockup-width: 1920px;
 
 		.wd-customer-feedback {
 			width: mockupToVW(674px);
-			height: 0;
-			padding-bottom: mockupToVW(431px);
-			background-color: #4d4d4d;
+			height: mockupToVW(431px);
 		}
 	}
 }
@@ -1928,9 +1914,7 @@ $mockup-width: 1920px;
 		padding: mockupToVW(100px) mockupToVW(150px);
 		& > .wd-main-img {
 			width: mockupToVW(1143px);
-			height: 0;
-			padding-bottom: mockupToVW(686px);
-			background-color: #4d4d4d;
+			height: mockupToVW(686px);
 		}
 		& > .wd-text-cover {
 			width: mockupToVW(477px);
@@ -1983,7 +1967,7 @@ $mockup-width: 1920px;
 					width: mockupToVW(50px);
 					height: mockupToVW(50px);
 					top: mockupToVW(32px);
-					left: mockupToVW(90px);
+					left: mockupToVW(80px);
 					font-size: mockupToVW(28px);
 					line-height: mockupToVW(50px);
 					text-align: center;
@@ -2002,6 +1986,7 @@ $mockup-width: 1920px;
 			& > .wd-offer-price {
 				height: mockupToVW(135px);
 				background-color: rgba($wedding-main-color, 0.7 * 0.85 + 0.15);
+
 				.wd-super-title,
 				.wd-title,
 				.wd-subtitle,
@@ -2017,7 +2002,8 @@ $mockup-width: 1920px;
 				height: mockupToVW(168px);
 				background-color: rgba($wedding-main-color, 0.1 * 0.85 + 0.15);
 				&::before {
-					background-color: $wedding-main-color;
+					background: transparent url(/resource/img/wedding/offer-bonus.svg) center center;
+					background-size: contain;
 					color: #fff;
 				}
 			}
@@ -2045,10 +2031,12 @@ $mockup-width: 1920px;
 				height: mockupToVW(188px);
 				background-color: rgba($wedding-main-color, 0.35 * 0.405 + 0.595);
 				&::before {
-					background-color: #fff;
+					background: transparent url(/resource/img/wedding/offer-bonus-white.svg) center center;
+					background-size: contain;
 					color: $wedding-main-color;
 				}
 			}
+
 			.wd-super-title,
 			.wd-title,
 			.wd-subtitle,
@@ -2078,10 +2066,10 @@ $mockup-width: 1920px;
 				}
 			}
 		}
-		& > .wd-main-img {
+
+		#wd-cta-form {
 			width: mockupToVW(830px);
-			height: 0;
-			padding-bottom: mockupToVW(600px);
+			height: mockupToVW(600px);
 			background-color: #4d4d4d;
 			box-shadow: 0 0 18px 3px rgba(153, 153, 153, 0.5);
 		}

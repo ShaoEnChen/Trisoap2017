@@ -626,7 +626,7 @@ a.no-href {
  * -1: .img-jumbotron::before, .lp-image-background::before
  *  0: .img-jumbotron, .lp-image-background
  *  1:
- *  2:
+ *  2: .wd-text-cover
  *  3:
  *  4:
  *  5:
@@ -1934,8 +1934,10 @@ label[for="purchase-amount"] {
     display: none; } }
 
 .wd-text-cover {
+  position: relative;
   box-sizing: border-box;
-  background-color: rgba(255, 134, 116, 0.85); }
+  background-color: rgba(255, 134, 116, 0.85);
+  z-index: 2; }
   .wd-text-cover .wd-super-title,
   .wd-text-cover .wd-title,
   .wd-text-cover .wd-subtitle,
@@ -2000,9 +2002,6 @@ label[for="purchase-amount"] {
     border-color: rgba(255, 134, 116, 0.7);
     background-color: rgba(255, 134, 116, 0.7); }
 
-.wd-intro > .wd-main-img {
-  background-color: #4d4d4d; }
-
 @media screen and (min-width: 980px) {
   .wd-intro {
     display: flex;
@@ -2029,18 +2028,16 @@ label[for="purchase-amount"] {
 .wd-image-background {
   position: relative;
   width: 100%;
+  margin: 5.20833vw 0;
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
-  background-color: #4d4d4d; }
+  background-repeat: no-repeat; }
   .wd-image-background#wd-img-samples {
-    height: 0;
-    margin: 5.20833vw 0;
-    padding-bottom: 52.08333vw; }
+    height: 52.08333vw;
+    background-image: url(/resource/img/wedding/03.jpg); }
   .wd-image-background#wd-img-confidence {
-    height: 0;
-    margin: 5.20833vw 0;
-    padding-bottom: 62.29167vw; }
+    height: 62.29167vw;
+    background-image: url(/resource/img/wedding/05.jpg); }
 
 .wd-slogan {
   background-size: contain;
@@ -2052,7 +2049,7 @@ label[for="purchase-amount"] {
     .wd-slogan > .wd-title {
       margin: 0 auto 1.5625vw; }
     .wd-slogan#wd-img-031 {
-      background-image: url(/resource/img/wedding/031.png); }
+      background-image: url(/resource/img/wedding/031.jpg); }
       .wd-slogan#wd-img-031 > .wd-text {
         max-width: 28.95833vw;
         margin: 0 auto;
@@ -2060,15 +2057,10 @@ label[for="purchase-amount"] {
     .wd-slogan#wd-img-142 {
       margin-top: 2.08333vw;
       margin-bottom: 0.26042vw;
-      background-image: url(/resource/img/wedding/142.png); } }
+      background-image: url(/resource/img/wedding/142.jpg); } }
 
 .wd-section {
   padding: 2.60417vw 13.02083vw; }
-  .wd-section .wd-super-title,
-  .wd-section .wd-title,
-  .wd-section .wd-subtitle,
-  .wd-section .wd-text {
-    color: #4d4d4d; }
   .wd-section > .wd-title {
     display: flex;
     align-items: center;
@@ -2082,6 +2074,9 @@ label[for="purchase-amount"] {
       margin-right: 1.30208vw; }
     .wd-section > .wd-title::after {
       margin-left: 1.30208vw; }
+  .wd-section .wd-title,
+  .wd-section .wd-text {
+    color: #4d4d4d; }
 
 #wd-advice {
   margin-top: 60px; }
@@ -2090,10 +2085,8 @@ label[for="purchase-amount"] {
       padding: 6.77083vw 0 5.20833vw; }
       #wd-advice > .wd-main-img {
         width: 64.0625vw;
-        height: 0;
-        padding-bottom: 42.70833vw;
-        margin-left: 6.77083vw;
-        background-color: #4d4d4d; }
+        height: 42.70833vw;
+        margin-left: 6.77083vw; }
       #wd-advice > .wd-text-cover {
         width: 30.10417vw;
         margin: -36.35417vw 6.77083vw 0 auto;
@@ -2114,10 +2107,8 @@ label[for="purchase-amount"] {
     padding: 5.20833vw 0; }
     #wd-simple-procedure > .wd-main-img {
       width: 66.77083vw;
-      height: 0;
-      padding-bottom: 42.70833vw;
-      margin-left: 7.8125vw;
-      background-color: #4d4d4d; }
+      height: 42.70833vw;
+      margin-left: 7.8125vw; }
     #wd-simple-procedure > .wd-text-cover {
       width: 31.14583vw;
       margin: -34.84375vw 7.8125vw 11.40625vw auto;
@@ -2158,9 +2149,7 @@ label[for="purchase-amount"] {
 @media screen and (min-width: 980px) {
   #wd-img-future > .wd-main-img {
     width: 100%;
-    height: 0;
-    padding-bottom: 50vw;
-    background-color: #4d4d4d; }
+    height: 50vw; }
   #wd-img-future > .wd-text-cover {
     width: 56.25vw;
     margin: -6.77083vw auto 3.4375vw;
@@ -2185,10 +2174,8 @@ label[for="purchase-amount"] {
       min-height: 5.9375vw; }
     #wd-media-reports .wd-mr-source {
       width: 10.41667vw;
-      height: 0;
-      margin-left: 10.41667vw;
-      padding-bottom: 4.21875vw;
-      background-color: #4d4d4d; } }
+      height: 4.21875vw;
+      margin-left: 10.41667vw; } }
 
 @media screen and (min-width: 980px) {
   #wd-customer-feedbacks {
@@ -2198,9 +2185,7 @@ label[for="purchase-amount"] {
     margin-top: 3.22917vw; }
     #wd-customer-feedbacks .wd-customer-feedback {
       width: 35.10417vw;
-      height: 0;
-      padding-bottom: 22.44792vw;
-      background-color: #4d4d4d; } }
+      height: 22.44792vw; } }
 
 @media screen and (min-width: 980px) {
   #wd-opportunities {
@@ -2209,9 +2194,7 @@ label[for="purchase-amount"] {
     padding: 5.20833vw 7.8125vw; }
     #wd-opportunities > .wd-main-img {
       width: 59.53125vw;
-      height: 0;
-      padding-bottom: 35.72917vw;
-      background-color: #4d4d4d; }
+      height: 35.72917vw; }
     #wd-opportunities > .wd-text-cover {
       width: 24.84375vw;
       height: 35.72917vw;
@@ -2256,7 +2239,7 @@ label[for="purchase-amount"] {
           width: 2.60417vw;
           height: 2.60417vw;
           top: 1.66667vw;
-          left: 4.6875vw;
+          left: 4.16667vw;
           font-size: 1.45833vw;
           line-height: 2.60417vw;
           text-align: center; }
@@ -2281,7 +2264,8 @@ label[for="purchase-amount"] {
       height: 8.75vw;
       background-color: rgba(255, 134, 116, 0.235); }
       #wd-special-offers > .wd-offer > .wd-offer-bonus::before {
-        background-color: #ff8674;
+        background: transparent url(/resource/img/wedding/offer-bonus.svg) center center;
+        background-size: contain;
         color: #fff; }
     #wd-special-offers > .wd-offer .wd-super-title,
     #wd-special-offers > .wd-offer .wd-title,
@@ -2301,7 +2285,8 @@ label[for="purchase-amount"] {
       height: 9.79167vw;
       background-color: rgba(255, 134, 116, 0.73675); }
       #wd-special-offers > .wd-primary-offer > .wd-offer-bonus::before {
-        background-color: #fff;
+        background: transparent url(/resource/img/wedding/offer-bonus-white.svg) center center;
+        background-size: contain;
         color: #ff8674; }
     #wd-special-offers > .wd-primary-offer .wd-super-title,
     #wd-special-offers > .wd-primary-offer .wd-title,
@@ -2323,9 +2308,8 @@ label[for="purchase-amount"] {
         line-height: calc(114 / 66); }
         #wd-cta > .wd-intro-content > .wd-text + .wd-title {
           margin-top: 4.16667vw; }
-    #wd-cta > .wd-main-img {
+    #wd-cta #wd-cta-form {
       width: 43.22917vw;
-      height: 0;
-      padding-bottom: 31.25vw;
+      height: 31.25vw;
       background-color: #4d4d4d;
       box-shadow: 0 0 18px 3px rgba(153, 153, 153, 0.5); } }
