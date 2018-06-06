@@ -2070,8 +2070,27 @@ $mockup-width: 1920px;
 		#wd-cta-form {
 			width: mockupToVW(830px);
 			height: mockupToVW(600px);
-			background-color: #4d4d4d;
+			box-sizing: border-box;
+			padding: mockupToVW(60px);
+			background-color: #fff;
 			box-shadow: 0 0 18px 3px rgba(153, 153, 153, 0.5);
+
+			.wd-cta-form-content {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+			}
+
+			.wd-cta-input[type=text] {
+				width: mockupToVW(600px);
+				margin: mockupToVW(25px) 0;
+				border: none;
+				box-sizing: border-box;
+				padding: 0 mockupToVW(14px);
+				background-color: #f2f2f2;
+				line-height: mockupToVW(50px);
+				vertical-align: middle;
+			}
 		}
 	}
 }

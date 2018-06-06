@@ -2311,5 +2311,20 @@ label[for="purchase-amount"] {
     #wd-cta #wd-cta-form {
       width: 43.22917vw;
       height: 31.25vw;
-      background-color: #4d4d4d;
-      box-shadow: 0 0 18px 3px rgba(153, 153, 153, 0.5); } }
+      box-sizing: border-box;
+      padding: 3.125vw;
+      background-color: #fff;
+      box-shadow: 0 0 18px 3px rgba(153, 153, 153, 0.5); }
+      #wd-cta #wd-cta-form .wd-cta-form-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center; }
+      #wd-cta #wd-cta-form .wd-cta-input[type=text] {
+        width: 31.25vw;
+        margin: 1.30208vw 0;
+        border: none;
+        box-sizing: border-box;
+        padding: 0 0.72917vw;
+        background-color: #f2f2f2;
+        line-height: 2.60417vw;
+        vertical-align: middle; } }
