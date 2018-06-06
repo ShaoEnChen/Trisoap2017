@@ -93,6 +93,7 @@ function create($content) {
 			return array('message' => 'Success', 'WEDNO' => $wedno);
 		}
 		else {
+			return mysql_error();
 			return 'Database operation error';
 		}
 	}
