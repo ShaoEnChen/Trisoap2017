@@ -76,10 +76,11 @@ function create($content) {
 	elseif (!in_array($diy, array('Y', 'N'))) {
 		return 'Wrong diy format';
 	}
-	elseif (!in_array($subcribe, array('Y', 'N'))) {
-		return 'Wrong subcribe format';
-	}
+	//elseif (!in_array($subcribe, array('Y', 'N'))) {
+	//	return 'Wrong subcribe format';
+	//}
 	else {
+		return var_dump($subscribe);
 		$offerA = in_array('a', $offer) ? 1 : 0;
 		$offerB = in_array('b', $offer) ? 1 : 0;
 		$offerC = in_array('c', $offer) ? 1 : 0;
