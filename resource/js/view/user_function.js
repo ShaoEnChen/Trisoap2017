@@ -22,7 +22,7 @@ function wedding() {
 			if (request.readyState === 4 && request.status === 200) {
 				var data = JSON.parse(request.responseText);
 				if (data.message == 'Success') {
-					alert("我們已經收到您的來信，您的婚禮按編號為 " + data.wedno + "，將有專人與您聯絡。");
+					alert("我們已經收到您的來信，您的專案編號為 " + data.wedno + "，將有專人與您聯絡。");
 					location.assign("index.php");
 				}
 				else {
