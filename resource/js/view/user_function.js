@@ -13,7 +13,6 @@ function wedding() {
 		offers.forEach((checkbox) => {
 			offer.push(checkbox.value);
 		});
-		console.log(offer);
 		var diy = document.querySelector('input[name="wd-cta-diy"]:checked').value;
 		var subscribe = document.getElementById("wd-cta-subscribe").checked ? 'y': 'n';
 		var data = "module=wedding&event=create&name=" + name + "&phone=" + phone + "&email=" + email + "&offer=" + offer + "&diy=" + diy + "&subscribe=" + subscribe;
