@@ -232,13 +232,13 @@ function mail_receive_message_notice($email, $name, $phone, $message) {
 
 function mail_receive_wedding($wedno, $name, $phone, $email, $offer, $diy, $subcribe) {
       $offerText = '';
-      if (in_array('A', $offer)) {
+      if (in_array('a', $offer)) {
             $offerText .= '簡約精緻 ';
       }
-      if (in_array('B', $offer)) {
+      if (in_array('b', $offer)) {
             $offerText .= '幸福推薦 ';
       }
-      if (in_array('C', $offer)) {
+      if (in_array('c', $offer)) {
             $offerText .= '豪華五禮 ';
       }
       $diy = ($diy == 'y') ? "是" : "否";

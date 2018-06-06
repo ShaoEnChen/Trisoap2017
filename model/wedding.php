@@ -53,8 +53,8 @@ function create($content) {
 	$phone = isset($content['phone']) ? $content['phone'] : '';
 	$email = isset($content['email']) ? $content['email'] : '';
 	$offer = isset($content['offer']) ? $content['offer'] : '';
-	$diy = isset($content['diy']) ? $content['diy'] : '';
-	$subscribe = isset($content['subscribe']) ? $content['subscribe'] : '';
+	$diy = isset($content['diy']) ? strtoupper($content['diy']) : '';
+	$subscribe = isset($content['subscribe']) ? strtoupper($content['subscribe']) : '';
 	if (empty($name)) {
 		return 'Empty name';
 	}
@@ -73,16 +73,16 @@ function create($content) {
 	elseif (empty($diy)) {
 		return 'Empty diy';
 	}
-	elseif (!in_array($diy, array('A', 'B'))) {
+	elseif (!in_array($diy, array('Y', 'N'))) {
 		return 'Wrong diy format';
 	}
 	elseif (!in_array($subcribe, array('Y', 'N'))) {
 		return 'Wrong subcribe format';
 	}
 	else {
-		$offerA = in_array('A', $offer) ? 1 : 0;
-		$offerB = in_array('B', $offer) ? 1 : 0;
-		$offerC = in_array('C', $offer) ? 1 : 0;
+		$offerA = in_array('a', $offer) ? 1 : 0;
+		$offerB = in_array('b', $offer) ? 1 : 0;
+		$offerC = in_array('c', $offer) ? 1 : 0;
 		$wedno = get_wedno();
 		date_default_timezone_set('Asia/Taipei');
 		$date = date("Y-m-d H:i:s");
