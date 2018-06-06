@@ -189,6 +189,17 @@ elseif (isset($_POST['module']) && isset($_POST['event'])) {
 		}	// #end of switch ($event)
 		break;
 
+	case 'wedding':
+		switch ($event) {
+		case 'create':
+			echo curl_post($post, $_POST['module']);
+			break;
+
+		default:
+			break;
+		}	// #end of switch ($event)
+		break;
+
 	default:
 		router('index');
 		break;
