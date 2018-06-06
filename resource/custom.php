@@ -29,6 +29,22 @@ function update_ordno() {
 	}
 }
 
+function get_wedno() {
+	$sql = mysql_query("SELECT WEDNO FROM OWNMAS");
+	$fetch = mysql_fetch_array($sql);
+	return $fetch['WEDNO'];
+}
+
+function update_wedno() {
+	$sql = "UPDATE OWNMAS SET WEDNO=WEDNO+1";
+	if (mysql_query($sql)) {
+		return 'Success';
+	}
+	else {
+		return 'Database operation error';
+	}
+}
+
 function get_msgno() {
 	$sql = mysql_query("SELECT NMSGNO FROM OWNMAS");
 	$fetch = mysql_fetch_array($sql);
