@@ -1,4 +1,4 @@
-function Wedding() {
+function wedding() {
 	if (document.getElementById("wd-cta-privacy").checked == false) {
 		alert("請先同意個資保護法先關聲明");
 	}
@@ -9,7 +9,7 @@ function Wedding() {
 		var phone = document.getElementById("wd-cta-phone").value;
 		var email = document.getElementById("wd-cta-email").value;
 		var offer = document.getElementById("wd-cta-offer").value;
-		var diy = document.getElementById("wd-cta-diy-interested").value;
+		var diy = document.getElementById("wd-cta-diy").value;
 		if (document.getElementById("wd-cta-subscribe").checked == true) {
 			var subscribe = 'Y';
 		}
