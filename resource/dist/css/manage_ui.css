@@ -466,6 +466,7 @@ a.no-href {
   font-weight: 300;
   transition-property: border-color, background-color, color;
   transition-duration: .3s;
+  cursor: pointer;
   font-weight: 200; }
   .primary-btn:hover {
     border-color: rgba(255, 255, 255, 0.7);
@@ -483,7 +484,8 @@ a.no-href {
   color: #000;
   font-weight: 300;
   transition-property: border-color, background-color, color;
-  transition-duration: .3s; }
+  transition-duration: .3s;
+  cursor: pointer; }
   .text-btn:hover {
     border-color: #666;
     color: #666; }
@@ -500,6 +502,7 @@ a.no-href {
   font-weight: 300;
   transition-property: border-color, background-color, color;
   transition-duration: .3s;
+  cursor: pointer;
   padding: 10px 35px; }
   .submit-btn:hover {
     border-color: #777;
@@ -516,7 +519,8 @@ a.no-href {
   color: #000;
   font-weight: 300;
   transition-property: border-color, background-color, color;
-  transition-duration: .3s; }
+  transition-duration: .3s;
+  cursor: pointer; }
   .promise-btn:hover {
     border-color: #ffb672;
     background-color: #ffb672; }
@@ -532,7 +536,8 @@ a.no-href {
   color: #000;
   font-weight: 300;
   transition-property: border-color, background-color, color;
-  transition-duration: .3s; }
+  transition-duration: .3s;
+  cursor: pointer; }
   .neural-btn:hover {
     border-color: #e6e6e6;
     background-color: #e6e6e6; }

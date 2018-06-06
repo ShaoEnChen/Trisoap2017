@@ -109,6 +109,7 @@ a.no-href {
 	font-weight: 300;
 	transition-property: border-color, background-color, color;
 	transition-duration: .3s;
+	cursor: pointer;
 	&:hover {
 		@if $border-color-hover {
 			border-color: $border-color-hover;
