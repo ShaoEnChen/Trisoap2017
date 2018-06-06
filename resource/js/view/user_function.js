@@ -1,3 +1,39 @@
+function Wedding() {
+	if (document.getElementById("wd-cta-privacy").checked == false) {
+		alert("請先同意個資保護法先關聲明");
+	}
+	else {
+		var request = new XMLHttpRequest();
+		request.open("POST", "index.php");
+		var name = document.getElementById("wd-cta-name").value;
+		var phone = document.getElementById("wd-cta-phone").value;
+		var email = document.getElementById("wd-cta-email").value;
+		var offer = document.getElementById("wd-cta-offer").value;
+		var diy = document.getElementById("wd-cta-diy-interested").value;
+		if (document.getElementById("wd-cta-subscribe").checked == true) {
+			var subscribe = 'Y';
+		}
+		else {
+			var subscribe = 'N';
+		}
+		var data = "module=wedding&event=create&name=" + name + "&phone=" + phone + "&email=" + email + "&offer=" + offer + "&diy=" + diy + "&subscribe=" + subscribe;
+		request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+		request.send(data);
+		request.onreadystatechange = function() {
+			if (request.readyState === 4 && request.status === 200) {
+				var data = JSON.parse(request.responseText);
+				if (data.message == 'Success') {
+					alert("我們已經收到您的來信，您的婚禮按編號為 " + data.wedno + "，將有專人與您聯絡。");
+					location.assign("index.php");
+				}
+				else {
+					alert(data.message);
+				}
+			}
+		}
+	}
+}
+
 function contactMe() {
 	var request = new XMLHttpRequest();
 	request.open("POST", "index.php");

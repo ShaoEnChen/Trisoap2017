@@ -49,12 +49,12 @@ else {
 }
 
 function create($content) {
-	$name = $content['name'];
-	$phone = $content['phone'];
-	$email = $content['email'];
-	$offer = $content['offer'];
-	$diy_interest = $content['diy_interest'];
-	$subscribe = $content['subscribe'];
+	$name = isset($content['name']) ? $content['name'] : '';
+	$phone = isset($content['phone']) ? $content['phone'] : '';
+	$email = isset($content['email']) ? $content['email'] : '';
+	$offer = isset($content['offer']) ? $content['offer'] : '';
+	$diy_interest = isset($content['diy_interest']) ? $content['diy_interest'] : '';
+	$subscribe = isset($content['subscribe']) ? $content['subscribe'] : '';
 	if (empty($name)) {
 		return 'Empty name';
 	}
