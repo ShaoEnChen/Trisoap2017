@@ -2372,7 +2372,9 @@ label[for="purchase-amount"] {
       width: 43.22917vw;
       padding: 2.47396vw 3.125vw 3.125vw;
       box-shadow: 0 0 18px 3px rgba(153, 153, 153, 0.5); }
-      #wd-cta-form .wd-cta-input[type=text] {
+      #wd-cta-form .wd-cta-input[type=text],
+      #wd-cta-form .wd-cta-input[type=phone],
+      #wd-cta-form .wd-cta-input[type=email] {
         width: 31.25vw;
         margin: 0.65104vw 0;
         padding: 0 0.72917vw;
