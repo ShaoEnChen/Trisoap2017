@@ -80,7 +80,7 @@ function create($content) {
 	//	return 'Wrong subcribe format';
 	//}
 	else {
-		return var_dump($subscribe);
+		return $subscribe;
 		$offerA = in_array('a', $offer) ? 1 : 0;
 		$offerB = in_array('b', $offer) ? 1 : 0;
 		$offerC = in_array('c', $offer) ? 1 : 0;
