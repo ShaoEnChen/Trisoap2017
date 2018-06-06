@@ -8,14 +8,14 @@ function wedding() {
 		var name = document.getElementById("wd-cta-name").value;
 		var phone = document.getElementById("wd-cta-phone").value;
 		var email = document.getElementById("wd-cta-email").value;
-		var offer = document.getElementById("wd-cta-offer").value;
-		var diy = document.getElementById("wd-cta-diy").value;
-		if (document.getElementById("wd-cta-subscribe").checked == true) {
-			var subscribe = 'Y';
-		}
-		else {
-			var subscribe = 'N';
-		}
+		var offers = document.querySelectorAll('input[name="wd-cta-offer"]:checked');
+		var offer = [];
+		offers.forEach((checkbox) => {
+			offer.push(checkbox.value);
+		});
+		console.log(offer);
+		var diy = document.querySelector('input[name="wd-cta-diy"]:checked').value;
+		var subscribe = document.getElementById("wd-cta-subscribe").checked ? 'y': 'n';
 		var data = "module=wedding&event=create&name=" + name + "&phone=" + phone + "&email=" + email + "&offer=" + offer + "&diy=" + diy + "&subscribe=" + subscribe;
 		request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 		request.send(data);
