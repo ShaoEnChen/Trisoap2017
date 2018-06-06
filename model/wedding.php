@@ -86,11 +86,11 @@ function create($content) {
 		$wedno = get_wedno();
 		date_default_timezone_set('Asia/Taipei');
 		$date = date("Y-m-d H:i:s");
-		$sql1 = "INSERT INTO WEDDING (WEDNO, WEDNAME, WEDPHONE, WEDEMAIL, WEDOFFERA, WEDOFFERB, WEDOFFERC, WEDDIY, SUBSCRIBE, CREATETIME) VALUES ('$wedno', '$name', '$phone', '$email', '$offerA', '$offerB', '$offerC', '$diy', '$subscribe', '$date')";
-		if (mysql_query($sql1)) {
+		$sql = "INSERT INTO WEDDING (WEDNO, WEDNAME, WEDPHONE, WEDEMAIL, WEDOFFERA, WEDOFFERB, WEDOFFERC, WEDDIY, SUBSCRIBE, CREATETIME) VALUES ('$wedno', '$name', '$phone', '$email', '$offerA', '$offerB', '$offerC', '$diy', '$subscribe', '$date')";
+		if (mysql_query($sql)) {
 			mail_receive_wedding($wedno, $name, $phone, $email, $offer, $diy, $subcribe);
 			update_wedno();
-			return array('message' => 'Success', 'WEDNO' => $wedno);
+			return array('message' => 'Success', 'wedno' => $wedno);
 		}
 		else {
 			return 'Database operation error';
