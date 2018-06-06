@@ -52,7 +52,7 @@ function create($content) {
 	$name = isset($content['name']) ? $content['name'] : '';
 	$phone = isset($content['phone']) ? $content['phone'] : '';
 	$email = isset($content['email']) ? $content['email'] : '';
-	$offer = isset($content['offer']) ? $content['offer'] : '';
+	$offer = isset($content['offer']) ? explode(',', $content['offer']) : '';
 	$diy = isset($content['diy']) ? strtoupper($content['diy']) : '';
 	$subscribe = isset($content['subscribe']) ? strtoupper($content['subscribe']) : '';
 	if (empty($name)) {
