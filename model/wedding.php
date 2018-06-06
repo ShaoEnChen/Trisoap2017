@@ -88,7 +88,7 @@ function create($content) {
 		$date = date("Y-m-d H:i:s");
 		$sql = "INSERT INTO WEDDING (WEDNO, WEDNAME, WEDPHONE, WEDEMAIL, WEDOFFERA, WEDOFFERB, WEDOFFERC, WEDDIY, SUBSCRIBE, CREATETIME) VALUES ('$wedno', '$name', '$phone', '$email', '$offerA', '$offerB', '$offerC', '$diy', '$subscribe', '$date')";
 		if (mysql_query($sql)) {
-			mail_receive_wedding($wedno, $name, $phone, $email, $offer, $diy, $subcribe);
+			mail_receive_wedding($wedno, $name, $phone, $email, $offer, $diy, $subscribe);
 			update_wedno();
 			return array('message' => 'Success', 'wedno' => $wedno);
 		}
