@@ -70,9 +70,6 @@ function create($content) {
 	elseif (empty($offer)) {
 		return 'Empty offer';
 	}
-	elseif (!in_array($offer, array('A', 'B', 'C'))) {
-		return 'Wrong offer format';
-	}
 	elseif (empty($diy)) {
 		return 'Empty diy';
 	}
@@ -83,10 +80,13 @@ function create($content) {
 		return 'Wrong subcribe format';
 	}
 	else {
+		$offerA = in_array('A', $offer) ? 1 : 0;
+		$offerB = in_array('B', $offer) ? 1 : 0;
+		$offerC = in_array('C', $offer) ? 1 : 0;
 		$wedno = get_wedno();
 		date_default_timezone_set('Asia/Taipei');
 		$date = date("Y-m-d H:i:s");
-		$sql1 = "INSERT INTO WEDDING (WEDNO, WEDNAME, WEDPHONE, WEDEMAIL, WEDOFFER, WEDDIY, SUBSCRIBE, CREATETIME) VALUES ('$wedno', '$name', '$phone', '$email', '$offer', '$diy', '$subscribe', '$date')";
+		$sql1 = "INSERT INTO WEDDING (WEDNO, WEDNAME, WEDPHONE, WEDEMAIL, WEDOFFERA, WEDOFFERB, WEDOFFERC, WEDDIY, SUBSCRIBE, CREATETIME) VALUES ('$wedno', '$name', '$phone', '$email', '$offerA', '$offerB', '$offerC', '$diy', '$subscribe', '$date')";
 		if (mysql_query($sql1)) {
 			mail_receive_wedding($wedno, $name, $phone, $email, $offer, $diy, $subcribe);
 			update_wedno();
