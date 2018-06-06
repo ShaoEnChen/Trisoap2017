@@ -2084,6 +2084,12 @@ $mockup-width: 1920px;
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
+		&:last-of-type {
+			// laptop
+			@media screen and (min-width: $media-breakpoint-mobile + 1px) {
+				margin-top: mockupToVW(25px);
+			}
+		}
 	}
 
 	.wd-cta-input {
@@ -2160,10 +2166,5 @@ $mockup-width: 1920px;
 #wd-cta-privacy-wrap {
 	label a {
 		color: $wedding-text-gray;
-	}
-
-	// laptop
-	@media screen and (min-width: $media-breakpoint-mobile + 1px) {
-		margin-top: mockupToVW(25px);
 	}
 }

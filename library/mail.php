@@ -231,17 +231,20 @@ function mail_receive_message_notice($email, $name, $phone, $message) {
 }
 
 function mail_receive_wedding($wedno, $name, $phone, $email, $offer, $diy, $subcribe) {
-      if ($offer == 'A') {
+      if ($offer == 'a') {
             $offer = '簡約精緻';
       }
-      elseif ($offer == 'B') {
+      elseif ($offer == 'b') {
             $offer = '幸福推薦';
       }
-      else {
+      elseif ($offer == 'c') {
             $offer = '豪華五禮';
       }
-      $diy = ($diy == 'A') ? "有興趣" : "沒興趣";
-      $subcribe = ($subcribe == 'Y') ? "有" : "無";
+      else {
+            $offer = '';
+      }
+      $diy = ($diy == 'y') ? "是" : "否";
+      $subcribe = ($subcribe == 'y') ? "是" : "否";
       $sql = mysql_query("SELECT * FROM OWNMAS WHERE COMNM='Trisoap'");
       $fetch = mysql_fetch_array($sql);
       $COMEMAIL = $fetch['COMEMAIL'];

@@ -53,7 +53,7 @@ function create($content) {
 	$phone = isset($content['phone']) ? $content['phone'] : '';
 	$email = isset($content['email']) ? $content['email'] : '';
 	$offer = isset($content['offer']) ? $content['offer'] : '';
-	$diy_interest = isset($content['diy_interest']) ? $content['diy_interest'] : '';
+	$diy = isset($content['diy']) ? $content['diy'] : '';
 	$subscribe = isset($content['subscribe']) ? $content['subscribe'] : '';
 	if (empty($name)) {
 		return 'Empty name';
@@ -73,10 +73,10 @@ function create($content) {
 	elseif (!in_array($offer, array('A', 'B', 'C'))) {
 		return 'Wrong offer format';
 	}
-	elseif (empty($diy_interest)) {
-		return 'Empty diy_interest';
+	elseif (empty($diy)) {
+		return 'Empty diy';
 	}
-	elseif (!in_array($diy_interest, array('A', 'B'))) {
+	elseif (!in_array($diy, array('A', 'B'))) {
 		return 'Wrong diy format';
 	}
 	elseif (!in_array($subcribe, array('Y', 'N'))) {
@@ -86,9 +86,9 @@ function create($content) {
 		$wedno = get_wedno();
 		date_default_timezone_set('Asia/Taipei');
 		$date = date("Y-m-d H:i:s");
-		$sql1 = "INSERT INTO WEDDING (WEDNO, WEDNAME, WEDPHONE, WEDEMAIL, WEDOFFER, WEDDIY, SUBSCRIBE, CREATETIME) VALUES ('$wedno', '$name', '$phone', '$email', '$offer', '$diy_interest', '$subscribe', '$date')";
+		$sql1 = "INSERT INTO WEDDING (WEDNO, WEDNAME, WEDPHONE, WEDEMAIL, WEDOFFER, WEDDIY, SUBSCRIBE, CREATETIME) VALUES ('$wedno', '$name', '$phone', '$email', '$offer', '$diy', '$subscribe', '$date')";
 		if (mysql_query($sql1)) {
-			mail_receive_wedding($wedno, $name, $phone, $email, $offer, $diy_interest, $subcribe);
+			mail_receive_wedding($wedno, $name, $phone, $email, $offer, $diy, $subcribe);
 			update_wedno();
 			return array('message' => 'Success', 'WEDNO' => $wedno);
 		}

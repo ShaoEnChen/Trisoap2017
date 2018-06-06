@@ -2330,6 +2330,9 @@ label[for="purchase-amount"] {
     display: flex;
     justify-content: space-between;
     align-items: center; }
+    @media screen and (min-width: 980px) {
+      #wd-cta-form .wd-cta-form-content:last-of-type {
+        margin-top: 1.30208vw; } }
   #wd-cta-form .wd-cta-input {
     box-sizing: border-box;
     border: none;
@@ -2385,7 +2388,3 @@ label[for="purchase-amount"] {
 
 #wd-cta-privacy-wrap label a {
   color: #4d4d4d; }
-
-@media screen and (min-width: 980px) {
-  #wd-cta-privacy-wrap {
-    margin-top: 1.30208vw; } }
