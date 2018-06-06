@@ -1,6 +1,6 @@
 function wedding() {
 	if (document.getElementById("wd-cta-privacy").checked == false) {
-		alert("請先同意個資保護法先關聲明");
+		alert("請先同意個資保護法相關聲明");
 	}
 	else {
 		var request = new XMLHttpRequest();
