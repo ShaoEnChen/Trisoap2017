@@ -230,21 +230,19 @@ function mail_receive_message_notice($email, $name, $phone, $message) {
       }
 }
 
-function mail_receive_wedding($wedno, $name, $phone, $email, $offer, $diy, $subcribe) {
-      if ($offer == 'a') {
-            $offer = '簡約精緻';
+function mail_receive_wedding($wedno, $name, $phone, $email, $offer, $diy, $subscribe) {
+      $offerText = '';
+      if (in_array('a', $offer)) {
+            $offerText .= '簡約精緻 ';
       }
-      elseif ($offer == 'b') {
-            $offer = '幸福推薦';
+      if (in_array('b', $offer)) {
+            $offerText .= '幸福推薦 ';
       }
-      elseif ($offer == 'c') {
-            $offer = '豪華五禮';
-      }
-      else {
-            $offer = '';
+      if (in_array('c', $offer)) {
+            $offerText .= '豪華五禮 ';
       }
       $diy = ($diy == 'y') ? "是" : "否";
-      $subcribe = ($subcribe == 'y') ? "是" : "否";
+      $subscribe = ($subscribe == 'y') ? "是" : "否";
       $sql = mysql_query("SELECT * FROM OWNMAS WHERE COMNM='Trisoap'");
       $fetch = mysql_fetch_array($sql);
       $COMEMAIL = $fetch['COMEMAIL'];
@@ -260,8 +258,8 @@ function mail_receive_wedding($wedno, $name, $phone, $email, $offer, $diy, $subc
       $mail->Password = "2015n0n0"; //設定驗證密碼
       $mail->From = "trisoap2015@gmail.com"; //設定寄件者信箱
       $mail->FromName = "三三吾鄉社會企業"; //設定寄件者姓名
-      $mail->Subject = "[系統訊息] 婚禮合作來信"; //設定郵件標題
-      $mail->Body = "婚禮案編號：".$wedno."<br>來信者姓名：".$name."<br>來信者電話：".$phone."<br>來信者信箱：".$email."<br>有興趣的方案：".$offer."<br>是否要手作：".$diy."<br>是否有訂閱：".$subcribe;
+      $mail->Subject = "[系統訊息] 婚禮專案來信"; //設定郵件標題
+      $mail->Body = "婚禮案編號：".$wedno."<br>來信者姓名：".$name."<br>來信者電話：".$phone."<br>來信者信箱：".$email."<br>有興趣的方案：".$offerText."<br>是否要手作：".$diy."<br>是否有訂閱：".$subscribe;
       $mail->AddAddress($COMEMAIL); //設定收件者郵件及名稱
       if ($mail->Send()) {
             return "Success";

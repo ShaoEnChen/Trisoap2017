@@ -52,9 +52,9 @@ function create($content) {
 	$name = isset($content['name']) ? $content['name'] : '';
 	$phone = isset($content['phone']) ? $content['phone'] : '';
 	$email = isset($content['email']) ? $content['email'] : '';
-	$offer = isset($content['offer']) ? $content['offer'] : '';
-	$diy = isset($content['diy']) ? $content['diy'] : '';
-	$subscribe = isset($content['subscribe']) ? $content['subscribe'] : '';
+	$offer = isset($content['offer']) ? explode(',', $content['offer']) : '';
+	$diy = isset($content['diy']) ? strtoupper($content['diy']) : '';
+	$subscribe = isset($content['subscribe']) ? strtoupper($content['subscribe']) : '';
 	if (empty($name)) {
 		return 'Empty name';
 	}
@@ -70,27 +70,27 @@ function create($content) {
 	elseif (empty($offer)) {
 		return 'Empty offer';
 	}
-	elseif (!in_array($offer, array('A', 'B', 'C'))) {
-		return 'Wrong offer format';
-	}
 	elseif (empty($diy)) {
 		return 'Empty diy';
 	}
-	elseif (!in_array($diy, array('A', 'B'))) {
+	elseif (!in_array($diy, array('Y', 'N'))) {
 		return 'Wrong diy format';
 	}
-	elseif (!in_array($subcribe, array('Y', 'N'))) {
-		return 'Wrong subcribe format';
+	elseif (!in_array($subscribe, array('Y', 'N'))) {
+		return 'Wrong subscribe format';
 	}
 	else {
+		$offerA = in_array('a', $offer) ? 1 : 0;
+		$offerB = in_array('b', $offer) ? 1 : 0;
+		$offerC = in_array('c', $offer) ? 1 : 0;
 		$wedno = get_wedno();
 		date_default_timezone_set('Asia/Taipei');
 		$date = date("Y-m-d H:i:s");
-		$sql1 = "INSERT INTO WEDDING (WEDNO, WEDNAME, WEDPHONE, WEDEMAIL, WEDOFFER, WEDDIY, SUBSCRIBE, CREATETIME) VALUES ('$wedno', '$name', '$phone', '$email', '$offer', '$diy', '$subscribe', '$date')";
-		if (mysql_query($sql1)) {
-			mail_receive_wedding($wedno, $name, $phone, $email, $offer, $diy, $subcribe);
+		$sql = "INSERT INTO WEDDING (WEDNO, WEDNAME, WEDPHONE, WEDEMAIL, WEDOFFERA, WEDOFFERB, WEDOFFERC, WEDDIY, SUBSCRIBE, CREATETIME) VALUES ('$wedno', '$name', '$phone', '$email', '$offerA', '$offerB', '$offerC', '$diy', '$subscribe', '$date')";
+		if (mysql_query($sql)) {
+			mail_receive_wedding($wedno, $name, $phone, $email, $offer, $diy, $subscribe);
 			update_wedno();
-			return array('message' => 'Success', 'WEDNO' => $wedno);
+			return array('message' => 'Success', 'wedno' => $wedno);
 		}
 		else {
 			return 'Database operation error';
