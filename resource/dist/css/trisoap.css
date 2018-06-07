@@ -2359,7 +2359,7 @@ label[for="purchase-amount"] {
           width: 0.9375vw;
           height: 0.52083vw;
           left: -1.5625vw;
-          margin-top: -0.26042vw;
+          top: 0;
           border-width: 0.26042vw;
           border-style: none none solid solid;
           border-color: #ff8674;
