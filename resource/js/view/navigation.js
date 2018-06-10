@@ -6,17 +6,26 @@
 const $navToggleBtn = $('.nav-mobile-toggle');
 const $navMainMenu = $('#nav-main-menu');
 const $hasDropdowns = $('.has-dropdown');
+const $angleDowns = $('.icon-angle-down');
 
-$navToggleBtn.click(function() {
+$navToggleBtn.click(() => {
 	$navMainMenu.toggle();
 });
 
 $hasDropdowns.click(function(event) {
 	event.stopPropagation();
-	if($(this).has('> .nav-dropdown-menu')) {
-		$(this).find(' > .nav-dropdown-menu').toggle();
+	let hasSub = $(this).children('.nav-dropdown-submenu').length;
+	if (hasSub > 0) {
+		$(this).children('.nav-dropdown-submenu').toggle();
 	}
-	if($(this).has('> .nav-dropdown-submenu')) {
-		$(this).find(' > .nav-dropdown-submenu').toggle();
+	else {
+		let hasDropdown = $(this).children('.nav-dropdown-menu').length;
+		if (hasDropdown > 0) {
+			$(this).children('.nav-dropdown-menu').toggle();
+		}
 	}
+});
+
+$angleDowns.click((event) => {
+	event.preventDefault();
 });

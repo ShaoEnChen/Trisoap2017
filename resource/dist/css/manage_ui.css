@@ -747,7 +747,8 @@ a.no-href {
     margin-left: 0; } }
 
 @media screen and (max-width: 979px) {
-  .nav-main-link > .fa-angle-right {
+  .nav-main-link > .icon-angle-right {
+    vertical-align: middle;
     transform: rotate(90deg); }
   #brand-logo {
     height: 20px; }

@@ -184,7 +184,8 @@ $nav-toggle-span-height: 2px;
 	$nav-dropdown-menu-padding: 50px;
 	$nav-dropdown-submenu-padding: 70px;
 
-	.nav-main-link > .fa-angle-right {
+	.nav-main-link > .icon-angle-right {
+		vertical-align: middle;
 		transform: rotate(90deg);
 	}
 
