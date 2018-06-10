@@ -1944,7 +1944,9 @@ label[for="purchase-amount"] {
   .wd-text {
     font-size: 2.93333vw; }
     .wd-text br {
-      display: none; } }
+      display: none; }
+  .wd-main-img img {
+    display: block; } }
 
 .wd-text-cover {
   position: relative;
@@ -2054,23 +2056,25 @@ label[for="purchase-amount"] {
       width: 45.83333vw;
       height: 30.57292vw; } }
 
-@media screen and (min-width: 980px) {
+@media screen and (max-width: 979px) {
   .wd-intro {
     position: relative;
     width: 100%;
-    padding: 8vw 8vw 5.33333vw;
+    box-sizing: border-box;
     text-align: center; }
     .wd-intro > .wd-main-img {
       position: absolute;
       width: 100%;
-      top: 0; }
+      top: -70.66667vw;
+      box-sizing: border-box;
+      padding: 8vw 8vw 6.66667vw; }
     .wd-intro > .wd-intro-content {
-      position: absolute;
-      top: 64vw; }
+      margin-top: 70.66667vw;
+      padding: 0 18vw 5.33333vw; }
       .wd-intro > .wd-intro-content > .wd-title {
-        margin-bottom: 6.66667vw; }
+        line-height: 1; }
       .wd-intro > .wd-intro-content > .wd-text {
-        margin-bottom: 4vw; } }
+        margin-top: 4vw; } }
 
 .wd-intro-sep {
   border-color: #979797;
@@ -2079,24 +2083,36 @@ label[for="purchase-amount"] {
     .wd-intro-sep {
       margin: 1.04167vw 13.02083vw;
       border-width: 0.05208vw; } }
+  @media screen and (max-width: 979px) {
+    .wd-intro-sep {
+      margin: 2.66667vw 8vw 0;
+      border-width: 0.13333vw; } }
 
 .wd-image-background {
   position: relative;
   width: 100%;
-  margin: 5.20833vw 0;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat; }
-  .wd-image-background#wd-img-samples {
-    height: 52.08333vw; }
-    @media screen and (min-width: 980px) {
-      .wd-image-background#wd-img-samples {
-        background-image: url(/resource/img/wedding/laptop/03.jpg); } }
-  .wd-image-background#wd-img-confidence {
-    height: 62.29167vw; }
-    @media screen and (min-width: 980px) {
-      .wd-image-background#wd-img-confidence {
-        background-image: url(/resource/img/wedding/laptop/05.jpg); } }
+  @media screen and (min-width: 980px) {
+    .wd-image-background#wd-img-samples {
+      height: 52.08333vw;
+      background-image: url(/resource/img/wedding/desktop/03.jpg); } }
+  @media screen and (max-width: 979px) {
+    .wd-image-background#wd-img-samples {
+      height: 58.66667vw;
+      background-image: url(/resource/img/wedding/mobile/03.jpg); } }
+  @media screen and (min-width: 980px) {
+    .wd-image-background#wd-img-confidence {
+      height: 62.29167vw;
+      background-image: url(/resource/img/wedding/desktop/05.jpg); } }
+  @media screen and (max-width: 979px) {
+    .wd-image-background#wd-img-confidence {
+      height: 58.66667vw;
+      background-image: url(/resource/img/wedding/mobile/05.jpg); } }
+  @media screen and (min-width: 980px) {
+    .wd-image-background {
+      margin: 5.20833vw 0; } }
 
 .wd-slogan {
   background-size: contain;
@@ -2106,37 +2122,75 @@ label[for="purchase-amount"] {
   text-align: center; }
   .wd-slogan#wd-img-142 {
     background-image: url(/resource/img/wedding/142.jpg); }
+  .wd-slogan > .wd-text {
+    line-height: 1.8181818181818181; }
   @media screen and (min-width: 980px) {
-    .wd-slogan > .wd-title {
-      margin: 0 auto 1.5625vw; }
+    .wd-slogan > .wd-text {
+      margin-top: 1.5625vw; }
     .wd-slogan#wd-img-031 {
-      background-image: url(/resource/img/wedding/laptop/031.jpg); }
+      background-image: url(/resource/img/wedding/desktop/031.jpg); }
       .wd-slogan#wd-img-031 > .wd-text {
-        max-width: 28.95833vw;
-        margin: 0 auto;
-        padding-bottom: 1.04167vw; }
+        width: 28.95833vw;
+        margin-left: auto;
+        margin-right: auto; }
     .wd-slogan#wd-img-142 {
       margin-top: 2.08333vw;
-      margin-bottom: 0.26042vw; } }
+      margin-bottom: 0.26042vw; }
+      .wd-slogan#wd-img-142 > .wd-super-title br {
+        display: none; } }
+  @media screen and (max-width: 979px) {
+    .wd-slogan#wd-img-031 {
+      padding: 0 18vw; }
+      .wd-slogan#wd-img-031 > .wd-title {
+        margin-top: 6.66667vw;
+        line-height: 1; }
+      .wd-slogan#wd-img-031 > .wd-text {
+        margin-top: 4vw;
+        letter-spacing: 0.06667vw; }
+    .wd-slogan#wd-img-142 {
+      margin: 10.66667vw 10.66667vw 0;
+      padding: 0 11.33333vw;
+      background-position: center 10.13333vw; }
+      .wd-slogan#wd-img-142 > .wd-title {
+        font-size: 2.93333vw;
+        line-height: calc(30 / 22); }
+      .wd-slogan#wd-img-142 > .wd-super-title {
+        margin-top: 3.33333vw;
+        font-size: 5.33333vw;
+        line-height: calc(110 / 80); } }
 
-.wd-section {
-  padding: 2.60417vw 13.02083vw; }
-  .wd-section > .wd-title {
-    display: flex;
-    align-items: center;
-    line-height: calc(66 / 34); }
-    .wd-section > .wd-title::before, .wd-section > .wd-title::after {
-      content: '';
-      flex-grow: 1;
-      height: 2px;
-      background-color: #979797; }
+.wd-section > .wd-title {
+  display: flex;
+  align-items: center;
+  line-height: calc(66 / 34); }
+  .wd-section > .wd-title::before, .wd-section > .wd-title::after {
+    content: '';
+    flex-grow: 1;
+    height: 2px;
+    background-color: #979797; }
+  @media screen and (min-width: 980px) {
     .wd-section > .wd-title::before {
-      margin-right: 1.30208vw; }
+      margin-right: 1.30208vw; } }
+  @media screen and (max-width: 979px) {
+    .wd-section > .wd-title::before {
+      margin-right: 3.33333vw; } }
+  @media screen and (min-width: 980px) {
     .wd-section > .wd-title::after {
-      margin-left: 1.30208vw; }
-  .wd-section .wd-title,
-  .wd-section .wd-text {
-    color: #4d4d4d; }
+      margin-left: 1.30208vw; } }
+  @media screen and (max-width: 979px) {
+    .wd-section > .wd-title::after {
+      margin-left: 3.33333vw; } }
+  @media screen and (max-width: 979px) {
+    .wd-section > .wd-title {
+      padding: 0 6.66667vw; } }
+
+.wd-section .wd-title,
+.wd-section .wd-text {
+  color: #4d4d4d; }
+
+@media screen and (min-width: 980px) {
+  .wd-section {
+    padding: 2.60417vw 13.02083vw; } }
 
 #wd-advice {
   margin-top: 60px; }
@@ -2162,8 +2216,6 @@ label[for="purchase-amount"] {
         #wd-advice > .wd-intro-content > .wd-text-btn {
           margin: 3.125vw 0 0 8.07292vw; } }
   @media screen and (max-width: 979px) {
-    #wd-advice > .wd-main-img img {
-      display: block; }
     #wd-advice > .wd-text-cover {
       width: 100%;
       padding: 8.13333vw 10.66667vw 7.86667vw; }
@@ -2191,6 +2243,9 @@ label[for="purchase-amount"] {
         font-size: 2.93333vw;
         line-height: calc(75 / 44); } }
 
+#wd-simple-procedure > .wd-text-cover > .wd-title {
+  line-height: 1; }
+
 @media screen and (min-width: 980px) {
   #wd-simple-procedure {
     padding: 5.20833vw 0; }
@@ -2202,11 +2257,8 @@ label[for="purchase-amount"] {
       width: 31.14583vw;
       margin: -34.84375vw 7.8125vw 11.40625vw auto;
       padding: 3.38542vw 3.17708vw 1.5625vw; }
-      #wd-simple-procedure > .wd-text-cover > .wd-title {
-        line-height: 1; } }
-    @media screen and (min-width: 980px) and (min-width: 980px) {
       #wd-simple-procedure > .wd-text-cover .wd-tc-ol {
-        margin: 2.76042vw 0 0;
+        margin-top: 2.76042vw;
         padding-left: 2.70833vw; }
         #wd-simple-procedure > .wd-text-cover .wd-tc-ol li {
           margin: 1.5625vw 0; }
@@ -2222,6 +2274,28 @@ label[for="purchase-amount"] {
             font-size: 1.25vw;
             line-height: 1.77083vw; } }
 
+@media screen and (max-width: 979px) {
+  #wd-simple-procedure {
+    padding: 8vw; }
+    #wd-simple-procedure > .wd-text-cover {
+      padding: 6.66667vw 10.26667vw; }
+      #wd-simple-procedure > .wd-text-cover .wd-tc-ol {
+        margin-top: 6.66667vw;
+        padding-left: 6.93333vw; }
+        #wd-simple-procedure > .wd-text-cover .wd-tc-ol li {
+          margin: 5vw 0; }
+          #wd-simple-procedure > .wd-text-cover .wd-tc-ol li::before {
+            width: 7.33333vw;
+            height: 7.33333vw;
+            margin-right: 4vw;
+            line-height: 7.33333vw;
+            font-size: 4.53333vw; }
+          #wd-simple-procedure > .wd-text-cover .wd-tc-ol li > .wd-text {
+            font-size: 3.2vw;
+            line-height: 4.53333vw; }
+          #wd-simple-procedure > .wd-text-cover .wd-tc-ol li .wd-text br {
+            display: initial; } }
+
 #wd-img-confidence {
   position: relative; }
   @media screen and (min-width: 980px) {
@@ -2234,6 +2308,24 @@ label[for="purchase-amount"] {
         margin-bottom: 1.30208vw; }
       #wd-img-confidence > .wd-text-cover > .wd-text {
         line-height: calc(157 / 88); } }
+  @media screen and (max-width: 979px) {
+    #wd-img-confidence > .wd-text-cover {
+      position: absolute;
+      top: 58.66667vw;
+      box-sizing: border-box;
+      padding: 6.66667vw 18vw 1.33333vw;
+      background-color: #fff; }
+      #wd-img-confidence > .wd-text-cover > .wd-title {
+        color: #ff8674;
+        line-height: 1; }
+        #wd-img-confidence > .wd-text-cover > .wd-title br {
+          display: none; }
+      #wd-img-confidence > .wd-text-cover > .wd-text {
+        margin-top: 4vw;
+        color: #4d4d4d;
+        line-height: 1.8181818181818181; }
+    #wd-img-confidence + .wd-intro {
+      margin-top: 101.86667vw; } }
 
 @media screen and (min-width: 980px) {
   #wd-img-future > .wd-main-img {
@@ -2250,21 +2342,50 @@ label[for="purchase-amount"] {
     #wd-img-future > .wd-text-cover > .wd-text {
       line-height: calc(114 / 66); } }
 
-@media screen and (min-width: 980px) {
-  #wd-media-reports {
-    display: flex;
-    justify-content: space-between;
-    flex-flow: row wrap;
-    margin-top: 1.19792vw; }
-    #wd-media-reports .wd-media-report {
-      width: 20.83333vw;
-      padding-top: 3.125vw; }
-    #wd-media-reports .wd-mr-comment {
-      min-height: 5.9375vw; }
-    #wd-media-reports .wd-mr-source {
-      width: 10.41667vw;
-      height: 4.21875vw;
-      margin-left: 10.41667vw; } }
+@media screen and (max-width: 979px) {
+  #wd-img-future > .wd-text-cover {
+    margin: -12.93333vw auto 8.8vw;
+    padding: 6.66667vw 10.66667vw 8vw;
+    text-align: center; }
+    #wd-img-future > .wd-text-cover > .wd-super-title {
+      font-size: 4.53333vw;
+      line-height: 1; }
+    #wd-img-future > .wd-text-cover > .wd-text {
+      margin-top: 4vw;
+      line-height: calc(180 / 110); } }
+
+#wd-media-reports {
+  display: flex;
+  justify-content: space-between;
+  flex-flow: row wrap; }
+  @media screen and (min-width: 980px) {
+    #wd-media-reports {
+      margin-top: 1.19792vw; }
+      #wd-media-reports .wd-media-report {
+        width: 20.83333vw;
+        padding-top: 3.125vw; }
+      #wd-media-reports .wd-mr-comment {
+        min-height: 5.9375vw; }
+      #wd-media-reports .wd-mr-source {
+        width: 10.41667vw;
+        height: 4.21875vw;
+        margin-left: 10.41667vw; } }
+  @media screen and (max-width: 979px) {
+    #wd-media-reports {
+      padding: 0 10vw; }
+      #wd-media-reports .wd-media-report {
+        display: flex;
+        flex-flow: column;
+        justify-content: space-between;
+        width: 36vw;
+        box-sizing: border-box;
+        padding: 4.26667vw 0 6.66667vw; }
+      #wd-media-reports .wd-mr-comment {
+        line-height: 1.8; }
+      #wd-media-reports .wd-mr-source {
+        width: 26.66667vw;
+        height: 10.8vw;
+        margin-left: 9.33333vw; } }
 
 @media screen and (min-width: 980px) {
   #wd-customer-feedbacks {
@@ -2275,6 +2396,13 @@ label[for="purchase-amount"] {
     #wd-customer-feedbacks .wd-customer-feedback {
       width: 35.10417vw;
       height: 22.44792vw; } }
+
+@media screen and (max-width: 979px) {
+  #wd-customer-feedbacks {
+    margin-top: -0.66667vw; }
+    #wd-customer-feedbacks .wd-customer-feedback {
+      width: 80vw;
+      margin: 4.66667vw auto; } }
 
 @media screen and (min-width: 980px) {
   #wd-opportunities {
@@ -2293,6 +2421,17 @@ label[for="purchase-amount"] {
       #wd-opportunities > .wd-text-cover > .wd-text {
         margin-top: 1.35417vw;
         line-height: calc(274 / 154); } }
+
+@media screen and (max-width: 979px) {
+  #wd-opportunities > .wd-text-cover {
+    margin-top: -12vw;
+    padding: 6.66667vw 8vw;
+    text-align: center; }
+    #wd-opportunities > .wd-text-cover > .wd-title {
+      line-height: calc(82 / 68); }
+    #wd-opportunities > .wd-text-cover > .wd-text {
+      margin-top: 3.33333vw;
+      line-height: 1.8181818181818181; } }
 
 @media screen and (min-width: 980px) {
   #wd-special-offers {
