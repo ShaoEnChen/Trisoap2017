@@ -1655,6 +1655,14 @@ $wedding-action-gray: #f2f2f2;
 				 $background-color-hover: rgba($wedding-main-color, 0.7));
 	line-height: normal;
 	letter-spacing: normal;
+
+	// mobile
+	@media screen and (max-width: $media-breakpoint-mobile) {
+		width: 100%;
+		margin-top: mockupMobile(20px);
+		padding: mockupMobile(20px) 0 mockupMobile(21px);
+		font-size: mockupMobile(34px);
+	}
 }
 
 .wd-intro {
@@ -2226,6 +2234,58 @@ $wedding-action-gray: #f2f2f2;
 }
 
 #wd-special-offers {
+	& > .wd-offer,
+	& > .wd-primary-offer {
+		& > [class^=wd-offer-] {
+			display: flex;
+			flex-flow: column wrap;
+			justify-content: center;
+			align-items: center;
+		}
+
+		.wd-text {
+			line-height: calc(40 / 22);
+		}
+	}
+	& > .wd-offer {
+		& > .wd-offer-price {
+			.wd-super-title,
+			.wd-title,
+			.wd-subtitle,
+			.wd-text {
+				color: #fff;
+			}
+		}
+		& > .wd-offer-bonus {
+			&::before {
+				background: transparent url(/resource/img/wedding/offer-bonus.svg) center center;
+				background-size: contain;
+				color: #fff;
+			}
+		}
+
+		.wd-super-title,
+		.wd-title,
+		.wd-subtitle,
+		.wd-text {
+			color: $wedding-main-color;
+		}
+	}
+	& > .wd-primary-offer {
+		& > .wd-offer-bonus::before {
+			background: transparent url(/resource/img/wedding/offer-bonus-white.svg) center center;
+			background-size: contain;
+			color: $wedding-main-color;
+		}
+
+		.wd-super-title,
+		.wd-title,
+		.wd-subtitle,
+		.wd-text {
+			color: #fff;
+		}
+	}
+
 	// laptop
 	@media screen and (min-width: $media-breakpoint-mobile + 1px) {
 		display: flex;
@@ -2235,12 +2295,6 @@ $wedding-action-gray: #f2f2f2;
 		& > .wd-offer,
 		& > .wd-primary-offer {
 			width: mockupDesktop(490px);
-			& > [class^=wd-offer-] {
-				display: flex;
-				flex-flow: column wrap;
-				justify-content: center;
-				align-items: center;
-			}
 			& > .wd-offer-name {
 				.wd-title + .wd-text,
 				.wd-super-title + .wd-text {
@@ -2267,10 +2321,6 @@ $wedding-action-gray: #f2f2f2;
 					text-align: center;
 				}
 			}
-
-			.wd-text {
-				line-height: calc(40 / 22);
-			}
 		}
 		& > .wd-offer {
 			& > .wd-offer-name {
@@ -2280,13 +2330,6 @@ $wedding-action-gray: #f2f2f2;
 			& > .wd-offer-price {
 				height: mockupDesktop(135px);
 				background-color: rgba($wedding-main-color, 0.7 * 0.85 + 0.15);
-
-				.wd-super-title,
-				.wd-title,
-				.wd-subtitle,
-				.wd-text {
-					color: #fff;
-				}
 			}
 			& > .wd-offer-intro {
 				height: mockupDesktop(200px);
@@ -2295,17 +2338,6 @@ $wedding-action-gray: #f2f2f2;
 			& > .wd-offer-bonus {
 				height: mockupDesktop(168px);
 				background-color: rgba($wedding-main-color, 0.1 * 0.85 + 0.15);
-				&::before {
-					background: transparent url(/resource/img/wedding/offer-bonus.svg) center center;
-					background-size: contain;
-					color: #fff;
-				}
-			}
-			.wd-super-title,
-			.wd-title,
-			.wd-subtitle,
-			.wd-text {
-				color: $wedding-main-color;
 			}
 		}
 		& > .wd-primary-offer {
@@ -2324,18 +2356,87 @@ $wedding-action-gray: #f2f2f2;
 			& > .wd-offer-bonus {
 				height: mockupDesktop(188px);
 				background-color: rgba($wedding-main-color, 0.35 * 0.405 + 0.595);
-				&::before {
-					background: transparent url(/resource/img/wedding/offer-bonus-white.svg) center center;
-					background-size: contain;
-					color: $wedding-main-color;
+			}
+		}
+	}
+
+	// mobile
+	@media screen and (max-width: $media-breakpoint-mobile) {
+		padding: mockupMobile(10px) mockupMobile(60px);
+		& > .wd-offer,
+		& > .wd-primary-offer {
+			margin: mockupMobile(70px) auto;
+			& > .wd-offer-name {
+				.wd-title + .wd-text,
+				.wd-super-title + .wd-text {
+					margin-top: mockupMobile(11px);
 				}
 			}
-
-			.wd-super-title,
-			.wd-title,
-			.wd-subtitle,
-			.wd-text {
-				color: #fff;
+			& > .wd-offer-price {
+				span + p.wd-text {
+					margin-top: mockupMobile(5px);
+				}
+			}
+			& > .wd-offer-bonus {
+				flex-flow: row;
+				&::before {
+					content: '送';
+					display: block;
+					width: mockupMobile(50px);
+					height: mockupMobile(50px);
+					margin-right: mockupMobile(11px);
+					font-size: mockupMobile(28px);
+					line-height: mockupMobile(50px);
+					text-align: center;
+				}
+			}
+		}
+		& > .wd-offer {
+			width: mockupMobile(590px);
+			& > .wd-offer-name {
+				height: mockupMobile(160px);
+				background-color: rgba($wedding-main-color, 0.15);
+			}
+			& > .wd-offer-price {
+				height: mockupMobile(135px);
+				background-color: rgba($wedding-main-color, 0.7 * 0.85 + 0.15);
+			}
+			& > .wd-offer-intro {
+				height: mockupMobile(127px);
+				padding-top: mockupMobile(24px);
+				background-color: rgba($wedding-main-color, 0.1 * 0.85 + 0.15);
+			}
+			& > .wd-offer-bonus {
+				height: mockupMobile(100px);
+				background-color: rgba($wedding-main-color, 0.1 * 0.85 + 0.15);
+			}
+		}
+		& > .wd-primary-offer {
+			width: mockupMobile(630px);
+			& > .wd-offer-name {
+				height: mockupMobile(180px);
+				background-color: rgba($wedding-main-color, 0.595);
+			}
+			& > .wd-offer-price {
+				height: mockupMobile(135px);
+				background-color: rgba($wedding-main-color, 1);
+			}
+			& > .wd-offer-intro {
+				height: mockupMobile(143px);
+				padding-top: mockupMobile(24px);
+				background-color: rgba($wedding-main-color, 0.35 * 0.405 + 0.595);
+			}
+			& > .wd-offer-bonus {
+				height: mockupMobile(108px);
+				background-color: rgba($wedding-main-color, 0.35 * 0.405 + 0.595);
+				& > .wd-text:nth-of-type(1),
+				& > .wd-text:nth-of-type(2) {
+					&::after {
+						content: '/';
+						display: inline-block;
+    					letter-spacing: 0.3em;
+					}
+				}
 			}
 		}
 	}
@@ -2343,6 +2444,9 @@ $wedding-action-gray: #f2f2f2;
 
 #wd-cta {
 	background-color: $wedding-action-gray;
+	& > .wd-intro-content .wd-title {
+		color: $wedding-text-gray;
+	}
 
 	// laptop
 	@media screen and (min-width: $media-breakpoint-mobile + 1px) {
@@ -2361,6 +2465,25 @@ $wedding-action-gray: #f2f2f2;
 			}
 		}
 	}
+
+	// mobile
+	@media screen and (max-width: $media-breakpoint-mobile) {
+		& > .wd-intro-content {
+			padding: mockupMobile(60px) 0;
+			text-align: center;
+			& > .wd-text {
+				margin-top: mockupMobile(15px);
+				padding: 0 mockupMobile(159px);
+				line-height: calc(128 / 66);
+				&:last-of-type {
+					padding: 0 mockupMobile(108px);
+				}
+				& + .wd-title {
+					margin-top: mockupMobile(60px);
+				}
+			}
+		}
+	}
 }
 
 #wd-cta-form {
@@ -2369,20 +2492,39 @@ $wedding-action-gray: #f2f2f2;
 
 	hr {
 		width: 100%;
-		margin: mockupDesktop(36px) 0 mockupDesktop(37px);
 		border-width: mockupDesktop(1px);
 		border-color: #999;
 		border-style: solid none;
+
+		// laptop
+		@media screen and (min-width: $media-breakpoint-mobile + 1px) {
+			margin: mockupDesktop(36px) 0 mockupDesktop(37px);
+		}
+
+		// mobile
+		@media screen and (max-width: $media-breakpoint-mobile) {
+			margin: mockupMobile(33px) 0;
+		}
 	}
 
 	.wd-cta-form-content {
 		display: flex;
 		justify-content: space-between;
+		flex-flow: row wrap;
 		align-items: center;
 		&:last-of-type {
 			// laptop
 			@media screen and (min-width: $media-breakpoint-mobile + 1px) {
 				margin-top: mockupDesktop(25px);
+			}
+		}
+
+		// mobile
+		@media screen and (max-width: $media-breakpoint-mobile) {
+			& > span {
+				width: 100%;
+				margin: mockupMobile(30px) 0 mockupMobile(15px);
+				line-height: calc(40 / 22);
 			}
 		}
 	}
@@ -2398,25 +2540,17 @@ $wedding-action-gray: #f2f2f2;
 				display: flex;
 				align-items: center;
 				position: relative;
-				margin-left: mockupDesktop(35px);
 				cursor: pointer;
+				line-height: calc(40 / 22);
 				&::before {
 					content: '';
 					position: absolute;
-					left: mockupDesktop(-35px);
-					width: mockupDesktop(25px);
-					height: mockupDesktop(25px);
 					background-color: $wedding-action-gray;
 				}
 				&::after {
 					content: '';
 					display: none;
 					position: absolute;
-					width: mockupDesktop(18px);
-				    height: mockupDesktop(10px);
-				    left: mockupDesktop(-30px);
-				    top: 0;
-				    border-width: mockupDesktop(5px);
 				    border-style: none none solid solid;
 				    border-color: $wedding-main-color;
 				    background-color: transparent;
@@ -2425,6 +2559,52 @@ $wedding-action-gray: #f2f2f2;
 			}
 			&:checked + label::after {
 				display: block;
+			}
+
+			// laptop
+			@media screen and (min-width: $media-breakpoint-mobile + 1px) {
+				& + label {
+					margin-left: mockupDesktop(35px);
+					&::before {
+						left: mockupDesktop(-35px);
+						width: mockupDesktop(25px);
+						height: mockupDesktop(25px);
+					}
+					&::after {
+						width: mockupDesktop(18px);
+					    height: mockupDesktop(10px);
+					    left: mockupDesktop(-30px);
+					    top: 0;
+					    border-width: mockupDesktop(5px);
+					}
+				}
+			}
+
+			// mobile
+			@media screen and (max-width: $media-breakpoint-mobile) {
+				& + label {
+					margin-left: mockupMobile(35px);
+					&::before {
+						left: mockupMobile(-35px);
+						width: mockupMobile(25px);
+						height: mockupMobile(25px);
+					}
+					&::after {
+						width: mockupMobile(18px);
+					    height: mockupMobile(10px);
+					    left: mockupMobile(-30px);
+					    top: mockupMobile(6px);
+					    border-width: mockupMobile(5px);
+					}
+				}
+			}
+		}
+
+		// mobile
+		@media screen and (max-width: $media-breakpoint-mobile) {
+			& + label[for="wd-cta-subscribe"],
+			& + label[for="wd-cta-privacy"] {
+				margin: mockupMobile(15px) 0 mockupMobile(15px) mockupMobile(35px);
 			}
 		}
 	}
@@ -2442,6 +2622,20 @@ $wedding-action-gray: #f2f2f2;
 			margin: mockupDesktop(12.5px) 0;
 			padding: 0 mockupDesktop(14px);
 			line-height: mockupDesktop(50px);
+		}
+	}
+
+	// mobile
+	@media screen and (max-width: $media-breakpoint-mobile) {
+		padding: mockupMobile(47px) mockupMobile(94px) mockupMobile(60px);
+
+		.wd-cta-input[type=text],
+		.wd-cta-input[type=phone],
+		.wd-cta-input[type=email] {
+			width: mockupMobile(453px);
+			margin: mockupMobile(13px) 0;
+			padding: 0 mockupMobile(14px);
+			line-height: mockupMobile(50px);
 		}
 	}
 }
