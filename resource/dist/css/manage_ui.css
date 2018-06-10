@@ -726,7 +726,8 @@ a.no-href {
   .nav-dropdown-item > .nav-main-link, .nav-dropdown-header {
     padding: 12px 18px; }
   .nav-main-item {
-    display: inline-block; }
+    display: inline-block;
+    vertical-align: middle; }
   .has-dropdown {
     position: relative; }
     .has-dropdown:hover > .nav-dropdown-menu,
@@ -744,7 +745,20 @@ a.no-href {
   .nav-dropdown-submenu {
     top: 0;
     left: 160px;
-    margin-left: 0; } }
+    margin-left: 0; }
+  .new-nav {
+    position: relative; }
+    .new-nav::after {
+      content: '\00B7\00B7\00B7';
+      display: flex;
+      justify-content: space-around;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      color: #eecc33;
+      font-size: 20px; } }
 
 @media screen and (max-width: 979px) {
   .nav-main-link > .icon-angle-right {
@@ -779,7 +793,14 @@ a.no-href {
     padding: 12px 50px; }
   .nav-dropdown-submenu > .nav-dropdown-item > .nav-main-link,
   .nav-dropdown-submenu > .nav-dropdown-header {
-    padding: 12px 70px; } }
+    padding: 12px 70px; }
+  .new-nav::after {
+    content: 'new';
+    display: inline-block;
+    border-radius: 4px;
+    padding: 1px 5px;
+    background-color: #e74c3c;
+    text-align: center; } }
 
 /* =========================================================================
  * Manage UI Pages
