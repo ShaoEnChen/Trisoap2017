@@ -1935,8 +1935,16 @@ label[for="purchase-amount"] {
     font-size: 1.14583vw; } }
 
 @media screen and (max-width: 979px) {
-  .wd-text br {
-    display: none; } }
+  .wd-super-title {
+    font-size: 6.4vw; }
+  .wd-title {
+    font-size: 4.53333vw; }
+  .wd-subtitle {
+    font-size: 3.46667vw; }
+  .wd-text {
+    font-size: 2.93333vw; }
+    .wd-text br {
+      display: none; } }
 
 .wd-text-cover {
   position: relative;
@@ -1948,47 +1956,67 @@ label[for="purchase-amount"] {
   .wd-text-cover .wd-subtitle,
   .wd-text-cover .wd-text {
     color: #fff; }
-  @media screen and (min-width: 980px) {
-    .wd-text-cover .wd-tc-ol {
-      list-style: none;
-      counter-reset: li; }
-      .wd-text-cover .wd-tc-ol li {
-        counter-increment: li; }
-        .wd-text-cover .wd-tc-ol li::before,
-        .wd-text-cover .wd-tc-ol li > .wd-text {
-          display: inline-block;
-          vertical-align: middle; }
-        .wd-text-cover .wd-tc-ol li::before {
-          content: counter(li);
-          border-radius: 50%;
-          background-color: #fff;
-          color: #ff8674;
-          text-align: center; } }
+  .wd-text-cover .wd-tc-ol {
+    list-style: none;
+    counter-reset: li; }
+    .wd-text-cover .wd-tc-ol li {
+      counter-increment: li; }
+      .wd-text-cover .wd-tc-ol li::before,
+      .wd-text-cover .wd-tc-ol li > .wd-text {
+        display: inline-block;
+        vertical-align: middle; }
+      .wd-text-cover .wd-tc-ol li::before {
+        content: counter(li);
+        border-radius: 50%;
+        background-color: #fff;
+        color: #ff8674;
+        text-align: center; }
 
 .wd-text-btn {
-  display: inline-block;
-  box-sizing: border-box;
-  border: solid 1px #ff8674;
-  padding: 8px 25px;
-  text-decoration: none;
-  text-align: center;
-  background-color: transparent;
-  color: #ff8674;
-  font-weight: 300;
-  transition-property: border-color, background-color, color;
-  transition-duration: .3s;
-  cursor: pointer;
   line-height: 1;
   letter-spacing: normal; }
-  .wd-text-btn:hover {
-    border-color: #ff8674;
-    background-color: #ff8674;
-    color: #fff; }
   @media screen and (min-width: 980px) {
     .wd-text-btn {
+      display: inline-block;
+      box-sizing: border-box;
+      border: solid 1px #ff8674;
+      padding: 8px 25px;
+      text-decoration: none;
+      text-align: center;
+      background-color: transparent;
+      color: #ff8674;
+      font-weight: 300;
+      transition-property: border-color, background-color, color;
+      transition-duration: .3s;
+      cursor: pointer;
       border-width: 0.10417vw;
       padding: 1.04167vw 1.14583vw 1.09375vw;
-      font-size: 1.77083vw; } }
+      font-size: 1.77083vw; }
+      .wd-text-btn:hover {
+        border-color: #ff8674;
+        background-color: #ff8674;
+        color: #fff; } }
+  @media screen and (max-width: 979px) {
+    .wd-text-btn {
+      display: inline-block;
+      box-sizing: border-box;
+      border: solid 1px #fff;
+      padding: 8px 25px;
+      text-decoration: none;
+      text-align: center;
+      background-color: transparent;
+      color: #fff;
+      font-weight: 300;
+      transition-property: border-color, background-color, color;
+      transition-duration: .3s;
+      cursor: pointer;
+      border-width: 0.26667vw;
+      padding: 3.2vw 4vw 2.8vw;
+      font-size: 4vw; }
+      .wd-text-btn:hover {
+        border-color: #fff;
+        background-color: #fff;
+        color: #ff8674; } }
 
 .wd-submit-btn {
   display: inline-block;
@@ -2009,6 +2037,9 @@ label[for="purchase-amount"] {
     border-color: rgba(255, 134, 116, 0.7);
     background-color: rgba(255, 134, 116, 0.7); }
 
+.wd-intro > .wd-intro-content > .wd-text {
+  line-height: 1.8181818181818181; }
+
 @media screen and (min-width: 980px) {
   .wd-intro {
     display: flex;
@@ -2019,18 +2050,35 @@ label[for="purchase-amount"] {
       width: 22.13542vw; }
       .wd-intro > .wd-intro-content > .wd-title {
         margin-bottom: 1.5625vw; }
-      .wd-intro > .wd-intro-content > .wd-text {
-        line-height: 1.8181818181818181; }
     .wd-intro > .wd-main-img {
       width: 45.83333vw;
-      height: 0;
-      padding-bottom: 30.57292vw; } }
+      height: 30.57292vw; } }
+
+@media screen and (min-width: 980px) {
+  .wd-intro {
+    position: relative;
+    width: 100%;
+    padding: 8vw 8vw 5.33333vw;
+    text-align: center; }
+    .wd-intro > .wd-main-img {
+      position: absolute;
+      width: 100%;
+      top: 0; }
+    .wd-intro > .wd-intro-content {
+      position: absolute;
+      top: 64vw; }
+      .wd-intro > .wd-intro-content > .wd-title {
+        margin-bottom: 6.66667vw; }
+      .wd-intro > .wd-intro-content > .wd-text {
+        margin-bottom: 4vw; } }
 
 .wd-intro-sep {
-  margin: 1.04167vw 13.02083vw;
-  border-width: 0.05208vw;
   border-color: #979797;
   border-style: solid none; }
+  @media screen and (min-width: 980px) {
+    .wd-intro-sep {
+      margin: 1.04167vw 13.02083vw;
+      border-width: 0.05208vw; } }
 
 .wd-image-background {
   position: relative;
@@ -2040,11 +2088,15 @@ label[for="purchase-amount"] {
   background-position: center;
   background-repeat: no-repeat; }
   .wd-image-background#wd-img-samples {
-    height: 52.08333vw;
-    background-image: url(/resource/img/wedding/03.jpg); }
+    height: 52.08333vw; }
+    @media screen and (min-width: 980px) {
+      .wd-image-background#wd-img-samples {
+        background-image: url(/resource/img/wedding/laptop/03.jpg); } }
   .wd-image-background#wd-img-confidence {
-    height: 62.29167vw;
-    background-image: url(/resource/img/wedding/05.jpg); }
+    height: 62.29167vw; }
+    @media screen and (min-width: 980px) {
+      .wd-image-background#wd-img-confidence {
+        background-image: url(/resource/img/wedding/laptop/05.jpg); } }
 
 .wd-slogan {
   background-size: contain;
@@ -2052,19 +2104,20 @@ label[for="purchase-amount"] {
   background-position: center;
   background-repeat: no-repeat;
   text-align: center; }
+  .wd-slogan#wd-img-142 {
+    background-image: url(/resource/img/wedding/142.jpg); }
   @media screen and (min-width: 980px) {
     .wd-slogan > .wd-title {
       margin: 0 auto 1.5625vw; }
     .wd-slogan#wd-img-031 {
-      background-image: url(/resource/img/wedding/031.jpg); }
+      background-image: url(/resource/img/wedding/laptop/031.jpg); }
       .wd-slogan#wd-img-031 > .wd-text {
         max-width: 28.95833vw;
         margin: 0 auto;
         padding-bottom: 1.04167vw; }
     .wd-slogan#wd-img-142 {
       margin-top: 2.08333vw;
-      margin-bottom: 0.26042vw;
-      background-image: url(/resource/img/wedding/142.jpg); } }
+      margin-bottom: 0.26042vw; } }
 
 .wd-section {
   padding: 2.60417vw 13.02083vw; }
@@ -2087,6 +2140,8 @@ label[for="purchase-amount"] {
 
 #wd-advice {
   margin-top: 60px; }
+  #wd-advice > .wd-text-cover > .wd-super-title {
+    line-height: calc(128 / 96); }
   @media screen and (min-width: 980px) {
     #wd-advice {
       padding: 6.77083vw 0 5.20833vw; }
@@ -2098,8 +2153,6 @@ label[for="purchase-amount"] {
         width: 30.10417vw;
         margin: -36.35417vw 6.77083vw 0 auto;
         padding: 2.65625vw 3.85417vw 2.8125vw 3.75vw; }
-        #wd-advice > .wd-text-cover > .wd-title {
-          line-height: calc(4 / 3); }
       #wd-advice > .wd-intro-content {
         width: 17.65625vw;
         margin: 3.33333vw 7.60417vw 9.27083vw auto; }
@@ -2108,6 +2161,35 @@ label[for="purchase-amount"] {
           line-height: calc(63 / 39); }
         #wd-advice > .wd-intro-content > .wd-text-btn {
           margin: 3.125vw 0 0 8.07292vw; } }
+  @media screen and (max-width: 979px) {
+    #wd-advice > .wd-main-img img {
+      display: block; }
+    #wd-advice > .wd-text-cover {
+      width: 100%;
+      padding: 8.13333vw 10.66667vw 7.86667vw; }
+    #wd-advice > .wd-intro-content {
+      display: flex;
+      position: relative;
+      justify-content: space-between;
+      width: 100%;
+      margin-bottom: 1.33333vw;
+      box-sizing: border-box;
+      padding: 6.66667vw 10.66667vw 6.93333vw;
+      background-color: rgba(255, 134, 116, 0.85); }
+      #wd-advice > .wd-intro-content::before {
+        content: '';
+        display: block;
+        position: absolute;
+        width: 78.66667vw;
+        height: 0.26667vw;
+        top: 0;
+        margin: 0 auto;
+        background-color: #fff; }
+      #wd-advice > .wd-intro-content > .wd-subtitle {
+        height: 10vw;
+        color: #fff;
+        font-size: 2.93333vw;
+        line-height: calc(75 / 44); } }
 
 @media screen and (min-width: 980px) {
   #wd-simple-procedure {
