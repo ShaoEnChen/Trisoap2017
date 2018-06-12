@@ -1704,9 +1704,6 @@ $wedding-action-gray: #f2f2f2;
 		& > .wd-intro-content {
 			margin-top: mockupMobile(530px);
 			padding: 0 mockupMobile(135px) mockupMobile(40px);
-			& > .wd-title {
-				line-height: 1;
-			}
 			& > .wd-text {
 				margin-top: mockupMobile(30px);
 			}
@@ -2222,9 +2219,6 @@ $wedding-action-gray: #f2f2f2;
 			margin-top: mockupMobile(-90px);
 			padding: mockupMobile(50px) mockupMobile(60px);
 			text-align: center;
-			& > .wd-title {
-				line-height: calc(82 / 68);
-			}
 			& > .wd-text {
 				margin-top: mockupMobile(25px);
 				line-height: 1.8181818181818181;
