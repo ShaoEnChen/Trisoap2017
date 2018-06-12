@@ -11,14 +11,34 @@ function get_view_js_path($api, $filename) {
 }
 
 function check_dependency_head($route) {
+	google_analytics_code();
+	facebook_pixel_code();
 	check_dependency_css_flexslider($route);
 	check_dependency_css_jquery_ui($route);
+}
+
+function google_analytics_code() {
+	$gtag_js_file = "resource/dist/js/gtag.js";
+
+	if(file_exists($gtag_js_file)) {
+		echo '		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-89649485-1"></script>';
+		echo '		<script src="' . $gtag_js_file . '"></script>';
+	}
+}
+
+function facebook_pixel_code() {
+	$pixel_js_file = "resource/dist/js/pixel.js";
+
+	if(file_exists($pixel_js_file)) {
+		echo '		<script src="' . $pixel_js_file . '"></script>';
+		echo '		<noscript><img height="1" width="1" src="https://www.facebook.com/tr?id=641993712807160&ev=PageView&noscript=1"/></noscript>';
+	}
 }
 
 function check_dependency_css_flexslider($route) {
 	$flexslider_css_dir = "resource/flexslider/flexslider.min.css";
 
-	if(file_exists(get_view_js_path('flexslider', $route))){
+	if(file_exists(get_view_js_path('flexslider', $route))) {
 		echo '		<link rel="stylesheet" href="' . $flexslider_css_dir . '" async defer>';
 	}
 }
@@ -26,7 +46,7 @@ function check_dependency_css_flexslider($route) {
 function check_dependency_css_jquery_ui($route) {
 	$jquery_ui_css_dir = "resource/dist/js/jquery-ui-accordion/jquery-ui.min.css";
 
-	if(file_exists(get_view_js_path('jquery_ui', $route))){
+	if(file_exists(get_view_js_path('jquery_ui', $route))) {
 		echo '		<link rel="stylesheet" href="' . $jquery_ui_css_dir . '" async defer>';
 	}
 }
@@ -42,7 +62,7 @@ function check_dependency_script_flexslider($route) {
 	$flexslider_js_dir = "resource/flexslider/jquery.flexslider-min.js";
 	$js_for_the_route = get_view_js_path('flexslider', $route);
 
-	if(file_exists($js_for_the_route)){
+	if(file_exists($js_for_the_route)) {
 		echo '		<script src="' . $flexslider_js_dir . '" defer></script>';
 		echo '		<script src="' . $js_for_the_route . '" defer></script>';
 	}
@@ -52,7 +72,7 @@ function check_dependency_script_jquery_ui($route) {
 	$jquery_ui_js_dir = "resource/dist/js/jquery-ui-accordion/jquery-ui.min.js";
 	$js_for_the_route = get_view_js_path('jquery_ui', $route);
 
-	if(file_exists($js_for_the_route)){
+	if(file_exists($js_for_the_route)) {
 		echo '		<script src="' . $jquery_ui_js_dir . '" defer></script>';
 		echo '		<script src="' . $js_for_the_route . '" defer></script>';
 	}
@@ -63,7 +83,7 @@ function check_dependency_script_map_api($route) {
 	$google_map_src = "https://maps.googleapis.com/maps/api/js?key=" . $google_map_api_key;
 	$js_for_the_route = get_view_js_path('google_map', $route);
 
-	if(file_exists($js_for_the_route)){
+	if(file_exists($js_for_the_route)) {
 		echo '		<script src="' . $google_map_src . '"></script>';
 		echo '		<script src="' . $js_for_the_route . '" defer></script>';
 	}
@@ -458,7 +478,7 @@ function check_dependency_u_head($route) {
 function check_dependency_u_footer($route) {
 	$js_for_the_route = get_view_js_path('user_function', $route);
 
-	if(file_exists($js_for_the_route)){
+	if(file_exists($js_for_the_route)) {
 		echo '		<script src="' . $js_for_the_route . '" defer></script>';
 	}
 }
