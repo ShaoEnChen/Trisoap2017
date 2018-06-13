@@ -393,9 +393,10 @@ function discountApply() {
 
 function makePayment(route) {
 	var address = document.getElementById('address').value;
+	var phone = document.getElementById('phone').value;
 	var notice = document.getElementById('notice').value;
     var payType = document.getElementById('paytype').value;
-    location.assign(route + "&address=" + address + "&notice=" + notice + "&paytype" + payType);
+    location.assign(route + "&address=" + address + "&phone=" + phone + "&notice=" + notice + "&paytype" + payType);
 }
 
 function orderDetail(ordno) {
