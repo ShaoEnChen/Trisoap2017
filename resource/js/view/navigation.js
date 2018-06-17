@@ -3,13 +3,18 @@
  * ===================================================
  */
 
-const $navToggleBtn = $('.nav-mobile-toggle');
-const $navMainMenu = $('#nav-main-menu');
-const $hasDropdowns = $('.has-dropdown');
-const $angleDowns = $('.icon-angle-down');
+const $navToggleBtn = $('.nav-mobile-toggle'),
+	  $navMainMenu = $('#nav-main-menu'),
+	  $hasDropdowns = $('.has-dropdown'),
+	  $navMainValidLinks = $('.nav-main-link:not([href="javascript:void(0)"])');
 
 $navToggleBtn.click(() => {
 	$navMainMenu.toggle();
+});
+
+// Prevent dropdown from toggling when location is directing
+$navMainValidLinks.click(function(event) {
+	event.stopPropagation();
 });
 
 $hasDropdowns.click(function(event) {
@@ -24,8 +29,4 @@ $hasDropdowns.click(function(event) {
 			$(this).children('.nav-dropdown-menu').toggle();
 		}
 	}
-});
-
-$angleDowns.click((event) => {
-	event.preventDefault();
 });
