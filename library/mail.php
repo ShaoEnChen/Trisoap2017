@@ -230,7 +230,7 @@ function mail_receive_message_notice($email, $name, $phone, $message) {
       }
 }
 
-function mail_receive_wedding($wedno, $name, $phone, $email, $offer, $diy, $subscribe) {
+function mail_receive_wedding($wedno, $name, $phone, $addr, $offer, $diy, $subscribe) {
       $offerText = '';
       if (in_array('a', $offer)) {
             $offerText .= '簡約精緻 ';
@@ -259,7 +259,7 @@ function mail_receive_wedding($wedno, $name, $phone, $email, $offer, $diy, $subs
       $mail->From = "trisoap2015@gmail.com"; //設定寄件者信箱
       $mail->FromName = "三三吾鄉社會企業"; //設定寄件者姓名
       $mail->Subject = "[系統訊息] 婚禮專案來信"; //設定郵件標題
-      $mail->Body = "婚禮案編號：".$wedno."<br>來信者姓名：".$name."<br>來信者電話：".$phone."<br>來信者信箱：".$email."<br>有興趣的方案：".$offerText."<br>是否要手作：".$diy."<br>是否有訂閱：".$subscribe;
+      $mail->Body = "婚禮案編號：".$wedno."<br>來信者姓名：".$name."<br>來信者電話：".$phone."<br>來信者地址：".$addr."<br>有興趣的方案：".$offerText."<br>是否要手作：".$diy."<br>是否有訂閱：".$subscribe;
       $mail->AddAddress($COMEMAIL); //設定收件者郵件及名稱
       if ($mail->Send()) {
             return "Success";

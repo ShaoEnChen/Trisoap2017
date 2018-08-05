@@ -154,6 +154,7 @@ function create($account, $token, $index, $amount) {
 			return 'Success';
 		}
 		else {
+			return mysql_error();
 			return 'Database operation error';
 		}
 	}
