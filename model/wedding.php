@@ -51,7 +51,7 @@ else {
 function create($content) {
 	$name = isset($content['name']) ? $content['name'] : '';
 	$phone = isset($content['phone']) ? $content['phone'] : '';
-	$email = isset($content['email']) ? $content['email'] : '';
+	$addr = isset($content['addr']) ? $content['addr'] : '';
 	$offer = isset($content['offer']) ? explode(',', $content['offer']) : '';
 	$diy = isset($content['diy']) ? strtoupper($content['diy']) : '';
 	$subscribe = isset($content['subscribe']) ? strtoupper($content['subscribe']) : '';
@@ -61,11 +61,8 @@ function create($content) {
 	elseif (empty($phone)) {
 		return 'Empty phone';
 	}
-	elseif (empty($email)) {
-		return 'Empty email';
-	}
-	elseif (!preg_match("/^[\w-]+(\.[\w-]+)*@[\w-]+(\.[\w-]+)+$/", $email)) {
-		return 'Wrong email format';
+	elseif (empty($addr)) {
+		return 'Empty address';
 	}
 	elseif (empty($offer)) {
 		return 'Empty offer';
@@ -86,9 +83,9 @@ function create($content) {
 		$wedno = get_wedno();
 		date_default_timezone_set('Asia/Taipei');
 		$date = date("Y-m-d H:i:s");
-		$sql = "INSERT INTO WEDDING (WEDNO, WEDNAME, WEDPHONE, WEDEMAIL, WEDOFFERA, WEDOFFERB, WEDOFFERC, WEDDIY, SUBSCRIBE, CREATETIME) VALUES ('$wedno', '$name', '$phone', '$email', '$offerA', '$offerB', '$offerC', '$diy', '$subscribe', '$date')";
+		$sql = "INSERT INTO WEDDING (WEDNO, WEDNAME, WEDPHONE, WEDADDR, WEDOFFERA, WEDOFFERB, WEDOFFERC, WEDDIY, SUBSCRIBE, CREATETIME) VALUES ('$wedno', '$name', '$phone', '$addr', '$offerA', '$offerB', '$offerC', '$diy', '$subscribe', '$date')";
 		if (mysql_query($sql)) {
-			mail_receive_wedding($wedno, $name, $phone, $email, $offer, $diy, $subscribe);
+			mail_receive_wedding($wedno, $name, $phone, $addr, $offer, $diy, $subscribe);
 			update_wedno();
 			return array('message' => 'Success', 'wedno' => $wedno);
 		}

@@ -7,7 +7,7 @@ function wedding() {
 		request.open("POST", "index.php");
 		var name = document.getElementById("wd-cta-name").value;
 		var phone = document.getElementById("wd-cta-phone").value;
-		var email = document.getElementById("wd-cta-email").value;
+		var addr = document.getElementById("wd-cta-addr").value;
 		var offers = document.querySelectorAll('input[name="wd-cta-offer"]:checked');
 		var offer = [];
 		offers.forEach((checkbox) => {
@@ -15,7 +15,7 @@ function wedding() {
 		});
 		var diy = document.querySelector('input[name="wd-cta-diy"]:checked').value;
 		var subscribe = document.getElementById("wd-cta-subscribe").checked ? 'y': 'n';
-		var data = "module=wedding&event=create&name=" + name + "&phone=" + phone + "&email=" + email + "&offer=" + offer + "&diy=" + diy + "&subscribe=" + subscribe;
+		var data = "module=wedding&event=create&name=" + name + "&phone=" + phone + "&addr=" + addr + "&offer=" + offer + "&diy=" + diy + "&subscribe=" + subscribe;
 		request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 		request.send(data);
 		request.onreadystatechange = function() {
