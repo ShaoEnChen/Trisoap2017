@@ -13,6 +13,7 @@ function get_view_js_path($api, $filename) {
 function check_dependency_head($route) {
 	google_analytics_code();
 	facebook_pixel_code();
+	messenger_chat_code();
 	check_dependency_css_flexslider($route);
 	check_dependency_css_jquery_ui($route);
 }
@@ -32,6 +33,14 @@ function facebook_pixel_code() {
 	if(file_exists($pixel_js_file)) {
 		echo '		<script src="' . $pixel_js_file . '"></script>';
 		echo '		<noscript><img height="1" width="1" src="https://www.facebook.com/tr?id=641993712807160&ev=PageView&noscript=1"/></noscript>';
+	}
+}
+
+function messenger_chat_code() {
+	$messenger_js_file = "resource/dist/js/messenger-chat.js";
+
+	if(file_exists($messenger_js_file)) {
+		echo '		<script src="' . $messenger_js_file . '"></script>';
 	}
 }
 
