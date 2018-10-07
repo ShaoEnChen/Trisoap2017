@@ -257,7 +257,8 @@ function query_memberName($email) {
 	return $fetch['CUSNM'];
 }
 
-// Compose page for official site pages in view (excluding user_function/ and manage_ui/ pages, they have their own view- composing functions in layout.php)
+// Compose official site pages in view
+// excluding user_function/ and manage_ui/ pages, they directly use their view- composing functions in layout.php
 function callView($route, $authority = null) {
 	include_once('layout.php');
 	include_view_head($route);

@@ -11,7 +11,7 @@ function check_identity() {
 }
 
 function router($route) {
-	$route_pages = ['about', 'contact', 'customize', 'faq', 'gift_box', 'index', 'media', 'moonfest', 'newyear', 'partner', 'products', 'shopping_guide', 'single_product', 'soap', 'soapstring', 'trial', 'wedding'];
+	$route_pages = ['about', 'contact', 'customize', 'faq', 'gift_box', 'index', 'media', 'moonfest', 'newyear', 'partner', 'privacy', 'products', 'shopping_guide', 'single_product', 'soap', 'soapstring', 'trial', 'wedding'];
 	$function_pages = ['cart', 'cashing', 'discount', 'item', 'manager', 'member', 'order', 'pay', 'purchase_finish'];
 
 	$identity = check_identity();
