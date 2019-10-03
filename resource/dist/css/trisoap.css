@@ -2567,19 +2567,16 @@ label[for="purchase-amount"] {
       #wd-special-offers > .wd-offer > .wd-offer-price span + p.wd-text,
       #wd-special-offers > .wd-primary-offer > .wd-offer-price span + p.wd-text {
         margin-top: 0.66667vw; }
-      #wd-special-offers > .wd-offer > .wd-offer-bonus,
-      #wd-special-offers > .wd-primary-offer > .wd-offer-bonus {
-        flex-flow: row; }
-        #wd-special-offers > .wd-offer > .wd-offer-bonus::before,
-        #wd-special-offers > .wd-primary-offer > .wd-offer-bonus::before {
-          content: '送';
-          display: block;
-          width: 6.66667vw;
-          height: 6.66667vw;
-          margin-right: 1.46667vw;
-          font-size: 3.73333vw;
-          line-height: 6.66667vw;
-          text-align: center; }
+      #wd-special-offers > .wd-offer > .wd-offer-bonus::before,
+      #wd-special-offers > .wd-primary-offer > .wd-offer-bonus::before {
+        content: '送';
+        display: block;
+        width: 6.66667vw;
+        height: 6.66667vw;
+        margin-right: 1.46667vw;
+        font-size: 3.73333vw;
+        line-height: 6.66667vw;
+        text-align: center; }
     #wd-special-offers > .wd-offer {
       width: 78.66667vw; }
       #wd-special-offers > .wd-offer > .wd-offer-name {
@@ -2591,9 +2588,9 @@ label[for="purchase-amount"] {
       #wd-special-offers > .wd-offer > .wd-offer-intro {
         height: 16.93333vw;
         padding-top: 3.2vw;
-        background-color: rgba(255, 134, 116, 0.235); }
+        background-color: rgba(255, 134, 116, 0.15); }
       #wd-special-offers > .wd-offer > .wd-offer-bonus {
-        height: 13.33333vw;
+        height: 16.93333vw;
         background-color: rgba(255, 134, 116, 0.235); }
     #wd-special-offers > .wd-primary-offer {
       width: 84vw; }
@@ -2606,7 +2603,7 @@ label[for="purchase-amount"] {
       #wd-special-offers > .wd-primary-offer > .wd-offer-intro {
         height: 19.06667vw;
         padding-top: 3.2vw;
-        background-color: rgba(255, 134, 116, 0.73675); }
+        background-color: rgba(255, 134, 116, 0.595); }
       #wd-special-offers > .wd-primary-offer > .wd-offer-bonus {
         height: 14.4vw;
         background-color: rgba(255, 134, 116, 0.73675); }
