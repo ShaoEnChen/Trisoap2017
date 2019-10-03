@@ -2579,7 +2579,7 @@ label[for="purchase-amount"] {
       #wd-special-offers > .wd-primary-offer > .wd-offer-price,
       #wd-special-offers > .wd-primary-offer > .wd-offer-intro,
       #wd-special-offers > .wd-primary-offer > .wd-offer-bonus {
-        padding: 3.2vw; }
+        padding: 3.2vw 0; }
       #wd-special-offers > .wd-offer > .wd-offer-name .wd-title + .wd-text,
       #wd-special-offers > .wd-offer > .wd-offer-name .wd-super-title + .wd-text,
       #wd-special-offers > .wd-primary-offer > .wd-offer-name .wd-title + .wd-text,
