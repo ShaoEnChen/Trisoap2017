@@ -2485,6 +2485,16 @@ label[for="purchase-amount"] {
 #wd-special-offers > .wd-offer .wd-text {
   color: #ff8674; }
 
+#wd-special-offers > .wd-offer > .wd-offer-name,
+#wd-special-offers > .wd-offer > .wd-offer-intro {
+  background-color: rgba(255, 134, 116, 0.15); }
+
+#wd-special-offers > .wd-offer > .wd-offer-price {
+  background-color: rgba(255, 134, 116, 0.745); }
+
+#wd-special-offers > .wd-offer > .wd-offer-bonus {
+  background-color: rgba(255, 134, 116, 0.235); }
+
 #wd-special-offers > .wd-primary-offer > .wd-offer-bonus::before {
   background: transparent url(/resource/img/wedding/offer-bonus-white.svg) center center;
   background-size: contain;
@@ -2495,6 +2505,16 @@ label[for="purchase-amount"] {
 #wd-special-offers > .wd-primary-offer .wd-subtitle,
 #wd-special-offers > .wd-primary-offer .wd-text {
   color: #fff; }
+
+#wd-special-offers > .wd-primary-offer > .wd-offer-name,
+#wd-special-offers > .wd-primary-offer > .wd-offer-intro {
+  background-color: rgba(255, 134, 116, 0.595); }
+
+#wd-special-offers > .wd-primary-offer > .wd-offer-price {
+  background-color: #ff8674; }
+
+#wd-special-offers > .wd-primary-offer > .wd-offer-bonus {
+  background-color: rgba(255, 134, 116, 0.73675); }
 
 @media screen and (min-width: 980px) {
   #wd-special-offers {
@@ -2529,29 +2549,21 @@ label[for="purchase-amount"] {
           line-height: 2.60417vw;
           text-align: center; }
     #wd-special-offers > .wd-offer > .wd-offer-name {
-      height: 8.33333vw;
-      background-color: rgba(255, 134, 116, 0.15); }
+      height: 8.33333vw; }
     #wd-special-offers > .wd-offer > .wd-offer-price {
-      height: 7.03125vw;
-      background-color: rgba(255, 134, 116, 0.745); }
+      height: 7.03125vw; }
     #wd-special-offers > .wd-offer > .wd-offer-intro {
-      height: 10.41667vw;
-      background-color: rgba(255, 134, 116, 0.15); }
+      height: 10.41667vw; }
     #wd-special-offers > .wd-offer > .wd-offer-bonus {
-      height: 8.75vw;
-      background-color: rgba(255, 134, 116, 0.235); }
+      height: 8.75vw; }
     #wd-special-offers > .wd-primary-offer > .wd-offer-name {
-      height: 9.375vw;
-      background-color: rgba(255, 134, 116, 0.595); }
+      height: 9.375vw; }
     #wd-special-offers > .wd-primary-offer > .wd-offer-price {
-      height: 7.03125vw;
-      background-color: #ff8674; }
+      height: 7.03125vw; }
     #wd-special-offers > .wd-primary-offer > .wd-offer-intro {
-      height: 10.41667vw;
-      background-color: rgba(255, 134, 116, 0.595); }
+      height: 10.41667vw; }
     #wd-special-offers > .wd-primary-offer > .wd-offer-bonus {
-      height: 9.79167vw;
-      background-color: rgba(255, 134, 116, 0.73675); } }
+      height: 9.79167vw; } }
 
 @media screen and (max-width: 979px) {
   #wd-special-offers {
@@ -2559,6 +2571,15 @@ label[for="purchase-amount"] {
     #wd-special-offers > .wd-offer,
     #wd-special-offers > .wd-primary-offer {
       margin: 9.33333vw auto; }
+      #wd-special-offers > .wd-offer > .wd-offer-name,
+      #wd-special-offers > .wd-offer > .wd-offer-price,
+      #wd-special-offers > .wd-offer > .wd-offer-intro,
+      #wd-special-offers > .wd-offer > .wd-offer-bonus,
+      #wd-special-offers > .wd-primary-offer > .wd-offer-name,
+      #wd-special-offers > .wd-primary-offer > .wd-offer-price,
+      #wd-special-offers > .wd-primary-offer > .wd-offer-intro,
+      #wd-special-offers > .wd-primary-offer > .wd-offer-bonus {
+        padding: 3.2vw; }
       #wd-special-offers > .wd-offer > .wd-offer-name .wd-title + .wd-text,
       #wd-special-offers > .wd-offer > .wd-offer-name .wd-super-title + .wd-text,
       #wd-special-offers > .wd-primary-offer > .wd-offer-name .wd-title + .wd-text,
@@ -2579,34 +2600,8 @@ label[for="purchase-amount"] {
         text-align: center; }
     #wd-special-offers > .wd-offer {
       width: 78.66667vw; }
-      #wd-special-offers > .wd-offer > .wd-offer-name {
-        height: 21.33333vw;
-        background-color: rgba(255, 134, 116, 0.15); }
-      #wd-special-offers > .wd-offer > .wd-offer-price {
-        height: 18vw;
-        background-color: rgba(255, 134, 116, 0.745); }
-      #wd-special-offers > .wd-offer > .wd-offer-intro {
-        height: 16.93333vw;
-        padding: 0 2.13333vw;
-        background-color: rgba(255, 134, 116, 0.15); }
-      #wd-special-offers > .wd-offer > .wd-offer-bonus {
-        height: 28.8vw;
-        background-color: rgba(255, 134, 116, 0.235); }
     #wd-special-offers > .wd-primary-offer {
-      width: 84vw; }
-      #wd-special-offers > .wd-primary-offer > .wd-offer-name {
-        height: 24vw;
-        background-color: rgba(255, 134, 116, 0.595); }
-      #wd-special-offers > .wd-primary-offer > .wd-offer-price {
-        height: 18vw;
-        background-color: #ff8674; }
-      #wd-special-offers > .wd-primary-offer > .wd-offer-intro {
-        height: 19.06667vw;
-        padding: 0 2.13333vw;
-        background-color: rgba(255, 134, 116, 0.595); }
-      #wd-special-offers > .wd-primary-offer > .wd-offer-bonus {
-        height: 28.8vw;
-        background-color: rgba(255, 134, 116, 0.73675); } }
+      width: 84vw; } }
 
 #wd-cta {
   background-color: #f2f2f2; }
