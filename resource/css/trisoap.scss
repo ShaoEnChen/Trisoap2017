@@ -1169,7 +1169,7 @@ ul.lp-text {
 @media screen and (min-width: $media-breakpoint-mobile + 1px) {
 	#contact {
 		display: grid;
-		grid-template-columns: 8% 3fr 4% 2fr 8%;
+		grid-template-columns: 8% 2fr 4% 3fr 8%;
 		grid-template-rows: 60px auto 60px;
 		align-items: center;
 	}
