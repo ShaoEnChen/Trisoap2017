@@ -1690,12 +1690,12 @@ ul.lp-text {
     grid-template-columns: 8% 2fr 4% 3fr 8%;
     grid-template-rows: 60px auto 60px;
     align-items: center; }
-  #contact-map {
+  /* #contact-map {
     height: 400px;
     grid-column: 2 / 3;
-    grid-row: 2 / 3; }
+    grid-row: 2 / 3; } */
   #contact-form {
-    grid-column: 4 / 5;
+    grid-column: 2 / 3;
     grid-row: 2 / 3; } }
 
 @media screen and (max-width: 979px) {

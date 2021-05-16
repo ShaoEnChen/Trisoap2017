@@ -1174,14 +1174,14 @@ ul.lp-text {
 		align-items: center;
 	}
 
-	#contact-map {
-		height: 400px;
-		grid-column: 2 / 3;	// out of 6
-		grid-row: 2 / 3;	// out of 4
-	}
+	// #contact-map {
+	// 	height: 400px;
+	// 	grid-column: 2 / 3;	// out of 6
+	// 	grid-row: 2 / 3;	// out of 4
+	// }
 
 	#contact-form {
-		grid-column: 4 / 5;	// out of 6
+		grid-column: 2 / 3;	// out of 6
 		grid-row: 2 / 3;	// out of 4
 	}
 }
