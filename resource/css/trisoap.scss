@@ -301,11 +301,6 @@ $lp-border-radius: 8px;
 	color: #fff;
 }
 
-.lp-bg-yellow {
-	background-color: $bg-yellow;
-	color: #fff;
-}
-
 .lp-title,
 .lp-subtitle,
 .lp-text {
@@ -1497,6 +1492,8 @@ label[for="purchase-amount"] {
  * -------------------------------------------------------------------------
  */
 
+$customize-main-yellow: #ffb801;
+
 #customize-wrap {
 	width: 100%;
 	margin-top: $main-nav-height;	// this page has no header
@@ -1507,9 +1504,20 @@ label[for="purchase-amount"] {
 	@extend .full-width-img;
 }
 
+.customize-section {
+	width: 100%;
+	box-sizing: border-box;
+	padding: 0 8%;
+}
+
+.customize-bg-yellow {
+	background-color: $customize-main-yellow;
+	color: #fff;
+}
+
 // mobile
 @media screen and (max-width: $media-breakpoint-mobile) {
-	#customize-wrap .lp-section {
+	.customize-section {
 		padding: 0;
 	}
 }

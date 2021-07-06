@@ -1058,10 +1058,6 @@ header {
   background-color: #f18c41;
   color: #fff; }
 
-.lp-bg-yellow {
-  background-color: #f6a326;
-  color: #fff; }
-
 .lp-title,
 .lp-subtitle,
 .lp-text {
@@ -1931,8 +1927,17 @@ label[for="purchase-amount"] {
 .customize-content-img {
   display: block; }
 
+.customize-section {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 8%; }
+
+.customize-bg-yellow {
+  background-color: #ffb801;
+  color: #fff; }
+
 @media screen and (max-width: 979px) {
-  #customize-wrap .lp-section {
+  .customize-section {
     padding: 0; } }
 
 /* -------------------------------------------------------------------------
