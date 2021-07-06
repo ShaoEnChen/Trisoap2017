@@ -421,7 +421,7 @@ a.no-href {
 .nowrap {
   white-space: nowrap; }
 
-.full-width-img, .lp-certificate .trisoap-logo, .product-cover-img, #customize-content-img {
+.full-width-img, .lp-certificate .trisoap-logo, .product-cover-img, .customize-content-img {
   width: 100%;
   height: auto; }
 
@@ -1924,7 +1924,7 @@ label[for="purchase-amount"] {
   width: 100%;
   margin-top: 60px; }
 
-#customize-content-img {
+.customize-content-img {
   display: block; }
 
 /* -------------------------------------------------------------------------
