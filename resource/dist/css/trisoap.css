@@ -1058,6 +1058,10 @@ header {
   background-color: #f18c41;
   color: #fff; }
 
+.lp-bg-yellow {
+  background-color: #f6a326;
+  color: #fff; }
+
 .lp-title,
 .lp-subtitle,
 .lp-text {
@@ -1926,6 +1930,10 @@ label[for="purchase-amount"] {
 
 .customize-content-img {
   display: block; }
+
+@media screen and (max-width: 979px) {
+  #customize-wrap .lp-section {
+    padding: 0; } }
 
 /* -------------------------------------------------------------------------
  * 11. 婚禮小物｜Wedding

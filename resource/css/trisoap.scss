@@ -301,6 +301,11 @@ $lp-border-radius: 8px;
 	color: #fff;
 }
 
+.lp-bg-yellow {
+	background-color: $bg-yellow;
+	color: #fff;
+}
+
 .lp-title,
 .lp-subtitle,
 .lp-text {
@@ -1500,6 +1505,13 @@ label[for="purchase-amount"] {
 .customize-content-img {
 	display: block;
 	@extend .full-width-img;
+}
+
+// mobile
+@media screen and (max-width: $media-breakpoint-mobile) {
+	#customize-wrap .lp-section {
+		padding: 0;
+	}
 }
 
 /* -------------------------------------------------------------------------
