@@ -893,9 +893,6 @@ header {
 #jumbotron-newyear {
   background-image: url(/resource/img/jumbotrons/newyear.jpg); }
 
-#jumbotron-partner {
-  background-image: url(/resource/img/jumbotrons/partner.jpg); }
-
 #jumbotron-products {
   background-image: url(/resource/img/jumbotrons/products.jpg); }
 
@@ -1593,6 +1590,13 @@ ul.lp-text {
  * 5. 合作夥伴｜Partner
  * -------------------------------------------------------------------------
  */
+#partner-wrap {
+  width: 100%;
+  margin-top: 60px; }
+
+.partner-content-img {
+  display: block; }
+ 
 #partner-accordion {
   margin: 60px 8%;
   /* Completed by shared properties - accordians */ }
