@@ -421,7 +421,7 @@ a.no-href {
 .nowrap {
   white-space: nowrap; }
 
-.full-width-img, .lp-certificate .trisoap-logo, .product-cover-img, .customize-content-img {
+.full-width-img, .lp-certificate .trisoap-logo, .product-cover-img, .customize-content-img, .partner-content-img {
   width: 100%;
   height: auto; }
 
