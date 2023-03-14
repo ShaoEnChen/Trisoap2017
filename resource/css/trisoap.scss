@@ -941,6 +941,7 @@ ul.lp-text {
  * 9. 單品 / 旅用皂絲｜Soap / Soapstring
  * 10. 客製化專區｜Customize
  * 11. 婚禮小物｜Wedding
+ * 12. 四年有成｜Report
  * =========================================================================
  */
 
@@ -2657,4 +2658,18 @@ $wedding-action-gray: #f2f2f2;
 
 #wd-cta-privacy-wrap label a {
 	color: $wedding-text-gray;
+}
+
+/* -------------------------------------------------------------------------
+ * 12. 四年有成｜Report
+ * -------------------------------------------------------------------------
+ */
+
+#report-wrap {
+	width: 100%;
+}
+
+.report-content-img {
+	display: block;
+	@extend .full-width-img;
 }
