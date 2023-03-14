@@ -2772,8 +2772,10 @@ label[for="purchase-amount"] {
  * 12. 四年有成｜Report
  * -------------------------------------------------------------------------
  */
-#partner-wrap {
+#report-wrap {
   width: 100%; }
 
-.partner-content-img {
-  display: block; }
+.report-content-img {
+  display: block;
+  width: 100%;
+  height: auto; }
