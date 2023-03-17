@@ -2793,6 +2793,14 @@ label[for="purchase-amount"] {
 #wd-cta-privacy-wrap label a {
   color: #4d4d4d; }
 
+#wd-special-package {
+  width: 100%; }
+
+.wd-content-img {
+  display: block;
+  width: 100%;
+  height: auto; }
+
 /* -------------------------------------------------------------------------
  * 12. 四年有成｜Report
  * -------------------------------------------------------------------------
