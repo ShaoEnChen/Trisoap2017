@@ -1576,7 +1576,7 @@ ul.lp-text {
     right: 0;
     bottom: 0; }
 
-  @media screen and (min-width: 979px) {
+  @media screen and (max-width: 979px) {
     .media-video-wrap {
       flex-direction: column; }
     .media-video {
