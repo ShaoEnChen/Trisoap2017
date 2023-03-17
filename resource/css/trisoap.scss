@@ -942,6 +942,7 @@ ul.lp-text {
  * 10. 客製化專區｜Customize
  * 11. 婚禮小物｜Wedding
  * 12. 四年有成｜Report
+ * 13. 企業採購專區｜Business
  * =========================================================================
  */
 
@@ -2709,6 +2710,20 @@ $wedding-action-gray: #f2f2f2;
 }
 
 .report-content-img {
+	display: block;
+	@extend .full-width-img;
+}
+
+/* -------------------------------------------------------------------------
+ * 13. 企業採購專區｜Business
+ * -------------------------------------------------------------------------
+ */
+
+ #business-wrap {
+	width: 100%;
+}
+
+.business-content-img {
 	display: block;
 	@extend .full-width-img;
 }
