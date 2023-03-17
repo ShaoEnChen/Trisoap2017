@@ -1557,7 +1557,12 @@ ul.lp-text {
  * -------------------------------------------------------------------------
  */
  .media-video-wrap {
-	margin: 60px 8%; }
+	display: flex;
+  justify-content: space-between;
+  margin: 60px 8%; }
+
+ .media-video {
+  width: 48%; }
 
  .media-video-iframe {
   position: relative;
@@ -1571,11 +1576,12 @@ ul.lp-text {
     right: 0;
     bottom: 0; }
 
-  @media screen and (min-width: 980px) {
+  @media screen and (min-width: 979px) {
+    .media-video-wrap {
+      flex-direction: column; }
     .media-video {
-      display: inline-block;
-      width: 48%;
-      margin: 0 1%; } }
+      width: 100%;
+      margin: 4% 0; } }
 
 .media-link {
   text-decoration: none; }

@@ -993,7 +993,13 @@ ul.lp-text {
  */
 
  .media-video-wrap {
+	display: flex;
+	justify-content: space-between;
 	margin: 60px 8%;
+ }
+
+ .media-video {
+	width: 48%;
  }
 
  .media-video-iframe {
@@ -1011,12 +1017,14 @@ ul.lp-text {
 	}
 }
 
-// Laptop
-@media screen and (min-width: $media-breakpoint-mobile + 1px) {
+// Mobile
+@media screen and (max-width: $media-breakpoint-mobile) {
+	.media-video-wrap {
+		flex-direction: column;
+	}
 	.media-video {
-		display: inline-block;
-		width: 48%;
-		margin: 0 1%;
+		width: 100%;
+		margin: 4% 0;
 	}
 }
 
