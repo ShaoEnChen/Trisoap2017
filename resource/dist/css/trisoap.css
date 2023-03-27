@@ -1787,9 +1787,9 @@ ul.lp-text {
   color: #555;
   line-height: 1.7; }
 
-.products .main-content-title,
+.product-list.main-content-title,
 #category-guide,
-.products .product {
+.product-list.product {
   padding-left: 20px;
   padding-right: 20px; }
 
@@ -1807,10 +1807,10 @@ ul.lp-text {
 #category-guide {
   margin: 1em 0; }
 
-.products {
+.product-list{
   display: flex;
   flex-flow: row wrap; }
-  .products .main-content-title {
+  .product-list.main-content-title {
     width: 100%; }
 
 .product {

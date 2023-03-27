@@ -1313,9 +1313,9 @@ ul.lp-text {
 	}
 }
 
-.products .main-content-title,
+.product-list .main-content-title,
 #category-guide,
-.products .product {
+.product-list .product {
 	padding-left: 20px;
 	padding-right: 20px;
 }
@@ -1339,7 +1339,7 @@ ul.lp-text {
 	margin: 1em 0;
 }
 
-.products {
+.product-list {
 	display: flex;
 	flex-flow: row wrap;
 
