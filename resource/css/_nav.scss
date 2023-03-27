@@ -177,6 +177,7 @@ $nav-toggle-span-height: 2px;
 
 	.new-nav {
 		position: relative;
+		color: rgb(238,169,169);
 		&::after {
 			content: '\00B7\00B7\00B7';
 			display: flex;
@@ -186,7 +187,7 @@ $nav-toggle-span-height: 2px;
 			left: 0;
 			right: 0;
 			width: 100%;
-			color: #eecc33;
+			color: rgb(232,122,144);
 			font-size: 20px;
 		}
 	}
