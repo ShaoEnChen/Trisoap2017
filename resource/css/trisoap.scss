@@ -94,7 +94,7 @@ header {
 
 /* 1.2. Jumbotron - Img */
 
-$jumbotron-list: "about", "contact", "faq", "gift_box", "moonfest", "newyear", "products", "shopping_guide", "single_product", "soap", "soapstring", "trial";
+$jumbotron-list: "about", "contact", "faq", "gift_box", "moonfest", "newyear", "products", "shopping_guide", "single_product", "soap", "soapstring", "trial", "fragrance";
 
 @each $item in $jumbotron-list {
 	#jumbotron-#{$item} {
@@ -943,6 +943,7 @@ ul.lp-text {
  * 11. 婚禮小物｜Wedding
  * 12. 四年有成｜Report
  * 13. 企業採購專區｜Business
+ * 14. 香氛磚介紹｜Fragrance
  * =========================================================================
  */
 
@@ -2729,6 +2730,20 @@ $wedding-action-gray: #f2f2f2;
 }
 
 .business-content-img {
+	display: block;
+	@extend .full-width-img;
+}
+
+/* -------------------------------------------------------------------------
+ * 14. 香氛磚介紹｜Fragrance
+ * -------------------------------------------------------------------------
+ */
+
+#fragrance-wrap {
+	width: 100%;
+}
+
+.fragrance-content-img {
 	display: block;
 	@extend .full-width-img;
 }

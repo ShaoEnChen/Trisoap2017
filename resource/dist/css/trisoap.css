@@ -909,6 +909,9 @@ header {
 #jumbotron-trial {
   background-image: url(/resource/img/jumbotrons/trial.jpg); }
 
+#jumbotron-fragrance {
+  background-image: url(/resource/img/jumbotrons/fragrance.jpg); }
+
 .img-jumbotron {
   position: relative;
   width: 100vw;
@@ -1521,6 +1524,7 @@ ul.lp-text {
  * 11. 婚禮小物｜Wedding
  * 12. 四年有成｜Report
  * 13. 企業採購專區｜Business
+ * 14. 香氛磚介紹｜Fragrance
  * =========================================================================
  */
 /* -------------------------------------------------------------------------
@@ -2815,13 +2819,25 @@ label[for="purchase-amount"] {
   height: auto; }
 
 /* -------------------------------------------------------------------------
- * 12. 四年有成｜Report
+ * 13. 企業採購專區｜Business
  * -------------------------------------------------------------------------
  */
 #business-wrap {
   width: 100%; }
 
 .business-content-img {
+  display: block;
+  width: 100%;
+  height: auto; }
+
+/* -------------------------------------------------------------------------
+ * 14. 香氛磚介紹｜Fragrance
+ * -------------------------------------------------------------------------
+ */
+#fragrance-wrap {
+  width: 100%; }
+
+.fragrance-content-img {
   display: block;
   width: 100%;
   height: auto; }
